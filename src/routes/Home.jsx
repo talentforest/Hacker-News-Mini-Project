@@ -1,8 +1,7 @@
-import styled from "styled-components";
-
 import Header from "../components/Header";
 import Gnb from "../components/Gnb";
 import Banner from "../components/Banner";
+import { StoryContainer } from "../container/storyContainer";
 
 export default function Home() {
   return (
@@ -10,6 +9,7 @@ export default function Home() {
       <Header />
       <Gnb />
       <Banner src="img/home_banner.png" />
+      <StoryContainer />
     </>
   );
 }
