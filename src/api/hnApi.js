@@ -10,6 +10,13 @@ export const showStoriesUrl = `${baseUrl}showStories.json`;
 export const jobStoriesUrl = `${baseUrl}jobStories.json`;
 export const storyUrl = `${baseUrl}item/`;
 export const userUrl = `${baseUrl}user/`;
+export const updateUrl = `${baseUrl}updates.json`;
+// story.by로 얻은 유저 아이디로 유저 정보 가져오기
+// export const getUserIds = async () => {
+//   const result = await axios.get(updateUrl).then(({ data }) => data);
+
+//   return result;
+// };
 
 // 스토리 아이디 가져오기
 export const getTopStoryIds = async () => {

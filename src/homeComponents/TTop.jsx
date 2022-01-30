@@ -7,6 +7,7 @@ const TTopWrapper = styled.section`
   display: flex;
   padding: 16px 14px 14px;
   height: 98px;
+  position: relative;
   /* border: 1px solid green; */
 `;
 const Ranking = styled.div`
@@ -36,7 +37,7 @@ const Info = styled.div`
   }
 `;
 
-export const TTop = memo(function Story({ storyId, storyIds }) {
+export const TTop = memo(function Story({ storyId, storyIds, i }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -44,15 +45,14 @@ export const TTop = memo(function Story({ storyId, storyIds }) {
   }, [storyId]);
 
   // const Rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  // console.log(i[0]);
   return story && story.url ? (
     <TTopWrapper>
       <Ranking>{1}</Ranking>
       <div>
         <a href="{story.url}">
           <Title>
-            {story.title.length > 65
-              ? `${story.title.slice(0, 65)}...`
+            {story.title.length > 60
+              ? `${story.title.slice(0, 60)}...`
               : story.title}
           </Title>
         </a>

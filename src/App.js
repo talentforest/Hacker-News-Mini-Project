@@ -142,7 +142,7 @@ body {
   font-family: "Roboto", sans-serif;
   width: 390px;
   box-sizing: border-box;
-  background-color: wheat;
+  background-color: #222;
   margin: 0 auto;
 }
 a {
@@ -151,20 +151,16 @@ a {
 }
 .App {
     margin: 0 auto;
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
   }
 .swiper-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red;  */
   height: 8px;
-  margin: 0px 0 40px;
-  
 }
 .swiper-pagination-bullet {
   background: gray;
-  /* border: 1px solid gray; */
   width: 6px;
   height: 6px;
   border-radius: 3px;
@@ -175,7 +171,6 @@ a {
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  /* border: 1px solid transparent */
 }
 `;
 

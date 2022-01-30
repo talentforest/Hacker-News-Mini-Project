@@ -3,7 +3,7 @@ import { getNewStory } from "../api/hnApi";
 import { mapTime } from "../time/mapTime";
 import styled from "styled-components";
 
-const StoryWrapper = styled.section`
+const NewWrapper = styled.section`
   box-sizing: border-box;
   padding-top: 14px;
   height: 124px;
@@ -51,7 +51,7 @@ export const TNew = memo(function Story({ storyId }) {
 
   // console.log(story);
   return story && story.url ? (
-    <StoryWrapper>
+    <NewWrapper>
       <Time>{mapTime(story.time)} ago</Time>
       <a href="{story.url}">
         <StoryTitle>
@@ -64,6 +64,6 @@ export const TNew = memo(function Story({ storyId }) {
         <img src="img/user.png" alt="usericon" />
         {story.by}
       </Author>
-    </StoryWrapper>
+    </NewWrapper>
   ) : null;
 });
