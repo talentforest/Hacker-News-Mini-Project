@@ -33,7 +33,6 @@ export const TTopContainer = () => {
     getTopStoryIds().then((data) => setStoryIds(data));
   }, []);
 
-  //
   return (
     <Wrapper>
       <Swiper
@@ -59,7 +58,7 @@ export const TTopContainer = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Container>
-            {storyIds.slice(10, 16).map((storyId, i) => (
+            {storyIds.slice(10, 15).map((storyId, i) => (
               <TTop key={i} storyId={storyId} storyIds={storyIds} />
             ))}
           </Container>

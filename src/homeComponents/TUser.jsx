@@ -60,15 +60,14 @@ const Info = styled.div`
   font-size: 12px;
   color: #727272;
   div:first-child {
-    text-align: center;
-    border: 0.5px solid #ed702d;
+    border: 1px solid rgb(238, 112, 44, 0.75);
     color: #ed702d;
     font-weight: 10px;
     letter-spacing: 0.1%;
     width: 43px;
     height: 14px;
     border-radius: 20px;
-    padding: 1px 1px;
+    padding: 1px 2px;
     margin: 1px 4px 6px 0;
   }
 `;

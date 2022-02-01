@@ -48,6 +48,7 @@ export const TNew = memo(function Story({ storyId }) {
   useEffect(() => {
     getNewStory(storyId).then((data) => data && data.url && setStory(data));
   }, [storyId]);
+  // console.log(story);
 
   // console.log(story);
   return story && story.url ? (
@@ -55,8 +56,8 @@ export const TNew = memo(function Story({ storyId }) {
       <Time>{mapTime(story.time)} ago</Time>
       <a href="{story.url}">
         <StoryTitle>
-          {story.title.length > 73
-            ? `${story.title.slice(0, 73)}...`
+          {story.title.length > 68
+            ? `${story.title.slice(0, 68)}...`
             : story.title}
         </StoryTitle>
       </a>

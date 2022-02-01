@@ -1,6 +1,7 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TAsk } from "../homeComponents/TAsk";
+import { getAskStoryIds } from "../api/hnApi";
 
 const Container = styled.div`
   height: 520px;
@@ -11,9 +12,17 @@ const Container = styled.div`
 `;
 
 export const TAskContainer = () => {
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getAskStoryIds().then((data) => setStoryIds(data));
+  }, []);
+
   return (
     <Container>
-      <TAsk />
+      {storyIds.slice(0, 5).map((storyId) => (
+        <TAsk key={storyId} storyId={storyId} />
+      ))}
     </Container>
   );
 };

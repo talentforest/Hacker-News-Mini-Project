@@ -151,7 +151,7 @@ a {
 }
 .App {
     margin: 0 auto;
-    background-color: #f5f5f5;
+    background-color: #EFEFEF;
   }
 .swiper-pagination {
   display: flex;

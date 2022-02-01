@@ -37,14 +37,13 @@ const Info = styled.div`
   }
 `;
 
-export const TTop = memo(function Story({ storyId, storyIds, i }) {
+export const TTop = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
-  }, [storyId]);
+  }, []);
 
-  // const Rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return story && story.url ? (
     <TTopWrapper>
       <Ranking>{1}</Ranking>
