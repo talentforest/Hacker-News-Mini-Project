@@ -13,9 +13,6 @@ const Wrapper = styled.div`
   line-height: 24px;
   border-radius: 4px;
 `;
-const Ask = styled.span`
-  color: #ed702d;
-`;
 
 export const TAsk = memo(function Story({ storyId }) {
   const [story, setStory] = useState({});

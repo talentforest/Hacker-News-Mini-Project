@@ -5,6 +5,7 @@ import {
   showSelectFields,
   jobSelectFields,
   userSelectFields,
+  commentsSelectFields,
 } from "../util/selectFields";
 
 export const baseUrl = "https://hacker-news.firebaseio.com/v0/";
@@ -83,6 +84,15 @@ export const getJobStory = async (storyId) => {
   const result = await axios
     .get(`${storyUrl + storyId}.json`)
     .then(({ data }) => data && jobSelectFields(data));
+
+  return result;
+};
+
+// 코멘트 값 가져오기 스토리 아이디값은 가져왔음.
+export const getComments = async (storyId) => {
+  const result = await axios
+    .get(`${storyUrl + storyId}.json`)
+    .then(({ data }) => data && commentsSelectFields(data));
 
   return result;
 };

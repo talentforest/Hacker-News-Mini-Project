@@ -172,6 +172,50 @@ a {
   height: 8px;
   border-radius: 4px;
 }
+.swiper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.swiper-pagination-fraction {
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  width: 71px;
+  height: 30px;
+  border-radius: 20px;
+  margin-left: 160px;
+  padding-top: 3px;
+  margin-bottom: 66px;
+}
+.swiper-pagination-current,
+.swiper-pagination-total {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px; 
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  position: absolute;
+  margin-top: 2110px;
+  padding: 6px 0;
+  margin-right: 94px;
+}
+.swiper-button-prev {
+  margin-left:94px;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  padding: 4px;
+  font-weight: bold;
+  font-size: 12px
+}
 `;
 
 function App() {

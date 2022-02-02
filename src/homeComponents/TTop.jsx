@@ -8,7 +8,6 @@ const TTopWrapper = styled.section`
   padding: 16px 14px 14px;
   height: 98px;
   position: relative;
-  /* border: 1px solid green; */
 `;
 const Ranking = styled.div`
   width: 23px;
@@ -17,14 +16,12 @@ const Ranking = styled.div`
   font-size: 24px;
   font-weight: 600;
   color: #ed702d;
-  /* border: 1px solid red; */
 `;
 const Title = styled.h4`
   width: 275px;
   font-weight: 600;
   line-height: 20px;
   color: #202020;
-  /* border: 1px solid blue; */
 `;
 const Info = styled.div`
   display: flex;
@@ -33,20 +30,18 @@ const Info = styled.div`
     font-size: 12px;
     font-weight: 400;
     color: #727272;
-    /* border: 1px solid red; */
   }
 `;
 
-export const TTop = memo(function Story({ storyId }) {
+export const TTop = memo(function Story({ storyId, index }) {
   const [story, setStory] = useState([]);
-
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
 
   return story && story.url ? (
     <TTopWrapper>
-      <Ranking>{1}</Ranking>
+      <Ranking>{index}</Ranking>
       <div>
         <a href="{story.url}">
           <Title>

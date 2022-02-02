@@ -7,9 +7,22 @@ export const selectFields = ({ id, by, time, title, score, url }) => ({
   url,
 });
 
-export const askSelectFields = ({ id, title }) => ({
+export const askSelectFields = ({
   id,
   title,
+  descendants,
+  text,
+  time,
+  score,
+  by,
+}) => ({
+  id,
+  title,
+  descendants,
+  text,
+  time,
+  score,
+  by,
 });
 
 export const showSelectFields = ({
@@ -30,11 +43,13 @@ export const showSelectFields = ({
   url,
 });
 
-export const jobSelectFields = ({ id, title, time, url }) => ({
+export const jobSelectFields = ({ id, title, time, url, by, text }) => ({
   id,
   title,
   time,
   url,
+  by,
+  text,
 });
 
 export const userSelectFields = ({
@@ -51,4 +66,22 @@ export const userSelectFields = ({
   delay,
   karma,
   submitted,
+});
+
+export const commentsSelectFields = ({
+  id,
+  by,
+  kids,
+  parent,
+  text,
+  time,
+  type,
+}) => ({
+  id,
+  by,
+  kids,
+  parent,
+  text,
+  time,
+  type,
 });

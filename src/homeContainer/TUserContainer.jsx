@@ -1,33 +1,38 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { getTopStoryIds } from "../api/hnApi";
 import { TUser } from "../homeComponents/TUser";
-// import { getUserIds } from "../api/hnApi";
+import styled from "styled-components";
 
-// 유저 데이터 받아오는 법
-// const baseUrl = https://hacker-news.firebaseio.com/v0/user/
-// const userId = {story.by}.json
-
-const Container = styled.div`
-  /* width: 1244px; */
+const Wrapper = styled.div`
+  width: 390px;
   height: 222px;
-  overflow: scroll;
-  padding: 20px 20px 56px 20px;
-  background-color: #fff;
+  padding-top: 20px;
   margin-bottom: 12px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+`;
+const Container = styled.div`
+  background-color: #fff;
+  width: 370px;
+  height: 160px;
+  margin: 0px 0px 56px 20px;
+  overflow: scroll;
+  border-radius: 8px;
 `;
 
 export const TUserContainer = () => {
-  // 유저 아이디 목록값 상태관리
-  const [userIds, setUserIds] = useState([]);
+  const [storyIds, setStoryIds] = useState([]);
 
-  // useEffect(() => {
-  //   getUserIds().then((data) => setUserIds(data));
-  // }, []);
+  useEffect(() => {
+    getTopStoryIds().then((data) => setStoryIds(data));
+  }, []);
 
   return (
-    <Container>
-      <TUser />
-    </Container>
+    <Wrapper>
+      <Container>
+        {storyIds.slice(0, 1).map((storyId, index) => (
+          <TUser key={storyId} storyId={storyId} storyIds={storyIds} />
+        ))}
+      </Container>
+    </Wrapper>
   );
 };

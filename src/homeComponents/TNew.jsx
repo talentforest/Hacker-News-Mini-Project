@@ -25,17 +25,14 @@ const StoryTitle = styled.h4`
   font-weight: 600;
   line-height: 20px;
   color: #202020;
-  /* border: 1px solid red; */
 `;
 const Author = styled.span`
   display: flex;
   align-items: center;
   padding-top: 8px;
-  /* background-color: red; */
   font-size: 12px;
   font-weight: 500;
   color: #727272;
-  /* border: 1px solid red; */
   img {
     width: 16px;
     margin-right: 3.33px;
@@ -48,9 +45,7 @@ export const TNew = memo(function Story({ storyId }) {
   useEffect(() => {
     getNewStory(storyId).then((data) => data && data.url && setStory(data));
   }, [storyId]);
-  // console.log(story);
 
-  // console.log(story);
   return story && story.url ? (
     <NewWrapper>
       <Time>{mapTime(story.time)} ago</Time>

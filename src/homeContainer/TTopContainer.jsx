@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import SwiperCore, { Pagination } from "swiper";
-SwiperCore.use([Pagination]);
 
 const Wrapper = styled.div`
   width: 390px;
@@ -26,7 +24,6 @@ const Container = styled.div`
 `;
 
 export const TTopContainer = () => {
-  // 글 목록값 상태관리
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -35,31 +32,25 @@ export const TTopContainer = () => {
 
   return (
     <Wrapper>
-      <Swiper
-        // spaceBetween={50}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
-      >
+      <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         <SwiperSlide>
           <Container>
-            {storyIds.slice(0, 5).map((storyId, i) => (
-              <TTop key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(0, 5).map((storyId, index) => (
+              <TTop key={storyId} storyId={storyId} storyIds={storyIds} />
             ))}
           </Container>
         </SwiperSlide>
         <SwiperSlide>
           <Container>
-            {storyIds.slice(5, 10).map((storyId, i) => (
-              <TTop key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(5, 10).map((storyId, index) => (
+              <TTop key={storyId} storyId={storyId} storyIds={storyIds} />
             ))}
           </Container>
         </SwiperSlide>
         <SwiperSlide>
           <Container>
-            {storyIds.slice(10, 15).map((storyId, i) => (
-              <TTop key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(10, 15).map((storyId, index) => (
+              <TTop key={storyId} storyId={storyId} storyIds={storyIds} />
             ))}
           </Container>
         </SwiperSlide>

@@ -23,7 +23,6 @@ const Container = styled.div`
 `;
 
 export const TNewContainer = () => {
-  // 글 목록값 상태관리
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {

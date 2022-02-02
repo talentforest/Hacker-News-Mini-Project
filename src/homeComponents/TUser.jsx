@@ -10,7 +10,6 @@ const UserWrapper = styled.div`
   background-color: #fff;
 `;
 const Rank = styled.div`
-  /* border: 1px soslid red; */
   display: flex;
   align-items: center;
   margin-bottom: 6px;
@@ -35,7 +34,6 @@ const Rank = styled.div`
   }
 `;
 const Username = styled.div`
-  /* border: 1px solid green; */
   display: block;
   height: 40px;
   font-size: 20px;
@@ -45,13 +43,11 @@ const Username = styled.div`
   margin-bottom: 8px;
 `;
 const UserInfoBox = styled.div`
-  /* border: 0.5px solid #ed702d; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 const Infobox = styled.div`
-  /* background-color: red; */
   height: 40px;
 `;
 const Info = styled.div`
