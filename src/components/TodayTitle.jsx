@@ -9,14 +9,16 @@ const Content = styled.div`
   align-items: center;
   box-sizing: border-box;
   padding: 40px 20px 0px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 const Title = styled.div`
+  color: ${(props) => props.theme.textColor};
   font-weight: 700;
   font-size: 24px;
   display: flex;
   align-items: center;
   img {
+    color: ${(props) => props.theme.svelteOrangeColor};
     width: 7.5px;
     height: 12px;
     margin-left: 8.59px;

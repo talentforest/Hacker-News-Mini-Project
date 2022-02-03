@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Navigation = styled.nav`
   padding: 0 20px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.backgroundColor};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,13 +18,23 @@ const Lists = styled.ul`
   font-weight: 700;
   box-sizing: border-box;
   padding-top: 1.8px;
-  color: #727272;
+  position: relative;
 `;
 const List = styled.li`
+  color: ${(props) => props.theme.headerColor};
   &:hover {
-    color: #000;
+    color: ${(props) => props.theme.headerHoverColor};
     cursor: pointer;
   }
+`;
+const CurrLocation = styled.div`
+  position: absolute;
+  top: 25px;
+  background-color: #f9742e;
+  width: 42px;
+  height: 3px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 `;
 
 export default function Gnb() {
@@ -32,6 +43,7 @@ export default function Gnb() {
       <Lists>
         <Link to="/">
           <List>Home</List>
+          <CurrLocation></CurrLocation>
         </Link>
         <Link to="/top">
           <List>Top</List>

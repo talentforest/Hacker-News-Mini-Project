@@ -21,7 +21,7 @@ const Title = styled.h4`
   width: 275px;
   font-weight: 600;
   line-height: 20px;
-  color: #202020;
+  color: ${(props) => props.theme.textColor};
 `;
 const Info = styled.div`
   display: flex;

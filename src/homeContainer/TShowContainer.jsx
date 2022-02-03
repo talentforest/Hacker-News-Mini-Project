@@ -2,14 +2,22 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TShow } from "../homeComponents/TShow";
 import { getShowStoryIds } from "../api/hnApi";
+import { ReloadTitle } from "../components/TodayTitle";
 
+const Wrapper = styled.div`
+  width: 390px;
+  height: 368px;
+  margin-bottom: 12px;
+  background-color: ${(props) => props.theme.backgroundColor};
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
+`;
 const Container = styled.div`
   display: flex;
-  width: 390px;
+  width: 350px;
   height: 300px;
+  margin: 0 auto;
   overflow: scroll;
-  padding: 20px 20px 56px 20px;
-  background-color: #fff;
+  padding: 20px 0px 56px 0px;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
 `;
@@ -22,10 +30,13 @@ export const TShowContainer = () => {
   }, []);
 
   return (
-    <Container>
-      {storyIds.slice(0, 5).map((storyId, i) => (
-        <TShow key={i} storyId={storyId} storyIds={storyIds} />
-      ))}
-    </Container>
+    <Wrapper>
+      <ReloadTitle title="Today's Show" />
+      <Container>
+        {storyIds.slice(0, 5).map((storyId, i) => (
+          <TShow key={i} storyId={storyId} storyIds={storyIds} />
+        ))}
+      </Container>
+    </Wrapper>
   );
 };

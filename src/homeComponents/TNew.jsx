@@ -3,13 +3,16 @@ import { getNewStory } from "../api/hnApi";
 import { mapTime } from "../time/mapTime";
 import styled from "styled-components";
 
-const NewWrapper = styled.section`
+const NewWrapper = styled.div`
   box-sizing: border-box;
-  padding-top: 14px;
+  padding: 14px 14px 0 14px;
   height: 124px;
-  border-bottom: 0.5px solid #dfdfdf;
+  div {
+    height: 1px;
+    background-color: #727272;
+  }
 `;
-const Time = styled.div`
+const Time = styled.span`
   background: rgba(76, 165, 196, 0.15);
   padding: 5px 5px 4px;
   border-radius: 10px;
@@ -20,16 +23,16 @@ const Time = styled.div`
   color: #4ca5c4;
 `;
 const StoryTitle = styled.h4`
+  color: ${(props) => props.theme.textColor};
   padding: 5px 0 8px;
   height: 53px;
   font-weight: 600;
   line-height: 20px;
-  color: #202020;
 `;
 const Author = styled.span`
   display: flex;
   align-items: center;
-  padding-top: 8px;
+  padding: 8px 0 16px;
   font-size: 12px;
   font-weight: 500;
   color: #727272;
@@ -60,6 +63,8 @@ export const TNew = memo(function Story({ storyId }) {
         <img src="img/user.png" alt="usericon" />
         {story.by}
       </Author>
+      {/* 라인을 만들기 위한 div */}
+      <div></div>
     </NewWrapper>
   ) : null;
 });

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 const JobWrapper = styled.div`
   width: 220px;
   height: 174px;
-  background-color: #eaf4f8;
+  background-color: ${(props) => props.theme.containerGrayColor};
   padding: 16px 12px 0 12px;
   margin-right: 16px;
   border-radius: 8px;

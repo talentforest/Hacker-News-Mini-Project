@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 const ShowWrapper = styled.div`
   width: 200px;
   height: 224px;
-  background-color: #eaf4f8;
+  background-color: ${(props) => props.theme.containerGrayColor};
   padding: 16px 12px 0 12px;
   margin-right: 12px;
   border-radius: 8px;

@@ -7,7 +7,7 @@ const UserWrapper = styled.div`
   padding: 16px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.containerColor};
 `;
 const Rank = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ const Username = styled.div`
   font-size: 20px;
   font-weight: 600;
   line-height: 23.44px;
-  color: #202020;
+  color: ${(props) => props.theme.textColor};
   margin-bottom: 8px;
 `;
 const UserInfoBox = styled.div`

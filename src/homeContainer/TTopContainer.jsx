@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../api/hnApi";
 import { TTop } from "../homeComponents/TTop";
 import styled from "styled-components";
+import { ClockTitle } from "../components/TodayTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const Wrapper = styled.div`
+  background-color: ${(props) => props.theme.backgroundColor};
   width: 390px;
-  height: 582px;
+  height: 650px;
   margin-bottom: 12px;
-  background-color: #fff;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
-  position: relative;
 `;
 const Container = styled.div`
-  background-color: #fff;
-  width: 350px;
+  background-color: ${(props) => props.theme.containerColor};
+  /* width: 350px; */
   height: 490px;
   margin: 20px 20px 32px 20px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
@@ -32,6 +32,7 @@ export const TTopContainer = () => {
 
   return (
     <Wrapper>
+      <ClockTitle title="Today's Top" />
       <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         <SwiperSlide>
           <Container>

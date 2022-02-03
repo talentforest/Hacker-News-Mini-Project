@@ -5,7 +5,8 @@ const HeaderTop = styled.header`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  background-color: #ed702d;
+  background-color: ${(props) => props.theme.backgroundColor};
+  /* background-color: #ed702d; */
   height: 87px;
   padding: 44px 20px 7px;
 `;

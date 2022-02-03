@@ -16,22 +16,11 @@ export default function Home() {
       <Gnb />
       <Banner src="img/home_banner.png" />
 
-      <ClockTitle title="Today's Top" />
       <TTopContainer />
-
-      <ReloadTitle title="Today's New" />
       <TNewContainer />
-
-      <OnlyTitle title="Today's User" />
       <TUserContainer />
-
-      <ReloadTitle title="Today's Show" />
       <TShowContainer />
-
-      <ReloadTitle title="Today's Ask" />
       <TAskContainer />
-
-      <OnlyTitle title="Today's Job" />
       <TJobContainer />
     </>
   );
