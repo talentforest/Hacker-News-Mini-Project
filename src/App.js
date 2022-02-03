@@ -1,11 +1,34 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Home from "./routes/Home";
 import Top from "./routes/Top";
 import New from "./routes/New";
 import Job from "./routes/Job";
 import Show from "./routes/Show";
 import Ask from "./routes/Ask";
+import { ThemeProvider } from "styled-components";
+
+const darkTheme = {
+  backgroundColor: "#292C33",
+  headerBackgroundColor: "#292C33",
+  containerColor: "#343538",
+  containerGrayColor: "#E2ECF0",
+  headerColor: "#727272",
+  headerHoverColor: "#fff",
+  textColor: "#fff",
+  svelteOrangeColor: "#ed702d;",
+};
+const lightTheme = {
+  backgroundColor: "white",
+  headerBackgroundColor: "#ee702c",
+  containerColor: "#fff",
+  containerGrayColor: "#fff",
+  headerColor: "#ee702c#",
+  headerHoverColor: "#727272",
+  textColor: "black",
+  svelteOrangeColor: "#ed702d;",
+};
 
 const Globalstyle = createGlobalStyle`
 /* reset.css
@@ -217,35 +240,49 @@ a {
   font-size: 12px
 }
 `;
+const ToggleMode = styled.img`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+`;
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+  const toggleDark = () => setIsDark((current) => !current);
   return (
     <>
-      <Globalstyle />
-      <div className="App">
-        <Router>
-          <Switch>
-            <Route path="/job">
-              <Job />
-            </Route>
-            <Route path="/ask">
-              <Ask />
-            </Route>
-            <Route path="/show">
-              <Show />
-            </Route>
-            <Route path="/new">
-              <New />
-            </Route>
-            <Route path="/top">
-              <Top />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <ThemeProvider
+        toggleDark={toggleDark}
+        theme={isDark ? darkTheme : lightTheme}
+      >
+        <Globalstyle />
+        <div className="App">
+          <Router>
+            <Switch>
+              <Route path="/job">
+                <Job toggleDark={toggleDark} />
+              </Route>
+              <Route path="/ask">
+                <Ask toggleDark={toggleDark} />
+              </Route>
+              <Route path="/show">
+                <Show toggleDark={toggleDark} />
+              </Route>
+              <Route path="/new">
+                <New toggleDark={toggleDark} />
+              </Route>
+              <Route path="/top">
+                <Top toggleDark={toggleDark} />
+              </Route>
+              <Route path="/">
+                <Home toggleDark={toggleDark} />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      </ThemeProvider>
     </>
   );
 }

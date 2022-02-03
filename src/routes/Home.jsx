@@ -9,10 +9,10 @@ import { TShowContainer } from "../homeContainer/TShowContainer";
 import { TAskContainer } from "../homeContainer/TAskContainer";
 import { TJobContainer } from "../homeContainer/TJobContainer";
 
-export default function Home() {
+export default function Home({ toggleDark }) {
   return (
     <>
-      <Header />
+      <Header toggleDark={toggleDark} />
       <Gnb />
       <Banner src="img/home_banner.png" />
 

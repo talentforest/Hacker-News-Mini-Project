@@ -77,7 +77,6 @@ export const BannerBox = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));
-    console.log(storyId);
   }, []);
   return (
     <Banner>

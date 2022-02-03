@@ -4,10 +4,10 @@ import Banner from "../components/Banner";
 import TopToggleBtn from "../components/TopToggleBtn";
 import { PostContainer } from "../ArticleComponents/TopPostContainer";
 
-export default function Top() {
+export default function Top({ toggleDark }) {
   return (
     <>
-      <Header />
+      <Header toggleDark={toggleDark} />
       <Gnb />
       <Banner src="img/top_banner.png" />
       <TopToggleBtn />

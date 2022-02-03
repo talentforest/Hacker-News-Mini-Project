@@ -3,10 +3,10 @@ import Gnb from "../components/Gnb";
 import Banner from "../components/Banner";
 import { AskPostContainer } from "../ArticleComponents/AskPostContainer";
 
-export default function Ask() {
+export default function Ask({ toggleDark }) {
   return (
     <>
-      <Header />
+      <Header toggleDark={toggleDark} />
       <Gnb />
       <Banner src="img/ask_banner.png" />
       <AskPostContainer />

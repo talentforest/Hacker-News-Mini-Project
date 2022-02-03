@@ -5,7 +5,7 @@ const HeaderTop = styled.header`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.headerBackgroundColor};
   /* background-color: #ed702d; */
   height: 87px;
   padding: 44px 20px 7px;
@@ -31,7 +31,7 @@ const Icon = styled.img`
   }
 `;
 
-export default function Header() {
+export default function Header({ toggleDark }) {
   return (
     <HeaderTop>
       <Link to="/">
@@ -41,7 +41,11 @@ export default function Header() {
         </Title>
       </Link>
       <div>
-        <Icon src="img/lightmode.png" alt="light/dark mode" />
+        <Icon
+          onClick={toggleDark}
+          src="img/lightmode.png"
+          alt="light/dark mode"
+        />
         <Icon className="question" src="img/questionmark.png" alt="question" />
       </div>
     </HeaderTop>

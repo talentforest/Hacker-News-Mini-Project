@@ -9,7 +9,8 @@ const Article = styled.div`
   height: 201px;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.textColor};
   h4 {
     font-weight: 500;
     line-height: 24px;
@@ -18,12 +19,12 @@ const Article = styled.div`
   }
   p {
     width: 390px;
+    overflow: hidden;
     margin: 0 auto;
     height: 70px;
     padding: 6px 20px 10px;
     font-size: 14px;
     line-height: 18px;
-    color: #727272;
   }
 `;
 const Time = styled.span`
@@ -79,7 +80,7 @@ export const AskPostBox = memo(function Story({ storyId, index }) {
   return story && story.title ? (
     <Article>
       <h4>{story.title}</h4>
-      <p>{story.text.slice(0, 145)}...</p>
+      <p>{story.text}...</p>
       <Time>{mapTime(story.time)}</Time>
       <Info>
         <User>
