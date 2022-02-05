@@ -38,7 +38,7 @@ export const TTop = memo(function Story({ storyId, index }) {
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
-
+  // console.log(storyId);
   return story && story.url ? (
     <TTopWrapper>
       <Ranking>{index}</Ranking>

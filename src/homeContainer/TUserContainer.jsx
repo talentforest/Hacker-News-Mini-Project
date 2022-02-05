@@ -21,8 +21,8 @@ const Container = styled.div`
 `;
 
 export const TUserContainer = () => {
+  // 일단 탑스토리에서 스토리아이디 얻기
   const [storyIds, setStoryIds] = useState([]);
-
   useEffect(() => {
     getTopStoryIds().then((data) => setStoryIds(data));
   }, []);
@@ -31,7 +31,7 @@ export const TUserContainer = () => {
     <Wrapper>
       <OnlyTitle title="Today's User" />
       <Container>
-        {storyIds.slice(0, 1).map((storyId, index) => (
+        {storyIds.slice(0, 10).map((storyId, index) => (
           <TUser key={storyId} storyId={storyId} storyIds={storyIds} />
         ))}
       </Container>

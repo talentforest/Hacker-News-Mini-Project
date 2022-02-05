@@ -10,16 +10,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background-color: ${(props) => props.theme.backgroundColor};
+  width: 390px;
+`;
 const Posts = styled.section`
   display: flex;
   flex-direction: column;
-  width: 350px;
-  padding-top: 20px;
-  margin: 0 auto 150px;
+  padding: 20px;
+  margin-bottom: 150px;
 `;
 
-export const PostContainer = () => {
+export const TopPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {

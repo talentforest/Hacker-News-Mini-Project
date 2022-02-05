@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
 `;
-const Container = styled.div`
+const Container = styled.ul`
   background-color: ${(props) => props.theme.containerColor};
   /* width: 350px; */
   height: 490px;

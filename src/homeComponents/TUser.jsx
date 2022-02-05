@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, memo } from "react";
+import { getUserName } from "../api/hnApi";
 import styled from "styled-components";
+import axios from "axios";
+import { userSelectFields } from "../util/selectFields";
 
 const UserWrapper = styled.div`
   width: 228px;
@@ -72,11 +75,28 @@ const Btn = styled.img`
   height: 24px;
 `;
 
-export const TUser = () => {
+export const TUser = memo(function Story({}) {
+  // 이제 각 아이템의 값들을 얻었다.
+
+  const [userName, setUserName] = useState([]);
+  useEffect(() => {
+    getUserName().then((data) => data && setUserName(data));
+  }, []);
+
+  // const [userInfo, setUserInfo] = useState([]);
+  // const getUserInfo = async () => {
+  //   const result = await axios
+  //     .get(`https://hacker-news.firebaseio.com/v0/user/${userName}.json`)
+  //     .then(({ data }) => setUserInfo(data));
+  // };
+
+  // console.log(userInfo);
+  // console.log(userName);
+
   return (
     <UserWrapper>
       <Rank>
-        <img src="img/star.png" alt="star" />
+        <img src="/assets/star.png" alt="star" />
         <div>1</div>
         <span>Today's User</span>
       </Rank>
@@ -92,8 +112,8 @@ export const TUser = () => {
             <span>84719</span>
           </Info>
         </Infobox>
-        <Btn src="img/arrow_blue.png" alt="arrow button" />
+        <Btn src="/assets/arrow_blue.png" alt="arrow button" />
       </UserInfoBox>
     </UserWrapper>
   );
-};
+});

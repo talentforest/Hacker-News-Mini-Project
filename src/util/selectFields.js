@@ -1,10 +1,19 @@
-export const selectFields = ({ id, by, time, title, score, url }) => ({
+export const selectFields = ({
   id,
   by,
   time,
   title,
   score,
   url,
+  descendants,
+}) => ({
+  id,
+  by,
+  time,
+  title,
+  score,
+  url,
+  descendants,
 });
 
 export const askSelectFields = ({
@@ -15,6 +24,7 @@ export const askSelectFields = ({
   time,
   score,
   by,
+  kids,
 }) => ({
   id,
   title,
@@ -23,6 +33,7 @@ export const askSelectFields = ({
   time,
   score,
   by,
+  kids,
 });
 
 export const showSelectFields = ({
@@ -84,4 +95,8 @@ export const commentsSelectFields = ({
   text,
   time,
   type,
+});
+
+export const bySelectFields = ({ by }) => ({
+  by,
 });

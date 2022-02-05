@@ -95,18 +95,18 @@ export const TShow = memo(function Story({ storyId }) {
         <Tag>github.com</Tag>
         <Title>{story.title}</Title>
         <Info>
-          <img src="img/point.png" alt="point" />
+          <img src="/assets/point.png" alt="point" />
           <span>{story.score}</span>
-          <img src="img/clock2.png" alt="clock" />
+          <img src="/assets/clock2.png" alt="clock" />
           <span>{mapTime(story.time)}</span>
         </Info>
         <UserComments>
           <User>
-            <img src="img/user.png" alt="userimage" />
+            <img src="/assets/user.png" alt="userimage" />
             <span>{story.by}</span>
           </User>
           <Comments>
-            <img src="img/comment.png" alt="comment" />
+            <img src="/assets/comment.png" alt="comment" />
             <span>{story.descendants}</span>
           </Comments>
         </UserComments>

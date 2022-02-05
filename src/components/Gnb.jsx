@@ -43,7 +43,6 @@ export default function Gnb() {
       <Lists>
         <Link to="/">
           <List>Home</List>
-          {/* condition ? <CurrLocation></CurrLocation> : null */}
         </Link>
         <Link to="/top">
           <List>Top</List>

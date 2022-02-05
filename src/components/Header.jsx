@@ -36,17 +36,21 @@ export default function Header({ toggleDark }) {
     <HeaderTop>
       <Link to="/">
         <Title>
-          <img src="img/logo.png" alt="Logo" />
+          <img src="/assets/logo.png" alt="Logo" />
           <h1>Svelte Hacker News</h1>
         </Title>
       </Link>
       <div>
         <Icon
           onClick={toggleDark}
-          src="img/lightmode.png"
+          src="/assets/lightmode.png"
           alt="light/dark mode"
         />
-        <Icon className="question" src="img/questionmark.png" alt="question" />
+        <Icon
+          className="question"
+          src="/assets/questionmark.png"
+          alt="question"
+        />
       </div>
     </HeaderTop>
   );

@@ -95,12 +95,11 @@ export const BannerBox2 = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));
-    console.log(storyId);
   }, []);
   return (
     <Banner2>
       <CompanyInfo2>
-        <img src="img/company_logo.png" alt="company logo" />
+        <img src="/assets/company_logo.png" alt="company logo" />
         <Company2>{story.by}</Company2>
       </CompanyInfo2>
     </Banner2>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  background-color: #efefef;
+  background-color: ${(props) => props.theme.backgroundColor};
   width: 390px;
   height: 81px;
   padding: 24px 0 17px;
@@ -14,7 +14,7 @@ const Btn = styled.div`
   width: 350px;
   margin: auto;
   height: 40px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.containerColor};
   border-radius: 30px;
 `;
 const PostBtn = styled.button`
@@ -25,6 +25,7 @@ const PostBtn = styled.button`
   border: none;
   font-size: 12px;
   color: #fff;
+  cursor: pointer;
 `;
 const UsersBtn = styled.button`
   border-radius: 20px;
@@ -34,6 +35,7 @@ const UsersBtn = styled.button`
   border: none;
   font-size: 12px;
   color: #b7b7b7;
+  cursor: pointer;
 `;
 
 export default function TopToggleBtn() {

@@ -9,7 +9,7 @@ const NewWrapper = styled.div`
   height: 124px;
   div {
     height: 1px;
-    background-color: #727272;
+    background-color: #b7b7b7;
   }
 `;
 const Time = styled.span`
@@ -60,7 +60,7 @@ export const TNew = memo(function Story({ storyId }) {
         </StoryTitle>
       </a>
       <Author>
-        <img src="img/user.png" alt="usericon" />
+        <img src="/assets/user.png" alt="usericon" />
         {story.by}
       </Author>
       {/* 라인을 만들기 위한 div */}

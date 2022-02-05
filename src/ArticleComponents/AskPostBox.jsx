@@ -2,15 +2,18 @@ import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
 import { getAskStory } from "../api/hnApi";
 import { mapTime } from "../time/mapTime";
+import { Link } from "react-router-dom";
 
-const Article = styled.div`
+const Post = styled.div`
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   width: 390px;
   height: 201px;
+  border: 1px solid red;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.containerColor};
   color: ${(props) => props.theme.textColor};
+  cursor: pointer;
   h4 {
     font-weight: 500;
     line-height: 24px;
@@ -21,7 +24,9 @@ const Article = styled.div`
     width: 390px;
     overflow: hidden;
     margin: 0 auto;
-    height: 70px;
+    height: 62px;
+    margin-bottom: 8px;
+    /* border: 1px solid blue; */
     padding: 6px 20px 10px;
     font-size: 14px;
     line-height: 18px;
@@ -54,7 +59,7 @@ const Info = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
-  color: #111;
+  color: ${(props) => props.theme.textColor};
 `;
 const UserInfo = styled.div`
   margin-left: 6px;
@@ -71,30 +76,34 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
-export const AskPostBox = memo(function Story({ storyId, index }) {
+export const AskPostBox = memo(function AskStory({ storyId, index }) {
   const [story, setStory] = useState([]);
+
   useEffect(() => {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
-  // console.log(story);
+  // console.log(story.id);
+
   return story && story.title ? (
-    <Article>
-      <h4>{story.title}</h4>
-      <p>{story.text}...</p>
-      <Time>{mapTime(story.time)}</Time>
-      <Info>
-        <User>
-          <img src="img/user.png" alt="userimg" />
-          <span>{story.by}</span>
-          <UserInfo>
-            <span>{story.score} points</span>
-          </UserInfo>
-        </User>
-        <Comments>
-          <img src="img/comment.png" alt="comments" />
-          <span>{story.descendants}</span>
-        </Comments>
-      </Info>
-    </Article>
+    <Link to={`/ask/${story.id}`}>
+      <Post>
+        <h4>{story.title}</h4>
+        <p>{story.text}</p>
+        <Time>{mapTime(story.time)}</Time>
+        <Info>
+          <User>
+            <img src="/asset/user.png" alt="userimg" />
+            <span>{story.by}</span>
+            <UserInfo>
+              <span>{story.score} points</span>
+            </UserInfo>
+          </User>
+          <Comments>
+            <img src="/asset/comment.png" alt="comments" />
+            <span>{story.descendants}</span>
+          </Comments>
+        </Info>
+      </Post>
+    </Link>
   ) : null;
 });

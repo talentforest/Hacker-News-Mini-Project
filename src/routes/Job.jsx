@@ -8,7 +8,7 @@ export default function Job({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="img/job_banner.png" />
+      <Banner src="/assets/job_banner.png" />
       <JobPostContainer />
     </>
   );

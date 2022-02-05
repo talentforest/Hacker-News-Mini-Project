@@ -8,6 +8,7 @@ import Job from "./routes/Job";
 import Show from "./routes/Show";
 import Ask from "./routes/Ask";
 import { ThemeProvider } from "styled-components";
+import { AskDetailContainer } from "./routes/AskDetailContainer";
 
 const darkTheme = {
   backgroundColor: "#292C33",
@@ -240,13 +241,6 @@ a {
   font-size: 12px
 }
 `;
-const ToggleMode = styled.img`
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 50px;
-  right: 0px;
-`;
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -263,6 +257,9 @@ function App() {
             <Switch>
               <Route path="/job">
                 <Job toggleDark={toggleDark} />
+              </Route>
+              <Route path="/ask/:id">
+                <AskDetailContainer toggleDark={toggleDark} />
               </Route>
               <Route path="/ask">
                 <Ask toggleDark={toggleDark} />

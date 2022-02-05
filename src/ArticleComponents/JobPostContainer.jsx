@@ -9,10 +9,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Wrapper = styled.section`
-  padding-bottom: 44px;
+  padding: 12px 0 44px;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 const Posts = styled.div`
-  margin: 20px auto 0;
+  background-color: ${(props) => props.theme.backgroundColor};
+  margin: 12px auto 0;
   width: 350px;
   height: 604px;
 `;

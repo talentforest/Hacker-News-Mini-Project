@@ -4,12 +4,12 @@ import { getJobStory } from "../api/hnApi";
 import { mapTime } from "../time/mapTime";
 
 const Post = styled.div`
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
   width: 350px;
   height: 104px;
-  border: 1px solid #dfdfdf;
+  /* border: 1px solid #dfdfdf; */
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.containerColor};
   padding: 0 12px;
   margin-bottom: 8px;
   h4 {
@@ -19,6 +19,7 @@ const Post = styled.div`
     line-height: 24px;
     height: 64px;
     padding: 12px 0 4px;
+    color: ${(props) => props.theme.textColor};
   }
 `;
 const Info = styled.div`
@@ -26,14 +27,15 @@ const Info = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
-  color: #b7b7b7;
+  color: #949494;
   height: 40px;
   a {
     text-decoration: underline;
+    color: #b7b7b7;
   }
 `;
 
-export const JobPostBox = memo(function Story({ storyId, index }) {
+export const JobPostBox = memo(function JobStory({ storyId, index }) {
   const [story, setStory] = useState([]);
   useEffect(() => {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));

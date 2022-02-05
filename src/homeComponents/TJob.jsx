@@ -76,7 +76,7 @@ export const TJob = memo(function Story({ storyId }) {
         <Title>{story.title}</Title>
         <Site>{story.url.slice(8, 21)}</Site>
         <Info>
-          <img src="img/clock2.png" alt="clock" />
+          <img src="/assets/clock2.png" alt="clock" />
           <span>{mapTime(story.time)}</span>
         </Info>
       </JobWrapper>

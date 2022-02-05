@@ -8,9 +8,10 @@ const Post = styled.div`
   width: 350px;
   height: 128px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.containerColor};
   padding: 12px;
   margin-bottom: 16px;
+  color: ${(props) => props.theme.textColor};
   h4 {
     display: flex;
     align-items: center;
@@ -35,8 +36,7 @@ const Info = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
-  /* background-color: green; */
-  color: #111;
+  color: ${(props) => props.theme.textColor};
 `;
 const UserInfo = styled.div`
   margin-left: 6px;
@@ -50,9 +50,10 @@ const Comments = styled.div`
   display: flex;
   align-items: center;
   color: #ed702d;
+  cursor: pointer;
 `;
 
-export const TopPostBox = memo(function Story({ storyId }) {
+export const TopPostBox = memo(function TopStory({ storyId }) {
   const [story, setStory] = useState([]);
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
@@ -63,7 +64,7 @@ export const TopPostBox = memo(function Story({ storyId }) {
       <h4>{story.title}</h4>
       <Info>
         <User>
-          <img src="img/user.png" alt="userimg" />
+          <img src="/assets/user.png" alt="userimg" />
           <span>{story.by}</span>
           <UserInfo>
             <span>{story.score} points</span>
@@ -71,7 +72,7 @@ export const TopPostBox = memo(function Story({ storyId }) {
           </UserInfo>
         </User>
         <Comments>
-          <img src="img/comment.png" alt="comments" />
+          <img src="/assets/comment.png" alt="comments" />
           <span>{story.descendants}</span>
         </Comments>
       </Info>

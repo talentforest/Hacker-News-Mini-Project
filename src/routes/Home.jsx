@@ -14,7 +14,7 @@ export default function Home({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="img/home_banner.png" />
+      <Banner src="/assets/home_banner.png" />
 
       <TTopContainer />
       <TNewContainer />

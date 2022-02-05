@@ -8,7 +8,7 @@ export default function Show({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="img/show_banner.png" />
+      <Banner src="/assets/show_banner.png" />
       <ShowPostContainer />
     </>
   );

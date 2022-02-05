@@ -8,9 +8,10 @@ const Post = styled.div`
   width: 350px;
   height: 148px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.containerColor};
   margin-bottom: 16px;
   padding: 14px 12px 14px;
+  color: ${(props) => props.theme.textColor};
   h4 {
     display: flex;
     align-items: center;
@@ -45,7 +46,7 @@ const Info = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
-  color: #111;
+  color: ${(props) => props.theme.textColor};
 `;
 const UserInfo = styled.div`
   margin-left: 6px;
@@ -61,7 +62,7 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
-export const ShowPostBox = memo(function Story({ storyId, index }) {
+export const ShowPostBox = memo(function ShowStory({ storyId, index }) {
   const [story, setStory] = useState([]);
   useEffect(() => {
     getShowStory(storyId).then((data) => data && data.title && setStory(data));

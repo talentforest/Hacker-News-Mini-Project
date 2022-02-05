@@ -8,7 +8,7 @@ export default function New({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="img/new_banner.png" />
+      <Banner src="/assets/new_banner.png" />
       <NewPostContainer />
     </>
   );

@@ -5,6 +5,7 @@ import {
   showSelectFields,
   jobSelectFields,
   userSelectFields,
+  bySelectFields,
   commentsSelectFields,
 } from "../util/selectFields";
 
@@ -29,9 +30,17 @@ export const getTopStory = async (storyId) => {
   const result = await axios
     .get(`${storyUrl + storyId}.json`)
     .then(({ data }) => data && selectFields(data));
-
   return result;
 };
+
+// username만 있는 by 객체를 만듦.
+export const getUserName = async (storyId) => {
+  const result = await axios
+    .get(`${storyUrl + storyId}.json`)
+    .then(({ data }) => data && bySelectFields(data));
+  return result;
+};
+
 // 스토리 아이디로 New 데이터 가져오기
 export const getNewStoryIds = async () => {
   const result = await axios.get(newStoriesUrl).then(({ data }) => data);
@@ -77,22 +86,20 @@ export const getShowStory = async (storyId) => {
 // 스토리 아이디로 Job 데이터 가져오기
 export const getJobStoryIds = async () => {
   const result = await axios.get(jobStoriesUrl).then(({ data }) => data);
-
   return result;
 };
 export const getJobStory = async (storyId) => {
   const result = await axios
     .get(`${storyUrl + storyId}.json`)
     .then(({ data }) => data && jobSelectFields(data));
-
+  console.log(result);
   return result;
 };
 
-// 코멘트 값 가져오기 스토리 아이디값은 가져왔음.
-export const getComments = async (storyId) => {
+// 코멘트 값 가져오기 스토리의 아이디값은 가져왔음.
+export const getComment = async (commentId) => {
   const result = await axios
-    .get(`${storyUrl + storyId}.json`)
+    .get(`${storyUrl + commentId}.json`)
     .then(({ data }) => data && commentsSelectFields(data));
-
   return result;
 };
