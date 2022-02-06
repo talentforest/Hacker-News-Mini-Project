@@ -11,7 +11,7 @@ import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
   padding-top: 20px;
-  background-color: ${(props) => props.theme.backgroundColor}; ;
+  background-color: ${(props) => props.theme.backgroundGrayColor};
 `;
 const Posts = styled.section`
   display: flex;

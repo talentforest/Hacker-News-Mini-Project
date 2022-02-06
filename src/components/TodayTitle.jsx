@@ -51,7 +51,7 @@ export const OnlyTitle = ({ title }) => {
     <Content>
       <Title>
         <h4>{title}</h4>
-        <img src="/assets/arrow_black.png" alt="arrow" />
+        <img src="/assets/arrow_right_black.png" alt="arrow" />
       </Title>
     </Content>
   );
@@ -64,7 +64,7 @@ export const ClockTitle = ({ title }) => {
     <Content>
       <Title>
         <h4>{title}</h4>
-        <img src="/assets/arrow_black.png" alt="arrow" />
+        <img src="/assets/arrow_right_black.png" alt="arrow" />
       </Title>
       <Time>
         <img src="/assets/clock.png" alt="clock" />
@@ -79,7 +79,7 @@ export const ReloadTitle = ({ title }) => {
     <Content>
       <Title>
         <h4>{title}</h4>
-        <img src="/assets/arrow_black.png" alt="arrow" />
+        <img src="/assets/arrow_right_black.png" alt="arrow" />
       </Title>
       <Reload
         variants={ReloadVariants}

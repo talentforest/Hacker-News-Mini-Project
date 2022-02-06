@@ -82,7 +82,7 @@ export const BannerBox = memo(function Story({ storyId }) {
     <Banner>
       <Tags>Software Engineers</Tags>
       <CompanyInfo>
-        <img src="img/company_logo.png" alt="company logo" />
+        <img src="/assets/company_logo.png" alt="company logo" />
         <Company>{story.by}</Company>
         <Job>{story.title}</Job>
       </CompanyInfo>
@@ -99,7 +99,7 @@ export const BannerBox2 = memo(function Story({ storyId }) {
   return (
     <Banner2>
       <CompanyInfo2>
-        <img src="/assets/company_logo.png" alt="company logo" />
+        <img src="/assets/company_logo.png" alt="companylogo" />
         <Company2>{story.by}</Company2>
       </CompanyInfo2>
     </Banner2>

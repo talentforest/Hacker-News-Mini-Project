@@ -87,6 +87,8 @@ export const commentsSelectFields = ({
   text,
   time,
   type,
+  score,
+  title,
 }) => ({
   id,
   by,
@@ -95,6 +97,8 @@ export const commentsSelectFields = ({
   text,
   time,
   type,
+  score,
+  title,
 });
 
 export const bySelectFields = ({ by }) => ({

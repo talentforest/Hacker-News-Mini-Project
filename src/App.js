@@ -12,8 +12,11 @@ import { AskDetailContainer } from "./routes/AskDetailContainer";
 
 const darkTheme = {
   backgroundColor: "#292C33",
+  backgroundGrayColor: "#292C33",
   headerBackgroundColor: "#292C33",
   containerColor: "#343538",
+  commentContainerColor: "#343538",
+  commentColor: "#fff",
   containerGrayColor: "#E2ECF0",
   headerColor: "#727272",
   headerHoverColor: "#fff",
@@ -22,8 +25,11 @@ const darkTheme = {
 };
 const lightTheme = {
   backgroundColor: "white",
+  backgroundGrayColor: "#F5F5F5",
   headerBackgroundColor: "#ee702c",
   containerColor: "#fff",
+  commentContainerColor: "#efefef",
+  commentColor: "#3f3f3f",
   containerGrayColor: "#fff",
   headerColor: "#ee702c#",
   headerHoverColor: "#727272",

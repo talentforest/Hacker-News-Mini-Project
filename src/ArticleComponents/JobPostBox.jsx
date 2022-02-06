@@ -4,10 +4,9 @@ import { getJobStory } from "../api/hnApi";
 import { mapTime } from "../time/mapTime";
 
 const Post = styled.div`
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   width: 350px;
   height: 104px;
-  /* border: 1px solid #dfdfdf; */
   border-radius: 8px;
   background-color: ${(props) => props.theme.containerColor};
   padding: 0 12px;

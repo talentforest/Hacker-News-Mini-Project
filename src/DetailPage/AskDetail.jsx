@@ -1,22 +1,22 @@
 import React, { useState, useEffect, memo } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { commentsSelectFields } from "../util/selectFields";
 import { Reply } from "./Reply";
 import { mapTime } from "../time/mapTime";
 
 const Wrapper = styled.section`
-  width: 350px;
-  margin: 0 auto;
-  background-color: ${(props) => props.theme.containerColor};
+  width: 390px;
+  padding: 0 20px 10px;
+  margin: 0 auto 10px;
+  /* border: 1px solid red; */
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
+
 const UserInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid blue;
   height: 75px;
-  padding: 20px;
   font-size: 14px;
   font-weight: 400;
   img {
@@ -46,9 +46,11 @@ const Gray = styled.span`
   color: #727272;
 `;
 const Comment = styled.p`
-  background-color: red;
+  background-color: ${(props) => props.theme.backgroundColor};
   display: block;
-  padding: 20px;
+  line-height: 20px;
+  color: ${(props) => props.theme.commentColor};
+  word-wrap: break-word;
 `;
 
 export const AskDetail = memo(function Story({ commentId }) {
@@ -79,7 +81,7 @@ export const AskDetail = memo(function Story({ commentId }) {
         </Info>
         <img src="/assets/arrow_up_gray.png" alt="arrow_up_gray" />
       </UserInfo>
-      <Comment>{commentIds.text}</Comment>
+      <Comment dangerouslySetInnerHTML={{ __html: commentIds.text }} />
       {replyIds?.map((replyId, i) => (
         <Reply key={i} replyId={replyId} />
       ))}

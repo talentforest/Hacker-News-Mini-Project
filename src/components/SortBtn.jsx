@@ -23,7 +23,8 @@ const Sort = styled.div`
     border-radius: 20px;
   }
   img {
-    width: 16px;
+    width: 8px;
+    margin-left: 4px;
   }
 `;
 const View = styled.div`
@@ -38,11 +39,11 @@ export const SortBtn = () => {
     <Sort>
       <div>
         <span>Results</span>
-        <img src="/assets/arrow_down.png" alt="arrow down" />
+        <img src="/assets/arrow_down_gray.png" alt="arrow down" />
       </div>
       <div>
         <span>Time</span>
-        <img src="/assets/arrow_down.png" alt="arrow down" />
+        <img src="/assets/arrow_down_gray.png" alt="arrow down" />
       </div>
     </Sort>
   );

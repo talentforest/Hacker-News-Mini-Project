@@ -95,11 +95,3 @@ export const getJobStory = async (storyId) => {
   console.log(result);
   return result;
 };
-
-// 코멘트 값 가져오기 스토리의 아이디값은 가져왔음.
-export const getComment = async (commentId) => {
-  const result = await axios
-    .get(`${storyUrl + commentId}.json`)
-    .then(({ data }) => data && commentsSelectFields(data));
-  return result;
-};

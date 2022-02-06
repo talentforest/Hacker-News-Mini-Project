@@ -5,32 +5,32 @@ import { mapTime } from "../time/mapTime";
 import { Link } from "react-router-dom";
 
 const Post = styled.div`
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   width: 390px;
   height: 201px;
-  border: 1px solid red;
   margin-bottom: 12px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   background-color: ${(props) => props.theme.containerColor};
+`;
+const Title = styled.h4`
   color: ${(props) => props.theme.textColor};
+  font-weight: 500;
+  line-height: 24px;
+  padding: 12px 20px 4px;
+  /* height: 64px; */
+  padding: 12px 20px 0;
   cursor: pointer;
-  h4 {
-    font-weight: 500;
-    line-height: 24px;
-    padding: 12px 20px 4px;
-    height: 64px;
-  }
-  p {
-    width: 390px;
-    overflow: hidden;
-    margin: 0 auto;
-    height: 62px;
-    margin-bottom: 8px;
-    /* border: 1px solid blue; */
-    padding: 6px 20px 10px;
-    font-size: 14px;
-    line-height: 18px;
-  }
+`;
+const PostText = styled.p`
+  width: 390px;
+  margin: 0 auto;
+  height: 62px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  /* border: 1px solid blue; */
+  padding: 6px 20px 10px;
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
 `;
 const Time = styled.span`
   border-bottom: 1px solid #e2e2e2;
@@ -50,6 +50,7 @@ const Info = styled.div`
   font-size: 12px;
   padding: 12px 20px;
   color: #949494;
+  /* border: 1px solid blue; */
   img {
     width: 16px;
     height: 16px;
@@ -82,28 +83,35 @@ export const AskPostBox = memo(function AskStory({ storyId, index }) {
   useEffect(() => {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
-  // console.log(story.id);
+  // console.log("AskPostId", storyId);
 
   return story && story.title ? (
-    <Link to={`/ask/${story.id}`}>
-      <Post>
-        <h4>{story.title}</h4>
-        <p>{story.text}</p>
-        <Time>{mapTime(story.time)}</Time>
-        <Info>
-          <User>
-            <img src="/asset/user.png" alt="userimg" />
-            <span>{story.by}</span>
-            <UserInfo>
-              <span>{story.score} points</span>
-            </UserInfo>
-          </User>
-          <Comments>
-            <img src="/asset/comment.png" alt="comments" />
-            <span>{story.descendants}</span>
-          </Comments>
-        </Info>
-      </Post>
-    </Link>
+    <Post>
+      <Link to={`/ask/${story.id}`}>
+        <Title>{story.title}</Title>
+        <PostText
+          dangerouslySetInnerHTML={{
+            __html:
+              story.text?.length > 150
+                ? `${story.text.slice(0, 150)}...`
+                : story.text,
+          }}
+        />
+      </Link>
+      <Time>{mapTime(story.time)}</Time>
+      <Info>
+        <User>
+          <img src="/assets/user.png" alt="userimg" />
+          <span>{story.by}</span>
+          <UserInfo>
+            <span>{story.score} points</span>
+          </UserInfo>
+        </User>
+        <Comments>
+          <img src="/assets/comment.png" alt="comments" />
+          <span>{story.descendants}</span>
+        </Comments>
+      </Info>
+    </Post>
   ) : null;
 });

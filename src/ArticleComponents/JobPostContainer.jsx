@@ -10,10 +10,10 @@ import "swiper/css/navigation";
 
 const Wrapper = styled.section`
   padding: 12px 0 44px;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.backgroundGrayColor};
 `;
 const Posts = styled.div`
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.backgroundGrayColor};
   margin: 12px auto 0;
   width: 350px;
   height: 604px;
@@ -56,7 +56,7 @@ export const JobPostContainer = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg src="img/applynow.png" alt="apply banner" />
+        <BannerImg src="/assets/applynow.png" alt="apply banner" />
         <BannerSlide>
           <Swiper slidesPerView={1}>
             <SwiperSlide>
@@ -94,7 +94,7 @@ export const JobPostContainer = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg src="img/applyimg.png" alt="apply banner" />
+        <BannerImg src="/assets/applyimg.png" alt="apply banner" />
         <BannerSlide2>
           <Swiper slidesPerView={1}>
             <SwiperSlide>

@@ -74,7 +74,7 @@ export const ShowPostBox = memo(function ShowStory({ storyId, index }) {
       <h4>{story.title}</h4>
       <Info>
         <User>
-          <img src="img/user.png" alt="userimg" />
+          <img src="/assets/user.png" alt="userimg" />
           <span>{story.by}</span>
           <UserInfo>
             <span>{story.score} points</span>
@@ -82,7 +82,7 @@ export const ShowPostBox = memo(function ShowStory({ storyId, index }) {
           </UserInfo>
         </User>
         <Comments>
-          <img src="img/comment.png" alt="comments" />
+          <img src="/assets/comment.png" alt="comments" />
           <span>{story.descendants}</span>
         </Comments>
       </Info>
