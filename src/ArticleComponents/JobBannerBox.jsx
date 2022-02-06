@@ -65,11 +65,15 @@ const Company2 = styled.span`
   text-align: center;
 `;
 const Job = styled.span`
+  /* border: 1px solid red; */
+  padding: 0 15px;
+  word-break: break-all;
   font-weight: 700;
+  line-height: 20px;
   height: 27px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 300px;
 `;
 
 export const BannerBox = memo(function Story({ storyId }) {
@@ -78,13 +82,24 @@ export const BannerBox = memo(function Story({ storyId }) {
   useEffect(() => {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
+
+  const companyName = story.title?.split(")")[0];
+  // console.log(companyName);
+
+  const companyShortName = story.title?.split(" ")[0];
+  // console.log(companyShortName);
+
+  const job = story.title?.split("iring")[1];
+
   return (
     <Banner>
       <Tags>Software Engineers</Tags>
       <CompanyInfo>
         <img src="/assets/company_logo.png" alt="company logo" />
-        <Company>{story.by}</Company>
-        <Job>{story.title}</Job>
+        <Company>
+          {companyName?.length < 30 ? `${companyName})` : companyShortName}
+        </Company>
+        <Job>{job?.includes(", ") ? job.slice(2) : job}</Job>
       </CompanyInfo>
     </Banner>
   );
@@ -96,11 +111,20 @@ export const BannerBox2 = memo(function Story({ storyId }) {
   useEffect(() => {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
+
+  const companyName = story.title?.split(")")[0];
+  // console.log(companyName);
+
+  const companyShortName = story.title?.split(" ")[0];
+  // console.log(companyShortName);
+
   return (
     <Banner2>
       <CompanyInfo2>
         <img src="/assets/company_logo.png" alt="companylogo" />
-        <Company2>{story.by}</Company2>
+        <Company2>
+          {companyName?.length < 30 ? `${companyName})` : companyShortName}
+        </Company2>
       </CompanyInfo2>
     </Banner2>
   );

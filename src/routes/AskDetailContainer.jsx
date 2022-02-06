@@ -110,7 +110,7 @@ export const AskDetailContainer = ({ toggleDark }) => {
       .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
       .then(({ data }) => data && commentsSelectFields(data));
 
-    console.log(result);
+    // console.log(result);
     return result;
   };
 

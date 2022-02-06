@@ -92,6 +92,6 @@ export const getJobStory = async (storyId) => {
   const result = await axios
     .get(`${storyUrl + storyId}.json`)
     .then(({ data }) => data && jobSelectFields(data));
-  console.log(result);
+  // console.log(result);
   return result;
 };

@@ -40,11 +40,17 @@ export const JobPostBox = memo(function JobStory({ storyId, index }) {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
 
+  // url 주소 이름만
+  const urlName = story.url?.slice(8).split("/")[0];
+  // console.log(story);
+
   return story && story.title ? (
     <Post>
       <h4>{story.title}</h4>
       <Info>
-        <a href="#">decycle.com</a>
+        <a href={story.url}>
+          {urlName?.includes("www") ? urlName.slice(4) : urlName}
+        </a>
         <span>{mapTime(story.time)}</span>
       </Info>
     </Post>

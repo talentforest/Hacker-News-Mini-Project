@@ -20,8 +20,12 @@ const UserInfo = styled.div`
   font-size: 14px;
   font-weight: 400;
   img {
-    width: 12px;
-    height: 7.41px;
+    cursor: pointer;
+    /* padding: 1px; */
+    /* border: 1px solid red; */
+    padding: 2px;
+    width: 20px;
+    height: 12.41px;
   }
 `;
 const Info = styled.div`
@@ -33,6 +37,7 @@ const Info = styled.div`
     margin: 0 6px 0 0;
   }
   img {
+    padding: 0;
     width: 13px;
     height: 13px;
     margin: 0 6px 0 10px;
@@ -54,6 +59,7 @@ const Comment = styled.p`
 `;
 
 export const AskDetail = memo(function Story({ commentId }) {
+  const [folder, setFolder] = useState(true);
   // 여기서 다시 fetch로 코멘트 데이터 얻기
   const [commentIds, setCommentIds] = useState([]);
   const getCommentData = async () => {
@@ -70,6 +76,10 @@ export const AskDetail = memo(function Story({ commentId }) {
     getCommentData().then((data) => data && data.url && setCommentIds(data));
   }, []);
 
+  const onClickfolder = (e) => {
+    setFolder((prev) => (prev ? false : true));
+  };
+
   return (
     <Wrapper>
       <UserInfo>
@@ -79,12 +89,19 @@ export const AskDetail = memo(function Story({ commentId }) {
           <img src="/assets/clock.png" alt="clock" />
           <Gray>{mapTime(commentIds.time)}</Gray>
         </Info>
-        <img src="/assets/arrow_up_gray.png" alt="arrow_up_gray" />
+        <img
+          onClick={onClickfolder}
+          src="/assets/arrow_up_gray.png"
+          alt="arrow_up_gray"
+        />
       </UserInfo>
-      <Comment dangerouslySetInnerHTML={{ __html: commentIds.text }} />
-      {replyIds?.map((replyId, i) => (
-        <Reply key={i} replyId={replyId} />
-      ))}
+      {folder ? (
+        <Comment dangerouslySetInnerHTML={{ __html: commentIds.text }} />
+      ) : null}
+
+      {folder
+        ? replyIds?.map((replyId, i) => <Reply key={i} replyId={replyId} />)
+        : null}
     </Wrapper>
   );
 });

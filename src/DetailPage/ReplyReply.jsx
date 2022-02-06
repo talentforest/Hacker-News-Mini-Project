@@ -3,13 +3,12 @@ import axios from "axios";
 import styled from "styled-components";
 import { commentsSelectFields } from "../util/selectFields";
 import { mapTime } from "../time/mapTime";
-import { ReplyReply } from "./ReplyReply";
 
 const Wrapper = styled.div`
   /* border: 1px solid red; */
-  margin-top: 14px;
+  margin: 14px 0 14px 20px;
   background-color: ${(props) => props.theme.commentContainerColor};
-  width: 350px;
+  width: 330px;
   border-radius: 8px;
   padding: 0 12px 12px;
   color: ${(props) => props.theme.commentColor};
@@ -58,57 +57,50 @@ const ReplyComment = styled.p`
   word-wrap: break-word;
 `;
 
-export const Reply = ({ replyId }) => {
+export const ReplyReply = ({ replyReplyId }) => {
   // 댓글 접기 기능
   const [folder, setFolder] = useState(true);
-  // 대댓글 데이터
-  const [replyIdData, setReplyIdData] = useState([]);
-  const getReplyData = async () => {
+  // 대대댓글 데이터
+  const [replyReplyIdData, setReplyReplyIdData] = useState([]);
+
+  const getReplyReplyData = async () => {
     const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/item/${replyId}.json`)
+      .get(`https://hacker-news.firebaseio.com/v0/item/${replyReplyId}.json`)
       .then(({ data }) => data && commentsSelectFields(data));
-    // console.log(result);
     return result;
   };
 
   useEffect(() => {
-    getReplyData().then((data) => data && data.type && setReplyIdData(data));
+    getReplyReplyData().then(
+      (data) => data && data.type && setReplyReplyIdData(data)
+    );
   }, []);
-
-  const replyReplyIds = replyIdData.kids;
 
   const onClickfolder = (e) => {
     setFolder((prev) => (prev ? false : true));
   };
 
-  return replyIdData && replyIdData.by ? (
-    <>
-      <Wrapper>
-        <UserInfo>
-          <Info>
-            <img src="/assets/user_black.png" alt="logo" />
-            <span>{replyIdData.by}</span>
-            <img src="/assets/clock.png" alt="clock" />
-            <Gray>{mapTime(replyIdData.time)}</Gray>
-          </Info>
-          <img
-            onClick={onClickfolder}
-            src="/assets/arrow_up_gray.png"
-            alt="arrow_up_gray"
-          />
-        </UserInfo>
+  return replyReplyIdData && replyReplyIdData.by ? (
+    <Wrapper>
+      <UserInfo>
+        <Info>
+          <img src="/assets/user_black.png" alt="logo" />
+          <span>{replyReplyIdData.by}</span>
+          <img src="/assets/clock.png" alt="clock" />
+          <Gray>{mapTime(replyReplyIdData.time)}</Gray>
+        </Info>
+        <img
+          onClick={onClickfolder}
+          src="/assets/arrow_up_gray.png"
+          alt="arrow_up_gray"
+        />
+      </UserInfo>
 
-        {folder ? (
-          <ReplyComment
-            dangerouslySetInnerHTML={{ __html: replyIdData.text }}
-          />
-        ) : null}
-      </Wrapper>
-      {folder
-        ? replyReplyIds?.map((replyReplyId, i) => (
-            <ReplyReply key={replyReplyId} replyReplyId={replyReplyId} />
-          ))
-        : null}
-    </>
+      {folder ? (
+        <ReplyComment
+          dangerouslySetInnerHTML={{ __html: replyReplyIdData.text }}
+        />
+      ) : null}
+    </Wrapper>
   ) : null;
 };
