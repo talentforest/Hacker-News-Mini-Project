@@ -124,4 +124,4 @@ export const TUser = memo(function Story({ index, storyId }) {
       </UserWrapper>
     </Wrapper>
   ) : null;
-}, []);
+});

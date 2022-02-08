@@ -56,6 +56,7 @@ const Comment = styled.p`
   line-height: 20px;
   color: ${(props) => props.theme.commentColor};
   word-wrap: break-word;
+  white-space: pre-wrap;
 `;
 
 export const AskDetail = memo(function Story({ commentId }) {
@@ -104,4 +105,4 @@ export const AskDetail = memo(function Story({ commentId }) {
         : null}
     </Wrapper>
   );
-}, []);
+});

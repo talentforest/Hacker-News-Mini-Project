@@ -41,7 +41,7 @@ export const TTop = memo(function Story({ storyId, index }) {
 
   const topRankStory = story.score;
   // console.log(topRankStory);
-  console.log(story);
+  // console.log(story);
 
   return story && story.url ? (
     <TTopWrapper>
@@ -62,4 +62,4 @@ export const TTop = memo(function Story({ storyId, index }) {
       </div>
     </TTopWrapper>
   ) : null;
-}, []);
+});

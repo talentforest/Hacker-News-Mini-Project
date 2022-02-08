@@ -123,4 +123,4 @@ export const TShow = memo(function Story({ storyId }) {
       </ShowWrapper>
     </Wrapper>
   ) : null;
-}, []);
+});

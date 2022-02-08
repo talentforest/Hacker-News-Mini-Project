@@ -97,4 +97,4 @@ export const ShowPostBox = memo(function ShowStory({ storyId, index }) {
       </Info>
     </Post>
   ) : null;
-}, []);
+});

@@ -20,4 +20,4 @@ export const TUserInfo = memo(function Story({ userName }) {
   }, []);
 
   return <div>{1}</div>;
-}, []);
+});

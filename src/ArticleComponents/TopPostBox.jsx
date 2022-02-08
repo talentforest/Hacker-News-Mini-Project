@@ -78,4 +78,4 @@ export const TopPostBox = memo(function TopStory({ storyId }) {
       </Info>
     </Post>
   ) : null;
-}, []);
+});

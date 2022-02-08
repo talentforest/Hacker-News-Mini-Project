@@ -37,4 +37,4 @@ export const TAsk = memo(function Story({ storyId }) {
       </h4>
     </Wrapper>
   );
-}, []);
+});

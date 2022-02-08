@@ -67,4 +67,4 @@ export const TNew = memo(function Story({ storyId }) {
       <div></div>
     </NewWrapper>
   ) : null;
-}, []);
+});

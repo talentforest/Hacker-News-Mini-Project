@@ -55,4 +55,4 @@ export const JobPostBox = memo(function JobStory({ storyId, index }) {
       </Info>
     </Post>
   ) : null;
-}, []);
+});

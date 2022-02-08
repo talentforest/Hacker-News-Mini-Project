@@ -122,4 +122,4 @@ export const AskPostBox = memo(function AskStory({ storyId, index }) {
       </Info>
     </Post>
   ) : null;
-}, []);
+});
