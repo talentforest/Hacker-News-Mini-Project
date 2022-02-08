@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 const ShowWrapper = styled.div`
   width: 200px;
   height: 224px;
-  background-color: ${(props) => props.theme.containerGrayColor};
+  background-color: ${(props) => props.theme.containerBlueColor};
   padding: 16px 12px 0 12px;
   margin-right: 12px;
   border-radius: 8px;
@@ -82,6 +82,10 @@ const Comments = styled.div`
     color: #f49664;
   }
 `;
+const Orange = styled.span`
+  color: #ed702d;
+`;
+
 export const TShow = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
@@ -89,11 +93,17 @@ export const TShow = memo(function Story({ storyId }) {
     getShowStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
 
+  const orangeWords = `${story.title?.split(" ")[0]} ${
+    story.title?.split(" ")[1]
+  }`;
+
   return story && story.url ? (
     <Wrapper>
       <ShowWrapper>
         <Tag>github.com</Tag>
-        <Title>{story.title}</Title>
+        <Title>
+          <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+        </Title>
         <Info>
           <img src="/assets/point.png" alt="point" />
           <span>{story.score}</span>
@@ -113,4 +123,4 @@ export const TShow = memo(function Story({ storyId }) {
       </ShowWrapper>
     </Wrapper>
   ) : null;
-});
+}, []);

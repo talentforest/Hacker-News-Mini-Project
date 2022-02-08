@@ -104,4 +104,4 @@ export const AskDetail = memo(function Story({ commentId }) {
         : null}
     </Wrapper>
   );
-});
+}, []);

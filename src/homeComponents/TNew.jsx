@@ -24,7 +24,7 @@ const Time = styled.span`
 `;
 const StoryTitle = styled.h4`
   color: ${(props) => props.theme.textColor};
-  padding: 5px 0 8px;
+  padding: 10px 0 8px;
   height: 53px;
   font-weight: 600;
   line-height: 20px;
@@ -52,7 +52,7 @@ export const TNew = memo(function Story({ storyId }) {
   return story && story.url ? (
     <NewWrapper>
       <Time>{mapTime(story.time)} ago</Time>
-      <a href="{story.url}">
+      <a href={story.url}>
         <StoryTitle>
           {story.title.length > 68
             ? `${story.title.slice(0, 68)}...`
@@ -67,4 +67,4 @@ export const TNew = memo(function Story({ storyId }) {
       <div></div>
     </NewWrapper>
   ) : null;
-});
+}, []);

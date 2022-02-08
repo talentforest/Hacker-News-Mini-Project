@@ -37,13 +37,17 @@ export const TTop = memo(function Story({ storyId, index }) {
   const [story, setStory] = useState([]);
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
-  }, []);
-  // console.log(storyId);
+  }, [storyId]);
+
+  const topRankStory = story.score;
+  // console.log(topRankStory);
+  console.log(story);
+
   return story && story.url ? (
     <TTopWrapper>
-      <Ranking>{index}</Ranking>
+      <Ranking>{index + 1}</Ranking>
       <div>
-        <a href="{story.url}">
+        <a href={story.url}>
           <Title>
             {story.title.length > 60
               ? `${story.title.slice(0, 60)}...`
@@ -58,4 +62,4 @@ export const TTop = memo(function Story({ storyId, index }) {
       </div>
     </TTopWrapper>
   ) : null;
-});
+}, []);

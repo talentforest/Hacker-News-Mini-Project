@@ -1,13 +1,20 @@
 import React, { useState, useEffect, memo } from "react";
-import { getUserName } from "../api/hnApi";
+import { getTopStory } from "../api/hnApi";
 import styled from "styled-components";
 import axios from "axios";
 import { userSelectFields } from "../util/selectFields";
+import { mapTime } from "../time/mapTime";
+import { TUserInfo } from "./TUserInfo";
+// import { TUserInfo } from "./TUserInfo";
 
+const Wrapper = styled.div`
+  width: 3000px;
+`;
 const UserWrapper = styled.div`
   width: 228px;
   height: 146px;
   padding: 16px;
+  margin-right: 16px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   background-color: ${(props) => props.theme.containerColor};
@@ -49,13 +56,13 @@ const UserInfoBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid red; */
 `;
 const Infobox = styled.div`
   height: 40px;
 `;
 const Info = styled.div`
   display: flex;
-  align-items: center;
   font-size: 12px;
   color: #727272;
   div:first-child {
@@ -69,51 +76,52 @@ const Info = styled.div`
     padding: 1px 2px;
     margin: 1px 4px 6px 0;
   }
+  span {
+    padding-top: 3px;
+  }
 `;
 const Btn = styled.img`
   width: 24px;
   height: 24px;
 `;
 
-export const TUser = memo(function Story({}) {
-  // 이제 각 아이템의 값들을 얻었다.
+export const TUser = memo(function Story({ index, storyId }) {
+  // 탑스토리 가져오고
+  const [story, setStory] = useState([]);
 
-  const [userName, setUserName] = useState([]);
   useEffect(() => {
-    getUserName().then((data) => data && setUserName(data));
+    getTopStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
 
-  // const [userInfo, setUserInfo] = useState([]);
-  // const getUserInfo = async () => {
-  //   const result = await axios
-  //     .get(`https://hacker-news.firebaseio.com/v0/user/${userName}.json`)
-  //     .then(({ data }) => setUserInfo(data));
-  // };
+  const userNames = story.by;
+  // console.log(userNames);
 
-  // console.log(userInfo);
-  // console.log(userName);
-
-  return (
-    <UserWrapper>
-      <Rank>
-        <img src="/assets/star.png" alt="star" />
-        <div>1</div>
-        <span>Today's User</span>
-      </Rank>
-      <Username>asdfasdgew</Username>
-      <UserInfoBox>
-        <Infobox>
-          <Info>
-            <div>Joined</div>
-            <span>5 years ago</span>
-          </Info>
-          <Info>
-            <div>karma</div>
-            <span>84719</span>
-          </Info>
-        </Infobox>
-        <Btn src="/assets/arrow_blue.png" alt="arrow button" />
-      </UserInfoBox>
-    </UserWrapper>
-  );
-});
+  return story && story.url ? (
+    <Wrapper>
+      <UserWrapper>
+        <Rank>
+          <img src="/assets/star.png" alt="star" />
+          <div>{index + 1}</div>
+          <span>Today's User</span>
+        </Rank>
+        <Username>{story.by}</Username>
+        <UserInfoBox>
+          {/* <Infobox>
+            <Info>
+              <div>Joined</div>
+              <span>{mapTime(topUserData.created)} ago</span>
+            </Info>
+            <Info>
+              <div>karma</div>
+              <span>{topUserData.karma}</span>
+            </Info>
+          </Infobox> */}
+          {/* {userNames.map((userName, i) => (
+            <TUserInfo userName={userName} key={i} />
+          ))} */}
+          <Btn src="/assets/arrow_blue.png" alt="arrow button" />
+        </UserInfoBox>
+      </UserWrapper>
+    </Wrapper>
+  ) : null;
+}, []);

@@ -76,6 +76,9 @@ const Comments = styled.div`
   align-items: center;
   color: #ed702d;
 `;
+const Orange = styled.span`
+  color: #ed702d;
+`;
 
 export const AskPostBox = memo(function AskStory({ storyId, index }) {
   const [story, setStory] = useState([]);
@@ -83,12 +86,17 @@ export const AskPostBox = memo(function AskStory({ storyId, index }) {
   useEffect(() => {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
-  // console.log("AskPostId", storyId);
+
+  const orangeWords = `${story.title?.split(" ")[0]} ${
+    story.title?.split(" ")[1]
+  }`;
 
   return story && story.title ? (
     <Post>
       <Link to={`/ask/${story.id}`}>
-        <Title>{story.title}</Title>
+        <Title>
+          <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+        </Title>
         <PostText
           dangerouslySetInnerHTML={{
             __html:
@@ -114,4 +122,4 @@ export const AskPostBox = memo(function AskStory({ storyId, index }) {
       </Info>
     </Post>
   ) : null;
-});
+}, []);

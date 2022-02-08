@@ -14,9 +14,9 @@ const Wrapper = styled.section`
 `;
 const Posts = styled.div`
   background-color: ${(props) => props.theme.backgroundGrayColor};
-  margin: 12px auto 0;
+  margin: 12px auto 40px;
   width: 350px;
-  height: 604px;
+  /* border: 1px solid red; */
 `;
 const ApplyBanner = styled.section`
   position: relative;

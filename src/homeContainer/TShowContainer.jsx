@@ -6,7 +6,7 @@ import { ReloadTitle } from "../components/TodayTitle";
 
 const Wrapper = styled.div`
   width: 390px;
-  height: 368px;
+
   margin-bottom: 12px;
   background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);

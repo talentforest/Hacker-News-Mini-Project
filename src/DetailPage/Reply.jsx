@@ -63,6 +63,7 @@ export const Reply = ({ replyId }) => {
   const [folder, setFolder] = useState(true);
   // 대댓글 데이터
   const [replyIdData, setReplyIdData] = useState([]);
+
   const getReplyData = async () => {
     const result = await axios
       .get(`https://hacker-news.firebaseio.com/v0/item/${replyId}.json`)

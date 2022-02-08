@@ -86,8 +86,6 @@ const UserInfo = styled.div`
   }
 `;
 const Title = styled.h4`
-  display: flex;
-  flex-direction: column;
   padding: 4px 10px 19px;
   font-size: 22px;
   line-height: 26px;
@@ -100,6 +98,9 @@ const PostText = styled.div`
   line-height: 24px;
   color: ${(props) => props.theme.commentColor};
 `;
+const Orange = styled.span`
+  color: #ed702d;
+`;
 
 export const AskDetailContainer = ({ toggleDark }) => {
   const { id } = useParams();
@@ -110,7 +111,6 @@ export const AskDetailContainer = ({ toggleDark }) => {
       .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
       .then(({ data }) => data && commentsSelectFields(data));
 
-    // console.log(result);
     return result;
   };
 
@@ -118,6 +118,10 @@ export const AskDetailContainer = ({ toggleDark }) => {
     getCurrIdData().then((data) => setCurrIdData(data));
   }, []);
   const commentIdsArr = currIdData.kids;
+
+  const orangeWords = `${currIdData.title?.split(" ")[0]} ${
+    currIdData.title?.split(" ")[1]
+  }`;
 
   return (
     <Wrapper>
@@ -135,7 +139,9 @@ export const AskDetailContainer = ({ toggleDark }) => {
             </UserInfo>
           </Info>
         </User>
-        <Title>{currIdData.title}</Title>
+        <Title>
+          <Orange>{`${orangeWords}`}</Orange> {`${currIdData.title?.slice(8)}`}
+        </Title>
         <PostText dangerouslySetInnerHTML={{ __html: currIdData.text }} />
       </Post>
       <Sort>

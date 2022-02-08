@@ -13,12 +13,14 @@ const Post = styled.div`
   padding: 14px 12px 14px;
   color: ${(props) => props.theme.textColor};
   h4 {
-    display: flex;
-    align-items: center;
+    padding: 12px 0;
     font-weight: 600;
     line-height: 24px;
     height: 64px;
   }
+`;
+const Orange = styled.span`
+  color: #ed702d;
 `;
 const Tag = styled.div`
   width: 63px;
@@ -68,10 +70,17 @@ export const ShowPostBox = memo(function ShowStory({ storyId, index }) {
     getShowStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
 
+  const orangeWords = `${story.title?.split(" ")[0]} ${
+    story.title?.split(" ")[1]
+  }`;
+
   return story && story.title ? (
     <Post>
       <Tag>github.com</Tag>
-      <h4>{story.title}</h4>
+      <h4>
+        <Orange>{`${orangeWords}`}</Orange>
+        {`${story.title?.slice(8)}`}
+      </h4>
       <Info>
         <User>
           <img src="/assets/user.png" alt="userimg" />
@@ -88,4 +97,4 @@ export const ShowPostBox = memo(function ShowStory({ storyId, index }) {
       </Info>
     </Post>
   ) : null;
-});
+}, []);

@@ -82,4 +82,4 @@ export const TJob = memo(function Story({ storyId }) {
       </JobWrapper>
     </Wrapper>
   ) : null;
-});
+}, []);

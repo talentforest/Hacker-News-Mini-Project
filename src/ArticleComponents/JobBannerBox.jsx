@@ -128,4 +128,4 @@ export const BannerBox2 = memo(function Story({ storyId }) {
       </CompanyInfo2>
     </Banner2>
   );
-});
+}, []);

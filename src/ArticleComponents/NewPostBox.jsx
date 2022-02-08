@@ -89,4 +89,4 @@ export const NewPostBox = memo(function Story({ storyId, index }) {
       </Info>
     </Post>
   ) : null;
-});
+}, []);

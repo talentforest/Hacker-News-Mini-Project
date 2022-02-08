@@ -15,6 +15,9 @@ const Wrapper = styled.div`
   line-height: 24px;
   border-radius: 4px;
 `;
+const Orange = styled.span`
+  color: #ed702d;
+`;
 
 export const TAsk = memo(function Story({ storyId }) {
   const [story, setStory] = useState({});
@@ -23,9 +26,15 @@ export const TAsk = memo(function Story({ storyId }) {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
 
+  const orangeWords = `${story.title?.split(" ")[0]} ${
+    story.title?.split(" ")[1]
+  }`;
+
   return (
     <Wrapper>
-      <h4>{story.title}</h4>
+      <h4>
+        <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+      </h4>
     </Wrapper>
   );
-});
+}, []);
