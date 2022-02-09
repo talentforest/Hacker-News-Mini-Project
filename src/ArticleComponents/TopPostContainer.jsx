@@ -39,36 +39,36 @@ export const TopPostContainer = () => {
       >
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(0, 20).map((storyId, i) => (
-              <TopPostBox key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(0, 20).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(20, 40).map((storyId, i) => (
-              <TopPostBox key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(20, 40).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(40, 60).map((storyId, i) => (
-              <TopPostBox key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(40, 60).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(60, 80).map((storyId, i) => (
-              <TopPostBox key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(60, 80).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(80, 100).map((storyId, i) => (
-              <TopPostBox key={i} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(80, 100).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>

@@ -23,7 +23,7 @@ const Table = styled.div`
   box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.05);
 `;
 
-export const UsersArea = () => {
+export const TopUsersBox = ({ toggleDark }) => {
   return (
     <Wrapper>
       <Title>User Ranking 🏆</Title>

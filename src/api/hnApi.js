@@ -4,9 +4,7 @@ import {
   askSelectFields,
   showSelectFields,
   jobSelectFields,
-  userSelectFields,
   bySelectFields,
-  commentsSelectFields,
 } from "../util/selectFields";
 
 export const baseUrl = "https://hacker-news.firebaseio.com/v0/";

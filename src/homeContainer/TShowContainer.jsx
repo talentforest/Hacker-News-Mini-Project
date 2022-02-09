@@ -33,8 +33,8 @@ export const TShowContainer = () => {
     <Wrapper>
       <ReloadTitle title="Today's Show" />
       <Container>
-        {storyIds.slice(0, 5).map((storyId, i) => (
-          <TShow key={i} storyId={storyId} storyIds={storyIds} />
+        {storyIds.slice(0, 5).map((storyId) => (
+          <TShow key={storyId} storyId={storyId} />
         ))}
       </Container>
     </Wrapper>

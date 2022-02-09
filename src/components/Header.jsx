@@ -24,6 +24,7 @@ const Title = styled.div`
   }
 `;
 const Icon = styled.img`
+  cursor: pointer;
   width: 24px;
   height: 24px;
   &:last-child {

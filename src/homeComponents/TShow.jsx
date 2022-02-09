@@ -4,7 +4,7 @@ import { mapTime } from "../time/mapTime";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 2000px;
+  width: 3000px;
 `;
 const ShowWrapper = styled.div`
   width: 200px;

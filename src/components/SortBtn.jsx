@@ -31,6 +31,7 @@ const View = styled.div`
   img {
     width: 24px;
     margin-left: 9px;
+    cursor: pointer;
   }
 `;
 

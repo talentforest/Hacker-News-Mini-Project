@@ -36,23 +36,22 @@ export const TTopContainer = () => {
       <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         <SwiperSlide>
           <Container>
-            {/* {console.log(storyIds.slice(0, 6))} */}
             {storyIds?.slice(0, 5).map((storyId, index) => (
-              <TTop key={index} index={index} storyId={storyId} />
+              <TTop key={storyId} storyId={storyId} index={index} />
             ))}
           </Container>
         </SwiperSlide>
         <SwiperSlide>
           <Container>
             {storyIds.slice(5, 10).map((storyId, index) => (
-              <TTop key={index} storyId={storyId} index={index + 5} />
+              <TTop key={storyId} storyId={storyId} index={index + 5} />
             ))}
           </Container>
         </SwiperSlide>
         <SwiperSlide>
           <Container>
             {storyIds.slice(10, 15).map((storyId, index) => (
-              <TTop key={index} storyId={storyId} index={index + 10} />
+              <TTop key={storyId} storyId={storyId} index={index + 10} />
             ))}
           </Container>
         </SwiperSlide>

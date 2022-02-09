@@ -39,22 +39,22 @@ export const NewPostContainer = () => {
       >
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(0, 20).map((storyId, index) => (
-              <NewPostBox key={storyId} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(0, 20).map((storyId) => (
+              <NewPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(20, 40).map((storyId, index) => (
-              <NewPostBox key={storyId} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(20, 40).map((storyId) => (
+              <NewPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
-            {storyIds.slice(40, 60).map((storyId, index) => (
-              <NewPostBox key={storyId} storyId={storyId} storyIds={storyIds} />
+            {storyIds.slice(40, 60).map((storyId) => (
+              <NewPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>

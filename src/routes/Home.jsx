@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Gnb from "../components/Gnb";
 import Banner from "../components/Banner";
-import { ReloadTitle, ClockTitle, OnlyTitle } from "../components/TodayTitle";
 import { TTopContainer } from "../homeContainer/TTopContainer";
 import { TNewContainer } from "../homeContainer/TNewContainer";
 import { TUserContainer } from "../homeContainer/TUserContainer";
@@ -15,7 +14,6 @@ export default function Home({ toggleDark }) {
       <Header toggleDark={toggleDark} />
       <Gnb />
       <Banner src="/assets/home_banner.png" />
-
       <TTopContainer />
       <TNewContainer />
       <TUserContainer />

@@ -34,7 +34,7 @@ const Info = styled.div`
   }
 `;
 
-export const JobPostBox = memo(function JobStory({ storyId, index }) {
+export const JobPostBox = memo(function JobStory({ storyId }) {
   const [story, setStory] = useState([]);
   useEffect(() => {
     getJobStory(storyId).then((data) => data && data.title && setStory(data));

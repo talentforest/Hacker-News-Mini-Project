@@ -48,13 +48,16 @@ const Newest = styled.div`
   }
 `;
 const Post = styled.div`
-  /* border: 1px solid red; */
-  display: flex;
-  flex-direction: column;
   width: 390px;
   margin: 0 auto 12px;
   padding: 23px 10px 18px;
   background-color: ${(props) => props.theme.backgroundColor};
+  word-break: break-word;
+  overflow-wrap: break-word;
+  pre {
+    white-space: pre-wrap;
+  }
+  width: 390px;
   img {
     width: 33.33px;
     height: 33.33px;

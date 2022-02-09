@@ -4,8 +4,6 @@ import styled from "styled-components";
 import axios from "axios";
 import { userSelectFields } from "../util/selectFields";
 import { mapTime } from "../time/mapTime";
-import { TUserInfo } from "./TUserInfo";
-// import { TUserInfo } from "./TUserInfo";
 
 const Wrapper = styled.div`
   width: 3000px;
@@ -88,13 +86,24 @@ const Btn = styled.img`
 export const TUser = memo(function Story({ index, storyId }) {
   // 탑스토리 가져오고
   const [story, setStory] = useState([]);
+  const [topUserData, setTopUserData] = useState([]);
 
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
 
-  const userNames = story.by;
-  // console.log(userNames);
+  const getUserInfo = async () => {
+    const result = await axios
+      .get(`https://hacker-news.firebaseio.com/v0/user/${story.by}.json`)
+      .then(({ data }) => data && userSelectFields(data));
+    return result;
+  };
+
+  useEffect(() => {
+    getTopStory().then(
+      getUserInfo().then((data) => data && setTopUserData(data))
+    );
+  }, []);
 
   return story && story.url ? (
     <Wrapper>
@@ -106,7 +115,7 @@ export const TUser = memo(function Story({ index, storyId }) {
         </Rank>
         <Username>{story.by}</Username>
         <UserInfoBox>
-          {/* <Infobox>
+          <Infobox>
             <Info>
               <div>Joined</div>
               <span>{mapTime(topUserData.created)} ago</span>
@@ -115,10 +124,7 @@ export const TUser = memo(function Story({ index, storyId }) {
               <div>karma</div>
               <span>{topUserData.karma}</span>
             </Info>
-          </Infobox> */}
-          {/* {userNames.map((userName, i) => (
-            <TUserInfo userName={userName} key={i} />
-          ))} */}
+          </Infobox>{" "}
           <Btn src="/assets/arrow_blue.png" alt="arrow button" />
         </UserInfoBox>
       </UserWrapper>

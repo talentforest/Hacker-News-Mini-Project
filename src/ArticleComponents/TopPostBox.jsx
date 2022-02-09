@@ -31,6 +31,7 @@ const Info = styled.div`
     width: 16px;
     height: 16px;
     margin-right: 3.3px;
+    cursor: pointer;
   }
 `;
 const User = styled.div`

@@ -51,8 +51,8 @@ export const JobPostContainer = () => {
   return (
     <Wrapper>
       <Posts>
-        {storyIds.slice(0, 5).map((storyId, index) => (
-          <JobPostBox key={storyId} storyId={storyId} storyIds={storyIds} />
+        {storyIds.slice(0, 5).map((storyId) => (
+          <JobPostBox key={storyId} storyId={storyId} />
         ))}
       </Posts>
       <ApplyBanner>
@@ -60,27 +60,27 @@ export const JobPostContainer = () => {
         <BannerSlide>
           <Swiper slidesPerView={1}>
             <SwiperSlide>
-              {storyIds.slice(0, 1).map((storyId, index) => (
+              {storyIds.slice(0, 1).map((storyId) => (
                 <BannerBox key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(1, 2).map((storyId, index) => (
+              {storyIds.slice(1, 2).map((storyId) => (
                 <BannerBox key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(2, 3).map((storyId, index) => (
+              {storyIds.slice(2, 3).map((storyId) => (
                 <BannerBox key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(3, 4).map((storyId, index) => (
+              {storyIds.slice(3, 4).map((storyId) => (
                 <BannerBox key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(4, 5).map((storyId, index) => (
+              {storyIds.slice(4, 5).map((storyId) => (
                 <BannerBox key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
@@ -89,8 +89,8 @@ export const JobPostContainer = () => {
       </ApplyBanner>
 
       <Posts>
-        {storyIds.slice(5, 10).map((storyId, index) => (
-          <JobPostBox key={storyId} storyId={storyId} storyIds={storyIds} />
+        {storyIds.slice(5, 10).map((storyId) => (
+          <JobPostBox key={storyId} storyId={storyId} />
         ))}
       </Posts>
       <ApplyBanner>
@@ -98,27 +98,27 @@ export const JobPostContainer = () => {
         <BannerSlide2>
           <Swiper slidesPerView={1}>
             <SwiperSlide>
-              {storyIds.slice(0, 1).map((storyId, index) => (
+              {storyIds.slice(0, 1).map((storyId) => (
                 <BannerBox2 key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(1, 2).map((storyId, index) => (
+              {storyIds.slice(1, 2).map((storyId) => (
                 <BannerBox2 key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(2, 3).map((storyId, index) => (
+              {storyIds.slice(2, 3).map((storyId) => (
                 <BannerBox2 key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(3, 4).map((storyId, index) => (
+              {storyIds.slice(3, 4).map((storyId) => (
                 <BannerBox2 key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
-              {storyIds.slice(4, 5).map((storyId, index) => (
+              {storyIds.slice(4, 5).map((storyId) => (
                 <BannerBox2 key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
@@ -127,7 +127,7 @@ export const JobPostContainer = () => {
       </ApplyBanner>
 
       <Posts>
-        {storyIds.slice(10, 15).map((storyId, index) => (
+        {storyIds.slice(10, 15).map((storyId) => (
           <JobPostBox key={storyId} storyId={storyId} />
         ))}
       </Posts>

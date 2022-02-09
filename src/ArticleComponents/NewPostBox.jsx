@@ -62,7 +62,7 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
-export const NewPostBox = memo(function Story({ storyId, index }) {
+export const NewPostBox = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
   useEffect(() => {
     getNewStory(storyId).then((data) => data && data.url && setStory(data));

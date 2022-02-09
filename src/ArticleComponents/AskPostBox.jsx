@@ -80,7 +80,7 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export const AskPostBox = memo(function AskStory({ storyId, index }) {
+export const AskPostBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {

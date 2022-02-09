@@ -30,8 +30,8 @@ export const TJobContainer = () => {
     <Wrapper>
       <OnlyTitle title="Today's Job" />
       <Container>
-        {storyIds.slice(0, 5).map((storyId, i) => (
-          <TJob key={i} storyId={storyId} storyIds={storyIds} />
+        {storyIds.slice(0, 5).map((storyId) => (
+          <TJob key={storyId} storyId={storyId} />
         ))}
       </Container>
     </Wrapper>

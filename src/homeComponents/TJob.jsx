@@ -69,12 +69,15 @@ export const TJob = memo(function Story({ storyId }) {
     getJobStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
 
+  const urlName = story.url?.slice(8).split("/")[0];
+
   return story && story.url ? (
     <Wrapper>
       <JobWrapper>
         <Tag>Software Engineers</Tag>
         <Title>{story.title}</Title>
-        <Site>{story.url.slice(8, 21)}</Site>
+
+        <Site>{urlName?.includes("www") ? urlName.slice(4) : urlName}</Site>
         <Info>
           <img src="/assets/clock2.png" alt="clock" />
           <span>{mapTime(story.time)}</span>

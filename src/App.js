@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
+import { AskDetailContainer } from "./routes/AskDetailContainer";
 import Home from "./routes/Home";
 import Top from "./routes/Top";
+import TopUsers from "./routes/TopUsers";
 import New from "./routes/New";
 import Job from "./routes/Job";
 import Show from "./routes/Show";
 import Ask from "./routes/Ask";
-import { ThemeProvider } from "styled-components";
-import { AskDetailContainer } from "./routes/AskDetailContainer";
 
 const darkTheme = {
   backgroundColor: "#292C33",
@@ -38,7 +39,6 @@ const lightTheme = {
   textColor: "black",
   svelteOrangeColor: "#ed702d;",
 };
-
 const Globalstyle = createGlobalStyle`
 /* reset.css
 http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 
@@ -277,6 +277,9 @@ function App() {
               </Route>
               <Route path="/new">
                 <New toggleDark={toggleDark} />
+              </Route>
+              <Route path="/top/users">
+                <TopUsers toggleDark={toggleDark} />
               </Route>
               <Route path="/top">
                 <Top toggleDark={toggleDark} />

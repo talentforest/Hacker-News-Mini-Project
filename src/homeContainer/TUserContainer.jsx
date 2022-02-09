@@ -35,7 +35,7 @@ export const TUserContainer = () => {
       <OnlyTitle title="Today's User" />
       <Container>
         {storyIds.slice(0, 5).map((storyId, index) => (
-          <TUser key={storyId} index={index} storyId={storyId} />
+          <TUser key={storyId} storyId={storyId} index={index} />
         ))}
       </Container>
     </Wrapper>
