@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import Gnb from "../components/Gnb";
-import Banner from "../components/Banner";
-import TopToggleBtn from "../components/TopToggleBtn";
-import { TopPostContainer } from "../ArticleComponents/TopPostContainer";
+import Header from "../CommonComponents/Header";
+import Gnb from "../CommonComponents/Gnb";
+import Banner from "../CommonComponents/Banner";
+import TopToggleBtn from "../CommonComponents/TopToggleBtn";
+import { TopPostContainer } from "../PostContainer/TopPostContainer";
 
 export default function Top({ toggleDark }) {
   return (

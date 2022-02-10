@@ -1,9 +1,9 @@
 import React, { useState, useEffect, memo } from "react";
-import { getTopStory } from "../api/hnApi";
+import { getTopStory } from "../util/hnApi";
 import styled from "styled-components";
 import axios from "axios";
 import { userSelectFields } from "../util/selectFields";
-import { mapTime } from "../time/mapTime";
+import { mapTime } from "../util/mapTime";
 
 const Wrapper = styled.div`
   width: 3000px;

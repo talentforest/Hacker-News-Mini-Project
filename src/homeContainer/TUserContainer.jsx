@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../api/hnApi";
-import { TUser } from "../homeComponents/TUser";
-import { OnlyTitle } from "../components/TodayTitle";
+import { getTopStoryIds } from "../util/hnApi";
+import { TUser } from "../HomeComponents/TUser";
+import { OnlyTitle } from "../CommonComponents/TodayTitle";
 import styled from "styled-components";
 
 const Wrapper = styled.div`

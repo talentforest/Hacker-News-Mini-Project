@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
-import { getShowStory } from "../api/hnApi";
-import { mapTime } from "../time/mapTime";
+import { getShowStory } from "../util/hnApi";
+import { mapTime } from "../util/mapTime";
 import styled from "styled-components";
 
 const Wrapper = styled.div`

@@ -1,6 +1,6 @@
 import React, { useState, memo, useEffect } from "react";
 import styled from "styled-components";
-import { getAskStory } from "../api/hnApi";
+import { getAskStory } from "../util/hnApi";
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.containerColor};

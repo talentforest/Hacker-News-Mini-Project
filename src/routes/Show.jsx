@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Gnb from "../components/Gnb";
-import Banner from "../components/Banner";
-import { ShowPostContainer } from "../ArticleComponents/ShowPostContainer";
+import Header from "../CommonComponents/Header";
+import Gnb from "../CommonComponents/Gnb";
+import Banner from "../CommonComponents/Banner";
+import { ShowPostContainer } from "../PostContainer/ShowPostContainer";
 
 export default function Show({ toggleDark }) {
   return (

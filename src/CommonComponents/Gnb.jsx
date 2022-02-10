@@ -32,7 +32,7 @@ const List = styled.li`
 `;
 const CurrPageMark = styled.div`
   position: absolute;
-  top: 25px;
+  top: 26px;
   background-color: #f9742e;
   width: 42px;
   height: 3px;

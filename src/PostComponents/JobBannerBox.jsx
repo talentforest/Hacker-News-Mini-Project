@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getJobStory } from "../api/hnApi";
+import { getJobStory } from "../util/hnApi";
 
 const Banner = styled.div`
   height: 151px;

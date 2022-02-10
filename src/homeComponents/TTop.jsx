@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
-import { getTopStory } from "../api/hnApi";
-import { mapTime } from "../time/mapTime";
+import { getTopStory } from "../util/hnApi";
+import { mapTime } from "../util/mapTime";
 import styled from "styled-components";
 
 const TTopWrapper = styled.section`

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SortBtn } from "../components/SortBtn";
-import { AskPostBox } from "../ArticleComponents/AskPostBox";
-import { getAskStoryIds } from "../api/hnApi";
+import { SortBtn } from "../CommonComponents/SortBtn";
+import { AskPostBox } from "../PostComponents/AskPostBox";
+import { getAskStoryIds } from "../util/hnApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

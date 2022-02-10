@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react/cjs/react.development";
 import styled from "styled-components";
-import { getJobStoryIds, getTopStory } from "../api/hnApi";
+import { getJobStoryIds, getTopStory } from "../util/hnApi";
 import { userSelectFields } from "../util/selectFields";
 
 const Wrapper = styled.section`

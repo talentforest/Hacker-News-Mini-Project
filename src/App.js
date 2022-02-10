@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
-import { AskDetailContainer } from "./routes/AskDetailContainer";
+import { AskDetailPage } from "./routes/AskDetailPage";
 import Home from "./routes/Home";
 import Top from "./routes/Top";
 import TopUsers from "./routes/TopUsers";
@@ -10,9 +10,12 @@ import New from "./routes/New";
 import Job from "./routes/Job";
 import Show from "./routes/Show";
 import Ask from "./routes/Ask";
+import UserProfile from "./routes/UserProfile";
+import About from "./routes/About";
 
 const darkTheme = {
   backgroundColor: "#292C33",
+  backgroundLightGrayColor: "#292C33",
   backgroundGrayColor: "#292C33",
   headerBackgroundColor: "#292C33",
   containerColor: "#343538",
@@ -27,6 +30,7 @@ const darkTheme = {
 };
 const lightTheme = {
   backgroundColor: "white",
+  backgroundLightGrayColor: "#efefef",
   backgroundGrayColor: "#F5F5F5",
   headerBackgroundColor: "#ee702c",
   containerColor: "#fff",
@@ -267,7 +271,7 @@ function App() {
                 <Job toggleDark={toggleDark} />
               </Route>
               <Route path="/ask/:id">
-                <AskDetailContainer toggleDark={toggleDark} />
+                <AskDetailPage toggleDark={toggleDark} />
               </Route>
               <Route path="/ask">
                 <Ask toggleDark={toggleDark} />
@@ -283,6 +287,12 @@ function App() {
               </Route>
               <Route path="/top">
                 <Top toggleDark={toggleDark} />
+              </Route>
+              <Route path="/userprofile">
+                <UserProfile toggleDark={toggleDark} />
+              </Route>
+              <Route path="/about">
+                <About toggleDark={toggleDark} />
               </Route>
               <Route path="/">
                 <Home toggleDark={toggleDark} />

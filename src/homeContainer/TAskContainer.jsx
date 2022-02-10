@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { TAsk } from "../homeComponents/TAsk";
-import { getAskStoryIds } from "../api/hnApi";
-import { ReloadTitle } from "../components/TodayTitle";
+import { TAsk } from "../HomeComponents/TAsk";
+import { getAskStoryIds } from "../util/hnApi";
+import { ReloadTitle } from "../CommonComponents/TodayTitle";
 
 const Wrapper = styled.div`
   width: 390px;

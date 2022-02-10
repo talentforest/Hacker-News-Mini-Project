@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.backgroundGrayColor};
   width: 390px;
   height: 81px;
   padding: 24px 0 17px;
@@ -17,7 +17,7 @@ const Btn = styled.div`
   margin: auto;
   height: 40px;
   border-radius: 30px;
-  /* border: 1px solid #dfdfdf; */
+  border: 1px solid #dfdfdf;
   background-color: ${(props) => props.theme.containerColor};
 `;
 const PostBtn = styled.button`
@@ -68,11 +68,6 @@ const CurrUsersBtn = styled.div`
 
 export default function TopToggleBtn({ toggleDark }) {
   const location = useLocation();
-  const [textColor, setTextColor] = useState("white");
-
-  const changeTextColor = (e) => {
-    setTextColor(textColor === "white" ? "#333" : "white");
-  };
 
   return (
     <Wrapper>

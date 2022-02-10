@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Gnb from "../components/Gnb";
-import Banner from "../components/Banner";
-import { JobPostContainer } from "../ArticleComponents/JobPostContainer";
+import Header from "../CommonComponents/Header";
+import Gnb from "../CommonComponents/Gnb";
+import Banner from "../CommonComponents/Banner";
+import { JobPostContainer } from "../PostContainer/JobPostContainer";
 
 export default function Job({ toggleDark }) {
   return (

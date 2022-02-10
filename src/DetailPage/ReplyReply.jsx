@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { commentsSelectFields } from "../util/selectFields";
-import { mapTime } from "../time/mapTime";
+import { mapTime } from "../util/mapTime";
 
 const Wrapper = styled.div`
   /* border: 1px solid red; */

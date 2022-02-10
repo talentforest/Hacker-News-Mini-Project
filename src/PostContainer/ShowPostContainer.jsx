@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SortListBtn } from "../components/SortBtn";
-import { ShowPostBox } from "../ArticleComponents/ShowPostBox";
-import { getShowStoryIds } from "../api/hnApi";
+import { SortListBtn } from "../CommonComponents/SortBtn";
+import { ShowPostBox } from "../PostComponents/ShowPostBox";
+import { getShowStoryIds } from "../util/hnApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

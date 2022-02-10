@@ -1,12 +1,12 @@
-import Header from "../components/Header";
-import Gnb from "../components/Gnb";
-import Banner from "../components/Banner";
-import { TTopContainer } from "../homeContainer/TTopContainer";
-import { TNewContainer } from "../homeContainer/TNewContainer";
-import { TUserContainer } from "../homeContainer/TUserContainer";
-import { TShowContainer } from "../homeContainer/TShowContainer";
-import { TAskContainer } from "../homeContainer/TAskContainer";
-import { TJobContainer } from "../homeContainer/TJobContainer";
+import Header from "../CommonComponents/Header";
+import Gnb from "../CommonComponents/Gnb";
+import Banner from "../CommonComponents/Banner";
+import { TTopContainer } from "../HomeContainer/TTopContainer";
+import { TNewContainer } from "../HomeContainer/TNewContainer";
+import { TUserContainer } from "../HomeContainer/TUserContainer";
+import { TShowContainer } from "../HomeContainer/TShowContainer";
+import { TAskContainer } from "../HomeContainer/TAskContainer";
+import { TJobContainer } from "../HomeContainer/TJobContainer";
 
 export default function Home({ toggleDark }) {
   return (

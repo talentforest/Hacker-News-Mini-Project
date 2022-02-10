@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { TJob } from "../homeComponents/TJob";
-import { getJobStoryIds } from "../api/hnApi";
-import { OnlyTitle } from "../components/TodayTitle";
+import { TJob } from "../HomeComponents/TJob";
+import { getJobStoryIds } from "../util/hnApi";
+import { OnlyTitle } from "../CommonComponents/TodayTitle";
 
 const Wrapper = styled.div`
   width: 390px;

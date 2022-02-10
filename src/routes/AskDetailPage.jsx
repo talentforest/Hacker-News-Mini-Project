@@ -1,13 +1,12 @@
-import Header from "../components/Header";
-import Gnb from "../components/Gnb";
+import Header from "../CommonComponents/Header";
+import Gnb from "../CommonComponents/Gnb";
 import { useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { AskDetail } from "../DetailPage/AskDetail";
+import { Comment } from "../DetailPage/Comment";
 import { commentsSelectFields } from "../util/selectFields";
 import styled from "styled-components";
-import { AskPostBox } from "../ArticleComponents/AskPostBox";
-import { mapTime } from "../time/mapTime";
+import { mapTime } from "../util/mapTime";
 
 const Wrapper = styled.section`
   width: 390px;
@@ -80,8 +79,6 @@ const UserInfo = styled.div`
   font-weight: 400;
   margin-top: 8px;
   color: #949494;
-
-  /* border: 1px solid blue; */
   img {
     width: 3px;
     height: 3px;
@@ -105,7 +102,7 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export const AskDetailContainer = ({ toggleDark }) => {
+export const AskDetailPage = ({ toggleDark }) => {
   const { id } = useParams();
   const [currIdData, setCurrIdData] = useState([]);
 
@@ -114,7 +111,6 @@ export const AskDetailContainer = ({ toggleDark }) => {
     const result = await axios
       .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
       .then(({ data }) => data && commentsSelectFields(data));
-
     return result;
   };
 
@@ -122,13 +118,11 @@ export const AskDetailContainer = ({ toggleDark }) => {
     getCurrIdData().then((data) => setCurrIdData(data));
   }, []);
   const commentIdsArr = currIdData.kids;
+  // console.log(currIdData);
 
   const orangeWords = `${currIdData.title?.split(" ")[0]} ${
     currIdData.title?.split(" ")[1]
   }`;
-
-  const refObj = useRef();
-  console.log(refObj);
 
   return (
     <Wrapper>
@@ -151,7 +145,7 @@ export const AskDetailContainer = ({ toggleDark }) => {
         </Title>
         <PostText dangerouslySetInnerHTML={{ __html: currIdData.text }} />
       </Post>
-      <Sort ref={refObj}>
+      <Sort>
         <SortList>
           <Registerd>
             <img src="/assets/circle_orange.png" alt="bullet" />
@@ -165,7 +159,7 @@ export const AskDetailContainer = ({ toggleDark }) => {
         <img src="/assets/comment.png" alt="commentimg" />
       </Sort>
       {commentIdsArr?.slice(0, 16).map((commentId) => (
-        <AskDetail key={commentId} commentId={commentId} />
+        <Comment key={commentId} commentId={commentId} />
       ))}
     </Wrapper>
   );

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getAskStory } from "../api/hnApi";
-import { mapTime } from "../time/mapTime";
-import { Link, useLocation } from "react-router-dom";
+import { getAskStory } from "../util/hnApi";
+import { mapTime } from "../util/mapTime";
+import { Link } from "react-router-dom";
 
 const Post = styled.div`
   width: 390px;
@@ -74,7 +74,7 @@ const UserInfo = styled.div`
     margin-right: 6px;
   }
 `;
-const Comments = styled.div`
+const CommentDisplay = styled.div`
   display: flex;
   align-items: center;
   color: #ed702d;
@@ -85,13 +85,6 @@ const Orange = styled.span`
 
 export const AskPostBox = memo(function AskStory({ storyId, match }) {
   const [story, setStory] = useState([]);
-
-  // const storeId = match.params.storeId;
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(6000, 20);
-  }, [pathname]);
 
   useEffect(() => {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
@@ -127,17 +120,17 @@ export const AskPostBox = memo(function AskStory({ storyId, match }) {
       <Info>
         <User>
           <img src="/assets/user.png" alt="userimg" />
-          <Username>{story.by}</Username>
+          <Link to="/userprofile">
+            <Username>{story.by}</Username>
+          </Link>
           <UserInfo>
             <span>{story.score} points</span>
           </UserInfo>
         </User>
-        <Link to={`/ask/${story.id}`}>
-          <Comments>
-            <img src="/assets/comment.png" alt="comments" />
-            <span>{story.descendants}</span>
-          </Comments>
-        </Link>
+        <CommentDisplay>
+          <img src="/assets/comment.png" alt="comments" />
+          <span>{story.descendants}</span>
+        </CommentDisplay>
       </Info>
     </Post>
   ) : null;

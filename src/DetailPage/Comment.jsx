@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Reply } from "./Reply";
-import { mapTime } from "../time/mapTime";
+import { mapTime } from "../util/mapTime";
 
 const Wrapper = styled.section`
   width: 390px;
@@ -50,7 +50,7 @@ const Gray = styled.span`
   padding-top: 2px;
   color: #727272;
 `;
-const Comment = styled.p`
+const CommentText = styled.p`
   background-color: ${(props) => props.theme.backgroundColor};
   display: block;
   line-height: 20px;
@@ -59,7 +59,7 @@ const Comment = styled.p`
   white-space: pre-wrap;
 `;
 
-export const AskDetail = memo(function Story({ commentId }) {
+export const Comment = memo(function Story({ commentId }) {
   const [folder, setFolder] = useState(true);
   // 여기서 다시 fetch로 코멘트 데이터 얻기
   const [commentIds, setCommentIds] = useState([]);
@@ -97,7 +97,7 @@ export const AskDetail = memo(function Story({ commentId }) {
         />
       </UserInfo>
       {folder ? (
-        <Comment dangerouslySetInnerHTML={{ __html: commentIds.text }} />
+        <CommentText dangerouslySetInnerHTML={{ __html: commentIds.text }} />
       ) : null}
 
       {folder

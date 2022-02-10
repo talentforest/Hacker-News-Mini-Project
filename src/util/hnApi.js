@@ -5,7 +5,7 @@ import {
   showSelectFields,
   jobSelectFields,
   bySelectFields,
-} from "../util/selectFields";
+} from "./selectFields";
 
 export const baseUrl = "https://hacker-news.firebaseio.com/v0/";
 export const bestStoriesUrl = `${baseUrl}beststories.json`;

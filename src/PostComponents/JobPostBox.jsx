@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getJobStory } from "../api/hnApi";
-import { mapTime } from "../time/mapTime";
+import { getJobStory } from "../util/hnApi";
+import { mapTime } from "../util/mapTime";
 
 const Post = styled.div`
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);

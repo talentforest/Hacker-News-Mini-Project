@@ -1,31 +1,33 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SortListBtn } from "../components/SortBtn";
-import { NewPostBox } from "./NewPostBox";
-import { getNewStoryIds } from "../api/hnApi";
+import { SortListBtn } from "../CommonComponents/SortBtn";
+import { useEffect, useState } from "react";
+import { getTopStoryIds } from "../util/hnApi";
+import { TopPostBox } from "../PostComponents/TopPostBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+// import "swiper/swiper.css";
+// import "swiper/modules/navigation/navigation.css";
+// import "swiper/modules/pagination/pagination.css";
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
-  padding-top: 20px;
   background-color: ${(props) => props.theme.backgroundGrayColor};
+  width: 390px;
 `;
 const Posts = styled.section`
   display: flex;
   flex-direction: column;
-  width: 350px;
-  padding-top: 20px;
-  margin: 0 auto 150px;
+  padding: 20px;
+  margin-bottom: 150px;
 `;
 
-export const NewPostContainer = () => {
+export const TopPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getNewStoryIds().then((data) => setStoryIds(data));
+    getTopStoryIds().then((data) => setStoryIds(data));
   }, []);
 
   return (
@@ -40,21 +42,35 @@ export const NewPostContainer = () => {
         <SwiperSlide>
           <Posts>
             {storyIds.slice(0, 20).map((storyId) => (
-              <NewPostBox key={storyId} storyId={storyId} />
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
             {storyIds.slice(20, 40).map((storyId) => (
-              <NewPostBox key={storyId} storyId={storyId} />
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
             {storyIds.slice(40, 60).map((storyId) => (
-              <NewPostBox key={storyId} storyId={storyId} />
+              <TopPostBox key={storyId} storyId={storyId} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(60, 80).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(80, 100).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>

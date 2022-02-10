@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { JobPostBox } from "./JobPostBox";
-import { BannerBox, BannerBox2 } from "./JobBannerBox";
-import { getJobStoryIds } from "../api/hnApi";
+import { JobPostBox } from "../PostComponents/JobPostBox";
+import { BannerBox, BannerBox2 } from "../PostComponents/JobBannerBox";
+import { getJobStoryIds } from "../util/hnApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

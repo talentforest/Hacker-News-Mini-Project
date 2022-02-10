@@ -6,11 +6,11 @@ const SortView = styled.div`
   width: 390px;
   padding-right: 20px;
   height: 24px;
+  /* background-color: ${(props) => props.theme.backgroundColor}; */
 `;
 const Sort = styled.div`
   display: flex;
   margin-left: 20px;
-
   div {
     display: flex;
     align-items: center;
