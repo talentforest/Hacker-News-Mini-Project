@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Gnb from "../components/Gnb";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { AskDetail } from "../DetailPage/AskDetail";
 import { commentsSelectFields } from "../util/selectFields";
@@ -108,6 +108,7 @@ const Orange = styled.span`
 export const AskDetailContainer = ({ toggleDark }) => {
   const { id } = useParams();
   const [currIdData, setCurrIdData] = useState([]);
+
   // kids 배열 데이터 얻기
   const getCurrIdData = async () => {
     const result = await axios
@@ -125,6 +126,9 @@ export const AskDetailContainer = ({ toggleDark }) => {
   const orangeWords = `${currIdData.title?.split(" ")[0]} ${
     currIdData.title?.split(" ")[1]
   }`;
+
+  const refObj = useRef();
+  console.log(refObj);
 
   return (
     <Wrapper>
@@ -147,7 +151,7 @@ export const AskDetailContainer = ({ toggleDark }) => {
         </Title>
         <PostText dangerouslySetInnerHTML={{ __html: currIdData.text }} />
       </Post>
-      <Sort>
+      <Sort ref={refObj}>
         <SortList>
           <Registerd>
             <img src="/assets/circle_orange.png" alt="bullet" />
@@ -160,8 +164,6 @@ export const AskDetailContainer = ({ toggleDark }) => {
         </SortList>
         <img src="/assets/comment.png" alt="commentimg" />
       </Sort>
-      <AskPostBox />
-
       {commentIdsArr?.slice(0, 16).map((commentId) => (
         <AskDetail key={commentId} commentId={commentId} />
       ))}

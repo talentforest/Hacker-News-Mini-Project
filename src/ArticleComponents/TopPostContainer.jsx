@@ -7,7 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+// import "swiper/swiper.css";
+// import "swiper/modules/navigation/navigation.css";
+// import "swiper/modules/pagination/pagination.css";
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`

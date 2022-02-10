@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.section`
@@ -7,7 +8,6 @@ const Wrapper = styled.section`
   height: 81px;
   padding: 24px 0 17px;
 `;
-
 const Btn = styled.div`
   position: relative;
   display: flex;
@@ -17,28 +17,30 @@ const Btn = styled.div`
   margin: auto;
   height: 40px;
   border-radius: 30px;
-  border: 1px solid #dfdfdf;
+  /* border: 1px solid #dfdfdf; */
+  background-color: ${(props) => props.theme.containerColor};
 `;
-
 const PostBtn = styled.button`
+  position: relative;
   border-radius: 20px;
   width: 171px;
   height: 32px;
   background-color: transparent;
   border: none;
   font-size: 12px;
-  color: #b7b7b7;
+  color: ${(props) => props.color};
   cursor: pointer;
   z-index: 1;
 `;
 const UsersBtn = styled.button`
+  position: relative;
   border-radius: 20px;
   width: 171px;
   height: 32px;
   background-color: transparent;
   border: none;
   font-size: 12px;
-  color: #b7b7b7;
+  color: ${(props) => props.color};
   cursor: pointer;
   z-index: 1;
 `;
@@ -50,22 +52,38 @@ const CurrBtn = styled.div`
   border-radius: 20px;
   border: none;
   background-color: #ed702d;
-  left: 2px;
+  left: 3px;
+  top: 3px;
 `;
-const Container = styled.div`
-  padding-top: 20px;
-  background-color: ${(props) => props.theme.backgroundColor};
+const CurrUsersBtn = styled.div`
+  position: absolute;
+  width: 171px;
+  height: 32px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ed702d;
+  right: 3px;
+  top: 3px;
 `;
 
 export default function TopToggleBtn({ toggleDark }) {
+  const location = useLocation();
+  const [textColor, setTextColor] = useState("white");
+
+  const changeTextColor = (e) => {
+    setTextColor(textColor === "white" ? "#333" : "white");
+  };
+
   return (
     <Wrapper>
       <Btn>
         <Link to="/top">
-          <PostBtn>Post</PostBtn>
+          <PostBtn color="#b7b7b7">Post</PostBtn>
+          {location.pathname === "/top" ? <CurrBtn /> : null}
         </Link>
         <Link to="/top/users">
-          <UsersBtn>Users</UsersBtn>
+          <UsersBtn color="#b7b7b7">Users</UsersBtn>
+          {location.pathname === "/top/users" ? <CurrUsersBtn /> : null}
         </Link>
       </Btn>
     </Wrapper>

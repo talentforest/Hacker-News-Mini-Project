@@ -33,7 +33,13 @@ export const TAsk = memo(function Story({ storyId }) {
   return (
     <Wrapper>
       <h4>
-        <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+        {story.title?.includes("Ask HN") ? (
+          <div>
+            <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+          </div>
+        ) : (
+          story.title
+        )}
       </h4>
     </Wrapper>
   );

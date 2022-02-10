@@ -10,6 +10,7 @@ const SortView = styled.div`
 const Sort = styled.div`
   display: flex;
   margin-left: 20px;
+
   div {
     display: flex;
     align-items: center;

@@ -16,7 +16,6 @@ const darkTheme = {
   backgroundGrayColor: "#292C33",
   headerBackgroundColor: "#292C33",
   containerColor: "#343538",
-  containerBlueColor: "#343538",
   commentContainerColor: "#343538",
   commentColor: "#fff",
   containerGrayColor: "#E2ECF0",
@@ -24,20 +23,21 @@ const darkTheme = {
   headerHoverColor: "#fff",
   textColor: "#fff",
   svelteOrangeColor: "#ed702d;",
+  userRankOddBoxColor: "#343538",
 };
 const lightTheme = {
   backgroundColor: "white",
   backgroundGrayColor: "#F5F5F5",
   headerBackgroundColor: "#ee702c",
   containerColor: "#fff",
-  containerBlueColor: "#EAF4F8",
+  containerGrayColor: "#fff",
   commentContainerColor: "#efefef",
   commentColor: "#3f3f3f",
-  containerGrayColor: "#fff",
   headerColor: "#ee702c#",
   headerHoverColor: "#727272",
   textColor: "black",
   svelteOrangeColor: "#ed702d;",
+  userRankOddBoxColor: "#fff",
 };
 const Globalstyle = createGlobalStyle`
 /* reset.css
@@ -174,7 +174,7 @@ body {
   font-family: "Roboto", sans-serif;
   width: 390px;
   box-sizing: border-box;
-  background-color: #222;
+  background-color: #444;
   margin: 0 auto;
 }
 a {
@@ -229,7 +229,7 @@ a {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-color: #fff;
+  background-color: red;
   border: 1px solid #dfdfdf;
   width: 30px;
   height: 30px;

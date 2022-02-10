@@ -66,8 +66,9 @@ const Company2 = styled.span`
 `;
 const Job = styled.span`
   /* border: 1px solid red; */
-  padding: 0 15px;
-  word-break: break-all;
+  margin: 3px 30px 0;
+  word-break: break-word;
+  text-align: center;
   font-weight: 700;
   line-height: 20px;
   height: 27px;

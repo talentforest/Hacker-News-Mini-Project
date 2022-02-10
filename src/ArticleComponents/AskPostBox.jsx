@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
 import { getAskStory } from "../api/hnApi";
 import { mapTime } from "../time/mapTime";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Post = styled.div`
   width: 390px;
@@ -62,6 +62,9 @@ const User = styled.div`
   align-items: center;
   color: ${(props) => props.theme.textColor};
 `;
+const Username = styled.div`
+  cursor: pointer;
+`;
 const UserInfo = styled.div`
   margin-left: 6px;
   display: flex;
@@ -80,8 +83,15 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export const AskPostBox = memo(function AskStory({ storyId }) {
+export const AskPostBox = memo(function AskStory({ storyId, match }) {
   const [story, setStory] = useState([]);
+
+  // const storeId = match.params.storeId;
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(6000, 20);
+  }, [pathname]);
 
   useEffect(() => {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
@@ -95,7 +105,14 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
     <Post>
       <Link to={`/ask/${story.id}`}>
         <Title>
-          <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+          {story.title?.includes("Ask HN") ||
+          story.title?.includes("Tell HN") ? (
+            <>
+              <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+            </>
+          ) : (
+            story.title
+          )}
         </Title>
         <PostText
           dangerouslySetInnerHTML={{
@@ -110,15 +127,17 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
       <Info>
         <User>
           <img src="/assets/user.png" alt="userimg" />
-          <span>{story.by}</span>
+          <Username>{story.by}</Username>
           <UserInfo>
             <span>{story.score} points</span>
           </UserInfo>
         </User>
-        <Comments>
-          <img src="/assets/comment.png" alt="comments" />
-          <span>{story.descendants}</span>
-        </Comments>
+        <Link to={`/ask/${story.id}`}>
+          <Comments>
+            <img src="/assets/comment.png" alt="comments" />
+            <span>{story.descendants}</span>
+          </Comments>
+        </Link>
       </Info>
     </Post>
   ) : null;
