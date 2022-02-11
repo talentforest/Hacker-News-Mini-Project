@@ -87,7 +87,6 @@ export default function UserSubmission({ submittedId }) {
   const orangeWords = `${userSubmissions?.title.split(" ")[0]} ${
     userSubmissions?.title.split(" ")[1]
   }`;
-  console.log(userSubmissions);
 
   const urlName = userSubmissions?.url?.slice(8).split("/")[0];
 
