@@ -2,9 +2,13 @@
 
 ---
 
-### 🐞 Bug
+### 🐞 Describe the Bug
 
-### ⚙️ Feature
+### ⚙️ Describe the Feature
+
+---
+
+### 🚀 Expected Behavior
 
 ---
 
