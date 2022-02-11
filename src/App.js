@@ -25,6 +25,7 @@ const darkTheme = {
   headerColor: "#727272",
   headerHoverColor: "#fff",
   textColor: "#fff",
+  textGrayColor: "#fff",
   svelteOrangeColor: "#ed702d;",
   userRankOddBoxColor: "#343538",
 };
@@ -40,6 +41,7 @@ const lightTheme = {
   headerColor: "#ee702c#",
   headerHoverColor: "#727272",
   textColor: "black",
+  textGrayColor: "#202020",
   svelteOrangeColor: "#ed702d;",
   userRankOddBoxColor: "#fff",
 };

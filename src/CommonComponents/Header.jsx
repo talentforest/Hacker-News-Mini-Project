@@ -6,7 +6,6 @@ const HeaderTop = styled.header`
   align-items: flex-end;
   justify-content: space-between;
   background-color: ${(props) => props.theme.headerBackgroundColor};
-  /* background-color: #ed702d; */
   height: 87px;
   padding: 44px 20px 7px;
 `;
@@ -47,11 +46,13 @@ export default function Header({ toggleDark }) {
           src="/assets/lightmode.png"
           alt="light/dark mode"
         />
-        <Icon
-          className="question"
-          src="/assets/questionmark.png"
-          alt="question"
-        />
+        <Link to="/about">
+          <Icon
+            className="question"
+            src="/assets/questionmark.png"
+            alt="question"
+          />
+        </Link>
       </div>
     </HeaderTop>
   );
