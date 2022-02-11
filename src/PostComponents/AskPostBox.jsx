@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
 import { getAskStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Post = styled.div`
   width: 390px;
@@ -83,9 +83,8 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export const AskPostBox = memo(function AskStory({ storyId, match }) {
+export const AskPostBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
-
   useEffect(() => {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
@@ -120,7 +119,7 @@ export const AskPostBox = memo(function AskStory({ storyId, match }) {
       <Info>
         <User>
           <img src="/assets/user.png" alt="userimg" />
-          <Link to="/userprofile">
+          <Link to={`/userprofile/${story.by}`}>
             <Username>{story.by}</Username>
           </Link>
           <UserInfo>

@@ -1,19 +1,25 @@
+import { storyUrl } from "./hnApi";
+
 export const selectFields = ({
-  id,
   by,
+  descendants,
+  id,
+  kids,
+  score,
   time,
   title,
-  score,
+  type,
   url,
-  descendants,
 }) => ({
-  id,
   by,
+  descendants,
+  id,
+  kids,
+  score,
   time,
   title,
-  score,
+  type,
   url,
-  descendants,
 });
 
 export const askSelectFields = ({
@@ -103,4 +109,26 @@ export const commentsSelectFields = ({
 
 export const bySelectFields = ({ by }) => ({
   by,
+});
+
+export const submissionFields = ({
+  by,
+  descendants,
+  id,
+  kids,
+  score,
+  time,
+  title,
+  type,
+  url,
+}) => ({
+  by,
+  descendants,
+  id,
+  kids,
+  score,
+  time,
+  title,
+  type,
+  url,
 });

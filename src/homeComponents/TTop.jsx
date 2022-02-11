@@ -2,6 +2,7 @@ import React, { useState, useEffect, memo } from "react";
 import { getTopStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const TTopWrapper = styled.section`
   display: flex;
@@ -25,6 +26,11 @@ const Title = styled.h4`
 `;
 const Info = styled.div`
   display: flex;
+  align-items: baseline;
+  span:first-child {
+    font-size: 12px;
+    font-weight: 400;
+  }
   span {
     margin: 14px 8px 0 0;
     font-size: 12px;
@@ -55,7 +61,9 @@ export const TTop = memo(function Story({ storyId, index }) {
           </Title>
         </a>
         <Info>
-          <span>{story.by}</span>
+          <Link to={`/userprofile/${story.by}`}>
+            <span>{story.by}</span>
+          </Link>
           <span>{story.score} points</span>
           <span>{mapTime(story.time)}</span>
         </Info>

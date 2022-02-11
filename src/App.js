@@ -233,7 +233,6 @@ a {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-color: red;
   border: 1px solid #dfdfdf;
   width: 30px;
   height: 30px;
