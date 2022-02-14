@@ -4,9 +4,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundGrayColor};
-  width: 390px;
-  height: 81px;
-  padding: 24px 0 17px;
+  padding: 24px 0 24px;
+  /* border: 1px solid red; */
 `;
 const Btn = styled.div`
   position: relative;

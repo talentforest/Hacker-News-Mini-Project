@@ -67,7 +67,6 @@ export const NewPostBox = memo(function Story({ storyId }) {
   useEffect(() => {
     getNewStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
-  // console.log(story);
 
   return story && story.url ? (
     <Post>

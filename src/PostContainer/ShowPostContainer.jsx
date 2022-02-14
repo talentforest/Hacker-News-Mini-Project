@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SortListBtn } from "../CommonComponents/SortBtn";
+import { SortViewModeBtn } from "../CommonComponents/SortBtn";
 import { ShowPostBox } from "../PostComponents/ShowPostBox";
 import { getShowStoryIds } from "../util/hnApi";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,7 +30,7 @@ export const ShowPostContainer = () => {
 
   return (
     <Wrapper>
-      <SortListBtn />
+      <SortViewModeBtn />
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={1}

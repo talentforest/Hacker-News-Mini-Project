@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SortListBtn } from "../CommonComponents/SortBtn";
+import { SortViewModeBtn } from "../CommonComponents/SortBtn";
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
 import { TopPostBox } from "../PostComponents/TopPostBox";
@@ -7,9 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import "swiper/swiper.css";
-// import "swiper/modules/navigation/navigation.css";
-// import "swiper/modules/pagination/pagination.css";
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
@@ -32,7 +29,6 @@ export const TopPostContainer = () => {
 
   return (
     <Wrapper>
-      <SortListBtn />
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={1}

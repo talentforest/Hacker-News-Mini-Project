@@ -30,7 +30,6 @@ export const NewPostContainer = () => {
 
   return (
     <Wrapper>
-      <SortListBtn />
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={1}
