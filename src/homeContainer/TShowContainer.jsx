@@ -6,12 +6,12 @@ import { ReloadTitle } from "../CommonComponents/TodayTitle";
 
 const Wrapper = styled.div`
   width: 390px;
-
   margin-bottom: 12px;
   background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
 `;
 const Container = styled.div`
+  /* border: 1px solid red; */
   display: flex;
   width: 350px;
   height: 300px;
@@ -24,16 +24,19 @@ const Container = styled.div`
 
 export const TShowContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
+  const [randomNumber, setRandomNumber] = useState([]);
 
   useEffect(() => {
     getShowStoryIds().then((data) => setStoryIds(data));
   }, []);
 
+  const reloadData = () => setRandomNumber(Math.floor(Math.random() * 39 + 1));
+
   return (
     <Wrapper>
-      <ReloadTitle title="Today's Show" />
+      <ReloadTitle title="Today's Show" reloadData={reloadData} />
       <Container>
-        {storyIds.slice(0, 5).map((storyId) => (
+        {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TShow key={storyId} storyId={storyId} />
         ))}
       </Container>

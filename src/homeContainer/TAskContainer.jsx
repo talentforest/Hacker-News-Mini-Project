@@ -21,16 +21,19 @@ const Container = styled.div`
 
 export const TAskContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
+  const [randomNumber, setRandomNumber] = useState([]);
 
   useEffect(() => {
     getAskStoryIds().then((data) => setStoryIds(data));
   }, []);
 
+  const reloadData = () => setRandomNumber(Math.floor(Math.random() * 39 + 1));
+
   return (
     <Wrapper>
-      <ReloadTitle title="Today's Ask" />
+      <ReloadTitle title="Today's Ask" reloadData={reloadData} />
       <Container>
-        {storyIds.slice(0, 5).map((storyId) => (
+        {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TAsk key={storyId} storyId={storyId} />
         ))}
       </Container>

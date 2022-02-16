@@ -19,7 +19,7 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export const TAsk = memo(function Story({ storyId }) {
+export const TAsk = memo(function Story({ storyId, reloadData }) {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export const TAsk = memo(function Story({ storyId }) {
   return (
     <Wrapper>
       <h4>
-        {story.title?.includes("Ask HN") ? (
+        {story.title?.includes("Ask HN") || story.title?.includes("Tell HN") ? (
           <div>
             <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
           </div>
