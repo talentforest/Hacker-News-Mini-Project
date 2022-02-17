@@ -4,7 +4,7 @@ const SortView = styled.div`
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.backgroundGrayColor};
 `;
 const Sort = styled.div`
   display: flex;

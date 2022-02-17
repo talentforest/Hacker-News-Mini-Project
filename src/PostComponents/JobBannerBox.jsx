@@ -65,7 +65,6 @@ const Company2 = styled.span`
   text-align: center;
 `;
 const Job = styled.span`
-  /* border: 1px solid red; */
   margin: 3px 30px 0;
   word-break: break-word;
   text-align: center;
@@ -85,11 +84,7 @@ export const BannerBox = memo(function Story({ storyId }) {
   }, []);
 
   const companyName = story.title?.split(")")[0];
-  // console.log(companyName);
-
   const companyShortName = story.title?.split(" ")[0];
-  // console.log(companyShortName);
-
   const job = story.title?.split("iring")[1];
 
   return (
@@ -114,10 +109,7 @@ export const BannerBox2 = memo(function Story({ storyId }) {
   }, []);
 
   const companyName = story.title?.split(")")[0];
-  // console.log(companyName);
-
   const companyShortName = story.title?.split(" ")[0];
-  // console.log(companyShortName);
 
   return (
     <Banner2>

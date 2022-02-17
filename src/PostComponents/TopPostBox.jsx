@@ -5,7 +5,6 @@ import { mapTime } from "../util/mapTime";
 
 const Post = styled.div`
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-  width: 350px;
   height: 128px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.containerColor};
@@ -60,7 +59,7 @@ export const TopPostBox = memo(function TopStory({ storyId }) {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
   }, []);
 
-  return story && story.by ? (
+  return (
     <Post>
       <h4>{story.title}</h4>
       <Info>
@@ -78,5 +77,5 @@ export const TopPostBox = memo(function TopStory({ storyId }) {
         </Comments>
       </Info>
     </Post>
-  ) : null;
+  );
 });

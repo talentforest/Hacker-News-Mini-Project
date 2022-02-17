@@ -75,7 +75,11 @@ export const TJob = memo(function Story({ storyId }) {
     <Wrapper>
       <JobWrapper>
         <Tag>Software Engineers</Tag>
-        <Title>{story.title}</Title>
+        <Title>
+          {story.title?.length > 75
+            ? `${story.title?.slice(0, 75)}...`
+            : story.title}
+        </Title>
 
         <Site>{urlName?.includes("www") ? urlName.slice(4) : urlName}</Site>
         <Info>

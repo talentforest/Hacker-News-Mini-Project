@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundColor};
-  width: 390px;
+  width: 100%;
   height: 652px;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);

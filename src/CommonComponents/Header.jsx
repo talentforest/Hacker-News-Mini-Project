@@ -6,8 +6,10 @@ const HeaderTop = styled.header`
   align-items: flex-end;
   justify-content: space-between;
   background-color: ${(props) => props.theme.headerBackgroundColor};
+  /* width: 100%; */
   height: 87px;
   padding: 44px 20px 7px;
+  /* border: 5px solid blue; */
 `;
 const Title = styled.div`
   display: flex;

@@ -1,13 +1,9 @@
 import React, { useState, useEffect, memo } from "react";
 import { getTopStory } from "../util/hnApi";
 import styled from "styled-components";
-import axios from "axios";
-import { userSelectFields } from "../util/selectFields";
-import { mapTime } from "../util/mapTime";
+import { TUserInfo } from "./TUserInfo";
 
-const Wrapper = styled.div`
-  width: 3000px;
-`;
+const Wrapper = styled.div``;
 const UserWrapper = styled.div`
   width: 228px;
   height: 146px;
@@ -50,59 +46,13 @@ const Username = styled.div`
   color: ${(props) => props.theme.textColor};
   margin-bottom: 8px;
 `;
-const UserInfoBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* border: 1px solid red; */
-`;
-const Infobox = styled.div`
-  height: 40px;
-`;
-const Info = styled.div`
-  display: flex;
-  font-size: 12px;
-  color: #727272;
-  div:first-child {
-    border: 1px solid rgb(238, 112, 44, 0.75);
-    color: #ed702d;
-    font-weight: 10px;
-    letter-spacing: 0.1%;
-    width: 43px;
-    height: 14px;
-    border-radius: 20px;
-    padding: 1px 2px;
-    margin: 1px 4px 6px 0;
-  }
-  span {
-    padding-top: 3px;
-  }
-`;
-const Btn = styled.img`
-  width: 24px;
-  height: 24px;
-`;
 
 export const TUser = memo(function Story({ index, storyId }) {
   // 탑스토리 가져오고
   const [story, setStory] = useState([]);
-  const [topUserData, setTopUserData] = useState([]);
 
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
-  }, []);
-
-  const getUserInfo = async () => {
-    const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/user/${story.by}.json`)
-      .then(({ data }) => data && userSelectFields(data));
-    return result;
-  };
-
-  useEffect(() => {
-    getTopStory().then(
-      getUserInfo().then((data) => data && setTopUserData(data))
-    );
   }, []);
 
   return story && story.url ? (
@@ -114,19 +64,7 @@ export const TUser = memo(function Story({ index, storyId }) {
           <span>Today's User</span>
         </Rank>
         <Username>{story.by}</Username>
-        <UserInfoBox>
-          <Infobox>
-            <Info>
-              <div>Joined</div>
-              <span>{mapTime(topUserData.created)} ago</span>
-            </Info>
-            <Info>
-              <div>karma</div>
-              <span>{topUserData.karma}</span>
-            </Info>
-          </Infobox>{" "}
-          <Btn src="/assets/arrow_blue.png" alt="arrow button" />
-        </UserInfoBox>
+        <TUserInfo story={story} />
       </UserWrapper>
     </Wrapper>
   ) : null;

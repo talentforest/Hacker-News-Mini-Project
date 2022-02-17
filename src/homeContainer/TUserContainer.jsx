@@ -5,7 +5,7 @@ import { OnlyTitle } from "../CommonComponents/TodayTitle";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 390px;
+  width: 100%;
   height: 290px;
   overflow: hidden;
   margin: 0 auto 12px;
@@ -14,13 +14,14 @@ const Wrapper = styled.div`
 `;
 const Container = styled.div`
   overflow: scroll;
-  /* border: 1px solid red; */
   background-color: ${(props) => props.theme.backgroundColor};
-  width: 370px;
   height: 160px;
   margin: 20px 0px 56px 20px;
   border-radius: 8px;
   display: flex;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const TUserContainer = () => {

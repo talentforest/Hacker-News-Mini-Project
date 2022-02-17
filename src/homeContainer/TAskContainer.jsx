@@ -5,7 +5,7 @@ import { getAskStoryIds } from "../util/hnApi";
 import { ReloadTitle } from "../CommonComponents/TodayTitle";
 
 const Wrapper = styled.div`
-  width: 390px;
+  width: 100%;
   height: 600px;
   margin-bottom: 12px;
   background-color: ${(props) => props.theme.backgroundColor};

@@ -5,13 +5,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const TTopWrapper = styled.section`
-  display: flex;
-  padding: 16px 14px 14px;
-  height: 98px;
   position: relative;
+  display: flex;
+  height: 98px;
+  padding: 16px 14px 14px;
 `;
 const Ranking = styled.div`
-  width: 23px;
   height: 68px;
   margin-right: 24px;
   font-size: 24px;
@@ -19,7 +18,6 @@ const Ranking = styled.div`
   color: #ed702d;
 `;
 const Title = styled.h4`
-  width: 275px;
   font-weight: 600;
   line-height: 20px;
   color: ${(props) => props.theme.textColor};
@@ -44,10 +42,6 @@ export const TTop = memo(function Story({ storyId, index }) {
   useEffect(() => {
     getTopStory(storyId).then((data) => data && data.url && setStory(data));
   }, [storyId]);
-
-  const topRankStory = story.score;
-  // console.log(topRankStory);
-  // console.log(story);
 
   return story && story.url ? (
     <TTopWrapper>

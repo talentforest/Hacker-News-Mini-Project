@@ -2,10 +2,9 @@ import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
 import { getAskStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Post = styled.div`
-  width: 390px;
   height: 201px;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
@@ -16,17 +15,14 @@ const Title = styled.h4`
   font-weight: 500;
   line-height: 24px;
   padding: 12px 20px 4px;
-  /* height: 64px; */
   padding: 12px 20px 0;
   cursor: pointer;
 `;
 const PostText = styled.p`
-  width: 390px;
   margin: 0 auto;
   height: 62px;
   overflow: hidden;
   margin-bottom: 10px;
-  /* border: 1px solid blue; */
   padding: 6px 20px 10px;
   font-size: 14px;
   line-height: 18px;
@@ -50,7 +46,6 @@ const Info = styled.div`
   font-size: 12px;
   padding: 12px 20px;
   color: #949494;
-  /* border: 1px solid blue; */
   img {
     width: 16px;
     height: 16px;
@@ -93,7 +88,7 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
     story.title?.split(" ")[1]
   }`;
 
-  return story && story.title ? (
+  return (
     <Post>
       <Link to={`/ask/${story.id}`}>
         <Title>
@@ -132,5 +127,5 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
         </CommentDisplay>
       </Info>
     </Post>
-  ) : null;
+  );
 });

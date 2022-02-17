@@ -178,19 +178,13 @@ table {
 }
 body {
   font-family: "Roboto", sans-serif;
-  width: 390px;
   box-sizing: border-box;
-  background-color: #444;
-  margin: 0 auto;
+  background-color: #e5e5e5;
 }
 a {
   text-decoration: none;
   color: #727272;
 }
-.App {
-    margin: 0 auto;
-    background-color: #EFEFEF;
-  }
 .swiper-pagination {
   display: flex;
   align-items: center;
@@ -211,19 +205,22 @@ a {
   border-radius: 4px;
 }
 .swiper {
+  border: 1px solid red;
   display: flex;
   justify-content: center;
   position: relative;
 }
 .swiper-pagination-fraction {
+  display: flex;
+  justify-content: center;
   background-color: #fff;
   border: 1px solid #dfdfdf;
   width: 71px;
   height: 30px;
   border-radius: 20px;
-  margin-left: 160px;
+  /* margin-left: 160px; */
   padding-top: 3px;
-  margin-bottom: 66px;
+  margin: 0 auto 66px;
 }
 .swiper-pagination-current,
 .swiper-pagination-total {

@@ -16,8 +16,7 @@ const Wrapper = styled.div`
 const Posts = styled.section`
   display: flex;
   flex-direction: column;
-  width: 350px;
-  padding-top: 20px;
+  padding: 20px 20px 0 20px;
   margin: 0 auto 150px;
 `;
 

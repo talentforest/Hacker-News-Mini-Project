@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { SortViewModeBtn } from "../CommonComponents/SortBtn";
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
 import { TopPostBox } from "../PostComponents/TopPostBox";
@@ -11,7 +10,7 @@ import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.backgroundGrayColor};
-  width: 390px;
+  width: 100%;
 `;
 const Posts = styled.section`
   display: flex;

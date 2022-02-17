@@ -15,27 +15,23 @@ const Wrapper = styled.section`
 const Posts = styled.div`
   background-color: ${(props) => props.theme.backgroundGrayColor};
   margin: 12px auto 40px;
-  width: 350px;
-  /* border: 1px solid red; */
+  padding: 0 20px;
 `;
 const ApplyBanner = styled.section`
   position: relative;
-  width: 390px;
 `;
 const BannerImg = styled.img`
-  width: 390px;
   display: block;
+  width: 100%;
 `;
 const BannerSlide = styled.div`
   position: absolute;
-  width: 370px;
   display: flex;
   top: 104px;
   left: 20px;
 `;
 const BannerSlide2 = styled.div`
   position: absolute;
-  width: 370px;
   display: flex;
   top: 54px;
   left: 20px;
