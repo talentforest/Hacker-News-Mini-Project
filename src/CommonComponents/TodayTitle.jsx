@@ -74,7 +74,7 @@ export const ClockTitle = ({ title }) => {
   );
 };
 
-export const ReloadTitle = ({ title, reloadData }) => {
+export const ReloadTitle = ({ title, reloadNewData }) => {
   return (
     <Content>
       <Title>
@@ -86,7 +86,7 @@ export const ReloadTitle = ({ title, reloadData }) => {
         whileTap="click"
         src="/assets/reloading.png"
         alt="reloading"
-        onClick={reloadData}
+        onClick={reloadNewData}
       />
     </Content>
   );

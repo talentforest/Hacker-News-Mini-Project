@@ -27,11 +27,14 @@ export const TAskContainer = () => {
     getAskStoryIds().then((data) => setStoryIds(data));
   }, []);
 
-  const reloadData = () => setRandomNumber(Math.floor(Math.random() * 39 + 1));
+  const reloadNewData = () =>
+    setRandomNumber(Math.floor(Math.random() * storyIds.length));
+
+  // console.log(storyIds.length);
 
   return (
     <Wrapper>
-      <ReloadTitle title="Today's Ask" reloadData={reloadData} />
+      <ReloadTitle title="Today's Ask" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TAsk key={storyId} storyId={storyId} />

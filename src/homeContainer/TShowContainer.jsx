@@ -30,11 +30,12 @@ export const TShowContainer = () => {
     getShowStoryIds().then((data) => setStoryIds(data));
   }, []);
 
-  const reloadData = () => setRandomNumber(Math.floor(Math.random() * 39 + 1));
+  const reloadNewData = () =>
+    setRandomNumber(Math.floor(Math.random() * storyIds.length));
 
   return (
     <Wrapper>
-      <ReloadTitle title="Today's Show" reloadData={reloadData} />
+      <ReloadTitle title="Today's Show" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TShow key={storyId} storyId={storyId} />

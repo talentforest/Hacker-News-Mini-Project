@@ -205,7 +205,7 @@ a {
   border-radius: 4px;
 }
 .swiper {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   position: relative;
