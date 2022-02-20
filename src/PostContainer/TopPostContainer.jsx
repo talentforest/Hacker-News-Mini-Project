@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
+  border: 10px solid red;
   background-color: ${(props) => props.theme.backgroundGrayColor};
   width: 100%;
 `;
@@ -16,7 +17,7 @@ const Posts = styled.section`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  margin-bottom: 150px;
+  padding-bottom: 158px;
 `;
 
 export const TopPostContainer = () => {
@@ -27,13 +28,13 @@ export const TopPostContainer = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <Swiper
-        modules={[Navigation, Pagination]}
-        slidesPerView={1}
-        navigation={true}
-        pagination={{ type: "fraction" }}
-      >
+    <Swiper
+      modules={[Navigation, Pagination]}
+      slidesPerView={1}
+      navigation={true}
+      pagination={{ type: "fraction" }}
+    >
+      <Wrapper>
         <SwiperSlide>
           <Posts>
             {storyIds.slice(0, 20).map((storyId) => (
@@ -69,7 +70,7 @@ export const TopPostContainer = () => {
             ))}
           </Posts>
         </SwiperSlide>
-      </Swiper>
-    </Wrapper>
+      </Wrapper>
+    </Swiper>
   );
 };

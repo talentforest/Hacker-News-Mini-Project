@@ -10,14 +10,14 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
-  padding-top: 20px;
+  padding-top: 25px;
   background-color: ${(props) => props.theme.backgroundGrayColor};
 `;
 const Posts = styled.section`
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  margin: 0 auto 150px;
+  padding-bottom: 158px;
 `;
 
 export const AskPostContainer = () => {

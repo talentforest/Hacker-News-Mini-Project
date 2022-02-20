@@ -10,7 +10,6 @@ export default function New({ toggleDark }) {
       <Header toggleDark={toggleDark} />
       <Gnb />
       <Banner src="/assets/new_banner.png" />
-      <SortViewModeBtn />
       <NewPostContainer />
     </>
   );

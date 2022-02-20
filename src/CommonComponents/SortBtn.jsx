@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { Link, useLocation } from "react-router-dom";
 
 const SortView = styled.div`
   /* border: 1px solid red; */
+  /* padding: 21px 0px 0px; */
   display: flex;
   justify-content: space-between;
   background-color: ${(props) => props.theme.backgroundGrayColor};
@@ -51,6 +53,8 @@ export const SortBtn = () => {
 };
 
 export const SortViewModeBtn = () => {
+  const location = useLocation();
+
   return (
     <SortView>
       <SortBtn />

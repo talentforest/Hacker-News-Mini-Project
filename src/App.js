@@ -185,59 +185,50 @@ a {
   text-decoration: none;
   color: #727272;
 }
-.swiper-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 8px;
-}
-.swiper-pagination-bullet {
+.swiper-pagination-bullet { // 페이지 불렛
   background: gray;
   width: 6px;
   height: 6px;
   border-radius: 3px;
   opacity: 1;
 }
-.swiper-pagination-bullet-active {
-  background: #ED702D;
+.swiper-pagination-bullet-active { // 활성화된 페이지 불렛
+  background-color: #ED702D;
   width: 8px;
   height: 8px;
   border-radius: 4px;
 }
-.swiper {
-  /* border: 1px solid red; */
+.swiper-pagination { // 페이지 번호 표시
   display: flex;
+  align-items: center;
   justify-content: center;
-  position: relative;
-}
-.swiper-pagination-fraction {
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-  border: 1px solid #dfdfdf;
-  width: 71px;
-  height: 30px;
-  border-radius: 20px;
-  /* margin-left: 160px; */
-  padding-top: 3px;
-  margin: 0 auto 66px;
+  height: 8px;
+  margin: 52px 0 72px
 }
 .swiper-pagination-current,
-.swiper-pagination-total {
+.swiper-pagination-total {  // 현재, 전체 페이지 표시
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   margin: 0 5px; 
 }
-
+.swiper-pagination-fraction { // 페이지 번호 표시 컨테이너
+  background-color: #fff;
+  width: 71px;
+  height: 30px;
+  border-radius: 20px;
+  padding-top: 3px;
+  margin-left: calc( (100vw - 71px) / 2);
+}
 .swiper-button-next,
-.swiper-button-prev {
-  border: 1px solid #dfdfdf;
+.swiper-button-prev { // 이전, 이후 페이지 화살표 버튼
+  position: absolute;
+  top: calc((100% - 90px));
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  position: absolute;
-  margin-top: 2110px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
   padding: 6px 0;
   margin-right: 94px;
 }
@@ -246,7 +237,7 @@ a {
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  padding: 4px;
+  padding: 10px;
   font-weight: bold;
   font-size: 12px
 }

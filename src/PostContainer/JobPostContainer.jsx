@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Wrapper = styled.section`
-  padding: 12px 0 44px;
+  padding: 12px 0 20px;
   background-color: ${(props) => props.theme.backgroundGrayColor};
 `;
 const Posts = styled.div`
@@ -21,20 +21,30 @@ const ApplyBanner = styled.section`
   position: relative;
 `;
 const BannerImg = styled.img`
+  margin: 0 auto;
   display: block;
-  width: 100%;
+  width: 370px;
+  height: 300px;
+`;
+const BannerImg2 = styled.img`
+  margin: 0 auto;
+  display: block;
+  width: 370px;
+  height: 178px;
 `;
 const BannerSlide = styled.div`
   position: absolute;
-  display: flex;
-  top: 104px;
+  top: 110px;
   left: 20px;
+  width: 90%;
+  margin: 0 auto;
 `;
 const BannerSlide2 = styled.div`
   position: absolute;
   display: flex;
   top: 54px;
   left: 20px;
+  width: 90%;
 `;
 
 export const JobPostContainer = () => {
@@ -90,7 +100,7 @@ export const JobPostContainer = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg src="/assets/applyimg.png" alt="apply banner" />
+        <BannerImg2 src="/assets/applyimg.png" alt="apply banner" />
         <BannerSlide2>
           <Swiper slidesPerView={1}>
             <SwiperSlide>

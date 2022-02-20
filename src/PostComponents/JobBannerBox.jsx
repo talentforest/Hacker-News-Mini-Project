@@ -4,18 +4,16 @@ import { getJobStory } from "../util/hnApi";
 
 const Banner = styled.div`
   height: 151px;
-  margin-right: 14px;
   padding: 2px;
-  width: 351px;
+  margin-right: 5px;
   background-color: #fff;
   border-radius: 8px;
 `;
 const Banner2 = styled.div`
   display: flex;
   height: 82px;
-  margin-right: 14px;
+  margin-right: 5px;
   padding-top: 2px;
-  width: 351px;
   background-color: #fff;
   border-radius: 8px;
 `;

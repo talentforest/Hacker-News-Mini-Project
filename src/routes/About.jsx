@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Header from "../CommonComponents/Header";
 import Gnb from "../CommonComponents/Gnb";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
-  width: 390px;
   background-color: ${(props) => props.theme.backgroundGrayColor};
   padding: 29px 20px;
 `;
@@ -20,6 +20,7 @@ const DescBox = styled.div`
     line-height: 24px;
     color: ${(props) => props.theme.textGrayColor};
     margin-bottom: 23px;
+    cursor: pointer;
     img {
       width: 7.41px;
       height: 12px;
@@ -54,9 +55,7 @@ export default function About({ toggleDark }) {
       <Gnb />
       <Wrapper>
         <DescBox>
-          <span>
-            About <img src="/assets/arrow_right_orange.png" alt="arrow" />
-          </span>
+          <span>About</span>
           <p>
             This is a simple Hacker News clone, built with SvelteKit, an
             application framework for Svelte. <br /> <br />
@@ -68,42 +67,52 @@ export default function About({ toggleDark }) {
           </p>
         </DescBox>
         <DescBox>
-          <span>
-            Top <img src="/assets/arrow_right_orange.png" alt="arrow" />
-          </span>
+          <Link to="/top">
+            <span>
+              Top <img src="/assets/arrow_right_orange.png" alt="arrow" />
+            </span>
+          </Link>
           <p>
             Top is a service that ranks all articles on Hacker News through
             Hacker News' own algorithms.
           </p>
         </DescBox>
         <DescBox>
-          <span>
-            New <img src="/assets/arrow_right_orange.png" alt="arrow" />
-          </span>
+          <Link to="/new">
+            <span>
+              New <img src="/assets/arrow_right_orange.png" alt="arrow" />
+            </span>
+          </Link>
           <p>
             New is a service that allows you to see all the new articles in
             chronological order.
           </p>
         </DescBox>
         <DescBox>
-          <span>
-            Show <img src="/assets/arrow_right_orange.png" alt="arrow" />
-          </span>
+          <Link to="/show">
+            <span>
+              Show <img src="/assets/arrow_right_orange.png" alt="arrow" />
+            </span>
+          </Link>
           <p>
             Show HN is for something you've made that other people can play
             with.{" "}
           </p>
         </DescBox>
         <DescBox>
-          <span>
-            Ask <img src="/assets/arrow_right_orange.png" alt="arrow" />
-          </span>
+          <Link to="/ask">
+            <span>
+              Ask <img src="/assets/arrow_right_orange.png" alt="arrow" />
+            </span>
+          </Link>
           <p>Ask HN can ask and receive any questions.</p>
         </DescBox>
         <DescBox>
-          <span>
-            Job <img src="/assets/arrow_right_orange.png" alt="arrow" />
-          </span>
+          <Link to="/job">
+            <span>
+              Job <img src="/assets/arrow_right_orange.png" alt="arrow" />
+            </span>
+          </Link>
           <p>
             In jobs, you can check real-time job openings posted by companies.
           </p>

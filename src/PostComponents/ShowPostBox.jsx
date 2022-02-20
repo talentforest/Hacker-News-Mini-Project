@@ -73,7 +73,7 @@ export const ShowPostBox = memo(function ShowStory({ storyId }) {
     story.title?.split(" ")[1]
   }`;
 
-  return story && story.title ? (
+  return (
     <Post>
       <Tag>github.com</Tag>
       <h4>
@@ -95,5 +95,5 @@ export const ShowPostBox = memo(function ShowStory({ storyId }) {
         </Comments>
       </Info>
     </Post>
-  ) : null;
+  );
 });
