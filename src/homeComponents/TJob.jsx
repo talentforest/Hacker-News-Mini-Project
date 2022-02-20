@@ -80,8 +80,9 @@ export const TJob = memo(function Story({ storyId }) {
             ? `${story.title?.slice(0, 75)}...`
             : story.title}
         </Title>
-
-        <Site>{urlName?.includes("www") ? urlName.slice(4) : urlName}</Site>
+        <a href={story.url} target="_blank" rel="noopener noreferrer">
+          <Site>{urlName?.includes("www") ? urlName.slice(4) : urlName}</Site>
+        </a>
         <Info>
           <img src="/assets/clock2.png" alt="clock" />
           <span>{mapTime(story.time)}</span>

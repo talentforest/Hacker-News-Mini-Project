@@ -19,32 +19,32 @@ const Posts = styled.div`
 `;
 const ApplyBanner = styled.section`
   position: relative;
+  margin: 0 auto 30px;
+  width: 100%;
 `;
 const BannerImg = styled.img`
   margin: 0 auto;
   display: block;
-  width: 370px;
-  height: 300px;
+  width: 100%;
+  height: 310px;
 `;
 const BannerImg2 = styled.img`
   margin: 0 auto;
   display: block;
-  width: 370px;
+  width: 100%;
   height: 178px;
 `;
 const BannerSlide = styled.div`
   position: absolute;
   top: 110px;
-  left: 20px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 `;
 const BannerSlide2 = styled.div`
   position: absolute;
   display: flex;
   top: 54px;
-  left: 20px;
-  width: 90%;
+  width: 100%;
 `;
 
 export const JobPostContainer = () => {

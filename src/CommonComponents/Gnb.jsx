@@ -52,7 +52,9 @@ export default function Gnb() {
         </Link>
         <Link to="/top">
           <List>Top</List>
-          {location.pathname === "/top" ? <CurrPageMark /> : null}
+          {location.pathname === "/top" || "/top/users" ? (
+            <CurrPageMark />
+          ) : null}
         </Link>
         <Link to="/new">
           <List>New</List>

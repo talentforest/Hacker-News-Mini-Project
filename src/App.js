@@ -21,6 +21,7 @@ const darkTheme = {
   containerColor: "#343538",
   commentContainerColor: "#343538",
   commentColor: "#fff",
+  toggleBtnTextColor: "#fff",
   containerGrayColor: "#E2ECF0",
   headerColor: "#727272",
   headerHoverColor: "#fff",
@@ -37,6 +38,7 @@ const lightTheme = {
   containerColor: "#fff",
   containerGrayColor: "#fff",
   commentContainerColor: "#efefef",
+  toggleBtnTextColor: "b7b7b7",
   commentColor: "#3f3f3f",
   headerColor: "#ee702c#",
   headerHoverColor: "#727272",
@@ -185,18 +187,28 @@ a {
   text-decoration: none;
   color: #727272;
 }
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
 .swiper-pagination-bullet { // 페이지 불렛
   background: gray;
   width: 6px;
   height: 6px;
   border-radius: 3px;
   opacity: 1;
+  z-index: 10;
+  
 }
 .swiper-pagination-bullet-active { // 활성화된 페이지 불렛
   background-color: #ED702D;
   width: 8px;
   height: 8px;
   border-radius: 4px;
+}
+.swiper-pagination-bullets {
+  top: 480px;
 }
 .swiper-pagination { // 페이지 번호 표시
   display: flex;

@@ -6,6 +6,7 @@ import { ClockTitle } from "../CommonComponents/TodayTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Pagination } from "swiper";
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -32,7 +33,7 @@ export const TTopContainer = () => {
   return (
     <Wrapper>
       <ClockTitle title="Today's Top" />
-      <Swiper slidesPerView={1} pagination={{ clickable: true }}>
+      <Swiper pagination={true} modules={[Pagination]}>
         <SwiperSlide>
           <Container>
             {storyIds?.slice(0, 5).map((storyId, index) => (

@@ -47,7 +47,7 @@ export const JobPostBox = memo(function JobStory({ storyId }) {
     <Post>
       <h4>{story.title}</h4>
       <Info>
-        <a href={story.url}>
+        <a href={story.url} target="_blank" rel="noopener noreferrer">
           {urlName?.includes("www") ? urlName.slice(4) : urlName}
         </a>
         <span>{mapTime(story.time)}</span>

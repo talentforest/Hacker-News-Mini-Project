@@ -3,16 +3,18 @@ import React, { useState, useEffect, memo } from "react";
 import { getJobStory } from "../util/hnApi";
 
 const Banner = styled.div`
+  width: 90%;
   height: 151px;
   padding: 2px;
-  margin-right: 5px;
+  margin: 0 auto;
   background-color: #fff;
   border-radius: 8px;
 `;
 const Banner2 = styled.div`
   display: flex;
+  width: 90%;
+  margin: 0 auto;
   height: 82px;
-  margin-right: 5px;
   padding-top: 2px;
   background-color: #fff;
   border-radius: 8px;

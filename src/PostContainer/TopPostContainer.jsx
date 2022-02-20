@@ -9,11 +9,11 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 const Wrapper = styled.div`
-  border: 10px solid red;
   background-color: ${(props) => props.theme.backgroundGrayColor};
   width: 100%;
 `;
 const Posts = styled.section`
+  background-color: ${(props) => props.theme.backgroundGrayColor};
   display: flex;
   flex-direction: column;
   padding: 20px;

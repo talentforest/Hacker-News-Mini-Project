@@ -1,62 +1,96 @@
 import Header from "../CommonComponents/Header";
 import Gnb from "../CommonComponents/Gnb";
 import Banner from "../CommonComponents/Banner";
-import TopToggleBtn from "../CommonComponents/TopToggleBtn";
 import { TopPostContainer } from "../PostContainer/TopPostContainer";
 import { SortViewModeBtn } from "../CommonComponents/SortBtn";
 import { TopCardPostContainer } from "../PostContainer/TopCardPostContainer";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const SortView = styled.div`
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: space-between;
+// ToogleButtom
+const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundGrayColor};
+  padding: 28px 0 21px;
 `;
-const Sort = styled.div`
+const Btn = styled.div`
+  position: relative;
   display: flex;
-  margin-left: 20px;
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 76px;
-    height: 22px;
-    background-color: #fff;
-    border: 0.5px solid #dfdfdf;
-    font-size: 12px;
-    margin-right: 6px;
-    border-radius: 20px;
-  }
-  img {
-    width: 8px;
-    margin-left: 4px;
-  }
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  margin: auto;
+  height: 40px;
+  border-radius: 30px;
+  border: 1px solid #dfdfdf;
+  background-color: ${(props) => props.theme.containerColor};
 `;
-const View = styled.div`
-  padding-right: 20px;
-  img {
-    width: 24px;
-    margin-left: 9px;
-    cursor: pointer;
-  }
+const PostBtn = styled.button`
+  position: relative;
+  border-radius: 20px;
+  width: 171px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+`;
+const UsersBtn = styled.button`
+  position: relative;
+  border-radius: 20px;
+  width: 171px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  color: ${(props) => props.theme.toggleBtnTextColor};
+  cursor: pointer;
+  z-index: 1;
+`;
+
+const CurrBtn = styled.div`
+  position: absolute;
+  width: 171px;
+  height: 32px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ed702d;
+  left: 3px;
+  top: 3px;
+`;
+const CurrUsersBtn = styled.div`
+  position: absolute;
+  width: 171px;
+  height: 32px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ed702d;
+  right: 3px;
+  top: 3px;
 `;
 
 export default function Top({ toggleDark }) {
-  const listView = (e) => {
-    return <TopPostContainer />;
-  };
-
-  const cardView = (e) => {
-    return <TopCardPostContainer />;
-  };
+  const location = useLocation();
 
   return (
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
       <Banner src="/assets/top_banner.png" />
-      <TopToggleBtn />
+      <Wrapper>
+        <Btn>
+          <Link to="/top">
+            <PostBtn>Post</PostBtn>
+            {location.pathname === "/top" ? <CurrBtn /> : null}
+          </Link>
+          <Link to="/top/users">
+            <UsersBtn>Users</UsersBtn>
+            {location.pathname === "/top/users" ? <CurrUsersBtn /> : null}
+          </Link>
+        </Btn>
+      </Wrapper>
       <SortViewModeBtn />
       <TopPostContainer />
     </>
