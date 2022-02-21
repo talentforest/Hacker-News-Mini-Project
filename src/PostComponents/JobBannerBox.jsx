@@ -91,7 +91,10 @@ export const BannerBox = memo(function Story({ storyId }) {
     <Banner>
       <Tags>Software Engineers</Tags>
       <CompanyInfo>
-        <img src="/assets/company_logo.png" alt="company logo" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
+          alt="company logo"
+        />
         <Company>
           {companyName?.length < 30 ? `${companyName})` : companyShortName}
         </Company>
@@ -114,7 +117,10 @@ export const BannerBox2 = memo(function Story({ storyId }) {
   return (
     <Banner2>
       <CompanyInfo2>
-        <img src="/assets/company_logo.png" alt="companylogo" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
+          alt="companylogo"
+        />
         <Company2>
           {companyName?.length < 30 ? `${companyName})` : companyShortName}
         </Company2>

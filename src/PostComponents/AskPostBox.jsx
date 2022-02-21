@@ -113,7 +113,10 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
       <Time>{mapTime(story.time)}</Time>
       <Info>
         <User>
-          <img src="/assets/user.png" alt="userimg" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            alt="userimg"
+          />
           <Link to={`/userprofile/${story.by}`}>
             <Username>{story.by}</Username>
           </Link>
@@ -122,7 +125,10 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
           </UserInfo>
         </User>
         <CommentDisplay>
-          <img src="/assets/comment.png" alt="comments" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            alt="comments"
+          />
           <span>{story.descendants}</span>
         </CommentDisplay>
       </Info>

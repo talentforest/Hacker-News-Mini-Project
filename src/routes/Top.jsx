@@ -78,7 +78,7 @@ export default function Top({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="/assets/top_banner.png" />
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/top_banner.png" />
       <Wrapper>
         <Btn>
           <Link to="/top">

@@ -51,7 +51,10 @@ export const OnlyTitle = ({ title }) => {
     <Content>
       <Title>
         <h4>{title}</h4>
-        <img src="/assets/arrow_right_black.png" alt="arrow" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_black.png"
+          alt="arrow"
+        />
       </Title>
     </Content>
   );
@@ -64,10 +67,16 @@ export const ClockTitle = ({ title }) => {
     <Content>
       <Title>
         <h4>{title}</h4>
-        <img src="/assets/arrow_right_black.png" alt="arrow" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_black.png"
+          alt="arrow"
+        />
       </Title>
       <Time>
-        <img src="/assets/clock.png" alt="clock" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock.png"
+          alt="clock"
+        />
         <span>{hours}:00</span>
       </Time>
     </Content>
@@ -79,12 +88,15 @@ export const ReloadTitle = ({ title, reloadNewData }) => {
     <Content>
       <Title>
         <h4>{title}</h4>
-        <img src="/assets/arrow_right_black.png" alt="arrow" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_black.png"
+          alt="arrow"
+        />
       </Title>
       <Reload
         variants={ReloadVariants}
         whileTap="click"
-        src="/assets/reloading.png"
+        src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/reloading.png"
         alt="reloading"
         onClick={reloadNewData}
       />

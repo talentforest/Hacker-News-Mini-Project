@@ -60,7 +60,10 @@ export const TNew = memo(function Story({ storyId }) {
         </StoryTitle>
       </a>
       <Author>
-        <img src="/assets/user.png" alt="usericon" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+          alt="usericon"
+        />
         {story.by}
       </Author>
       {/* 라인을 만들기 위한 div */}

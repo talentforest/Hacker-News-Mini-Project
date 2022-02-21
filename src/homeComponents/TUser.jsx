@@ -59,7 +59,10 @@ export const TUser = memo(function Story({ index, storyId }) {
     <Wrapper>
       <UserWrapper>
         <Rank>
-          <img src="/assets/star.png" alt="star" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/star.png"
+            alt="star"
+          />
           <div>{index + 1}</div>
           <span>Today's User</span>
         </Rank>

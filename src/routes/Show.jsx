@@ -8,7 +8,7 @@ export default function Show({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="/assets/show_banner.png" />
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/show_banner.png" />
       <ShowPostContainer />
     </>
   );

@@ -64,7 +64,10 @@ export const TopPostBox = memo(function TopStory({ storyId }) {
       <h4>{story.title}</h4>
       <Info>
         <User>
-          <img src="/assets/user.png" alt="userimg" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            alt="userimg"
+          />
           <span>{story.by}</span>
           <UserInfo>
             <span>{story.score} points</span>
@@ -72,7 +75,10 @@ export const TopPostBox = memo(function TopStory({ storyId }) {
           </UserInfo>
         </User>
         <Comments>
-          <img src="/assets/comment.png" alt="comments" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            alt="comments"
+          />
           <span>{story.descendants}</span>
         </Comments>
       </Info>

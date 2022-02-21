@@ -10,8 +10,8 @@ const Sort = styled.div`
   display: flex;
   margin-left: 20px;
   select {
-    background: url("/assets/arrow_down_darkgray.png") no-repeat 80% 50%/10px
-      auto;
+    background: url("https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png")
+      no-repeat 80% 50%/10px auto;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -78,8 +78,14 @@ export const SortViewModeBtn = () => {
     <SortView>
       <SortBtn />
       <View>
-        <img src="/assets/bullet_list.png" alt="bullet list" />
-        <img src="/assets/mode_list.png" alt="mode list" />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/bullet_list.png"
+          alt="bullet list"
+        />
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/mode_list.png"
+          alt="mode list"
+        />
       </View>
     </SortView>
   );

@@ -112,7 +112,10 @@ export default function UserSubmission({ submittedId }) {
 
       <PostInfo>
         <User>
-          <img src="/assets/user.png" alt="userimg" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            alt="userimg"
+          />
           <span>{userSubmissions.by}</span>
           <UserInfo>
             <span>{userSubmissions.score} points</span>
@@ -120,7 +123,10 @@ export default function UserSubmission({ submittedId }) {
           </UserInfo>
         </User>
         <Comments>
-          <img src="/assets/comment.png" alt="comments" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            alt="comments"
+          />
           <span>{userSubmissions.descendants}</span>
         </Comments>
       </PostInfo>

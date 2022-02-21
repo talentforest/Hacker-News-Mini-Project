@@ -84,7 +84,10 @@ export const TJob = memo(function Story({ storyId }) {
           <Site>{urlName?.includes("www") ? urlName.slice(4) : urlName}</Site>
         </a>
         <Info>
-          <img src="/assets/clock2.png" alt="clock" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock2.png"
+            alt="clock"
+          />
           <span>{mapTime(story.time)}</span>
         </Info>
       </JobWrapper>

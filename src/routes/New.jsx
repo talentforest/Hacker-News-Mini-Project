@@ -9,7 +9,7 @@ export default function New({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="/assets/new_banner.png" />
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/new_banner.png" />
       <NewPostContainer />
     </>
   );

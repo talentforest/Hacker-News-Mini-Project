@@ -80,7 +80,11 @@ export default function About({ toggleDark }) {
         <DescBox>
           <Link to="/new">
             <span>
-              New <img src="/assets/arrow_right_orange.png" alt="arrow" />
+              New{" "}
+              <img
+                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                alt="arrow"
+              />
             </span>
           </Link>
           <p>
@@ -91,7 +95,11 @@ export default function About({ toggleDark }) {
         <DescBox>
           <Link to="/show">
             <span>
-              Show <img src="/assets/arrow_right_orange.png" alt="arrow" />
+              Show{" "}
+              <img
+                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                alt="arrow"
+              />
             </span>
           </Link>
           <p>
@@ -102,7 +110,11 @@ export default function About({ toggleDark }) {
         <DescBox>
           <Link to="/ask">
             <span>
-              Ask <img src="/assets/arrow_right_orange.png" alt="arrow" />
+              Ask{" "}
+              <img
+                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                alt="arrow"
+              />
             </span>
           </Link>
           <p>Ask HN can ask and receive any questions.</p>
@@ -110,7 +122,11 @@ export default function About({ toggleDark }) {
         <DescBox>
           <Link to="/job">
             <span>
-              Job <img src="/assets/arrow_right_orange.png" alt="arrow" />
+              Job{" "}
+              <img
+                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                alt="arrow"
+              />
             </span>
           </Link>
           <p>
@@ -121,27 +137,45 @@ export default function About({ toggleDark }) {
           <span>FAQ </span>
           <Question>
             Can I write here?
-            <img src="/assets/arrow_down_darkgray.png" alt="arrow" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              alt="arrow"
+            />
           </Question>
           <Question>
             Are there rules about submissions and comments?
-            <img src="/assets/arrow_down_darkgray.png" alt="arrow" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              alt="arrow"
+            />
           </Question>
           <Question>
             How are stories ranked?
-            <img src="/assets/arrow_down_darkgray.png" alt="arrow" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              alt="arrow"
+            />
           </Question>
           <Question>
             How is a user's karma calculated?
-            <img src="/assets/arrow_down_darkgray.png" alt="arrow" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              alt="arrow"
+            />
           </Question>
           <Question>
             Why don't I see down arrows?
-            <img src="/assets/arrow_down_darkgray.png" alt="arrow" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              alt="arrow"
+            />
           </Question>
           <Question>
             What kind of formatting can you use in comments?
-            <img src="/assets/arrow_down_darkgray.png" alt="arrow" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              alt="arrow"
+            />
           </Question>
         </DescBox>
       </Wrapper>

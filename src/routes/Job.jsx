@@ -8,7 +8,7 @@ export default function Job({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="/assets/job_banner.png" />
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/job_banner.png" />
       <JobPostContainer />
     </>
   );

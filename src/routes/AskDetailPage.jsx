@@ -148,11 +148,17 @@ export const AskDetailPage = ({ toggleDark }) => {
       <Sort>
         <SortList>
           <Registerd>
-            <img src="/assets/circle_orange.png" alt="bullet" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_orange.png"
+              alt="bullet"
+            />
             <span>Registerd</span>
           </Registerd>
           <Newest>
-            <img src="/assets/circle_gray.png" alt="bullet" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_gray.png"
+              alt="bullet"
+            />
             <span>Newest</span>
           </Newest>
         </SortList>

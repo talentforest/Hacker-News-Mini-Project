@@ -62,7 +62,10 @@ export const TUserInfo = memo(function Story({ story }) {
           <span>{topUserData.karma}</span>
         </Info>
       </Infobox>
-      <Btn src="/assets/arrow_blue.png" alt="arrow button" />
+      <Btn
+        src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_blue.png"
+        alt="arrow button"
+      />
     </UserInfoBox>
   );
 });

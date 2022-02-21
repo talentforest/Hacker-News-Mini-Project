@@ -62,7 +62,10 @@ export const JobPostContainer = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg src="/assets/applynow.png" alt="apply banner" />
+        <BannerImg
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/applynow.png"
+          alt="apply banner"
+        />
         <BannerSlide>
           <Swiper slidesPerView={1}>
             <SwiperSlide>
@@ -100,7 +103,10 @@ export const JobPostContainer = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg2 src="/assets/applyimg.png" alt="apply banner" />
+        <BannerImg2
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/applyimg.png"
+          alt="apply banner"
+        />
         <BannerSlide2>
           <Swiper slidesPerView={1}>
             <SwiperSlide>

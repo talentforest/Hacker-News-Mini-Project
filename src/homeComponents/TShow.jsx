@@ -105,18 +105,30 @@ export const TShow = memo(function Story({ storyId }) {
           <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
         </Title>
         <Info>
-          <img src="/assets/point.png" alt="point" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/point.png"
+            alt="point"
+          />
           <span>{story.score}</span>
-          <img src="/assets/clock2.png" alt="clock" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock2.png"
+            alt="clock"
+          />
           <span>{mapTime(story.time)}</span>
         </Info>
         <UserComments>
           <User>
-            <img src="/assets/user.png" alt="userimage" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+              alt="userimage"
+            />
             <span>{story.by}</span>
           </User>
           <Comments>
-            <img src="/assets/comment.png" alt="comment" />
+            <img
+              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+              alt="comment"
+            />
             <span>{story.descendants}</span>
           </Comments>
         </UserComments>

@@ -84,14 +84,20 @@ export const ReplyReply = ({ replyReplyId }) => {
     <Wrapper>
       <UserInfo>
         <Info>
-          <img src="/assets/user_black.png" alt="logo" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user_black.png"
+            alt="logo"
+          />
           <span>{replyReplyIdData.by}</span>
-          <img src="/assets/clock.png" alt="clock" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock.png"
+            alt="clock"
+          />
           <Gray>{mapTime(replyReplyIdData.time)}</Gray>
         </Info>
         <img
           onClick={onClickfolder}
-          src="/assets/arrow_up_gray.png"
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_up_gray.png"
           alt="arrow_up_gray"
         />
       </UserInfo>

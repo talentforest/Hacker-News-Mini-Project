@@ -38,20 +38,23 @@ export default function Header({ toggleDark }) {
     <HeaderTop>
       <Link to="/">
         <Title>
-          <img src="/assets/logo.png" alt="Logo" />
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/logo.png"
+            alt="Logo"
+          />
           <h1>Svelte Hacker News</h1>
         </Title>
       </Link>
       <div>
         <Icon
           onClick={toggleDark}
-          src="/assets/lightmode.png"
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/lightmode.png"
           alt="light/dark mode"
         />
         <Link to="/about">
           <Icon
             className="question"
-            src="/assets/questionmark.png"
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/questionmark.png"
             alt="question"
           />
         </Link>

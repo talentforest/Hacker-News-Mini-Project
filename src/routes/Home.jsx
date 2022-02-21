@@ -13,7 +13,7 @@ export default function Home({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="/assets/home_banner.png" />
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/home_banner.png" />
       <TTopContainer />
       <TNewContainer />
       <TUserContainer />

@@ -8,7 +8,7 @@ export default function Ask({ toggleDark }) {
     <>
       <Header toggleDark={toggleDark} />
       <Gnb />
-      <Banner src="/assets/ask_banner.png" />
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/ask_banner.png" />
       <AskPostContainer />
     </>
   );
