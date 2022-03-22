@@ -76,11 +76,11 @@ export default function TopUsers() {
         <Btn>
           <Link to="/top">
             <PostBtn>Post</PostBtn>
-            {location.pathname === "/top" ? <CurrBtn /> : null}
+            {location.pathname === "/top" ? <CurrBtn /> : <></>}
           </Link>
           <Link to="/top/users">
             <UsersBtn>Users</UsersBtn>
-            {location.pathname === "/top/users" ? <CurrUsersBtn /> : null}
+            {location.pathname === "/top/users" ? <CurrUsersBtn /> : <></>}
           </Link>
         </Btn>
       </Wrapper>

@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-// ToogleButtom
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundGrayColor};
   padding: 28px 0 21px;
@@ -69,7 +68,7 @@ const CurrUsersBtn = styled.div`
   top: 3px;
 `;
 
-export default function Top({ toggleDark }) {
+export default function Top() {
   const location = useLocation();
 
   return (
@@ -79,11 +78,11 @@ export default function Top({ toggleDark }) {
         <Btn>
           <Link to="/top">
             <PostBtn>Post</PostBtn>
-            {location.pathname === "/top" ? <CurrBtn /> : null}
+            {location.pathname === "/top" ? <CurrBtn /> : <></>}
           </Link>
           <Link to="/top/users">
             <UsersBtn>Users</UsersBtn>
-            {location.pathname === "/top/users" ? <CurrUsersBtn /> : null}
+            {location.pathname === "/top/users" ? <CurrUsersBtn /> : <></>}
           </Link>
         </Btn>
       </Wrapper>
