@@ -7,7 +7,6 @@ import { mapTime } from "../util/mapTime";
 import UserSubmission from "../DetailPage/UserSubmission";
 
 const Wrapper = styled.section`
-  width: 390px;
   background-color: ${(props) => props.theme.backgroundLightGrayColor};
   padding: 29px 20px 32px;
 `;
