@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SortViewModeBtn } from "../components/common/SortBtn";
+import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
 import { ShowPostBox } from "../PostComponents/ShowPostBox";
 import { getShowStoryIds } from "../util/hnApi";
 import { Swiper, SwiperSlide } from "swiper/react";

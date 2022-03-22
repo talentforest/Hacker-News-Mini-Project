@@ -53,7 +53,7 @@ export default function Gnb() {
         </Link>
         <Link to="/top">
           <List>Top</List>
-          {pathname === "/top" || "/top/users" ? <CurrPageMark /> : <></>}
+          {pathname === "/top" || pathname === "/top/users" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/new">
           <List>New</List>

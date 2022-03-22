@@ -1,6 +1,6 @@
 import Banner from "../components/common/Banner";
 import { TopPostContainer } from "../PostContainer/TopPostContainer";
-import { SortViewModeBtn } from "../components/common/SortBtn";
+import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
 import { TopCardPostContainer } from "../PostContainer/TopCardPostContainer";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
