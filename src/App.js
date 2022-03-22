@@ -22,16 +22,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="userprofile" element={<UserProfile />}>
-          <Route path=":id" element={<AskDetailPage />} />
-        </Route>
         <Route path="top" element={<Top />} />
         <Route path="top/users" element={<TopUsers />} />
         <Route path="new" element={<New />} />
         <Route path="show" element={<Show />} />
-        <Route path="ask" element={<Ask />}>
-          <Route path=":id" element={<AskDetailPage />} />
-        </Route>
+        <Route path="ask" element={<Ask />} />
+        <Route path="ask/:id" element={<AskDetailPage />} />
+        <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="job" element={<Job />} />
       </Routes>
     </ThemeProvider>

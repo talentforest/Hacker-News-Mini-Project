@@ -84,16 +84,15 @@ export const AskPostBox = memo(function AskStory({ storyId }) {
     getAskStory(storyId).then((data) => data && data.title && setStory(data));
   }, []);
 
-  const orangeWords = `${story.title?.split(" ")[0]} ${
-    story.title?.split(" ")[1]
-  }`;
+  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
+    }`;
 
   return (
     <Post>
-      <Link to={`/ask/${story.id}`}>
+      <Link to={`${story.id}`}>
         <Title>
           {story.title?.includes("Ask HN") ||
-          story.title?.includes("Tell HN") ? (
+            story.title?.includes("Tell HN") ? (
             <>
               <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
             </>

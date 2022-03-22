@@ -5,70 +5,14 @@ import { commentsSelectFields } from "../util/selectFields";
 import { mapTime } from "../util/mapTime";
 import { ReplyReply } from "./ReplyReply";
 
-const Wrapper = styled.div`
-  /* border: 1px solid red; */
-  margin-top: 14px;
-  background-color: ${(props) => props.theme.commentContainerColor};
-  width: 350px;
-  border-radius: 8px;
-  padding: 0 12px 12px;
-  color: ${(props) => props.theme.commentColor};
-`;
-const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 75px;
-  font-size: 14px;
-  font-weight: 400;
-  img {
-    cursor: pointer;
-    /* padding: 1px; */
-    /* border: 1px solid red; */
-    padding: 2px;
-    width: 20px;
-    height: 12.41px;
-  }
-`;
-const Info = styled.div`
-  display: flex;
-  align-items: center;
-  img:first-child {
-    width: 20px;
-    height: 20px;
-    margin: 0 6px 0 0;
-  }
-  img {
-    width: 13px;
-    height: 13px;
-    margin: 0 6px 0 10px;
-  }
-  span:first-child {
-    color: #b7b7b7;
-  }
-`;
-const Gray = styled.span`
-  padding-top: 2px;
-  color: #727272;
-`;
-const ReplyComment = styled.p`
-  background-color: ${(props) => props.theme.commentContainerColor};
-  display: block;
-  line-height: 20px;
-  word-wrap: break-word;
-`;
-
 export const Reply = ({ replyId }) => {
-  // 댓글 접기 기능
   const [folder, setFolder] = useState(true);
-  // 대댓글 데이터
   const [replyIdData, setReplyIdData] = useState([]);
 
   const getReplyData = async () => {
     const result = await axios
       .get(`https://hacker-news.firebaseio.com/v0/item/${replyId}.json`)
       .then(({ data }) => data && commentsSelectFields(data));
-    // console.log(result);
     return result;
   };
 
@@ -113,9 +57,59 @@ export const Reply = ({ replyId }) => {
       </Wrapper>
       {folder
         ? replyReplyIds?.map((replyReplyId, i) => (
-            <ReplyReply key={replyReplyId} replyReplyId={replyReplyId} />
-          ))
-        : null}
+          <ReplyReply key={replyReplyId} replyReplyId={replyReplyId} />
+        ))
+        : <></>}
     </>
-  ) : null;
+  ) : <></>;
 };
+
+const Wrapper = styled.div`
+  margin-top: 14px;
+  background-color: ${(props) => props.theme.commentContainerColor};
+  width: 350px;
+  border-radius: 8px;
+  padding: 0 12px 12px;
+  color: ${(props) => props.theme.commentColor};
+`;
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  font-size: 14px;
+  font-weight: 400;
+  img {
+    cursor: pointer;
+    padding: 2px;
+    width: 20px;
+    height: 12.41px;
+  }
+`;
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  img:first-child {
+    width: 20px;
+    height: 20px;
+    margin: 0 6px 0 0;
+  }
+  img {
+    width: 13px;
+    height: 13px;
+    margin: 0 6px 0 10px;
+  }
+  span:first-child {
+    color: #b7b7b7;
+  }
+`;
+const Gray = styled.span`
+  padding-top: 2px;
+  color: #727272;
+`;
+const ReplyComment = styled.p`
+  background-color: ${(props) => props.theme.commentContainerColor};
+  display: block;
+  line-height: 20px;
+  word-wrap: break-word;
+`;
