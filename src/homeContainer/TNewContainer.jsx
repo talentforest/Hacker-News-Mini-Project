@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "../util/hnApi";
 import { TNew } from "../HomeComponents/TNew";
-import { ReloadTitle } from "../components/common/Todaytitle";
+import TitleReloadBtn from "../components/common/TitleReloadBtn";
 import styled from "styled-components";
 
 const Wrapper = styled.section`
@@ -34,7 +34,7 @@ export const TNewContainer = () => {
 
   return (
     <Wrapper>
-      <ReloadTitle title="Today's New" reloadNewData={reloadNewData} />
+      <TitleReloadBtn title="Today's New" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TNew key={storyId} storyId={storyId} />

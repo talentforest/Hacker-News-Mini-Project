@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TShow } from "../HomeComponents/TShow";
 import { getShowStoryIds } from "../util/hnApi";
-import { ReloadTitle } from "../components/common/Todaytitle";
+import TitleReloadBtn from "../components/common/TitleReloadBtn";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -35,7 +35,7 @@ export const TShowContainer = () => {
 
   return (
     <Wrapper>
-      <ReloadTitle title="Today's Show" reloadNewData={reloadNewData} />
+      <TitleReloadBtn title="Today's Show" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TShow key={storyId} storyId={storyId} />

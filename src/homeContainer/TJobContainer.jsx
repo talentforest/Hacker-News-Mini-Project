@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TJob } from "../HomeComponents/TJob";
 import { getJobStoryIds } from "../util/hnApi";
-import { OnlyTitle } from "../components/common/Todaytitle";
+import Title from "../components/common/Title";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ export const TJobContainer = () => {
 
   return (
     <Wrapper>
-      <OnlyTitle title="Today's Job" />
+      <Title title="Today's Job" />
       <Container>
         {storyIds.slice(0, 10).map((storyId) => (
           <TJob key={storyId} storyId={storyId} />

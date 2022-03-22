@@ -1,19 +1,5 @@
 import styled from "styled-components";
-import { SortBtn } from './SortBtn';
-
-const SortView = styled.div`
-  display: flex;
-  justify-content: space-between;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-`;
-const View = styled.div`
-  padding-right: 20px;
-  img {
-    width: 24px;
-    margin-left: 9px;
-    cursor: pointer;
-  }
-`;
+import SortBtn from './SortBtn';
 
 export const SortViewModeBtn = () => {
   return (
@@ -32,3 +18,17 @@ export const SortViewModeBtn = () => {
     </SortView>
   );
 };
+
+const SortView = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+`;
+const View = styled.div`
+  padding-right: 20px;
+  img {
+    width: 24px;
+    margin-left: 9px;
+    cursor: pointer;
+  }
+`;

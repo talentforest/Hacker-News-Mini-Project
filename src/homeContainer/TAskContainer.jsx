@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TAsk } from "../HomeComponents/TAsk";
 import { getAskStoryIds } from "../util/hnApi";
-import { ReloadTitle } from "../components/common/Todaytitle";
+import TitleReloadBtn from "../components/common/TitleReloadBtn";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,11 +30,9 @@ export const TAskContainer = () => {
   const reloadNewData = () =>
     setRandomNumber(Math.floor(Math.random() * storyIds.length));
 
-  // console.log(storyIds.length);
-
   return (
     <Wrapper>
-      <ReloadTitle title="Today's Ask" reloadNewData={reloadNewData} />
+      <TitleReloadBtn title="Today's Ask" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TAsk key={storyId} storyId={storyId} />

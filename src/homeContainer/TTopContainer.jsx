@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
 import { TTop } from "../HomeComponents/TTop";
 import styled from "styled-components";
-import { ClockTitle } from "../components/common/Todaytitle";
+import TitleClock from "../components/common/TitleClock";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -32,7 +32,7 @@ export const TTopContainer = () => {
 
   return (
     <Wrapper>
-      <ClockTitle title="Today's Top" />
+      <TitleClock title="Today's Top" />
       <Swiper pagination={true} modules={[Pagination]}>
         <SwiperSlide>
           <Container>

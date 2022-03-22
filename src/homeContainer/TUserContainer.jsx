@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
 import { TUser } from "../HomeComponents/TUser";
-import { OnlyTitle } from "../components/common/Todaytitle";
+import Title from "../components/common/Title";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -33,7 +33,7 @@ export const TUserContainer = () => {
 
   return (
     <Wrapper>
-      <OnlyTitle title="Today's User" />
+      <Title title="Today's User" />
       <Container>
         {storyIds.slice(0, 5).map((storyId, index) => (
           <TUser key={storyId} storyId={storyId} index={index} />
