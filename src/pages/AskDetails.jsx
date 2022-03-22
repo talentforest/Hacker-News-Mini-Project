@@ -30,12 +30,12 @@ const AskDetails = () => {
     <Wrapper>
       <Post>
         <User>
-          <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user_black.png" alt="user" />
+          <img src="/assets/user_black.png" alt="user" />
           <Info>
             {currIdData.by}
             <div>
               <span>{currIdData.score} points</span>
-              <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_gray.png" alt="bullet" />
+              <img src="/assets/circle_gray.png" alt="bullet" />
               <span>{mapTime(currIdData.time)} ago</span>
             </div>
           </Info>

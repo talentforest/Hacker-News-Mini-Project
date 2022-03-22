@@ -15,8 +15,6 @@ export const Comment = memo(function Story({ commentId }) {
     if (data) setCommentIds(data);
   };
 
-  const replyIds = commentIds.kids;
-
   useEffect(() => {
     getCommentData().then((data) => data && data.url && setCommentIds(data));
   }, []);
@@ -25,6 +23,7 @@ export const Comment = memo(function Story({ commentId }) {
     setFolder((prev) => (prev ? false : true));
   };
 
+  const replyIds = commentIds.kids;
   return (
     <Wrapper>
       <UserInfo>
