@@ -42,34 +42,34 @@ const CurrPageMark = styled.div`
 
 export default function Gnb() {
   const location = useLocation();
+  const pathname = location.pathname;
 
   return (
     <Navigation>
       <Lists>
         <Link to="/">
           <List>Home</List>
-          {location.pathname === "/" ? <CurrPageMark /> : <></>}
+          {pathname === "/" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/top">
           <List>Top</List>
-          {location.pathname === "/top" ? <CurrPageMark /> : <></>}
-          {location.pathname === "/top/users" ? <CurrPageMark /> : <></>}
+          {pathname === "/top" || "/top/users" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/new">
           <List>New</List>
-          {location.pathname === "/new" ? <CurrPageMark /> : <></>}
+          {pathname === "/new" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/show">
           <List>Show</List>
-          {location.pathname === "/show" ? <CurrPageMark /> : <></>}
+          {pathname === "/show" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/ask">
           <List>Ask</List>
-          {location.pathname === "/ask" ? <CurrPageMark /> : <></>}
+          {pathname === "/ask" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/job">
           <List>Job</List>
-          {location.pathname === "/job" ? <CurrPageMark /> : <></>}
+          {pathname === "/job" ? <CurrPageMark /> : <></>}
         </Link>
       </Lists>
     </Navigation>
