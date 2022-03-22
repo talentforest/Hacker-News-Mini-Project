@@ -10,7 +10,7 @@ import TopUsers from "./pages/TopUsers";
 import New from "./pages/New";
 import Show from "./pages/Show";
 import Ask from "./pages/Ask";
-import AskDetailPage from "./pages/AskDetailPage";
+import AskDetails from "./pages/AskDetails";
 import Job from "./pages/Job";
 
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="new" element={<New />} />
         <Route path="show" element={<Show />} />
         <Route path="ask" element={<Ask />} />
-        <Route path="ask/:id" element={<AskDetailPage />} />
+        <Route path="ask/:id" element={<AskDetails />} />
         <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="job" element={<Job />} />
       </Routes>
