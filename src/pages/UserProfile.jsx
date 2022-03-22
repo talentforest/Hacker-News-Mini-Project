@@ -6,74 +6,6 @@ import { userSelectFields } from "../util/selectFields";
 import { mapTime } from "../util/mapTime";
 import UserSubmission from "../DetailPage/UserSubmission";
 
-const Wrapper = styled.section`
-  background-color: ${(props) => props.theme.backgroundLightGrayColor};
-  padding: 29px 20px 32px;
-`;
-const Userprofile = styled.div`
-  padding: 24px 16px;
-  background-color: ${(props) => props.theme.containerColor};
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05), 0px 6px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-`;
-const Username = styled.h5`
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  height: 32px;
-  font-size: 22px;
-  font-weight: 700;
-  color: ${(props) => props.theme.textColor};
-`;
-const UserInfo = styled.div`
-  margin-bottom: 36px;
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  color: ${(props) => props.theme.textColor};
-`;
-const Info = styled.span`
-  height: 15px;
-  width: 42px;
-  padding: 2px 0 0 2px;
-  border: 1px solid;
-  border-radius: 8px;
-  color: ${(props) => props.theme.svelteOrangeColor};
-  margin-right: 5px;
-  &:last-child {
-    margin-left: 10px;
-  }
-`;
-const Introduction = styled.p`
-  color: ${(props) => props.theme.commentColor};
-  line-height: 24px;
-  font-size: 14px;
-  word-break: break-all;
-`;
-const SortBtn = styled.div`
-  display: flex;
-  align-items: center;
-  width: 350px;
-  height: 40px;
-  border-radius: 2222px;
-  margin: 32px 0 20px;
-  background-color: ${(props) => props.theme.containerColor};
-`;
-const Btn = styled.button`
-  margin: 0 3px;
-  width: 114px;
-  height: 32px;
-  border: none;
-  border-radius: 16px;
-  background-color: transparent;
-  color: #b7b7b7;
-  cursor: pointer;
-  &:first-child {
-    background-color: #ed702d;
-    color: #fff;
-  }
-`;
-
 export default function UserProfile() {
   const location = useLocation();
   const username = location.pathname.split("/userprofile/")[1];
@@ -95,22 +27,21 @@ export default function UserProfile() {
   return (
     <>
       <Wrapper>
-        <Userprofile>
-          <Username>{userData.id}</Username>
-          <UserInfo>
-            <Info>Joined</Info>
+        <UserInfo>
+          <h5>{userData.id}</h5>
+          <div>
+            <span>Joined</span>
             {mapTime(userData.created)}
-            <Info>Karma</Info>
+            <span>Karma</span>
             {userData.karma}
-          </UserInfo>
-          <Introduction dangerouslySetInnerHTML={{ __html: userData.about }} />
-        </Userprofile>
+          </div>
+          <p dangerouslySetInnerHTML={{ __html: userData.about }} />
+        </UserInfo>
         <SortBtn>
-          <Btn>submissions</Btn>
-          <Btn>comments</Btn>
-          <Btn>favorites</Btn>
+          <button>submissions</button>
+          <button>comments</button>
+          <button>favorites</button>
         </SortBtn>
-
         {submittedIds?.slice(0, 50).map((submittedId) => (
           <UserSubmission key={submittedId} submittedId={submittedId} />
         ))}
@@ -118,3 +49,74 @@ export default function UserProfile() {
     </>
   );
 }
+
+const Wrapper = styled.section`
+  background-color: ${(props) => props.theme.backgroundLightGrayColor};
+  padding: 29px 20px 32px;
+  margin: 0 auto;
+`;
+const UserInfo = styled.div`
+  padding: 24px 16px;
+  background-color: ${(props) => props.theme.containerColor};
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05), 0px 6px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  h5 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    height: 32px;
+    font-size: 22px;
+    font-weight: 700;
+    color: ${(props) => props.theme.textColor};
+  }
+  div {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: ${(props) => props.theme.textColor};
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 18px;
+      width: 45px;
+      border: 1px solid;
+      border-radius: 8px;
+      color: ${(props) => props.theme.svelteOrangeColor};
+      margin-right: 5px;
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+  }
+  p {
+    color: ${(props) => props.theme.commentColor};
+    line-height: 24px;
+    font-size: 14px;
+    word-break: break-all;
+  }
+`
+const SortBtn = styled.div`
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 2222px;
+  margin: 32px 0 20px;
+  background-color: ${(props) => props.theme.containerColor};
+  button {
+    margin: 0 3px;
+    width: 114px;
+    height: 32px;
+    border: none;
+    border-radius: 16px;
+    background-color: transparent;
+    color: #b7b7b7;
+    cursor: pointer;
+    &:first-child {
+      background-color: #ed702d;
+      color: #fff;
+    }
+  }
+`;
+
