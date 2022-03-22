@@ -116,7 +116,6 @@ export const AskDetailPage = () => {
     getCurrIdData().then((data) => setCurrIdData(data));
   }, []);
   const commentIdsArr = currIdData.kids;
-  // console.log(currIdData);
 
   const orangeWords = `${currIdData.title?.split(" ")[0]} ${currIdData.title?.split(" ")[1]
     }`;

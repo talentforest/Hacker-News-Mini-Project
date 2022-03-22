@@ -33,6 +33,7 @@ const Icon = styled.img`
 `;
 
 export default function Header() {
+  // eslint-disable-next-line no-unused-vars
   const [ThemeMode, toggleTheme] = useTheme();
   return (
     <HeaderTop>

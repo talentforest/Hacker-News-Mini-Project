@@ -1,4 +1,4 @@
-import Banner from "../components/common/Banner";
+import Banner from "../components/layout/Banner";
 import { TTopContainer } from "../HomeContainer/TTopContainer";
 import { TNewContainer } from "../HomeContainer/TNewContainer";
 import { TUserContainer } from "../HomeContainer/TUserContainer";

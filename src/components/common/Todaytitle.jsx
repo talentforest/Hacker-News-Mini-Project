@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const Content = styled.div`
-  /* border: 1px solid red; */
   height: 68px;
   display: flex;
   justify-content: space-between;

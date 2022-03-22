@@ -1,4 +1,4 @@
-import Banner from "../components/common/Banner";
+import Banner from "../components/layout/Banner";
 import { JobPostContainer } from "../PostContainer/JobPostContainer";
 
 export default function Job() {

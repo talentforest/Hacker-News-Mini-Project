@@ -77,12 +77,8 @@ const Btn = styled.button`
 export default function UserProfile() {
   const location = useLocation();
   const username = location.pathname.split("/userprofile/")[1];
-
-  // username으로 유저데이터 얻기
   const [userData, setUserData] = useState([]);
-  // 유저데이터를 얻고 submitted데이터 얻기
 
-  // username으로 유저데이터 얻기
   const getUserData = async () => {
     const result = await axios
       .get(`https://hacker-news.firebaseio.com/v0/user/${username}.json`)

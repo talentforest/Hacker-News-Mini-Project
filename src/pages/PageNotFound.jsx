@@ -1,3 +1,3 @@
-export default function PageNotFound({ toggleDark }) {
+export default function PageNotFound() {
   return <>Page Not Found</>;
 }

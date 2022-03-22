@@ -1,4 +1,4 @@
-import Banner from "../components/common/Banner";
+import Banner from "../components/layout/Banner";
 import { TopUsersBox } from "../PostComponents/TopUsersBox";
 import { Link } from "react-router-dom";
 import styled from "styled-components";

@@ -1,5 +1,4 @@
-import Banner from "../components/common/Banner";
-import { SortViewModeBtn } from "../components/common/SortBtn";
+import Banner from "../components/layout/Banner";
 import { NewPostContainer } from "../PostContainer/NewPostContainer";
 
 export default function New() {
