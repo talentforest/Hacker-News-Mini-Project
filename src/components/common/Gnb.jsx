@@ -48,28 +48,28 @@ export default function Gnb() {
       <Lists>
         <Link to="/">
           <List>Home</List>
-          {location.pathname === "/" ? <CurrPageMark /> : null}
+          {location.pathname === "/" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/top">
           <List>Top</List>
-          {location.pathname === "/top" ? <CurrPageMark /> : null}
-          {location.pathname === "/top/users" ? <CurrPageMark /> : null}
+          {location.pathname === "/top" ? <CurrPageMark /> : <></>}
+          {location.pathname === "/top/users" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/new">
           <List>New</List>
-          {location.pathname === "/new" ? <CurrPageMark /> : null}
+          {location.pathname === "/new" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/show">
           <List>Show</List>
-          {location.pathname === "/show" ? <CurrPageMark /> : null}
+          {location.pathname === "/show" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/ask">
           <List>Ask</List>
-          {location.pathname === "/ask" ? <CurrPageMark /> : null}
+          {location.pathname === "/ask" ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/job">
           <List>Job</List>
-          {location.pathname === "/job" ? <CurrPageMark /> : null}
+          {location.pathname === "/job" ? <CurrPageMark /> : <></>}
         </Link>
       </Lists>
     </Navigation>
