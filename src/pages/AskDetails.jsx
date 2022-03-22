@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Comment } from "../DetailPage/Comment";
+import { Comment } from "../components/AskDetails/Comment";
 import { commentsSelectFields } from "../util/selectFields";
 import styled from "styled-components";
 import { mapTime } from "../util/mapTime";
@@ -30,12 +30,12 @@ const AskDetails = () => {
     <Wrapper>
       <Post>
         <User>
-          <img src="/assets/user_black.png" alt="user" />
+          <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user_black.png" alt="user" />
           <Info>
             {currIdData.by}
             <div>
               <span>{currIdData.score} points</span>
-              <img src="/assets/circle_gray.png" alt="bullet" />
+              <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_gray.png" alt="bullet" />
               <span>{mapTime(currIdData.time)} ago</span>
             </div>
           </Info>
@@ -54,14 +54,11 @@ const AskDetails = () => {
 };
 
 const Wrapper = styled.section`
-  width: 390px;
   padding-bottom: 100px;
   background-color: ${(props) => props.theme.backgroundGrayColor};
   color: ${(props) => props.theme.textColor};
 `;
 const Post = styled.div`
-  width: 390px;
-  margin: 0 auto 12px;
   padding: 23px 10px 18px;
   background-color: ${(props) => props.theme.backgroundColor};
   word-break: break-word;
@@ -69,7 +66,6 @@ const Post = styled.div`
   pre {
     white-space: pre-wrap;
   }
-  width: 390px;
   img {
     width: 33.33px;
     height: 33.33px;

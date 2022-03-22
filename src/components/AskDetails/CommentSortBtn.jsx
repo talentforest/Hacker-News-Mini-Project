@@ -19,7 +19,7 @@ export default function CommentSortBtn() {
           <span>Newest</span>
         </div>
       </div>
-      <img src="/assets/comment.png" alt="commentimg" />
+      <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png" alt="commentimg" />
     </Sort>
   )
 }
