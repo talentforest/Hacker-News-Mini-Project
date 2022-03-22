@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import { Link } from "react-router-dom";
 
 const HeaderTop = styled.header`

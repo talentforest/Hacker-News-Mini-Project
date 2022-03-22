@@ -1,8 +1,6 @@
-import Header from "../CommonComponents/Header";
-import Gnb from "../CommonComponents/Gnb";
-import Banner from "../CommonComponents/Banner";
+import Banner from "../components/common/Banner";
 import { TopPostContainer } from "../PostContainer/TopPostContainer";
-import { SortViewModeBtn } from "../CommonComponents/SortBtn";
+import { SortViewModeBtn } from "../components/common/SortBtn";
 import { TopCardPostContainer } from "../PostContainer/TopCardPostContainer";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -76,8 +74,6 @@ export default function Top({ toggleDark }) {
 
   return (
     <>
-      <Header toggleDark={toggleDark} />
-      <Gnb />
       <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/top_banner.png" />
       <Wrapper>
         <Btn>

@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import axios from "axios";
-import Header from "../CommonComponents/Header";
-import Gnb from "../CommonComponents/Gnb";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { userSelectFields } from "../util/selectFields";
@@ -77,7 +75,7 @@ const Btn = styled.button`
   }
 `;
 
-export default function UserProfile({ toggleDark }) {
+export default function UserProfile() {
   const location = useLocation();
   const username = location.pathname.split("/userprofile/")[1];
 
@@ -101,8 +99,6 @@ export default function UserProfile({ toggleDark }) {
 
   return (
     <>
-      <Header toggleDark={toggleDark} />
-      <Gnb />
       <Wrapper>
         <Userprofile>
           <Username>{userData.id}</Username>

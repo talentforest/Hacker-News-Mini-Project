@@ -1,6 +1,4 @@
-import Header from "../CommonComponents/Header";
-import Gnb from "../CommonComponents/Gnb";
-import Banner from "../CommonComponents/Banner";
+import Banner from "../components/common/Banner";
 import { TopUsersBox } from "../PostComponents/TopUsersBox";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -69,12 +67,10 @@ const CurrUsersBtn = styled.div`
   color: #fff;
 `;
 
-export default function TopUsers({ toggleDark }) {
+export default function TopUsers() {
   const location = useLocation();
   return (
     <>
-      <Header toggleDark={toggleDark} />
-      <Gnb />
       <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/top_banner.png" />
       <Wrapper>
         <Btn>

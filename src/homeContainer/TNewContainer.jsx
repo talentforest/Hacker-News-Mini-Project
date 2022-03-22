@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "../util/hnApi";
 import { TNew } from "../HomeComponents/TNew";
-import { ReloadTitle } from "../CommonComponents/TodayTitle";
+import { ReloadTitle } from "../components/common/Todaytitle";
 import styled from "styled-components";
 
 const Wrapper = styled.section`

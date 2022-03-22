@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
-import { SortViewModeBtn } from "../CommonComponents/SortBtn";
+import { SortViewModeBtn } from "../components/common/SortBtn";
 
 const Wrapper = styled.div`
   padding-top: 25px;

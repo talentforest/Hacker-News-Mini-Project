@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Header from "../CommonComponents/Header";
-import Gnb from "../CommonComponents/Gnb";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
@@ -48,11 +46,9 @@ const Question = styled.div`
   }
 `;
 
-export default function About({ toggleDark }) {
+export default function About() {
   return (
     <>
-      <Header toggleDark={toggleDark} />
-      <Gnb />
       <Wrapper>
         <DescBox>
           <span>About</span>

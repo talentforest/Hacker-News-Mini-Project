@@ -1,5 +1,3 @@
-import Header from "../CommonComponents/Header";
-import Gnb from "../CommonComponents/Gnb";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -102,7 +100,7 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export const AskDetailPage = ({ toggleDark }) => {
+export const AskDetailPage = () => {
   const { id } = useParams();
   const [currIdData, setCurrIdData] = useState([]);
 
@@ -120,14 +118,12 @@ export const AskDetailPage = ({ toggleDark }) => {
   const commentIdsArr = currIdData.kids;
   // console.log(currIdData);
 
-  const orangeWords = `${currIdData.title?.split(" ")[0]} ${
-    currIdData.title?.split(" ")[1]
-  }`;
+  const orangeWords = `${currIdData.title?.split(" ")[0]} ${currIdData.title?.split(" ")[1]
+    }`;
 
   return (
     <Wrapper>
-      <Header toggleDark={toggleDark} />
-      <Gnb />
+
       <Post>
         <User>
           <img src="/assets/user_black.png" alt="user" />
@@ -170,3 +166,5 @@ export const AskDetailPage = ({ toggleDark }) => {
     </Wrapper>
   );
 };
+
+export default AskDetailPage;

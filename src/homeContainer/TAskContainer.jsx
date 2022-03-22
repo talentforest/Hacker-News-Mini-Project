@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TAsk } from "../HomeComponents/TAsk";
 import { getAskStoryIds } from "../util/hnApi";
-import { ReloadTitle } from "../CommonComponents/TodayTitle";
+import { ReloadTitle } from "../components/common/Todaytitle";
 
 const Wrapper = styled.div`
   width: 100%;

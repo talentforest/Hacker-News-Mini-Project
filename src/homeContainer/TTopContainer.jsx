@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
 import { TTop } from "../HomeComponents/TTop";
 import styled from "styled-components";
-import { ClockTitle } from "../CommonComponents/TodayTitle";
+import { ClockTitle } from "../components/common/Todaytitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

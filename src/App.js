@@ -1,58 +1,38 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { AskDetailPage } from "./routes/AskDetailPage";
 import { ThemeProvider } from './context/Provider';
-import Home from "./routes/Home";
-import Top from "./routes/Top";
-import TopUsers from "./routes/TopUsers";
-import New from "./routes/New";
-import Job from "./routes/Job";
-import Show from "./routes/Show";
-import Ask from "./routes/Ask";
-import UserProfile from "./routes/UserProfile";
-import About from "./routes/About";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/common/Header"
+import Gnb from './components/common/Gnb';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import UserProfile from "./pages/UserProfile";
+import Top from "./pages/Top";
+import TopUsers from "./pages/TopUsers";
+import New from "./pages/New";
+import Show from "./pages/Show";
+import Ask from "./pages/Ask";
+import AskDetailPage from "./pages/AskDetailPage";
+import Job from "./pages/Job";
+
 
 function App() {
   return (
-    <>
-      <ThemeProvider>
-        <div className="App">
-          <Router>
-            <Switch>
-              <Route path="/job">
-                <Job />
-              </Route>
-              <Route path="/ask/:id">
-                <AskDetailPage />
-              </Route>
-              <Route path="/ask">
-                <Ask />
-              </Route>
-              <Route path="/show">
-                <Show />
-              </Route>
-              <Route path="/new">
-                <New />
-              </Route>
-              <Route path="/top/users">
-                <TopUsers />
-              </Route>
-              <Route path="/top">
-                <Top />
-              </Route>
-              <Route path="/userprofile">
-                <UserProfile />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </Router>
-        </div>
-      </ThemeProvider>
-    </>
+    <ThemeProvider>
+      <Header />
+      <Gnb />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="userprofile" element={<UserProfile />} />
+        <Route path="top" element={<Top />} />
+        <Route path="top/users" element={<TopUsers />} />
+        <Route path="new" element={<New />} />
+        <Route path="show" element={<Show />} />
+        <Route path="ask" element={<Ask />}>
+          <Route path=":id" element={<AskDetailPage />} />
+        </Route>
+        <Route path="job" element={<Job />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 

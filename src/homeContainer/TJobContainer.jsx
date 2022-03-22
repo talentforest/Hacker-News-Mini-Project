@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { TJob } from "../HomeComponents/TJob";
 import { getJobStoryIds } from "../util/hnApi";
-import { OnlyTitle } from "../CommonComponents/TodayTitle";
+import { OnlyTitle } from "../components/common/Todaytitle";
 
 const Wrapper = styled.div`
   width: 100%;
