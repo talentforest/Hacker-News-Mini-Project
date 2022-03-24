@@ -78,18 +78,21 @@ export const getUserData = async (username, setUserData) => {
 export const getReplyData = async (replyId, setReplyIdData) => {
   const { data } = await axios
     .get(`${storyUrl + replyId}.json`)
+
   if (data) setReplyIdData(data);
 };
 
 export const getReplyReplyData = async (replyReplyId, setReplyReplyIdData) => {
   const { data } = await axios
     .get(`${storyUrl + replyReplyId}.json`)
+
   if (data) setReplyReplyIdData(data)
 };
 
 export const getCurrIdData = async (id, setCurrIdData) => {
   const { data } = await axios
     .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+
   if (data) setCurrIdData(data);
 };
 
