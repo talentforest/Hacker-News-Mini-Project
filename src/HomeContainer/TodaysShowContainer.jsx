@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { TShow } from "../HomeComponents/TShow";
+import TodaysShow from "../HomeComponents/TodaysShow";
 import { getShowStoryIds } from "../util/hnApi";
 import TitleReloadBtn from "../components/common/TitleReloadBtn";
 
@@ -22,12 +22,12 @@ const Container = styled.div`
   }
 `;
 
-export const TShowContainer = () => {
+const TodaysShowContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
   const [randomNumber, setRandomNumber] = useState([]);
 
   useEffect(() => {
-    getShowStoryIds().then((data) => setStoryIds(data));
+    getShowStoryIds(setStoryIds);
   }, []);
 
   const reloadNewData = () =>
@@ -38,9 +38,11 @@ export const TShowContainer = () => {
       <TitleReloadBtn title="Today's Show" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
-          <TShow key={storyId} storyId={storyId} />
+          <TodaysShow key={storyId} storyId={storyId} />
         ))}
       </Container>
     </Wrapper>
   );
 };
+
+export default TodaysShowContainer;

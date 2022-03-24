@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "../util/hnApi";
-import { TNew } from "../HomeComponents/TNew";
+import TodaysNew from "../HomeComponents/TodaysNew";
 import TitleReloadBtn from "../components/common/TitleReloadBtn";
 import styled from "styled-components";
 
@@ -21,12 +21,12 @@ const Container = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
 `;
 
-export const TNewContainer = () => {
+const TodaysNewContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
   const [randomNumber, setRandomNumber] = useState([]);
 
   useEffect(() => {
-    getNewStoryIds().then((data) => setStoryIds(data));
+    getNewStoryIds(setStoryIds)
   }, []);
 
   const reloadNewData = () =>
@@ -37,9 +37,11 @@ export const TNewContainer = () => {
       <TitleReloadBtn title="Today's New" reloadNewData={reloadNewData} />
       <Container>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
-          <TNew key={storyId} storyId={storyId} />
+          <TodaysNew key={storyId} storyId={storyId} />
         ))}
       </Container>
     </Wrapper>
   );
 };
+
+export default TodaysNewContainer;

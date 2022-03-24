@@ -4,6 +4,28 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
+export default function TopUsers() {
+  const location = useLocation();
+  return (
+    <>
+      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/top_banner.png" />
+      <Wrapper>
+        <Btn>
+          <Link to="/top">
+            <PostBtn>Post</PostBtn>
+            {location.pathname === "/top" ? <CurrBtn /> : <></>}
+          </Link>
+          <Link to="/top/users">
+            <UsersBtn>Users</UsersBtn>
+            {location.pathname === "/top/users" ? <CurrUsersBtn /> : <></>}
+          </Link>
+        </Btn>
+      </Wrapper>
+      <TopUsersBox />
+    </>
+  );
+}
+
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundColor};
   padding: 28px 0 21px;
@@ -67,24 +89,3 @@ const CurrUsersBtn = styled.div`
   color: #fff;
 `;
 
-export default function TopUsers() {
-  const location = useLocation();
-  return (
-    <>
-      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/top_banner.png" />
-      <Wrapper>
-        <Btn>
-          <Link to="/top">
-            <PostBtn>Post</PostBtn>
-            {location.pathname === "/top" ? <CurrBtn /> : <></>}
-          </Link>
-          <Link to="/top/users">
-            <UsersBtn>Users</UsersBtn>
-            {location.pathname === "/top/users" ? <CurrUsersBtn /> : <></>}
-          </Link>
-        </Btn>
-      </Wrapper>
-      <TopUsersBox />
-    </>
-  );
-}

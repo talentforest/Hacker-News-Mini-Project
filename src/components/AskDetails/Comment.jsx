@@ -1,25 +1,20 @@
 import React, { useState, useEffect, memo } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import Reply from "./Reply";
 import { useToggle } from "../../hooks/index"
+import { getCommentData } from '../../util/hnApi';
+import styled from "styled-components";
 import UserClockFolder from './UserClockFolder';
+import Reply from "./Reply";
 
 export const Comment = memo(function Story({ commentId }) {
   const [toggle, onFolder] = useToggle();
   const [commentIds, setCommentIds] = useState([]);
 
-  const getCommentData = async () => {
-    const { data } = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/item/${commentId}.json`);
-    if (data) setCommentIds(data);
-  };
-
   useEffect(() => {
-    getCommentData().then((data) => data && data.url && setCommentIds(data));
-  }, []);
+    getCommentData(commentId, setCommentIds)
+  }, [commentId]);
 
   const replyIds = commentIds.kids;
+
   return (
     <CommentWrapper>
       <UserClockFolder commentIds={commentIds} onFolder={onFolder} />

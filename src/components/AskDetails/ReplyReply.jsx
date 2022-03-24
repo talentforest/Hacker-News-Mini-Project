@@ -1,27 +1,17 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
-import { commentsSelectFields } from "../../util/selectFields";
+import { getReplyReplyData } from '../../util/hnApi';
 import { useToggle } from '../../hooks/index';
 import UserClockFolder from './UserClockFolder';
 
 export default function ReplyReply({ replyReplyId }) {
-  const [toggle, onFolder] = useToggle();
-
   const [replyReplyIdData, setReplyReplyIdData] = useState([]);
 
-  const getReplyReplyData = async () => {
-    const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/item/${replyReplyId}.json`)
-      .then(({ data }) => data && commentsSelectFields(data));
-    return result;
-  };
+  const [toggle, onFolder] = useToggle();
 
   useEffect(() => {
-    getReplyReplyData().then(
-      (data) => data && data.type && setReplyReplyIdData(data)
-    );
-  }, []);
+    getReplyReplyData(replyReplyId, setReplyReplyIdData);
+  }, [replyReplyId]);
 
   return replyReplyIdData && replyReplyIdData.by ? (
     <ReplyReplyWrapper>

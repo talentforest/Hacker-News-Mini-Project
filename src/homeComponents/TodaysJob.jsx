@@ -1,7 +1,40 @@
 import React, { useState, useEffect, memo } from "react";
-import { getJobStory } from "../util/hnApi";
+import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 import styled from "styled-components";
+
+const TodaysJob = memo(function Story({ storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  const urlName = story.url?.slice(8).split("/")[0];
+
+  return (
+    <Wrapper>
+      <JobWrapper>
+        <Tag>Software Engineers</Tag>
+        <Title>
+          {story?.title?.length > 75
+            ? `${story?.title?.slice(0, 75)}...`
+            : story?.title}
+        </Title>
+        <a href={story?.url} target="_blank" rel="noopener noreferrer">
+          <Site>{urlName?.includes("www") ? urlName?.slice(4) : urlName}</Site>
+        </a>
+        <Info>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock2.png"
+            alt="clock"
+          />
+          <span>{mapTime(story.time)}</span>
+        </Info>
+      </JobWrapper>
+    </Wrapper>
+  );
+});
 
 const Wrapper = styled.div`
   width: 2000px;
@@ -62,35 +95,4 @@ const Info = styled.div`
   }
 `;
 
-export const TJob = memo(function Story({ storyId }) {
-  const [story, setStory] = useState([]);
-
-  useEffect(() => {
-    getJobStory(storyId).then((data) => data && data.url && setStory(data));
-  }, []);
-
-  const urlName = story.url?.slice(8).split("/")[0];
-
-  return story && story.url ? (
-    <Wrapper>
-      <JobWrapper>
-        <Tag>Software Engineers</Tag>
-        <Title>
-          {story.title?.length > 75
-            ? `${story.title?.slice(0, 75)}...`
-            : story.title}
-        </Title>
-        <a href={story.url} target="_blank" rel="noopener noreferrer">
-          <Site>{urlName?.includes("www") ? urlName.slice(4) : urlName}</Site>
-        </a>
-        <Info>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock2.png"
-            alt="clock"
-          />
-          <span>{mapTime(story.time)}</span>
-        </Info>
-      </JobWrapper>
-    </Wrapper>
-  ) : null;
-});
+export default TodaysJob;

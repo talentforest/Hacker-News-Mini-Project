@@ -8,23 +8,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
-const Wrapper = styled.div`
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-  width: 100%;
-`;
-const Posts = styled.section`
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  padding-bottom: 158px;
-`;
-
 export const TopPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getTopStoryIds().then((data) => setStoryIds(data));
+    getTopStoryIds(setStoryIds);
   }, []);
 
   return (
@@ -74,3 +62,15 @@ export const TopPostContainer = () => {
     </Swiper>
   );
 };
+
+const Wrapper = styled.div`
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+  width: 100%;
+`;
+const Posts = styled.section`
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 158px;
+`;

@@ -4,8 +4,8 @@ export function useToggle() {
   const [toggle, setToggle] = useState(true);
 
   const onFolder = useCallback(() => {
-    setToggle((prev) => (prev ? false : true));
-  }, [setToggle]);
+    setToggle(!toggle);
+  }, [setToggle, toggle]);
 
   return [toggle, onFolder]
 }

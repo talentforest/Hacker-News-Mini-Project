@@ -1,7 +1,42 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getNewStory } from "../util/hnApi";
+import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
+
+export const NewPostBox = memo(function Story({ storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  return (
+    <Post>
+      <Tag>github.com</Tag>
+      <h4>{story.title}</h4>
+      <Info>
+        <User>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            alt="userimg"
+          />
+          <span>{story.by}</span>
+          <UserInfo>
+            <span>{story.score} points</span>
+            <span>{mapTime(story.time)}</span>
+          </UserInfo>
+        </User>
+        <Comments>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            alt="comments"
+          />
+          <span>{story.descendants}</span>
+        </Comments>
+      </Info>
+    </Post>
+  );
+});
 
 const Post = styled.div`
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
@@ -60,37 +95,3 @@ const Comments = styled.div`
   align-items: center;
   color: #ed702d;
 `;
-
-export const NewPostBox = memo(function Story({ storyId }) {
-  const [story, setStory] = useState([]);
-  useEffect(() => {
-    getNewStory(storyId).then((data) => data && data.url && setStory(data));
-  }, []);
-
-  return (
-    <Post>
-      <Tag>github.com</Tag>
-      <h4>{story.title}</h4>
-      <Info>
-        <User>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
-            alt="userimg"
-          />
-          <span>{story.by}</span>
-          <UserInfo>
-            <span>{story.score} points</span>
-            <span>{mapTime(story.time)}</span>
-          </UserInfo>
-        </User>
-        <Comments>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </Comments>
-      </Info>
-    </Post>
-  );
-});

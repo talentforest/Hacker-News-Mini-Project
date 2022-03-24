@@ -1,24 +1,17 @@
 import styled from "styled-components";
-import axios from "axios";
+import { getUserSubmissions } from "../../util/hnApi"
 import { useState, useEffect } from "react";
-import { submissionFields } from "../util/selectFields";
-import { mapTime } from "../util/mapTime";
+import { mapTime } from "../../util/mapTime";
 
 export default function UserSubmission({ submittedId }) {
   const [userSubmissions, setUserSubmissions] = useState();
 
-  const getUserSubmissions = async () => {
-    const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/item/${submittedId}.json`)
-      .then(({ data }) => data && submissionFields(data));
-    return result;
-  };
-
   useEffect(() => {
-    getUserSubmissions().then((data) => data.title && setUserSubmissions(data));
-  }, []);
+    getUserSubmissions(submittedId, setUserSubmissions);
+  }, [submittedId]);
 
-  const orangeWords = `${userSubmissions?.title.split(" ")[0]} ${userSubmissions?.title.split(" ")[1]}`;
+  const orangeWords = `${userSubmissions?.title?.split(" ")[0]} ${userSubmissions?.title?.split(" ")[1]} `;
+
   const urlName = userSubmissions?.url
 
   return userSubmissions && userSubmissions.title ? (

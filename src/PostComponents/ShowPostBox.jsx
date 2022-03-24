@@ -1,7 +1,48 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getShowStory } from "../util/hnApi";
+import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
+
+export const ShowPostBox = memo(function ShowStory({ storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
+    }`;
+
+  return (
+    <Post>
+      <Tag>github.com</Tag>
+      <h4>
+        <Orange>{`${orangeWords}`}</Orange>
+        {`${story.title?.slice(8)}`}
+      </h4>
+      <Info>
+        <User>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            alt="userimg"
+          />
+          <span>{story.by}</span>
+          <UserInfo>
+            <span>{story.score} points</span>
+            <span>{mapTime(story.time)}</span>
+          </UserInfo>
+        </User>
+        <Comments>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            alt="comments"
+          />
+          <span>{story.descendants}</span>
+        </Comments>
+      </Info>
+    </Post>
+  );
+});
 
 const Post = styled.div`
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
@@ -63,43 +104,3 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
-export const ShowPostBox = memo(function ShowStory({ storyId }) {
-  const [story, setStory] = useState([]);
-  useEffect(() => {
-    getShowStory(storyId).then((data) => data && data.title && setStory(data));
-  }, []);
-
-  const orangeWords = `${story.title?.split(" ")[0]} ${
-    story.title?.split(" ")[1]
-  }`;
-
-  return (
-    <Post>
-      <Tag>github.com</Tag>
-      <h4>
-        <Orange>{`${orangeWords}`}</Orange>
-        {`${story.title?.slice(8)}`}
-      </h4>
-      <Info>
-        <User>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
-            alt="userimg"
-          />
-          <span>{story.by}</span>
-          <UserInfo>
-            <span>{story.score} points</span>
-            <span>{mapTime(story.time)}</span>
-          </UserInfo>
-        </User>
-        <Comments>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </Comments>
-      </Info>
-    </Post>
-  );
-});

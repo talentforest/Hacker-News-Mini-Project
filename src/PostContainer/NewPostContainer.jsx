@@ -9,22 +9,11 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
 
-const Wrapper = styled.div`
-  padding-top: 25px;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-`;
-const Posts = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin: 20px 20px 0px;
-  padding-bottom: 158px;
-`;
-
 export const NewPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getNewStoryIds().then((data) => setStoryIds(data));
+    getNewStoryIds(setStoryIds)
   }, []);
 
   return (
@@ -61,3 +50,14 @@ export const NewPostContainer = () => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  padding-top: 25px;
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+`;
+const Posts = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 0px;
+  padding-bottom: 158px;
+`;

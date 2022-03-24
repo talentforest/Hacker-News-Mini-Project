@@ -1,7 +1,32 @@
 import React, { useState, useEffect, memo } from "react";
-import { getTopStory } from "../util/hnApi";
-import styled from "styled-components";
+import { getStory } from "../util/hnApi";
 import { TUserInfo } from "./TUserInfo";
+import styled from "styled-components";
+
+const TodaysUser = memo(function Story({ index, storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  return story && story.url ? (
+    <Wrapper>
+      <UserWrapper>
+        <Rank>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/star.png"
+            alt="star"
+          />
+          <div>{index + 1}</div>
+          <span>Today's User</span>
+        </Rank>
+        <Username>{story.by}</Username>
+        <TUserInfo story={story} />
+      </UserWrapper>
+    </Wrapper>
+  ) : null;
+});
 
 const Wrapper = styled.div``;
 const UserWrapper = styled.div`
@@ -47,28 +72,4 @@ const Username = styled.div`
   margin-bottom: 8px;
 `;
 
-export const TUser = memo(function Story({ index, storyId }) {
-  // 탑스토리 가져오고
-  const [story, setStory] = useState([]);
-
-  useEffect(() => {
-    getTopStory(storyId).then((data) => data && data.url && setStory(data));
-  }, []);
-
-  return story && story.url ? (
-    <Wrapper>
-      <UserWrapper>
-        <Rank>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/star.png"
-            alt="star"
-          />
-          <div>{index + 1}</div>
-          <span>Today's User</span>
-        </Rank>
-        <Username>{story.by}</Username>
-        <TUserInfo story={story} />
-      </UserWrapper>
-    </Wrapper>
-  ) : null;
-});
+export default TodaysUser;

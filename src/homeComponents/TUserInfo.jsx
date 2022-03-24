@@ -1,8 +1,34 @@
 import { memo, useState, useEffect } from "react";
 import { mapTime } from "../util/mapTime";
 import styled from "styled-components";
-import axios from "axios";
-import { userSelectFields } from "../util/selectFields";
+import { getUserInfo } from '../util/hnApi';
+
+export const TUserInfo = memo(function Story({ story }) {
+  const [topUserData, setTopUserData] = useState([]);
+
+  useEffect(() => {
+    getUserInfo(story, setTopUserData);
+  }, [story]);
+
+  return (
+    <UserInfoBox>
+      <Infobox>
+        <Info>
+          <div>Joined</div>
+          <span>{mapTime(topUserData?.created)} ago</span>
+        </Info>
+        <Info>
+          <div>karma</div>
+          <span>{topUserData?.karma}</span>
+        </Info>
+      </Infobox>
+      <Btn
+        src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_blue.png"
+        alt="arrow button"
+      />
+    </UserInfoBox>
+  );
+});
 
 const UserInfoBox = styled.div`
   display: flex;
@@ -35,37 +61,3 @@ const Btn = styled.img`
   width: 24px;
   height: 24px;
 `;
-
-export const TUserInfo = memo(function Story({ story }) {
-  const [topUserData, setTopUserData] = useState([]);
-
-  const getUserInfo = async () => {
-    const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/user/${story.by}.json`)
-      .then(({ data }) => data && userSelectFields(data));
-    return result;
-  };
-
-  useEffect(() => {
-    getUserInfo().then((data) => data && data.id && setTopUserData(data));
-  }, []);
-
-  return (
-    <UserInfoBox>
-      <Infobox>
-        <Info>
-          <div>Joined</div>
-          <span>{mapTime(topUserData.created)} ago</span>
-        </Info>
-        <Info>
-          <div>karma</div>
-          <span>{topUserData.karma}</span>
-        </Info>
-      </Infobox>
-      <Btn
-        src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_blue.png"
-        alt="arrow button"
-      />
-    </UserInfoBox>
-  );
-});

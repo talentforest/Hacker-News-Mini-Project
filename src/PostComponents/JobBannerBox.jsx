@@ -1,6 +1,59 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getJobStory } from "../util/hnApi";
+import { getStory } from "../util/hnApi";
+
+export const BannerBox = memo(function Story({ storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  const companyName = story.title?.split(")")[0];
+  const companyShortName = story.title?.split(" ")[0];
+  const job = story.title?.split("iring")[1];
+
+  return (
+    <Banner>
+      <Tags>Software Engineers</Tags>
+      <CompanyInfo>
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
+          alt="company logo"
+        />
+        <Company>
+          {companyName?.length < 30 ? `${companyName})` : companyShortName}
+        </Company>
+        <Job>{job?.includes(", ") ? job.slice(2) : job}</Job>
+      </CompanyInfo>
+    </Banner>
+  );
+});
+
+export const BannerBox2 = memo(function Story({ storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  const companyName = story.title?.split(")")[0];
+  const companyShortName = story.title?.split(" ")[0];
+
+  return (
+    <Banner2>
+      <CompanyInfo2>
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
+          alt="companylogo"
+        />
+        <Company2>
+          {companyName?.length < 30 ? `${companyName})` : companyShortName}
+        </Company2>
+      </CompanyInfo2>
+    </Banner2>
+  );
+});
 
 const Banner = styled.div`
   width: 90%;
@@ -76,55 +129,3 @@ const Job = styled.span`
   align-items: center;
 `;
 
-export const BannerBox = memo(function Story({ storyId }) {
-  const [story, setStory] = useState([]);
-
-  useEffect(() => {
-    getJobStory(storyId).then((data) => data && data.title && setStory(data));
-  }, []);
-
-  const companyName = story.title?.split(")")[0];
-  const companyShortName = story.title?.split(" ")[0];
-  const job = story.title?.split("iring")[1];
-
-  return (
-    <Banner>
-      <Tags>Software Engineers</Tags>
-      <CompanyInfo>
-        <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
-          alt="company logo"
-        />
-        <Company>
-          {companyName?.length < 30 ? `${companyName})` : companyShortName}
-        </Company>
-        <Job>{job?.includes(", ") ? job.slice(2) : job}</Job>
-      </CompanyInfo>
-    </Banner>
-  );
-});
-
-export const BannerBox2 = memo(function Story({ storyId }) {
-  const [story, setStory] = useState([]);
-
-  useEffect(() => {
-    getJobStory(storyId).then((data) => data && data.title && setStory(data));
-  }, []);
-
-  const companyName = story.title?.split(")")[0];
-  const companyShortName = story.title?.split(" ")[0];
-
-  return (
-    <Banner2>
-      <CompanyInfo2>
-        <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
-          alt="companylogo"
-        />
-        <Company2>
-          {companyName?.length < 30 ? `${companyName})` : companyShortName}
-        </Company2>
-      </CompanyInfo2>
-    </Banner2>
-  );
-});

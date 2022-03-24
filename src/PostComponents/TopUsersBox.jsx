@@ -1,7 +1,32 @@
-import axios from "axios";
 import { useState, useEffect } from "react/cjs/react.development";
-import styled from "styled-components";
 import { getJobStoryIds } from "../util/hnApi";
+import styled from "styled-components";
+
+export const TopUsersBox = () => {
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getJobStoryIds(setStoryIds);
+  }, []);
+
+  return (
+    <Wrapper>
+      <Title>User Ranking 🏆</Title>
+      <Table>
+        <h6>Rank</h6>
+        <h6>User Name</h6>
+        <h6>Karma</h6>
+      </Table>
+      {storyIds.slice(0, 50).map((storyId, index) => (
+        <Table key={storyId} storyId={storyId}>
+          <span>{index + 1}</span>
+          <span>Username</span>
+          <span>Karma</span>
+        </Table>
+      ))}
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -39,29 +64,3 @@ const Table = styled.div`
     color: #727272;
   }
 `;
-
-export const TopUsersBox = ({ toggleDark }) => {
-  const [storyIds, setStoryIds] = useState([]);
-
-  useEffect(() => {
-    getJobStoryIds().then((data) => setStoryIds(data));
-  }, []);
-
-  return (
-    <Wrapper>
-      <Title>User Ranking 🏆</Title>
-      <Table>
-        <h6>Rank</h6>
-        <h6>User Name</h6>
-        <h6>Karma</h6>
-      </Table>
-      {storyIds.slice(0, 50).map((storyId, index) => (
-        <Table key={storyId} storyId={storyId}>
-          <span>{index + 1}</span>
-          <span>Username</span>
-          <span>Karma</span>
-        </Table>
-      ))}
-    </Wrapper>
-  );
-};

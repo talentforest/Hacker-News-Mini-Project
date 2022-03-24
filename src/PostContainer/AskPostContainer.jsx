@@ -9,22 +9,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
-const Wrapper = styled.div`
-  padding-top: 25px;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-`;
-const Posts = styled.section`
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 158px;
-`;
-
 export const AskPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getAskStoryIds().then((data) => setStoryIds(data));
+    getAskStoryIds(setStoryIds);
   }, []);
 
   return (
@@ -61,3 +50,15 @@ export const AskPostContainer = () => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  padding-top: 25px;
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+`;
+const Posts = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 158px;
+`;
+

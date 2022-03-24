@@ -1,7 +1,36 @@
 import React, { useState, useEffect, memo } from "react";
-import { getNewStory } from "../util/hnApi";
+import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 import styled from "styled-components";
+
+const TodaysNew = memo(function Story({ storyId }) {
+  const [story, setStory] = useState({});
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  return story && story.url ? (
+    <NewWrapper>
+      <Time>{mapTime(story.time)} ago</Time>
+      <a href={story.url}>
+        <StoryTitle>
+          {story.title.length > 68
+            ? `${story.title.slice(0, 68)}...`
+            : story.title}
+        </StoryTitle>
+      </a>
+      <Author>
+        <img
+          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+          alt="usericon"
+        />
+        {story.by}
+      </Author>
+      <div></div>
+    </NewWrapper>
+  ) : null;
+});
 
 const NewWrapper = styled.div`
   box-sizing: border-box;
@@ -42,32 +71,5 @@ const Author = styled.span`
   }
 `;
 
-export const TNew = memo(function Story({ storyId }) {
-  const [story, setStory] = useState({});
 
-  useEffect(() => {
-    getNewStory(storyId).then((data) => data && data.url && setStory(data));
-  }, [storyId]);
-
-  return story && story.url ? (
-    <NewWrapper>
-      <Time>{mapTime(story.time)} ago</Time>
-      <a href={story.url}>
-        <StoryTitle>
-          {story.title.length > 68
-            ? `${story.title.slice(0, 68)}...`
-            : story.title}
-        </StoryTitle>
-      </a>
-      <Author>
-        <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
-          alt="usericon"
-        />
-        {story.by}
-      </Author>
-      {/* 라인을 만들기 위한 div */}
-      <div></div>
-    </NewWrapper>
-  ) : null;
-});
+export default TodaysNew;

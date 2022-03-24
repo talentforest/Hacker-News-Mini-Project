@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
-import { TTop } from "../HomeComponents/TTop";
+import TodaysTop from "../HomeComponents/TodaysTop";
 import styled from "styled-components";
 import TitleClock from "../components/common/TitleClock";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,11 +23,11 @@ const Container = styled.ul`
   border-radius: 8px;
 `;
 
-export const TTopContainer = () => {
+const TodaysTopContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getTopStoryIds().then((data) => setStoryIds(data));
+    getTopStoryIds(setStoryIds);
   }, []);
 
   return (
@@ -37,21 +37,21 @@ export const TTopContainer = () => {
         <SwiperSlide>
           <Container>
             {storyIds?.slice(0, 5).map((storyId, index) => (
-              <TTop key={storyId} storyId={storyId} index={index} />
+              <TodaysTop key={storyId} storyId={storyId} index={index} />
             ))}
           </Container>
         </SwiperSlide>
         <SwiperSlide>
           <Container>
             {storyIds.slice(5, 10).map((storyId, index) => (
-              <TTop key={storyId} storyId={storyId} index={index + 5} />
+              <TodaysTop key={storyId} storyId={storyId} index={index + 5} />
             ))}
           </Container>
         </SwiperSlide>
         <SwiperSlide>
           <Container>
             {storyIds.slice(10, 15).map((storyId, index) => (
-              <TTop key={storyId} storyId={storyId} index={index + 10} />
+              <TodaysTop key={storyId} storyId={storyId} index={index + 10} />
             ))}
           </Container>
         </SwiperSlide>
@@ -59,3 +59,5 @@ export const TTopContainer = () => {
     </Wrapper>
   );
 };
+
+export default TodaysTopContainer;

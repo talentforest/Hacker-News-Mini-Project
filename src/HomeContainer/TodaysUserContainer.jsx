@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
-import { TUser } from "../HomeComponents/TUser";
+import TodaysUser from "../HomeComponents/TodaysUser";
 import Title from "../components/common/Title";
 import styled from "styled-components";
+
+const TodaysUserContainer = () => {
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getTopStoryIds(setStoryIds)
+  }, []);
+
+  return (
+    <Wrapper>
+      <Title title="Today's User" />
+      <Container>
+        {storyIds.slice(0, 5).map((storyId, index) => (
+          <TodaysUser key={storyId} storyId={storyId} index={index} />
+        ))}
+      </Container>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -24,21 +43,4 @@ const Container = styled.div`
   }
 `;
 
-export const TUserContainer = () => {
-  // 일단 탑스토리에서 스토리아이디 얻기
-  const [storyIds, setStoryIds] = useState([]);
-  useEffect(() => {
-    getTopStoryIds().then((data) => setStoryIds(data));
-  }, []);
-
-  return (
-    <Wrapper>
-      <Title title="Today's User" />
-      <Container>
-        {storyIds.slice(0, 5).map((storyId, index) => (
-          <TUser key={storyId} storyId={storyId} index={index} />
-        ))}
-      </Container>
-    </Wrapper>
-  );
-};
+export default TodaysUserContainer;

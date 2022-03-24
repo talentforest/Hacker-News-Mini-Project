@@ -1,16 +1,34 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { TJob } from "../HomeComponents/TJob";
+import TodaysJob from "../HomeComponents/TodaysJob";
 import { getJobStoryIds } from "../util/hnApi";
 import Title from "../components/common/Title";
 
+const TodaysJobContainer = () => {
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getJobStoryIds(setStoryIds)
+  }, []);
+
+  return (
+    <Wrapper>
+      <Title title="Today's Job" />
+      <Box>
+        {storyIds.slice(0, 10).map((storyId) => (
+          <TodaysJob key={storyId} storyId={storyId} />
+        ))}
+      </Box>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.div`
-  width: 100%;
   height: 334px;
   background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
 `;
-const Container = styled.div`
+const Box = styled.div`
   display: flex;
   overflow: scroll;
   height: 266px;
@@ -19,23 +37,6 @@ const Container = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
-export const TJobContainer = () => {
-  const [storyIds, setStoryIds] = useState([]);
-
-  useEffect(() => {
-    getJobStoryIds().then((data) => setStoryIds(data));
-  }, []);
-
-  return (
-    <Wrapper>
-      <Title title="Today's Job" />
-      <Container>
-        {storyIds.slice(0, 10).map((storyId) => (
-          <TJob key={storyId} storyId={storyId} />
-        ))}
-      </Container>
-    </Wrapper>
-  );
-};
+export default TodaysJobContainer;

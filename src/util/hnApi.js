@@ -1,95 +1,97 @@
 import axios from "axios";
-import {
-  selectFields,
-  askSelectFields,
-  showSelectFields,
-  jobSelectFields,
-  bySelectFields,
-} from "./selectFields";
 
 export const baseUrl = "https://hacker-news.firebaseio.com/v0/";
+export const storyUrl = `${baseUrl}item/`;
+export const userUrl = `${baseUrl}user/`;
 export const bestStoriesUrl = `${baseUrl}beststories.json`;
 export const newStoriesUrl = `${baseUrl}newstories.json`;
 export const topStoriesUrl = `${baseUrl}topstories.json`;
 export const askStoriesUrl = `${baseUrl}askstories.json`;
 export const showStoriesUrl = `${baseUrl}showstories.json`;
 export const jobStoriesUrl = `${baseUrl}jobstories.json`;
-export const storyUrl = `${baseUrl}item/`;
-export const userUrl = `${baseUrl}user/`;
-export const updateUrl = `${baseUrl}updates.json`;
 
-// 스토리 아이디로 Top 데이터 가져오기
-export const getTopStoryIds = async () => {
-  const result = await axios.get(topStoriesUrl).then(({ data }) => data);
+export const getTopStoryIds = async (setStoryIds) => {
+  const { data } = await axios.get(topStoriesUrl)
 
-  return result;
+  if (data) setStoryIds(data);
 };
-export const getTopStory = async (storyId) => {
-  const result = await axios
+
+export const getNewStoryIds = async (setStoryIds) => {
+  const { data } = await axios.get(newStoriesUrl);
+
+  if (data) setStoryIds(data);
+};
+
+export const getShowStoryIds = async (setStoryIds) => {
+  const { data } = await axios.get(showStoriesUrl);
+
+  if (data) setStoryIds(data);
+};
+
+export const getAskStoryIds = async (setStoryIds) => {
+  const { data } = await axios.get(askStoriesUrl);
+
+  if (data) setStoryIds(data);
+};
+
+export const getJobStoryIds = async (setStoryIds) => {
+  const { data } = await axios.get(jobStoriesUrl);
+
+  if (data) setStoryIds(data);
+};
+
+export const getStory = async (storyId, setStory) => {
+  const { data } = await axios
     .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && selectFields(data));
-  return result;
+
+  if (data) setStory(data);
 };
 
-// username만 있는 by 객체를 만듦.
-export const getUserName = async (storyId) => {
-  const result = await axios
-    .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && bySelectFields(data));
-  return result;
+export const getCommentData = async (commentId, setCommentIds) => {
+  const { data } = await axios
+    .get(`${storyUrl + commentId}.json`);
+
+  if (data) setCommentIds(data);
 };
 
-// 스토리 아이디로 New 데이터 가져오기
-export const getNewStoryIds = async () => {
-  const result = await axios.get(newStoriesUrl).then(({ data }) => data);
+export const getUserSubmissions = async (submittedId, setUserSubmissions) => {
+  const { data } = await axios
+    .get(`${storyUrl + submittedId}.json`)
 
-  return result;
-};
-export const getNewStory = async (storyId) => {
-  const result = await axios
-    .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && selectFields(data));
-
-  return result;
+  if (data) setUserSubmissions(data);
 };
 
-// 스토리 아이디로 Ask 데이터 가져오기
-export const getAskStoryIds = async () => {
-  const result = await axios.get(askStoriesUrl).then(({ data }) => data);
+export const getUserInfo = async (story, setTopUserData) => {
+  const { data } = await axios
+    .get(`${userUrl + story.by}.json`)
 
-  return result;
-};
-export const getAskStory = async (storyId) => {
-  const result = await axios
-    .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && askSelectFields(data));
-
-  return result;
+  if (data) setTopUserData(data)
 };
 
-// 스토리 아이디로 Show 데이터 가져오기
-export const getShowStoryIds = async () => {
-  const result = await axios.get(showStoriesUrl).then(({ data }) => data);
+export const getUserData = async (username, setUserData) => {
+  const { data } = await axios
+    .get(`${userUrl + username}.json`)
 
-  return result;
-};
-export const getShowStory = async (storyId) => {
-  const result = await axios
-    .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && showSelectFields(data));
-
-  return result;
+  if (data) setUserData(data)
 };
 
-// 스토리 아이디로 Job 데이터 가져오기
-export const getJobStoryIds = async () => {
-  const result = await axios.get(jobStoriesUrl).then(({ data }) => data);
-  return result;
+export const getReplyData = async (replyId, setReplyIdData) => {
+  const { data } = await axios
+    .get(`${storyUrl + replyId}.json`)
+  if (data) setReplyIdData(data);
 };
-export const getJobStory = async (storyId) => {
-  const result = await axios
-    .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && jobSelectFields(data));
-  // console.log(result);
-  return result;
+
+export const getReplyReplyData = async (replyReplyId, setReplyReplyIdData) => {
+  const { data } = await axios
+    .get(`${storyUrl + replyReplyId}.json`)
+  if (data) setReplyReplyIdData(data)
 };
+
+export const getCurrIdData = async (id, setCurrIdData) => {
+  const { data } = await axios
+    .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+  if (data) setCurrIdData(data);
+};
+
+
+

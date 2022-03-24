@@ -1,8 +1,66 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getAskStory } from "../util/hnApi";
+import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 import { Link } from "react-router-dom";
+
+export const AskPostBox = memo(function AskStory({ storyId }) {
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    getStory(storyId, setStory);
+  }, [storyId]);
+
+  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
+    }`;
+
+  return (
+    <Post>
+      <Link to={`${story.id}`}>
+        <Title>
+          {story.title?.includes("Ask HN") ||
+            story.title?.includes("Tell HN") ? (
+            <>
+              <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+            </>
+          ) : (
+            story.title
+          )}
+        </Title>
+        <PostText
+          dangerouslySetInnerHTML={{
+            __html:
+              story.text?.length > 150
+                ? `${story.text.slice(0, 150)}...`
+                : story.text,
+          }}
+        />
+      </Link>
+      <Time>{mapTime(story.time)}</Time>
+      <Info>
+        <User>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            alt="userimg"
+          />
+          <Link to={`/userprofile/${story.by}`}>
+            <Username>{story.by}</Username>
+          </Link>
+          <UserInfo>
+            <span>{story.score} points</span>
+          </UserInfo>
+        </User>
+        <CommentDisplay>
+          <img
+            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            alt="comments"
+          />
+          <span>{story.descendants}</span>
+        </CommentDisplay>
+      </Info>
+    </Post>
+  );
+});
 
 const Post = styled.div`
   height: 201px;
@@ -77,60 +135,3 @@ const CommentDisplay = styled.div`
 const Orange = styled.span`
   color: #ed702d;
 `;
-
-export const AskPostBox = memo(function AskStory({ storyId }) {
-  const [story, setStory] = useState([]);
-  useEffect(() => {
-    getAskStory(storyId).then((data) => data && data.title && setStory(data));
-  }, []);
-
-  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
-    }`;
-
-  return (
-    <Post>
-      <Link to={`${story.id}`}>
-        <Title>
-          {story.title?.includes("Ask HN") ||
-            story.title?.includes("Tell HN") ? (
-            <>
-              <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
-            </>
-          ) : (
-            story.title
-          )}
-        </Title>
-        <PostText
-          dangerouslySetInnerHTML={{
-            __html:
-              story.text?.length > 150
-                ? `${story.text.slice(0, 150)}...`
-                : story.text,
-          }}
-        />
-      </Link>
-      <Time>{mapTime(story.time)}</Time>
-      <Info>
-        <User>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
-            alt="userimg"
-          />
-          <Link to={`/userprofile/${story.by}`}>
-            <Username>{story.by}</Username>
-          </Link>
-          <UserInfo>
-            <span>{story.score} points</span>
-          </UserInfo>
-        </User>
-        <CommentDisplay>
-          <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </CommentDisplay>
-      </Info>
-    </Post>
-  );
-});

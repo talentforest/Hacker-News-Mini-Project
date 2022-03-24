@@ -1,21 +1,21 @@
 import Banner from "../components/layout/Banner";
-import { TTopContainer } from "../HomeContainer/TTopContainer";
-import { TNewContainer } from "../HomeContainer/TNewContainer";
-import { TUserContainer } from "../HomeContainer/TUserContainer";
-import { TShowContainer } from "../HomeContainer/TShowContainer";
-import { TAskContainer } from "../HomeContainer/TAskContainer";
-import { TJobContainer } from "../HomeContainer/TJobContainer";
+import TodaysTopContainer from "../HomeContainer/TodaysTopContainer";
+import TodaysNewContainer from "../HomeContainer/TodaysNewContainer";
+import TodaysUserContainer from "../HomeContainer/TodaysUserContainer";
+import TodaysShowContainer from "../HomeContainer/TodaysShowContainer";
+import TodaysAskContainer from "../HomeContainer/TodaysAskContainer";
+import TodaysJobContainer from "../HomeContainer/TodaysJobContainer";
 
 export default function Home() {
   return (
     <>
       <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/home_banner.png" />
-      <TTopContainer />
-      <TNewContainer />
-      <TUserContainer />
-      <TShowContainer />
-      <TAskContainer />
-      <TJobContainer />
+      <TodaysTopContainer />
+      <TodaysNewContainer />
+      <TodaysUserContainer />
+      <TodaysShowContainer />
+      <TodaysAskContainer />
+      <TodaysJobContainer />
     </>
   );
 }

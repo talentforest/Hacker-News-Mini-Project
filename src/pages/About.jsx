@@ -1,51 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Wrapper = styled.section`
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-  padding: 29px 20px;
-`;
-const DescBox = styled.div`
-  background-color: ${(props) => props.theme.containerColor};
-  padding: 27px 20px;
-  margin-bottom: 28px;
-  border-radius: 6px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05), 0px 6px 10px rgba(0, 0, 0, 0.05);
-  span {
-    display: inline-block;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 24px;
-    color: ${(props) => props.theme.textGrayColor};
-    margin-bottom: 23px;
-    cursor: pointer;
-    img {
-      width: 7.41px;
-      height: 12px;
-      margin-bottom: 1px;
-      margin-left: 2px;
-    }
-  }
-  p {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    color: ${(props) => props.theme.textColor};
-  }
-`;
-const Question = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #999;
-  padding: 14px 0;
-  color: ${(props) => props.theme.textColor};
-  img {
-    width: 12px;
-    height: 7.41px;
-    margin-top: 5px;
-  }
-`;
-
 export default function About() {
   return (
     <>
@@ -178,3 +133,50 @@ export default function About() {
     </>
   );
 }
+
+
+const Wrapper = styled.section`
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+  padding: 29px 20px;
+`;
+const DescBox = styled.div`
+  background-color: ${(props) => props.theme.containerColor};
+  padding: 27px 20px;
+  margin-bottom: 28px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05), 0px 6px 10px rgba(0, 0, 0, 0.05);
+  span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 24px;
+    color: ${(props) => props.theme.textGrayColor};
+    margin-bottom: 23px;
+    cursor: pointer;
+    img {
+      width: 7.41px;
+      height: 12px;
+      margin-bottom: 1px;
+      margin-left: 2px;
+    }
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: ${(props) => props.theme.textColor};
+  }
+`;
+const Question = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+  padding: 14px 0;
+  color: ${(props) => props.theme.textColor};
+  img {
+    width: 12px;
+    height: 7.41px;
+    margin-top: 5px;
+  }
+`;
+

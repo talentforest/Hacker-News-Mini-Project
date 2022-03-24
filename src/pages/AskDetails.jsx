@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Comment } from "../components/AskDetails/Comment";
-import { commentsSelectFields } from "../util/selectFields";
+import { getCurrIdData } from '../util/hnApi';
 import styled from "styled-components";
 import { mapTime } from "../util/mapTime";
 import CommentSortBtn from '../components/AskDetails/CommentSortBtn';
@@ -11,16 +10,10 @@ const AskDetails = () => {
   const { id } = useParams();
   const [currIdData, setCurrIdData] = useState([]);
 
-  const getCurrIdData = async () => {
-    const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
-      .then(({ data }) => data && commentsSelectFields(data));
-    return result;
-  };
-
   useEffect(() => {
-    getCurrIdData().then((data) => setCurrIdData(data));
-  }, []);
+    getCurrIdData(id, setCurrIdData);
+  }, [id]);
+
   const commentIdsArr = currIdData.kids;
 
   const orangeWords = `${currIdData.title?.split(" ")[0]} ${currIdData.title?.split(" ")[1]

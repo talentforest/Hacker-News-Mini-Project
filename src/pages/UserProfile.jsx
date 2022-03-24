@@ -1,26 +1,18 @@
 import styled from "styled-components";
-import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { userSelectFields } from "../util/selectFields";
 import { mapTime } from "../util/mapTime";
-import UserSubmission from "../DetailPage/UserSubmission";
+import { getUserData } from '../util/hnApi';
+import UserSubmission from "../components/UserProfileDetails/UserSubmission";
 
 export default function UserProfile() {
   const location = useLocation();
   const username = location.pathname.split("/userprofile/")[1];
   const [userData, setUserData] = useState([]);
 
-  const getUserData = async () => {
-    const result = await axios
-      .get(`https://hacker-news.firebaseio.com/v0/user/${username}.json`)
-      .then(({ data }) => data && userSelectFields(data));
-    return result;
-  };
-
   useEffect(() => {
-    getUserData().then((data) => data && setUserData(data));
-  }, []);
+    getUserData(username, setUserData);
+  }, [username]);
 
   const submittedIds = userData.submitted;
 
@@ -54,6 +46,7 @@ const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundLightGrayColor};
   padding: 29px 20px 32px;
   margin: 0 auto;
+  min-height: 90vh;
 `;
 const UserInfo = styled.div`
   padding: 24px 16px;
