@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { JobPostBox } from "../PostComponents/JobPostBox";
-import { BannerBox, BannerBox2 } from "../PostComponents/JobBannerBox";
+import JobBannerBig from "../PostComponents/JobBannerBig";
+import JobBannerSmall from "../PostComponents/JobBannerSmall";
 import { getJobStoryIds } from "../util/hnApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 
 export const JobPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -32,27 +32,27 @@ export const JobPostContainer = () => {
           <Swiper slidesPerView={1}>
             <SwiperSlide>
               {storyIds.slice(0, 1).map((storyId) => (
-                <BannerBox key={storyId} storyId={storyId} />
+                <JobBannerBig key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(1, 2).map((storyId) => (
-                <BannerBox key={storyId} storyId={storyId} />
+                <JobBannerBig key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(2, 3).map((storyId) => (
-                <BannerBox key={storyId} storyId={storyId} />
+                <JobBannerBig key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(3, 4).map((storyId) => (
-                <BannerBox key={storyId} storyId={storyId} />
+                <JobBannerBig key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(4, 5).map((storyId) => (
-                <BannerBox key={storyId} storyId={storyId} />
+                <JobBannerBig key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
           </Swiper>
@@ -73,27 +73,27 @@ export const JobPostContainer = () => {
           <Swiper slidesPerView={1}>
             <SwiperSlide>
               {storyIds.slice(0, 1).map((storyId) => (
-                <BannerBox2 key={storyId} storyId={storyId} />
+                <JobBannerSmall key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(1, 2).map((storyId) => (
-                <BannerBox2 key={storyId} storyId={storyId} />
+                <JobBannerSmall key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(2, 3).map((storyId) => (
-                <BannerBox2 key={storyId} storyId={storyId} />
+                <JobBannerSmall key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(3, 4).map((storyId) => (
-                <BannerBox2 key={storyId} storyId={storyId} />
+                <JobBannerSmall key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
             <SwiperSlide>
               {storyIds.slice(4, 5).map((storyId) => (
-                <BannerBox2 key={storyId} storyId={storyId} />
+                <JobBannerSmall key={storyId} storyId={storyId} />
               ))}
             </SwiperSlide>
           </Swiper>

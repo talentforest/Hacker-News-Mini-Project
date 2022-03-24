@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
 import { getStory } from "../util/hnApi";
 
-export const BannerBox = memo(function Story({ storyId }) {
+const JobBannerBig = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -129,3 +129,4 @@ const Job = styled.span`
   align-items: center;
 `;
 
+export default JobBannerBig;

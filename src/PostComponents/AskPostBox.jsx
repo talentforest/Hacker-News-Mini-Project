@@ -4,7 +4,7 @@ import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 import { Link } from "react-router-dom";
 
-export const AskPostBox = memo(function AskStory({ storyId }) {
+const AskPostBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -135,3 +135,5 @@ const CommentDisplay = styled.div`
 const Orange = styled.span`
   color: #ed702d;
 `;
+
+export default AskPostBox;

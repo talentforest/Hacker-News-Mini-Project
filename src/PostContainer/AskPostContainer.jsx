@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { getAskStoryIds } from "../util/hnApi";
 import styled from "styled-components";
 import SortBtn from "../components/common/SortBtn";
-import { AskPostBox } from "../PostComponents/AskPostBox";
-import { getAskStoryIds } from "../util/hnApi";
+import AskPostBox from "../PostComponents/AskPostBox";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
 
 export const AskPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
