@@ -1,12 +1,25 @@
 import Banner from "../components/layout/Banner";
-import { TopPostContainer } from "../PostContainer/TopPostContainer";
 import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getTopStoryIds } from "../util/hnApi";
+import { TopPostBox } from "../PostComponents/TopPostBox";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
 
 export default function Top() {
   const location = useLocation();
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getTopStoryIds(setStoryIds);
+    return () => setStoryIds([]);
+  }, []);
 
   return (
     <>
@@ -24,7 +37,24 @@ export default function Top() {
         </Btn>
       </Wrapper>
       <SortViewModeBtn />
-      <TopPostContainer />
+      <Wrapper>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          slidesPerView={1}
+          navigation={true}
+          pagination={{ type: "fraction" }}
+        >
+          {[1, 2, 3, 4, 5].map((items, index) => (
+            <SwiperSlide key={items}>
+              <Posts>
+                {storyIds.slice(index, index + 20).map((storyId, index) => (
+                  <TopPostBox key={storyId} storyId={storyId} index={index} />
+                ))}
+              </Posts>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Wrapper>
     </>
   );
 }
@@ -33,6 +63,14 @@ const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundGrayColor};
   padding: 28px 0 21px;
 `;
+const Posts = styled.section`
+  background-color: ${(props) => props.theme.backgroundGrayColor};
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 158px;
+`;
+
 const Btn = styled.div`
   position: relative;
   display: flex;

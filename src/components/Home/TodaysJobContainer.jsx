@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { getJobStoryIds } from "../../util/hnApi";
 import styled from "styled-components";
-import TodaysJob from "../HomeComponents/TodaysJob";
-import { getJobStoryIds } from "../util/hnApi";
-import Title from "../components/common/Title";
+import TodaysJob from "./HomeComponents/TodaysJob";
+import Title from "../common/Title";
 
 const TodaysJobContainer = () => {
   const [storyIds, setStoryIds] = useState([]);

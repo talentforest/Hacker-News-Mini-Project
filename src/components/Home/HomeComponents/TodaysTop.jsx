@@ -1,6 +1,6 @@
-import React, { useState, useEffect, memo } from "react";
-import { getStory } from "../util/hnApi";
-import { mapTime } from "../util/mapTime";
+import { useState, useEffect, memo } from "react";
+import { getStory } from "../../../util/hnApi";
+import { mapTime } from "../../../util/mapTime";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -9,6 +9,7 @@ const TodaysTop = memo(function Story({ storyId, index }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   return story && story.url ? (

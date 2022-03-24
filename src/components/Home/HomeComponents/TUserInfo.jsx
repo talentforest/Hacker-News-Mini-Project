@@ -1,7 +1,7 @@
 import { memo, useState, useEffect } from "react";
-import { mapTime } from "../util/mapTime";
+import { mapTime } from "../../../util/mapTime"
+import { getUserInfo } from '../../../util/hnApi';
 import styled from "styled-components";
-import { getUserInfo } from '../util/hnApi';
 
 export const TUserInfo = memo(function Story({ story }) {
   const [topUserData, setTopUserData] = useState([]);

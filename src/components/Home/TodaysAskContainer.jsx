@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { getAskStoryIds } from "../../util/hnApi";
 import styled from "styled-components";
-import TodaysAsk from "../HomeComponents/TodaysAsk";
-import { getAskStoryIds } from "../util/hnApi";
-import TitleReloadBtn from "../components/common/TitleReloadBtn";
+import TodaysAsk from './HomeComponents/TodaysAsk';
+import TitleReloadBtn from "../common/TitleReloadBtn";
 
 const TodaysAskContainer = () => {
   const [storyIds, setStoryIds] = useState([]);

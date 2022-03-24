@@ -3,7 +3,7 @@ import { useEffect, useState, memo } from "react";
 import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 
-export const TopPostBox = memo(function TopStory({ storyId }) {
+export const TopPostBox = memo(function TopStory({ storyId, index }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {

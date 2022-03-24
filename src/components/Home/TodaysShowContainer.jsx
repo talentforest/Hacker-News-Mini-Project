@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { getShowStoryIds } from "../../util/hnApi";
 import styled from "styled-components";
-import TodaysShow from "../HomeComponents/TodaysShow";
-import { getShowStoryIds } from "../util/hnApi";
-import TitleReloadBtn from "../components/common/TitleReloadBtn";
+import TodaysShow from "./HomeComponents/TodaysShow";
+import TitleReloadBtn from "../common/TitleReloadBtn";
 
 const Wrapper = styled.div`
   width: 100%;

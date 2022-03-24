@@ -1,25 +1,23 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
-import { ShowPostBox } from "../PostComponents/ShowPostBox";
-import { getShowStoryIds } from "../util/hnApi";
+import { useEffect, useState } from "react";
+import { getTopStoryIds } from "../../../util/hnApi";
+import { TopPostBox } from "../../../PostComponents/TopPostBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
-export const ShowPostContainer = () => {
+export const TopCardPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getShowStoryIds(setStoryIds);
+    getTopStoryIds(setStoryIds);
     return () => setStoryIds([]);
   }, []);
 
   return (
     <Wrapper>
-      <SortViewModeBtn />
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={1}
@@ -29,21 +27,35 @@ export const ShowPostContainer = () => {
         <SwiperSlide>
           <Posts>
             {storyIds.slice(0, 20).map((storyId) => (
-              <ShowPostBox key={storyId} storyId={storyId} />
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
             {storyIds.slice(20, 40).map((storyId) => (
-              <ShowPostBox key={storyId} storyId={storyId} />
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
         <SwiperSlide>
           <Posts>
             {storyIds.slice(40, 60).map((storyId) => (
-              <ShowPostBox key={storyId} storyId={storyId} />
+              <TopPostBox key={storyId} storyId={storyId} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(60, 80).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(80, 100).map((storyId) => (
+              <TopPostBox key={storyId} storyId={storyId} />
             ))}
           </Posts>
         </SwiperSlide>
@@ -53,12 +65,13 @@ export const ShowPostContainer = () => {
 };
 
 const Wrapper = styled.div`
-  padding-top: 25px;
   background-color: ${(props) => props.theme.backgroundGrayColor};
+  width: 100%;
 `;
 const Posts = styled.section`
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
   padding-bottom: 158px;
 `;

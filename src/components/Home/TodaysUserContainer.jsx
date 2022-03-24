@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../util/hnApi";
-import TodaysUser from "../HomeComponents/TodaysUser";
-import Title from "../components/common/Title";
+import { getTopStoryIds } from "../../util/hnApi";
 import styled from "styled-components";
+import TodaysUser from "./HomeComponents/TodaysUser";
+import Title from "../common/Title";
 
 const TodaysUserContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
