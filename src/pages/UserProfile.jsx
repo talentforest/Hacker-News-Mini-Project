@@ -12,6 +12,7 @@ export default function UserProfile() {
 
   useEffect(() => {
     getUserData(username, setUserData);
+    return () => setUserData([]);
   }, [username]);
 
   const submittedIds = userData.submitted;

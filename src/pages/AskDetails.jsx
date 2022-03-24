@@ -12,6 +12,7 @@ const AskDetails = () => {
 
   useEffect(() => {
     getCurrIdData(id, setCurrIdData);
+    return () => setCurrIdData([]);
   }, [id]);
 
   const commentIdsArr = currIdData.kids;

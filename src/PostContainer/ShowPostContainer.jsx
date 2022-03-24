@@ -14,6 +14,7 @@ export const ShowPostContainer = () => {
 
   useEffect(() => {
     getShowStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (

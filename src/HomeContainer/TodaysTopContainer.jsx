@@ -28,6 +28,7 @@ const TodaysTopContainer = () => {
 
   useEffect(() => {
     getTopStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (

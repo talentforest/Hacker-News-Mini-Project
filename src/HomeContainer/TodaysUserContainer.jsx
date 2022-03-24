@@ -9,6 +9,7 @@ const TodaysUserContainer = () => {
 
   useEffect(() => {
     getTopStoryIds(setStoryIds)
+    return () => setStoryIds([]);
   }, []);
 
   return (

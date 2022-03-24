@@ -10,6 +10,7 @@ const TodaysAskContainer = () => {
 
   useEffect(() => {
     getAskStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   const reloadNewData = () =>

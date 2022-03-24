@@ -1,18 +1,16 @@
-import styled from "styled-components";
-import React, { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo } from "react";
 import { getStory } from "../util/hnApi";
 import { mapTime } from "../util/mapTime";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const AskPostBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
-
-  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
-    }`;
 
   return (
     <Post>
@@ -21,7 +19,10 @@ const AskPostBox = memo(function AskStory({ storyId }) {
           {story.title?.includes("Ask HN") ||
             story.title?.includes("Tell HN") ? (
             <>
-              <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+              <Orange>
+                {`${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]}`}
+              </Orange>
+              {`${story.title?.slice(8)}`}
             </>
           ) : (
             story.title

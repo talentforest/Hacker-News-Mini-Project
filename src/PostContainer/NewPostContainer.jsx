@@ -13,7 +13,8 @@ export const NewPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getNewStoryIds(setStoryIds)
+    getNewStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (

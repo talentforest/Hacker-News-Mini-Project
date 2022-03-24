@@ -28,6 +28,7 @@ const TodaysShowContainer = () => {
 
   useEffect(() => {
     getShowStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   const reloadNewData = () =>

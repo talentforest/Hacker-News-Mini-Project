@@ -15,6 +15,7 @@ export const AskPostContainer = () => {
 
   useEffect(() => {
     getAskStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (

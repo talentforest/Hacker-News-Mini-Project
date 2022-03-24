@@ -8,6 +8,7 @@ export const JobPostBox = memo(function JobStory({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   const urlName = story.url?.slice(8).split("/")[0];

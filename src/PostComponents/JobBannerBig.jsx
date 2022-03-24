@@ -7,6 +7,7 @@ const JobBannerBig = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   const companyName = story.title?.split(")")[0];

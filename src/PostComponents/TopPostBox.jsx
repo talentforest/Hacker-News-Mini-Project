@@ -8,6 +8,7 @@ export const TopPostBox = memo(function TopStory({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   return (

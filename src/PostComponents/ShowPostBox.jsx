@@ -8,6 +8,7 @@ export const ShowPostBox = memo(function ShowStory({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]

@@ -8,6 +8,7 @@ export const NewPostBox = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   return (

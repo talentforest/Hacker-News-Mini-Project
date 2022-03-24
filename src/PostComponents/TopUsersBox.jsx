@@ -7,6 +7,7 @@ export const TopUsersBox = () => {
 
   useEffect(() => {
     getJobStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (

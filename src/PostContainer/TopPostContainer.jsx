@@ -13,6 +13,7 @@ export const TopPostContainer = () => {
 
   useEffect(() => {
     getTopStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (

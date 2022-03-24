@@ -14,6 +14,7 @@ export const JobPostContainer = () => {
 
   useEffect(() => {
     getJobStoryIds(setStoryIds);
+    return () => setStoryIds([]);
   }, []);
 
   return (
