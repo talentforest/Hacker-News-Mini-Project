@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { useTheme } from '../../hooks/index';
+import { useTheme } from 'hooks/index';
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Header = () => {
   // eslint-disable-next-line no-unused-vars

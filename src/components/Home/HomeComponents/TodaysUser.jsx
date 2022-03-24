@@ -1,5 +1,5 @@
 import { useState, useEffect, memo } from "react";
-import { getStory } from "../../../util/hnApi";
+import { getStory } from "util/hnApi";
 import { TUserInfo } from "./TUserInfo";
 import styled from "styled-components";
 

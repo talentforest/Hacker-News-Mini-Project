@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../util/hnApi";
+import { getTopStoryIds } from "util/hnApi";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Banner from "../components/layout/Banner";
-import SortViewModeBtn from "../components/common/SortViewModeBtn";
+import Banner from "components/layout/Banner";
+import SortViewModeBtn from "components/common/SortViewModeBtn";
+import TopPostBox from "components/Top/TopPostBox";
 import styled from "styled-components";
-import TopPostBox from "../components/Top/TopPostBox";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
 
 export default function Top() {
   const location = useLocation();

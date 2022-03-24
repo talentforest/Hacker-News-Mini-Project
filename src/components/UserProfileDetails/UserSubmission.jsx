@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { getUserSubmissions } from "../../util/hnApi"
 import { useState, useEffect } from "react";
-import { mapTime } from "../../util/mapTime";
+import { getUserSubmissions } from "util/hnApi"
+import { mapTime } from "util/mapTime";
+import styled from "styled-components";
 
 const UserSubmission = ({ submittedId }) => {
   const [userSubmissions, setUserSubmissions] = useState();

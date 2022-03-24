@@ -1,7 +1,7 @@
+import { useState, useEffect, memo } from "react";
+import { getStory } from "util/hnApi";
+import { mapTime } from "util/mapTime";
 import styled from "styled-components";
-import React, { useState, useEffect, memo } from "react";
-import { getStory } from "../../util/hnApi";
-import { mapTime } from "../../util/mapTime";
 
 const JobPostBox = memo(function JobStory({ storyId }) {
   const [story, setStory] = useState([]);

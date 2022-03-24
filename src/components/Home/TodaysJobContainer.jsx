@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getJobStoryIds } from "../../util/hnApi";
+import { getJobStoryIds } from "util/hnApi";
 import styled from "styled-components";
 import TodaysJob from "./HomeComponents/TodaysJob";
 import Title from "../common/Title";

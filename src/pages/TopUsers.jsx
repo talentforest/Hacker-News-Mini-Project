@@ -1,8 +1,8 @@
-import Banner from "../components/layout/Banner";
-import TopUsersBox from "../components/Top/TopUsersBox";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import Banner from "components/layout/Banner";
+import TopUsersBox from "components/Top/TopUsersBox";
+import styled from "styled-components";
 
 export default function TopUsers() {
   const location = useLocation();

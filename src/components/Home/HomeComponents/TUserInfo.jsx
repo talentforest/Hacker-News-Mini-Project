@@ -1,6 +1,6 @@
 import { memo, useState, useEffect } from "react";
-import { mapTime } from "../../../util/mapTime"
-import { getUserInfo } from '../../../util/hnApi';
+import { mapTime } from "util/mapTime"
+import { getUserInfo } from 'util/hnApi';
 import styled from "styled-components";
 
 export const TUserInfo = memo(function Story({ story }) {

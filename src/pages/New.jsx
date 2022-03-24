@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getNewStoryIds } from "../util/hnApi";
+import { getNewStoryIds } from "util/hnApi";
+import Banner from "components/layout/Banner";
+import SortViewModeBtn from "components/common/SortViewModeBtn";
+import NewPostBox from "components/New/NewPostBox"
 import styled from "styled-components";
-import Banner from "../components/layout/Banner";
-import SortViewModeBtn from "../components/common/SortViewModeBtn";
-import NewPostBox from "../components/New/NewPostBox";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";

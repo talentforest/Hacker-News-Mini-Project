@@ -1,4 +1,4 @@
-import { mapTime } from "../../util/mapTime";
+import { mapTime } from "util/mapTime";
 import styled from "styled-components";
 
 const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {

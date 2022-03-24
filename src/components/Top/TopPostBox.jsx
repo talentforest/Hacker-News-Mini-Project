@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import { useEffect, useState, memo } from "react";
-import { getStory } from "../../util/hnApi";
-import { mapTime } from "../../util/mapTime";
+import { getStory } from "util/hnApi";
+import { mapTime } from "util/mapTime";
+import styled from "styled-components";
 
 const TopPostBox = memo(function TopStory({ storyId, index }) {
   const [story, setStory] = useState([]);

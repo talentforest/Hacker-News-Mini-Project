@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react/cjs/react.development";
-import { getJobStoryIds } from "../../util/hnApi";
+import { useState, useEffect } from "react";
+import { getJobStoryIds } from "util/hnApi";
 import styled from "styled-components";
 
 const TopUsersBox = () => {

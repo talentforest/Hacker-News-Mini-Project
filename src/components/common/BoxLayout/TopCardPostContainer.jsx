@@ -1,7 +1,8 @@
-import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../../../util/hnApi";
-import { TopPostBox } from "../../../PostComponents/TopPostBox";
+import { getTopStoryIds } from "util/hnApi";
+import TopPostBox from "components/Top/TopPostBox";
+import styled from "styled-components";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

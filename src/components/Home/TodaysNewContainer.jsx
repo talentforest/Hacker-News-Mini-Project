@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getNewStoryIds } from "../../util/hnApi";
+import { getNewStoryIds } from "util/hnApi";
 import styled from "styled-components";
 import TodaysNew from "./HomeComponents/TodaysNew";
 import TitleReloadBtn from "../common/TitleReloadBtn";

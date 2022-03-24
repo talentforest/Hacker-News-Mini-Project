@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { mapTime } from "../util/mapTime";
-import { getUserData } from '../util/hnApi';
-import UserSubmission from "../components/UserProfileDetails/UserSubmission";
+import { useLocation } from "react-router-dom";
+import { mapTime } from "util/mapTime";
+import { getUserData } from 'util/hnApi';
+import UserSubmission from "components/UserProfileDetails/UserSubmission";
+import styled from "styled-components";
 
 export default function UserProfile() {
   const location = useLocation();

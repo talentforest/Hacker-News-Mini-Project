@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../../util/hnApi";
-import styled from "styled-components";
+import { getTopStoryIds } from "util/hnApi";
 import TodaysTop from "./HomeComponents/TodaysTop";
 import TitleClock from "../common/TitleClock";
+import styled from "styled-components";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";

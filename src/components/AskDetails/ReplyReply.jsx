@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { getReplyReplyData } from '../../util/hnApi';
-import { useToggle } from '../../hooks/index';
+import { getReplyReplyData } from 'util/hnApi';
+import { useToggle } from 'hooks/index';
 import UserClockFolder from './UserClockFolder';
+import styled from "styled-components";
 
 const ReplyReply = ({ replyReplyId }) => {
   const [replyReplyIdData, setReplyReplyIdData] = useState([]);

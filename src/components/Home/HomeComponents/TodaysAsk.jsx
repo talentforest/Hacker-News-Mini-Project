@@ -1,5 +1,5 @@
 import { useState, memo, useEffect } from "react";
-import { getStory } from "../../../util/hnApi";
+import { getStory } from "util/hnApi";
 import styled from "styled-components";
 
 const TodaysAsk = memo(function Story({ storyId }) {

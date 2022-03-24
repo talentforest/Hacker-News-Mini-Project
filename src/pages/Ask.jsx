@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getAskStoryIds } from "../util/hnApi";
-import Banner from "../components/layout/Banner";
+import { getAskStoryIds } from "util/hnApi";
+import Banner from "components/layout/Banner";
+import SortBtn from "components/common/SortBtn";
+import AskPostBox from "components/Ask/AskPostBox"
 import styled from "styled-components";
-import SortBtn from "../components/common/SortBtn";
-import AskPostBox from "../components/Ask/AskPostBox"
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";

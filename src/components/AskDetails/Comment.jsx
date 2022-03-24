@@ -1,6 +1,6 @@
-import React, { useState, useEffect, memo } from "react";
-import { useToggle } from "../../hooks/index"
-import { getCommentData } from '../../util/hnApi';
+import { useState, useEffect, memo } from "react";
+import { useToggle } from "hooks/index"
+import { getCommentData } from 'util/hnApi';
 import styled from "styled-components";
 import UserClockFolder from './UserClockFolder';
 import Reply from "./Reply";
