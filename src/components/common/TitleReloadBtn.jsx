@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Content } from './Title';
 
-export default function TitleReloadBtn({ title, reloadNewData }) {
+const TitleReloadBtn = ({ title, reloadNewData }) => {
   return (
     <Content>
       <div>
@@ -31,3 +31,5 @@ const Reload = styled(motion.img)`
 const ReloadVariants = {
   click: { rotateZ: 360, duration: 2 },
 };
+
+export default TitleReloadBtn;

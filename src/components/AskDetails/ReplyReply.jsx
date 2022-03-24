@@ -4,7 +4,7 @@ import { getReplyReplyData } from '../../util/hnApi';
 import { useToggle } from '../../hooks/index';
 import UserClockFolder from './UserClockFolder';
 
-export default function ReplyReply({ replyReplyId }) {
+const ReplyReply = ({ replyReplyId }) => {
   const [replyReplyIdData, setReplyReplyIdData] = useState([]);
 
   const [toggle, onFolder] = useToggle();
@@ -40,3 +40,4 @@ const ReplyComment = styled.p`
   word-wrap: break-word;
 `;
 
+export default ReplyReply;

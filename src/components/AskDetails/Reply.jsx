@@ -5,7 +5,7 @@ import ReplyReply from "./ReplyReply";
 import UserClockFolder from './UserClockFolder';
 import styled from "styled-components";
 
-export default function Reply({ replyId }) {
+const Reply = ({ replyId }) => {
   const [toggle, onFolder] = useToggle();
   const [replyIdData, setReplyIdData] = useState([]);
 
@@ -49,3 +49,5 @@ const ReplyComment = styled.p`
   word-wrap: break-word;
   white-space: pre-wrap;
 `;
+
+export default Reply;

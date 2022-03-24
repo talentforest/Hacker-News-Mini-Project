@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react/cjs/react.development";
-import { getJobStoryIds } from "../util/hnApi";
+import { getJobStoryIds } from "../../util/hnApi";
 import styled from "styled-components";
 
-export const TopUsersBox = () => {
+const TopUsersBox = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -65,3 +65,5 @@ const Table = styled.div`
     color: #727272;
   }
 `;
+
+export default TopUsersBox;

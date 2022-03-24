@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Comment } from "../components/AskDetails/Comment";
 import { getCurrIdData } from '../util/hnApi';
-import styled from "styled-components";
 import { mapTime } from "../util/mapTime";
+import Comment from "../components/AskDetails/Comment";
 import CommentSortBtn from '../components/AskDetails/CommentSortBtn';
+import styled from "styled-components";
 
 const AskDetails = () => {
   const { id } = useParams();

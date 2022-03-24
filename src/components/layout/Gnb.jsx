@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-export default function Gnb() {
+const Gnb = () => {
   const pathname = useLocation().pathname;
 
   return (
@@ -74,3 +74,5 @@ const CurrPageMark = styled.div`
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 `;
+
+export default Gnb;

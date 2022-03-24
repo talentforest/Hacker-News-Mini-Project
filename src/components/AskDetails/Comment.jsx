@@ -5,7 +5,7 @@ import styled from "styled-components";
 import UserClockFolder from './UserClockFolder';
 import Reply from "./Reply";
 
-export const Comment = memo(function Story({ commentId }) {
+const Comment = memo(function Story({ commentId }) {
   const [toggle, onFolder] = useToggle();
   const [commentIds, setCommentIds] = useState([]);
 
@@ -42,4 +42,4 @@ const CommentText = styled.p`
   white-space: pre-wrap;
 `;
 
-
+export default Comment;

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getStory } from "../util/hnApi";
-import { mapTime } from "../util/mapTime";
+import { getStory } from "../../util/hnApi";
+import { mapTime } from "../../util/mapTime";
 
-export const ShowPostBox = memo(function ShowStory({ storyId }) {
+const ShowPostBox = memo(function ShowStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -105,3 +105,4 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
+export default ShowPostBox;

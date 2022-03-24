@@ -1,7 +1,7 @@
 import { mapTime } from "../../util/mapTime";
 import styled from "styled-components";
 
-export default function UserClockFolder({ commentIds, replyIdData, replyReplyIdData, onFolder }) {
+const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {
   return (
     <CommentInfo>
       <div>
@@ -61,3 +61,5 @@ const FolderBtn = styled.img`
   height: 12.41px;
   cursor: pointer;
 `
+
+export default UserClockFolder;

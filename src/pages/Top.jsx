@@ -1,11 +1,12 @@
-import Banner from "../components/layout/Banner";
-import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../util/hnApi";
-import { TopPostBox } from "../PostComponents/TopPostBox";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Banner from "../components/layout/Banner";
+import SortViewModeBtn from "../components/common/SortViewModeBtn";
+import styled from "styled-components";
+import TopPostBox from "../components/Top/TopPostBox";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

@@ -1,9 +1,10 @@
-import Banner from "../components/layout/Banner";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
-import { ShowPostBox } from "../PostComponents/ShowPostBox";
 import { getShowStoryIds } from "../util/hnApi";
+import styled from "styled-components";
+import Banner from "../components/layout/Banner";
+import SortViewModeBtn from "../components/common/SortViewModeBtn";
+import ShowPostBox from "../components/Show/ShowPostBox";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

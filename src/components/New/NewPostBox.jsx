@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getStory } from "../util/hnApi";
-import { mapTime } from "../util/mapTime";
+import { getStory } from "../../util/hnApi";
+import { mapTime } from "../../util/mapTime";
 
-export const NewPostBox = memo(function Story({ storyId }) {
+const NewPostBox = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -96,3 +96,5 @@ const Comments = styled.div`
   align-items: center;
   color: #ed702d;
 `;
+
+export default NewPostBox;

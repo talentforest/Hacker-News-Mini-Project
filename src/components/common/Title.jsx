@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Title({ title }) {
+const Title = ({ title }) => {
   return (
     <Content>
       <div>
@@ -37,5 +37,5 @@ export const Content = styled.div`
   }
 `;
 
-
+export default Title;
 

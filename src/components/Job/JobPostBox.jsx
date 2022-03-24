@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getStory } from "../util/hnApi";
-import { mapTime } from "../util/mapTime";
+import { getStory } from "../../util/hnApi";
+import { mapTime } from "../../util/mapTime";
 
-export const JobPostBox = memo(function JobStory({ storyId }) {
+const JobPostBox = memo(function JobStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -56,3 +56,4 @@ const Info = styled.div`
   }
 `;
 
+export default JobPostBox;

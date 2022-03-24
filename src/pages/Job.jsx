@@ -1,10 +1,11 @@
-import Banner from "../components/layout/Banner";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { JobPostBox } from "../PostComponents/JobPostBox";
-import JobBannerBig from "../PostComponents/JobBannerBig";
-import JobBannerSmall from "../PostComponents/JobBannerSmall";
 import { getJobStoryIds } from "../util/hnApi";
+import Banner from "../components/layout/Banner";
+import styled from "styled-components";
+import JobPostBox from "../components/Job/JobPostBox";
+import JobBannerBig from "../components/Job/JobBannerBig";
+import JobBannerSmall from "../components/Job/JobBannerSmall";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useTheme } from '../../hooks/index';
 import { Link } from "react-router-dom";
 
-export default function Header() {
+const Header = () => {
   // eslint-disable-next-line no-unused-vars
   const [ThemeMode, toggleTheme] = useTheme();
   return (
@@ -66,3 +66,5 @@ const HeaderTop = styled.header`
     }
   }
 `;
+
+export default Header;

@@ -1,3 +1,5 @@
-export default function PageNotFound() {
+const PageNotFound = () => {
   return <>Page Not Found</>;
 }
+
+export default PageNotFound;

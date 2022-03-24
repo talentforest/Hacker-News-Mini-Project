@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Content } from './Title';
 
-export default function TitleClock({ title }) {
+const TitleClock = ({ title }) => {
   const now = new Date();
   const hours = now.getHours();
   return (
@@ -42,3 +42,5 @@ const NewContent = styled(Content)`
     }
   }
 `;
+
+export default TitleClock;

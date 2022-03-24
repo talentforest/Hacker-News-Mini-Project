@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
-import { getStory } from "../util/hnApi";
-import { mapTime } from "../util/mapTime";
+import { getStory } from "../../util/hnApi";
+import { mapTime } from "../../util/mapTime";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState, useEffect, memo } from "react";
-import { getStory } from "../util/hnApi";
+import { getStory } from "../../util/hnApi";
 
 const JobBannerSmall = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);

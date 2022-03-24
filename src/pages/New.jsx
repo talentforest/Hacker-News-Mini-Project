@@ -1,14 +1,15 @@
-import Banner from "../components/layout/Banner";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { NewPostBox } from "../PostComponents/NewPostBox";
 import { getNewStoryIds } from "../util/hnApi";
+import styled from "styled-components";
+import Banner from "../components/layout/Banner";
+import SortViewModeBtn from "../components/common/SortViewModeBtn";
+import NewPostBox from "../components/New/NewPostBox";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
-import { SortViewModeBtn } from "../components/common/SortViewModeBtn";
 
 
 export default function New() {

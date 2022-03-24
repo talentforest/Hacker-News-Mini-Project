@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function CommentSortBtn() {
+const CommentSortBtn = () => {
   return (
     <Sort>
       <div>
@@ -49,3 +49,5 @@ const Sort = styled.div`
     }
   }
 `;
+
+export default CommentSortBtn;

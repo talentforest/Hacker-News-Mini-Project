@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useEffect, useState, memo } from "react";
-import { getStory } from "../util/hnApi";
-import { mapTime } from "../util/mapTime";
+import { getStory } from "../../util/hnApi";
+import { mapTime } from "../../util/mapTime";
 
-export const TopPostBox = memo(function TopStory({ storyId, index }) {
+const TopPostBox = memo(function TopStory({ storyId, index }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -87,3 +87,5 @@ const Comments = styled.div`
   color: #ed702d;
   cursor: pointer;
 `;
+
+export default TopPostBox;

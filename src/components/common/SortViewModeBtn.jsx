@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SortBtn from './SortBtn';
 
-export const SortViewModeBtn = () => {
+const SortViewModeBtn = () => {
   return (
     <SortView>
       <SortBtn />
@@ -32,3 +32,5 @@ const View = styled.div`
     cursor: pointer;
   }
 `;
+
+export default SortViewModeBtn;

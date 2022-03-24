@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
-export const TopCardPostContainer = () => {
+const TopCardPostContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -75,3 +75,5 @@ const Posts = styled.section`
   padding: 20px;
   padding-bottom: 158px;
 `;
+
+export default TopCardPostContainer;

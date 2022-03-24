@@ -3,7 +3,7 @@ import { getUserSubmissions } from "../../util/hnApi"
 import { useState, useEffect } from "react";
 import { mapTime } from "../../util/mapTime";
 
-export default function UserSubmission({ submittedId }) {
+const UserSubmission = ({ submittedId }) => {
   const [userSubmissions, setUserSubmissions] = useState();
 
   useEffect(() => {
@@ -121,3 +121,5 @@ const Comments = styled.div`
   align-items: center;
   color: #ed702d;
 `;
+
+export default UserSubmission;
