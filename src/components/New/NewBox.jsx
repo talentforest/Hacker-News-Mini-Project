@@ -1,9 +1,10 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
+import { imgBaseUrl } from "util/Constant";
 import styled from "styled-components";
 
-const NewPostBox = memo(function Story({ storyId }) {
+const NewBox = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const NewPostBox = memo(function Story({ storyId }) {
       <Info>
         <User>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            src={`${imgBaseUrl}user.png`}
             alt="userimg"
           />
           <span>{story.by}</span>
@@ -29,7 +30,7 @@ const NewPostBox = memo(function Story({ storyId }) {
         </User>
         <Comments>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            src={`${imgBaseUrl}comment.png`}
             alt="comments"
           />
           <span>{story.descendants}</span>
@@ -97,4 +98,4 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
-export default NewPostBox;
+export default NewBox;

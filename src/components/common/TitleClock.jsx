@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Content } from './Title';
+import { imgBaseUrl } from 'util/Constant';
 
 const TitleClock = ({ title }) => {
   const now = new Date();
@@ -9,13 +10,13 @@ const TitleClock = ({ title }) => {
       <div>
         <h4>{title}</h4>
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_black.png"
+          src={`${imgBaseUrl}arrow_right_black.png`}
           alt="arrow"
         />
       </div>
       <div>
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock.png"
+          src={`${imgBaseUrl}clock.png`}
           alt="clock"
         />
         <span>{hours}:00</span>

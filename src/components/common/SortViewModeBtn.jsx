@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SortBtn from './SortBtn';
+import { imgBaseUrl } from 'util/Constant';
 
 const SortViewModeBtn = () => {
   return (
@@ -7,11 +8,11 @@ const SortViewModeBtn = () => {
       <SortBtn />
       <View>
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/bullet_list.png"
+          src={`${imgBaseUrl}bullet_list.png`}
           alt="bullet list"
         />
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/mode_list.png"
+          src={`${imgBaseUrl}mode_list.png`}
           alt="mode list"
         />
       </View>

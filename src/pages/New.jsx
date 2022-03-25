@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
 import Banner from "components/layout/Banner";
 import SortViewModeBtn from "components/common/SortViewModeBtn";
-import NewPostBox from "components/New/NewPostBox"
+import NewBox from "components/New/NewBox"
 import styled from "styled-components";
+import { imgBaseUrl } from 'util/Constant';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -22,7 +23,7 @@ export default function New() {
 
   return (
     <>
-      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/new_banner.png" />
+      <Banner src={`${imgBaseUrl}new_banner.png`} />
       <Wrapper>
         <SortViewModeBtn />
         <Swiper
@@ -35,7 +36,7 @@ export default function New() {
             <SwiperSlide key={items}>
               <Posts>
                 {storyIds.slice(0, 20).map((storyId) => (
-                  <NewPostBox key={storyId} storyId={storyId} />
+                  <NewBox key={storyId} storyId={storyId} />
                 ))}
               </Posts>
             </SwiperSlide>

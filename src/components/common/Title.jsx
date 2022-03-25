@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { imgBaseUrl } from 'util/Constant';
 
 const Title = ({ title }) => {
   return (
@@ -6,7 +7,7 @@ const Title = ({ title }) => {
       <div>
         <h4>{title}</h4>
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_black.png"
+          src={`${imgBaseUrl}arrow_right_black.png`}
           alt="arrow"
         />
       </div>

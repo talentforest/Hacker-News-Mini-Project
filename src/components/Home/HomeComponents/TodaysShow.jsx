@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const TodaysShow = memo(function Story({ storyId }) {
@@ -22,12 +23,12 @@ const TodaysShow = memo(function Story({ storyId }) {
         </Title>
         <Info>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/point.png"
+            src={`${imgBaseUrl}point.png`}
             alt="point"
           />
           <span>{story.score}</span>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock2.png"
+            src={`${imgBaseUrl}clock2.png`}
             alt="clock"
           />
           <span>{mapTime(story.time)}</span>
@@ -35,14 +36,14 @@ const TodaysShow = memo(function Story({ storyId }) {
         <UserComments>
           <User>
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+              src={`${imgBaseUrl}user.png`}
               alt="userimage"
             />
             <span>{story.by}</span>
           </User>
           <Comments>
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+              src={`${imgBaseUrl}comment.png`}
               alt="comment"
             />
             <span>{story.descendants}</span>

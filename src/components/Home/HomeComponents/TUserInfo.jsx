@@ -1,5 +1,6 @@
 import { memo, useState, useEffect } from "react";
 import { mapTime } from "util/mapTime"
+import { imgBaseUrl } from 'util/Constant';
 import { getUserInfo } from 'util/hnApi';
 import styled from "styled-components";
 
@@ -23,7 +24,7 @@ export const TUserInfo = memo(function Story({ story }) {
         </Info>
       </Infobox>
       <Btn
-        src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_blue.png"
+        src={`${imgBaseUrl}arrow_blue.png`}
         alt="arrow button"
       />
     </UserInfoBox>

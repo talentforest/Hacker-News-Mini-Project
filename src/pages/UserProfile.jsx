@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { mapTime } from "util/mapTime";
 import { getUserData } from 'util/hnApi';
-import UserSubmission from "components/UserProfileDetails/UserSubmission";
+import UsersSubmission from "components/UserProfileDetails/UsersSubmission";
 import styled from "styled-components";
 
 export default function UserProfile() {
@@ -36,7 +36,7 @@ export default function UserProfile() {
           <button>favorites</button>
         </SortBtn>
         {submittedIds?.slice(0, 50).map((submittedId) => (
-          <UserSubmission key={submittedId} submittedId={submittedId} />
+          <UsersSubmission key={submittedId} submittedId={submittedId} />
         ))}
       </Wrapper>
     </>

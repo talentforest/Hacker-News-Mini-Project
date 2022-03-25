@@ -1,6 +1,7 @@
 import { useEffect, useState, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const TopPostBox = memo(function TopStory({ storyId, index }) {
@@ -17,7 +18,7 @@ const TopPostBox = memo(function TopStory({ storyId, index }) {
       <Info>
         <User>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            src={`${imgBaseUrl}user.png`}
             alt="userimg"
           />
           <span>{story.by}</span>
@@ -28,7 +29,7 @@ const TopPostBox = memo(function TopStory({ storyId, index }) {
         </User>
         <Comments>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            src={`${imgBaseUrl}comment.png`}
             alt="comments"
           />
           <span>{story.descendants}</span>

@@ -1,5 +1,6 @@
 import { useTheme } from 'hooks/index';
 import { Link } from "react-router-dom";
+import { imgBaseUrl } from "util/Constant";
 import styled from "styled-components";
 
 const Header = () => {
@@ -10,7 +11,7 @@ const Header = () => {
       <Link to="/">
         <div>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/logo.png"
+            src={`${imgBaseUrl}logo.png`}
             alt="Logo"
           />
           <h1>Svelte Hacker News</h1>
@@ -19,13 +20,13 @@ const Header = () => {
       <div>
         <img
           onClick={toggleTheme}
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/lightmode.png"
+          src={`${imgBaseUrl}lightmode.png`}
           alt="light/dark mode"
         />
         <Link to="/about">
           <img
             className="question"
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/questionmark.png"
+            src={`${imgBaseUrl}questionmark.png`}
             alt="question"
           />
         </Link>

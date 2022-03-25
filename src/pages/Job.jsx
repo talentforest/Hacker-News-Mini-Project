@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getJobStoryIds } from "util/hnApi";
+import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
-import JobPostBox from "components/Job/JobPostBox";
+import JobBox from "components/Job/JobBox";
 import JobBannerBig from "components/Job/JobBannerBig";
 import JobBannerSmall from "components/Job/JobBannerSmall";
 import styled from "styled-components";
@@ -21,16 +22,16 @@ export default function Job() {
 
   return (
     <>
-      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/job_banner.png" />
+      <Banner src={`${imgBaseUrl}job_banner.png`} alt="job banner" />
       <Wrapper>
         <Posts>
           {storyIds.slice(0, 5).map((storyId) => (
-            <JobPostBox key={storyId} storyId={storyId} />
+            <JobBox key={storyId} storyId={storyId} />
           ))}
         </Posts>
         <ApplyBanner>
           <BannerImg
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/applynow.png"
+            src={`${imgBaseUrl}applynow.png`}
             alt="apply banner"
           />
           <BannerSlide>
@@ -47,12 +48,12 @@ export default function Job() {
         </ApplyBanner>
         <Posts>
           {storyIds.slice(5, 10).map((storyId) => (
-            <JobPostBox key={storyId} storyId={storyId} />
+            <JobBox key={storyId} storyId={storyId} />
           ))}
         </Posts>
         <ApplyBanner>
           <BannerImg2
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/applyimg.png"
+            src={`${imgBaseUrl}applyimg.png`}
             alt="apply banner"
           />
           <BannerSlide2>
@@ -70,7 +71,7 @@ export default function Job() {
 
         <Posts>
           {storyIds.slice(10, 15).map((storyId) => (
-            <JobPostBox key={storyId} storyId={storyId} />
+            <JobBox key={storyId} storyId={storyId} />
           ))}
         </Posts>
       </Wrapper>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAskStoryIds } from "util/hnApi";
+import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import SortBtn from "components/common/SortBtn";
-import AskPostBox from "components/Ask/AskPostBox"
+import AskBox from "components/Ask/AskBox"
 import styled from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,7 +23,7 @@ export default function Ask() {
 
   return (
     <>
-      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/ask_banner.png" />
+      <Banner src={`${imgBaseUrl}ask_banner.png`} alt="BannerImg" />
       <Wrapper>
         <SortBtn />
         <Swiper
@@ -35,7 +36,7 @@ export default function Ask() {
             <SwiperSlide key={items}>
               <Posts>
                 {storyIds.slice(0, 20).map((storyId) => (
-                  <AskPostBox key={storyId} storyId={storyId} />
+                  <AskBox key={storyId} storyId={storyId} />
                 ))}
               </Posts>
             </SwiperSlide>

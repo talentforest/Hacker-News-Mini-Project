@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { imgBaseUrl } from 'util/Constant';
 
 const CommentSortBtn = () => {
   return (
@@ -6,20 +7,20 @@ const CommentSortBtn = () => {
       <div>
         <div>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_orange.png"
+            src={`${imgBaseUrl}circle_orange.png`}
             alt="bullet"
           />
           <span>Registerd</span>
         </div>
         <div>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_gray.png"
+            src={`${imgBaseUrl}circle_gray.png`}
             alt="bullet"
           />
           <span>Newest</span>
         </div>
       </div>
-      <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png" alt="commentimg" />
+      <img src={`${imgBaseUrl}comment.png`} alt="commentimg" />
     </Sort>
   )
 }

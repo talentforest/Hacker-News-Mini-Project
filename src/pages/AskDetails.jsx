@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCurrIdData } from 'util/hnApi';
+import { imgBaseUrl } from 'util/Constant';
 import { mapTime } from "util/mapTime";
-import Comment from "components/AskDetails/Comment";
-import CommentSortBtn from 'components/AskDetails/CommentSortBtn';
+import Comment from "components/common/Comments/Comment";
+import CommentSortBtn from 'components/common/Comments/CommentSortBtn';
 import styled from "styled-components";
 
 const AskDetails = () => {
@@ -24,12 +25,12 @@ const AskDetails = () => {
     <Wrapper>
       <Post>
         <User>
-          <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user_black.png" alt="user" />
+          <img src={`${imgBaseUrl}user_black.png`} alt="user" />
           <Info>
             {currIdData.by}
             <div>
               <span>{currIdData.score} points</span>
-              <img src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/circle_gray.png" alt="bullet" />
+              <img src={`${imgBaseUrl}circle_gray.png`} alt="bullet" />
               <span>{mapTime(currIdData.time)} ago</span>
             </div>
           </Info>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Content } from './Title';
+import { imgBaseUrl } from 'util/Constant';
 
 const TitleReloadBtn = ({ title, reloadNewData }) => {
   return (
@@ -8,14 +9,14 @@ const TitleReloadBtn = ({ title, reloadNewData }) => {
       <div>
         <h4>{title}</h4>
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_black.png"
+          src={`${imgBaseUrl}arrow_right_black.png`}
           alt="arrow"
         />
       </div>
       <Reload
         variants={ReloadVariants}
         whileTap="click"
-        src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/reloading.png"
+        src={`${imgBaseUrl}reloading.png`}
         alt="reloading"
         onClick={reloadNewData}
       />

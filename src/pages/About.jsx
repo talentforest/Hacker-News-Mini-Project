@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 export default function About() {
@@ -20,7 +21,7 @@ export default function About() {
         <DescBox>
           <Link to="/top">
             <span>
-              Top <img src="/assets/arrow_right_orange.png" alt="arrow" />
+              Top <img src={`${imgBaseUrl}arrow_right_orange.png`} alt="arrow" />
             </span>
           </Link>
           <p>
@@ -33,7 +34,7 @@ export default function About() {
             <span>
               New{" "}
               <img
-                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                src={`${imgBaseUrl}arrow_right_orange.png`}
                 alt="arrow"
               />
             </span>
@@ -48,7 +49,7 @@ export default function About() {
             <span>
               Show{" "}
               <img
-                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                src={`${imgBaseUrl}arrow_right_orange.png`}
                 alt="arrow"
               />
             </span>
@@ -63,7 +64,7 @@ export default function About() {
             <span>
               Ask{" "}
               <img
-                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                src={`${imgBaseUrl}arrow_right_orange.png`}
                 alt="arrow"
               />
             </span>
@@ -75,7 +76,7 @@ export default function About() {
             <span>
               Job{" "}
               <img
-                src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_right_orange.png"
+                src={`${imgBaseUrl}arrow_right_orange.png`}
                 alt="arrow"
               />
             </span>
@@ -89,42 +90,42 @@ export default function About() {
           <Question>
             Can I write here?
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              src={`${imgBaseUrl}arrow_down_darkgray.png`}
               alt="arrow"
             />
           </Question>
           <Question>
             Are there rules about submissions and comments?
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              src={`${imgBaseUrl}arrow_down_darkgray.png`}
               alt="arrow"
             />
           </Question>
           <Question>
             How are stories ranked?
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              src={`${imgBaseUrl}arrow_down_darkgray.png`}
               alt="arrow"
             />
           </Question>
           <Question>
             How is a user's karma calculated?
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              src={`${imgBaseUrl}arrow_down_darkgray.png`}
               alt="arrow"
             />
           </Question>
           <Question>
             Why don't I see down arrows?
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              src={`${imgBaseUrl}arrow_down_darkgray.png`}
               alt="arrow"
             />
           </Question>
           <Question>
             What kind of formatting can you use in comments?
             <img
-              src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png"
+              src={`${imgBaseUrl}arrow_down_darkgray.png`}
               alt="arrow"
             />
           </Question>

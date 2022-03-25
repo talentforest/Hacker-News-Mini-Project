@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi"
 import { mapTime } from "util/mapTime";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const TodaysJob = memo(function Story({ storyId }) {
@@ -26,7 +27,7 @@ const TodaysJob = memo(function Story({ storyId }) {
         </a>
         <Info>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/clock2.png"
+            src={`${imgBaseUrl}clock2.png`}
             alt="clock"
           />
           <span>{mapTime(story.time)}</span>

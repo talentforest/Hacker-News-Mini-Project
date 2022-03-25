@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
+import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import SortViewModeBtn from "components/common/SortViewModeBtn";
-import ShowPostBox from "components/Show/ShowPostBox";
+import ShowBox from "components/Show/ShowBox";
 import styled from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,7 +22,7 @@ export default function Show() {
 
   return (
     <>
-      <Banner src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/show_banner.png" />
+      <Banner src={`${imgBaseUrl}show_banner.png`} alt="show banner" />
       <Wrapper>
         <SortViewModeBtn />
         <Swiper
@@ -34,7 +35,7 @@ export default function Show() {
             <SwiperSlide key={items}>
               <Posts>
                 {storyIds.slice(0, 20).map((storyId) => (
-                  <ShowPostBox key={storyId} storyId={storyId} />
+                  <ShowBox key={storyId} storyId={storyId} />
                 ))}
               </Posts>
             </SwiperSlide>

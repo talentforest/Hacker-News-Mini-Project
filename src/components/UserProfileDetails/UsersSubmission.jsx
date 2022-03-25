@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { getUserSubmissions } from "util/hnApi"
 import { mapTime } from "util/mapTime";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
-const UserSubmission = ({ submittedId }) => {
+const UsersSubmission = ({ submittedId }) => {
   const [userSubmissions, setUserSubmissions] = useState();
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const UserSubmission = ({ submittedId }) => {
       <PostInfo>
         <User>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            src={`${imgBaseUrl}user.png`}
             alt="userimg"
           />
           <span>{userSubmissions.by}</span>
@@ -50,7 +51,7 @@ const UserSubmission = ({ submittedId }) => {
         </User>
         <Comments>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            src={`${imgBaseUrl}comment.png`}
             alt="comments"
           />
           <span>{userSubmissions.descendants}</span>
@@ -122,4 +123,4 @@ const Comments = styled.div`
   color: #ed702d;
 `;
 
-export default UserSubmission;
+export default UsersSubmission;

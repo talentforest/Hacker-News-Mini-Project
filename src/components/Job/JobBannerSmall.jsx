@@ -1,5 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const JobBannerSmall = memo(function Story({ storyId }) {
@@ -17,7 +18,7 @@ const JobBannerSmall = memo(function Story({ storyId }) {
     <Banner2>
       <CompanyInfo2>
         <img
-          src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/company_logo.png"
+          src={`${imgBaseUrl}company_logo.png`}
           alt="companylogo"
         />
         <Company2>

@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { TUserInfo } from "./TUserInfo";
+import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const TodaysUser = memo(function Story({ index, storyId }) {
@@ -15,7 +16,7 @@ const TodaysUser = memo(function Story({ index, storyId }) {
       <UserWrapper>
         <Rank>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/star.png"
+            src={`${imgBaseUrl}star.png`}
             alt="star"
           />
           <div>{index + 1}</div>

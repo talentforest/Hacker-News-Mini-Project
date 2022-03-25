@@ -3,8 +3,9 @@ import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { imgBaseUrl } from 'util/Constant';
 
-const AskPostBox = memo(function AskStory({ storyId }) {
+const AskBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const AskPostBox = memo(function AskStory({ storyId }) {
       <Info>
         <User>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/user.png"
+            src={`${imgBaseUrl}user.png`}
             alt="userimg"
           />
           <Link to={`/userprofile/${story.by}`}>
@@ -53,7 +54,7 @@ const AskPostBox = memo(function AskStory({ storyId }) {
         </User>
         <CommentDisplay>
           <img
-            src="https://talentforest.github.io/Hacker-News-Mini-Project/assets/comment.png"
+            src={`${imgBaseUrl}comment.png`}
             alt="comments"
           />
           <span>{story.descendants}</span>
@@ -137,4 +138,4 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 
-export default AskPostBox;
+export default AskBox;
