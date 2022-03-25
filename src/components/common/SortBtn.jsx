@@ -23,7 +23,7 @@ const Sort = styled.div`
   display: flex;
   margin-left: 20px;
   select {
-    background: url("https://talentforest.github.io/Hacker-News-Mini-Project/assets/arrow_down_darkgray.png")
+    background: url("assets/arrow_down_darkgray.png")
       no-repeat 80% 50%/10px auto;
     -webkit-appearance: none;
     -moz-appearance: none;

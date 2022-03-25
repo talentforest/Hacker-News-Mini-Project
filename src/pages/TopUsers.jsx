@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import TopUsersBox from "components/Top/TopUsersBox";
 import styled from "styled-components";
@@ -9,7 +8,7 @@ export default function TopUsers() {
   const location = useLocation();
   return (
     <>
-      <Banner src={`${imgBaseUrl}top_banner.png`} alt="top banner" />
+      <Banner src={"assets/top_banner.png"} alt="top banner" />
       <Wrapper>
         <Btn>
           <Link to="/top">

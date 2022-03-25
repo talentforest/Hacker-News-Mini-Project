@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 export default function About() {
@@ -21,7 +20,7 @@ export default function About() {
         <DescBox>
           <Link to="/top">
             <span>
-              Top <img src={`${imgBaseUrl}arrow_right_orange.png`} alt="arrow" />
+              Top <img src={"assets/arrow_right_orange.png"} alt="arrow" />
             </span>
           </Link>
           <p>
@@ -34,7 +33,7 @@ export default function About() {
             <span>
               New{" "}
               <img
-                src={`${imgBaseUrl}arrow_right_orange.png`}
+                src={"assets/arrow_right_orange.png"}
                 alt="arrow"
               />
             </span>
@@ -49,7 +48,7 @@ export default function About() {
             <span>
               Show{" "}
               <img
-                src={`${imgBaseUrl}arrow_right_orange.png`}
+                src={"assets/arrow_right_orange.png"}
                 alt="arrow"
               />
             </span>
@@ -64,7 +63,7 @@ export default function About() {
             <span>
               Ask{" "}
               <img
-                src={`${imgBaseUrl}arrow_right_orange.png`}
+                src={"assets/arrow_right_orange.png"}
                 alt="arrow"
               />
             </span>
@@ -76,7 +75,7 @@ export default function About() {
             <span>
               Job{" "}
               <img
-                src={`${imgBaseUrl}arrow_right_orange.png`}
+                src={"assets/arrow_right_orange.png"}
                 alt="arrow"
               />
             </span>
@@ -90,42 +89,42 @@ export default function About() {
           <Question>
             Can I write here?
             <img
-              src={`${imgBaseUrl}arrow_down_darkgray.png`}
+              src={"assets/arrow_down_darkgray.png"}
               alt="arrow"
             />
           </Question>
           <Question>
             Are there rules about submissions and comments?
             <img
-              src={`${imgBaseUrl}arrow_down_darkgray.png`}
+              src={"assets/arrow_down_darkgray.png"}
               alt="arrow"
             />
           </Question>
           <Question>
             How are stories ranked?
             <img
-              src={`${imgBaseUrl}arrow_down_darkgray.png`}
+              src={"assets/arrow_down_darkgray.png"}
               alt="arrow"
             />
           </Question>
           <Question>
             How is a user's karma calculated?
             <img
-              src={`${imgBaseUrl}arrow_down_darkgray.png`}
+              src={"assets/arrow_down_darkgray.png"}
               alt="arrow"
             />
           </Question>
           <Question>
             Why don't I see down arrows?
             <img
-              src={`${imgBaseUrl}arrow_down_darkgray.png`}
+              src={"assets/arrow_down_darkgray.png"}
               alt="arrow"
             />
           </Question>
           <Question>
             What kind of formatting can you use in comments?
             <img
-              src={`${imgBaseUrl}arrow_down_darkgray.png`}
+              src={"assets/arrow_down_darkgray.png"}
               alt="arrow"
             />
           </Question>

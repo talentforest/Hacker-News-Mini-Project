@@ -3,7 +3,6 @@ import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { imgBaseUrl } from 'util/Constant';
 
 const AskBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
@@ -42,7 +41,7 @@ const AskBox = memo(function AskStory({ storyId }) {
       <Info>
         <User>
           <img
-            src={`${imgBaseUrl}user.png`}
+            src={"assets/user.png"}
             alt="userimg"
           />
           <Link to={`/userprofile/${story.by}`}>
@@ -54,7 +53,7 @@ const AskBox = memo(function AskStory({ storyId }) {
         </User>
         <CommentDisplay>
           <img
-            src={`${imgBaseUrl}comment.png`}
+            src={"assets/comment.png"}
             alt="comments"
           />
           <span>{story.descendants}</span>

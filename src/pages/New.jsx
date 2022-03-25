@@ -4,7 +4,6 @@ import Banner from "components/layout/Banner";
 import SortViewModeBtn from "components/common/SortViewModeBtn";
 import NewBox from "components/New/NewBox"
 import styled from "styled-components";
-import { imgBaseUrl } from 'util/Constant';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -23,7 +22,7 @@ export default function New() {
 
   return (
     <>
-      <Banner src={`${imgBaseUrl}new_banner.png`} />
+      <Banner src={"assets/new_banner.png"} />
       <Wrapper>
         <SortViewModeBtn />
         <Swiper

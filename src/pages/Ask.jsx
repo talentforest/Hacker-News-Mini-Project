@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getAskStoryIds } from "util/hnApi";
-import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import SortBtn from "components/common/SortBtn";
 import AskBox from "components/Ask/AskBox"
@@ -23,7 +22,7 @@ export default function Ask() {
 
   return (
     <>
-      <Banner src={`${imgBaseUrl}ask_banner.png`} alt="BannerImg" />
+      <Banner src={"assets/ask_banner.png"} alt="BannerImg" />
       <Wrapper>
         <SortBtn />
         <Swiper

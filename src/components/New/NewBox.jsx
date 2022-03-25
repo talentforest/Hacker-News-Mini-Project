@@ -1,7 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
-import { imgBaseUrl } from "util/Constant";
 import styled from "styled-components";
 
 const NewBox = memo(function Story({ storyId }) {
@@ -19,7 +18,7 @@ const NewBox = memo(function Story({ storyId }) {
       <Info>
         <User>
           <img
-            src={`${imgBaseUrl}user.png`}
+            src={"assets/}user.png"}
             alt="userimg"
           />
           <span>{story.by}</span>
@@ -30,7 +29,7 @@ const NewBox = memo(function Story({ storyId }) {
         </User>
         <Comments>
           <img
-            src={`${imgBaseUrl}comment.png`}
+            src={"assets/comment.png"}
             alt="comments"
           />
           <span>{story.descendants}</span>

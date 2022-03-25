@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getJobStoryIds } from "util/hnApi";
-import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import JobBox from "components/Job/JobBox";
 import JobBannerBig from "components/Job/JobBannerBig";
@@ -22,7 +21,7 @@ export default function Job() {
 
   return (
     <>
-      <Banner src={`${imgBaseUrl}job_banner.png`} alt="job banner" />
+      <Banner src={"assets/job_banner.png"} alt="job banner" />
       <Wrapper>
         <Posts>
           {storyIds.slice(0, 5).map((storyId) => (
@@ -31,14 +30,14 @@ export default function Job() {
         </Posts>
         <ApplyBanner>
           <BannerImg
-            src={`${imgBaseUrl}applynow.png`}
+            src={"assets/applynow.png"}
             alt="apply banner"
           />
           <BannerSlide>
             <Swiper slidesPerView={1}>
-              {[1, 2, 3, 4, 5].map((items) => (
+              {[1, 2, 3, 4, 5].map((items, index) => (
                 <SwiperSlide key={items}>
-                  {storyIds.slice(0, 5).map((storyId) => (
+                  {storyIds.slice(index, index + 1).map((storyId) => (
                     <JobBannerBig key={storyId} storyId={storyId} />
                   ))}
                 </SwiperSlide>
@@ -53,14 +52,14 @@ export default function Job() {
         </Posts>
         <ApplyBanner>
           <BannerImg2
-            src={`${imgBaseUrl}applyimg.png`}
+            src={"assets/applyimg.png"}
             alt="apply banner"
           />
           <BannerSlide2>
             <Swiper slidesPerView={1}>
               {[1, 2, 3, 4, 5].map((items, index) => (
                 <SwiperSlide key={items}>
-                  {storyIds.slice(index + 10, index + 11).map((storyId) => (
+                  {storyIds.slice(index, index + 1).map((storyId) => (
                     <JobBannerSmall key={storyId} storyId={storyId} />
                   ))}
                 </SwiperSlide>
@@ -107,6 +106,7 @@ const BannerImg2 = styled.img`
 `;
 const BannerSlide = styled.div`
   position: absolute;
+  display: flex;
   top: 110px;
   width: 100%;
   margin: 0 auto;

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCurrIdData } from 'util/hnApi';
-import { imgBaseUrl } from 'util/Constant';
 import { mapTime } from "util/mapTime";
 import Comment from "components/common/Comments/Comment";
 import CommentSortBtn from 'components/common/Comments/CommentSortBtn';
@@ -25,12 +24,12 @@ const AskDetails = () => {
     <Wrapper>
       <Post>
         <User>
-          <img src={`${imgBaseUrl}user_black.png`} alt="user" />
+          <img src={"assets/user_black.png"} alt="user" />
           <Info>
             {currIdData.by}
             <div>
               <span>{currIdData.score} points</span>
-              <img src={`${imgBaseUrl}circle_gray.png`} alt="bullet" />
+              <img src={"assets/circle_gray.png"} alt="bullet" />
               <span>{mapTime(currIdData.time)} ago</span>
             </div>
           </Info>

@@ -1,7 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
-import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const ShowBox = memo(function ShowStory({ storyId }) {
@@ -12,20 +11,18 @@ const ShowBox = memo(function ShowStory({ storyId }) {
     return () => setStory([]);
   }, [storyId]);
 
-  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
-    }`;
-
   return (
     <Post>
       <Tag>github.com</Tag>
       <h4>
-        <Orange>{`${orangeWords}`}</Orange>
+        <Orange>{`${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
+          }`}</Orange>
         {`${story.title?.slice(8)}`}
       </h4>
       <Info>
         <User>
           <img
-            src={`${imgBaseUrl}user.png`}
+            src={"assets/user.png"}
             alt="userimg"
           />
           <span>{story.by}</span>
@@ -36,7 +33,7 @@ const ShowBox = memo(function ShowStory({ storyId }) {
         </User>
         <Comments>
           <img
-            src={`${imgBaseUrl}comment.png`}
+            src={"assets/comment.png"}
             alt="comments"
           />
           <span>{story.descendants}</span>

@@ -1,7 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
-import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const TodaysShow = memo(function Story({ storyId }) {
@@ -23,12 +22,12 @@ const TodaysShow = memo(function Story({ storyId }) {
         </Title>
         <Info>
           <img
-            src={`${imgBaseUrl}point.png`}
+            src={"assets/point.png"}
             alt="point"
           />
           <span>{story.score}</span>
           <img
-            src={`${imgBaseUrl}clock2.png`}
+            src={"assets/clock2.png"}
             alt="clock"
           />
           <span>{mapTime(story.time)}</span>
@@ -36,14 +35,14 @@ const TodaysShow = memo(function Story({ storyId }) {
         <UserComments>
           <User>
             <img
-              src={`${imgBaseUrl}user.png`}
+              src={"assets/user.png"}
               alt="userimage"
             />
             <span>{story.by}</span>
           </User>
           <Comments>
             <img
-              src={`${imgBaseUrl}comment.png`}
+              src={"assets/comment.png"}
               alt="comment"
             />
             <span>{story.descendants}</span>

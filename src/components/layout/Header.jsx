@@ -1,6 +1,5 @@
 import { useTheme } from 'hooks/index';
 import { Link } from "react-router-dom";
-import { imgBaseUrl } from "util/Constant";
 import styled from "styled-components";
 
 const Header = () => {
@@ -8,10 +7,10 @@ const Header = () => {
   const [ThemeMode, toggleTheme] = useTheme();
   return (
     <HeaderTop>
-      <Link to="/Hacker-News-Mini-Project">
+      <Link to="/">
         <div>
           <img
-            src={`${imgBaseUrl}assets/logo.png`}
+            src={"assets/logo.png"}
             alt="Logo"
           />
           <h1>Svelte Hacker News</h1>
@@ -20,13 +19,13 @@ const Header = () => {
       <div>
         <img
           onClick={toggleTheme}
-          src={`${imgBaseUrl}lightmode.png`}
+          src={"assets/lightmode.png"}
           alt="light/dark mode"
         />
-        <Link to="/Hacker-News-Mini-Project/about">
+        <Link to="/about">
           <img
             className="question"
-            src={`${imgBaseUrl}questionmark.png`}
+            src={"assets/questionmark.png"}
             alt="question"
           />
         </Link>

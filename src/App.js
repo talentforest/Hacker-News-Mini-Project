@@ -13,23 +13,22 @@ import Ask from "./pages/Ask";
 import AskDetails from "./pages/AskDetails";
 import Job from "./pages/Job";
 
-
 function App() {
   return (
     <ThemeProvider>
       <Header />
       <Gnb />
       <Routes>
-        <Route path="/Hacker-News-Mini-Project" element={<Home />} />
-        <Route path="/Hacker-News-Mini-Project/about" element={<About />} />
-        <Route path="/Hacker-News-Mini-Project/top" element={<Top />} />
-        <Route path="/Hacker-News-Mini-Project/top/users" element={<TopUsers />} />
-        <Route path="/Hacker-News-Mini-Project/new" element={<New />} />
-        <Route path="/Hacker-News-Mini-Project/show" element={<Show />} />
-        <Route path="/Hacker-News-Mini-Project/ask" element={<Ask />} />
-        <Route path="/Hacker-News-Mini-Project/ask/:id" element={<AskDetails />} />
-        <Route path="/Hacker-News-Mini-Project/userprofile/:id" element={<UserProfile />} />
-        <Route path="/Hacker-News-Mini-Project/job" element={<Job />} />
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="top" element={<Top />} />
+        <Route path="top/users" element={<TopUsers />} />
+        <Route path="new" element={<New />} />
+        <Route path="show" element={<Show />} />
+        <Route path="ask" element={<Ask />} />
+        <Route path="ask/:id" element={<AskDetails />} />
+        <Route path="userprofile/:id" element={<UserProfile />} />
+        <Route path="job" element={<Job />} />
       </Routes>
     </ThemeProvider>
   );

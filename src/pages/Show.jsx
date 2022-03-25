@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
-import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import SortViewModeBtn from "components/common/SortViewModeBtn";
 import ShowBox from "components/Show/ShowBox";
@@ -22,7 +21,7 @@ export default function Show() {
 
   return (
     <>
-      <Banner src={`${imgBaseUrl}show_banner.png`} alt="show banner" />
+      <Banner src={"assets/show_banner.png"} alt="show banner" />
       <Wrapper>
         <SortViewModeBtn />
         <Swiper

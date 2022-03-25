@@ -1,5 +1,4 @@
 import { mapTime } from "util/mapTime";
-import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {
@@ -7,7 +6,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
     <CommentInfo>
       <div>
         <img
-          src={`${imgBaseUrl}user.png`}
+          src={"assets/user.png"}
           alt="logo"
         />
         {commentIds ?
@@ -15,7 +14,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
             <span>{replyIdData.by}</span> : replyReplyIdData ?
               <span>{replyReplyIdData.by}</span> : <></>}
         <img
-          src={`${imgBaseUrl}clock.png`}
+          src={"assets/clock.png"}
           alt="clock"
         />
         {commentIds ?
@@ -25,7 +24,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
       </div>
       <FolderBtn
         onClick={onFolder}
-        src={`${imgBaseUrl}arrow_up_gray.png`}
+        src={"assets/arrow_up_gray.png"}
         alt="arrow_up_gray"
       />
     </CommentInfo>

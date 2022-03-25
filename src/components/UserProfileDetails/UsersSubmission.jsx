@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUserSubmissions } from "util/hnApi"
 import { mapTime } from "util/mapTime";
-import { imgBaseUrl } from 'util/Constant';
 import styled from "styled-components";
 
 const UsersSubmission = ({ submittedId }) => {
@@ -40,7 +39,7 @@ const UsersSubmission = ({ submittedId }) => {
       <PostInfo>
         <User>
           <img
-            src={`${imgBaseUrl}user.png`}
+            src={"assets/user.png"}
             alt="userimg"
           />
           <span>{userSubmissions.by}</span>
@@ -51,7 +50,7 @@ const UsersSubmission = ({ submittedId }) => {
         </User>
         <Comments>
           <img
-            src={`${imgBaseUrl}comment.png`}
+            src={"assets/comment.png"}
             alt="comments"
           />
           <span>{userSubmissions.descendants}</span>

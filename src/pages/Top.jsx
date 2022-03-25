@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getTopStoryIds } from "util/hnApi";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { imgBaseUrl } from 'util/Constant';
 import Banner from "components/layout/Banner";
 import SortViewModeBtn from "components/common/SortViewModeBtn";
 import TopPostBox from "components/Top/TopPostBox";
@@ -25,7 +24,7 @@ export default function Top() {
 
   return (
     <>
-      <Banner src={`${imgBaseUrl}top_banner.png`} />
+      <Banner src={"assets/top_banner.png"} />
       <Wrapper>
         <Btn>
           <Link to="/top">
