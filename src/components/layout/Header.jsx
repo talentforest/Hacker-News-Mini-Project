@@ -11,7 +11,7 @@ const Header = () => {
       <Link to="/">
         <div>
           <img
-            src={`${imgBaseUrl}logo.png`}
+            src={"https://talentforest.github.io/Hacker-News-Mini-Project/assets/logo.png"}
             alt="Logo"
           />
           <h1>Svelte Hacker News</h1>
