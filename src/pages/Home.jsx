@@ -10,7 +10,7 @@ import TodaysJobContainer from 'components/Home/TodaysJobContainer';
 export default function Home() {
   return (
     <>
-      <Banner src={`${imgBaseUrl}home_banner.png`} />
+      <Banner src={"https://talentforest.github.io/Hacker-News-Mini-Project/assets/home_banner.png"} />
       <TodaysTopContainer />
       <TodaysNewContainer />
       <TodaysAskContainer />
