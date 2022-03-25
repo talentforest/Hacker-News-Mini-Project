@@ -8,10 +8,10 @@ const Header = () => {
   const [ThemeMode, toggleTheme] = useTheme();
   return (
     <HeaderTop>
-      <Link to="/">
+      <Link to="/Hacker-News-Mini-Project">
         <div>
           <img
-            src={"https://talentforest.github.io/Hacker-News-Mini-Project/assets/logo.png"}
+            src={`${imgBaseUrl}assets/logo.png`}
             alt="Logo"
           />
           <h1>Svelte Hacker News</h1>
@@ -23,7 +23,7 @@ const Header = () => {
           src={`${imgBaseUrl}lightmode.png`}
           alt="light/dark mode"
         />
-        <Link to="/about">
+        <Link to="/Hacker-News-Mini-Project/about">
           <img
             className="question"
             src={`${imgBaseUrl}questionmark.png`}

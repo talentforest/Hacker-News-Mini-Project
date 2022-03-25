@@ -8,29 +8,29 @@ const Gnb = () => {
   return (
     <GnbNav>
       <ul>
-        <Link to="/">
+        <Link to="/Hacker-News-Mini-Project">
           <li>Home</li>
-          {pathname === "/" ? <CurrPageMark /> : <></>}
+          {pathname === "/Hacker-News-Mini-Project" ? <CurrPageMark /> : <></>}
         </Link>
-        <Link to="/top">
+        <Link to="/Hacker-News-Mini-Project/top">
           <li>Top</li>
-          {pathname === "/top" || pathname === "/top/users" ? <CurrPageMark /> : <></>}
+          {pathname === "/Hacker-News-Mini-Project/top" || pathname === "/Hacker-News-Mini-Project/top/users" ? <CurrPageMark /> : <></>}
         </Link>
-        <Link to="/new">
+        <Link to="/Hacker-News-Mini-Project/new">
           <li>New</li>
-          {pathname === "/new" ? <CurrPageMark /> : <></>}
+          {pathname === "/Hacker-News-Mini-Project/new" ? <CurrPageMark /> : <></>}
         </Link>
-        <Link to="/show">
+        <Link to="/Hacker-News-Mini-Project/show">
           <li>Show</li>
-          {pathname === "/show" ? <CurrPageMark /> : <></>}
+          {pathname === "/Hacker-News-Mini-Project/show" ? <CurrPageMark /> : <></>}
         </Link>
-        <Link to="/ask">
+        <Link to="/Hacker-News-Mini-Project/ask">
           <li>Ask</li>
-          {pathname === "/ask" ? <CurrPageMark /> : <></>}
+          {pathname === "/Hacker-News-Mini-Project/ask" ? <CurrPageMark /> : <></>}
         </Link>
-        <Link to="/job">
+        <Link to="/Hacker-News-Mini-Project/job">
           <li>Job</li>
-          {pathname === "/job" ? <CurrPageMark /> : <></>}
+          {pathname === "/Hacker-News-Mini-Project/job" ? <CurrPageMark /> : <></>}
         </Link>
       </ul>
     </GnbNav>
