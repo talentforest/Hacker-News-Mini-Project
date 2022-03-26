@@ -54,11 +54,11 @@ export const getCommentData = async (commentId, setCommentIds) => {
   if (data) setCommentIds(data);
 };
 
-export const getUserSubmissions = async (submittedId, setUserSubmissions) => {
+export const getUserSubmissions = async (submittedId, setStory) => {
   const { data } = await axios
     .get(`${storyUrl + submittedId}.json`)
 
-  if (data) setUserSubmissions(data);
+  if (data) setStory(data);
 };
 
 export const getUserInfo = async (story, setTopUserData) => {

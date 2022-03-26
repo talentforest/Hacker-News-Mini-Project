@@ -8,6 +8,7 @@ const TodaysUser = memo(function Story({ index, storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   return story && story.url ? (
@@ -15,7 +16,7 @@ const TodaysUser = memo(function Story({ index, storyId }) {
       <UserWrapper>
         <Rank>
           <img
-            src={"assets/star.png"}
+            src={"/assets/star.png"}
             alt="star"
           />
           <div>{index + 1}</div>

@@ -1,6 +1,8 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
+import { urlName } from 'util/urlName';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 const TodaysShow = memo(function Story({ storyId }) {
@@ -8,6 +10,7 @@ const TodaysShow = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
@@ -16,39 +19,42 @@ const TodaysShow = memo(function Story({ storyId }) {
   return story && story.url ? (
     <Wrapper>
       <ShowWrapper>
-        <Tag>github.com</Tag>
+        {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
         <Title>
           <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
         </Title>
         <Info>
           <img
-            src={"assets/point.png"}
+            src={"/assets/point.png"}
             alt="point"
           />
           <span>{story.score}</span>
           <img
-            src={"assets/clock2.png"}
+            src={"/assets/clock2.png"}
             alt="clock"
           />
           <span>{mapTime(story.time)}</span>
         </Info>
         <UserComments>
-          <User>
-            <img
-              src={"assets/user.png"}
-              alt="userimage"
-            />
-            <span>{story.by}</span>
-          </User>
+          <Link to={`/userprofile/${story.by}`}>
+            <User>
+              <img
+                src={"/assets/user.png"}
+                alt="userimage"
+              />
+              <span>{story.by}</span>
+            </User>
+          </Link>
           <Comments>
             <img
-              src={"assets/comment.png"}
+              src={"/assets/comment.png"}
               alt="comment"
             />
             <span>{story.descendants}</span>
           </Comments>
         </UserComments>
       </ShowWrapper>
+      {/* </Link> */}
     </Wrapper>
   ) : null;
 });

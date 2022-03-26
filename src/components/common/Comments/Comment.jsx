@@ -30,7 +30,6 @@ const Comment = memo(function Story({ commentId }) {
 
 const CommentWrapper = styled.section`
   padding: 0 20px 10px;
-  margin: 0 auto;
   background-color: ${(props) => props.theme.backgroundColor};
 `
 const CommentText = styled.p`

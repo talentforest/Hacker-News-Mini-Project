@@ -4,5 +4,4 @@ export function urlName(story) {
 
   if (story?.url?.includes("https://"))
     return story?.url?.slice(8).split("/")[0];
-
 }

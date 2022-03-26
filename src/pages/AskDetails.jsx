@@ -48,8 +48,11 @@ const AskDetails = () => {
 };
 
 const Wrapper = styled.section`
-  padding-bottom: 100px;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
+  border: 1px solid red;
+  
+  min-height: 100vh;
+  padding-bottom: 20px;
+  background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.textColor};
 `;
 const Post = styled.div`

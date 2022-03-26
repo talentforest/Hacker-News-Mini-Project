@@ -8,6 +8,7 @@ const TodaysJob = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   const urlName = story.url?.slice(8).split("/")[0];

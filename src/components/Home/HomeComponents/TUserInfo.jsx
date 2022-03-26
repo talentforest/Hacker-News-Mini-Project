@@ -1,6 +1,7 @@
 import { memo, useState, useEffect } from "react";
 import { mapTime } from "util/mapTime"
 import { getUserInfo } from 'util/hnApi';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 export const TUserInfo = memo(function Story({ story }) {
@@ -8,6 +9,8 @@ export const TUserInfo = memo(function Story({ story }) {
 
   useEffect(() => {
     getUserInfo(story, setTopUserData);
+
+    return () => setTopUserData([]);
   }, [story]);
 
   return (
@@ -22,10 +25,12 @@ export const TUserInfo = memo(function Story({ story }) {
           <span>{topUserData?.karma}</span>
         </Info>
       </Infobox>
-      <Btn
-        src={"assets/arrow_blue.png"}
-        alt="arrow button"
-      />
+      <Link to={`/userprofile/${story.by}`}>
+        <Btn
+          src={"assets/arrow_blue.png"}
+          alt="arrow button"
+        />
+      </Link>
     </UserInfoBox>
   );
 });

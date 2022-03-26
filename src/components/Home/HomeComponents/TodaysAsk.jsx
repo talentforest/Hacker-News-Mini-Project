@@ -1,4 +1,5 @@
 import { useState, memo, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { getStory } from "util/hnApi";
 import styled from "styled-components";
 
@@ -7,21 +8,24 @@ const TodaysAsk = memo(function Story({ storyId }) {
 
   useEffect(() => {
     getStory(storyId, setStory);
+    return () => setStory([]);
   }, [storyId]);
 
   const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]}`;
 
   return (
     <Wrapper>
-      <h4>
-        {story.title?.includes("Ask HN") || story.title?.includes("Tell HN") ? (
-          <div>
-            <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
-          </div>
-        ) : (
-          story.title
-        )}
-      </h4>
+      <Link to={`/ask/${storyId}`}>
+        <h4>
+          {story.title?.includes("Ask HN") || story.title?.includes("Tell HN") ? (
+            <div>
+              <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
+            </div>
+          ) : (
+            story.title
+          )}
+        </h4>
+      </Link>
     </Wrapper>
   );
 });

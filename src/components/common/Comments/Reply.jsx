@@ -9,13 +9,14 @@ const Reply = ({ replyId }) => {
   const [toggle, onFolder] = useToggle();
   const [replyIdData, setReplyIdData] = useState([]);
 
+
   useEffect(() => {
     getReplyData(replyId, setReplyIdData);
   }, [replyId]);
 
   const replyReplyIds = replyIdData.kids;
 
-  return replyIdData && replyIdData.by ? (
+  return replyIdData.by ? (
     <>
       <ReplyWrapper>
         <UserClockFolder replyIdData={replyIdData} onFolder={onFolder} />
@@ -26,7 +27,7 @@ const Reply = ({ replyId }) => {
         ) : null}
       </ReplyWrapper>
       {toggle
-        ? replyReplyIds?.map((replyReplyId, i) => (
+        ? replyReplyIds?.map((replyReplyId) => (
           <ReplyReply key={replyReplyId} replyReplyId={replyReplyId} />
         ))
         : <></>}
@@ -48,6 +49,10 @@ const ReplyComment = styled.p`
   line-height: 20px;
   word-wrap: break-word;
   white-space: pre-wrap;
+  pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
 `;
 
 export default Reply;

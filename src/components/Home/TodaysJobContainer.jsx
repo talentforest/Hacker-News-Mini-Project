@@ -9,6 +9,7 @@ const TodaysJobContainer = () => {
 
   useEffect(() => {
     getJobStoryIds(setStoryIds)
+    return () => setStoryIds([]);
   }, []);
 
   return (

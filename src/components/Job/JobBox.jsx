@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
+import { urlName } from 'util/urlName';
 import styled from "styled-components";
 
 const JobBox = memo(function JobStory({ storyId }) {
@@ -11,14 +12,12 @@ const JobBox = memo(function JobStory({ storyId }) {
     return () => setStory([]);
   }, [storyId]);
 
-  const urlName = story.url?.slice(8).split("/")[0];
-
   return story && story.title ? (
     <Post>
       <h4>{story.title}</h4>
       <Info>
         <a href={story.url} target="_blank" rel="noopener noreferrer">
-          {urlName?.includes("www") ? urlName.slice(4) : urlName}
+          {urlName(story)}
         </a>
         <span>{mapTime(story.time)}</span>
       </Info>
