@@ -6,7 +6,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
     <CommentInfo>
       <div>
         <img
-          src={"assets/user.png"}
+          src={"/assets/user.png"}
           alt="logo"
         />
         {commentIds ?
@@ -14,7 +14,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
             <span>{replyIdData.by}</span> : replyReplyIdData ?
               <span>{replyReplyIdData.by}</span> : <></>}
         <img
-          src={"assets/clock.png"}
+          src={"/assets/clock.png"}
           alt="clock"
         />
         {commentIds ?
@@ -24,7 +24,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
       </div>
       <FolderBtn
         onClick={onFolder}
-        src={"assets/arrow_up_gray.png"}
+        src={"/assets/arrow_up_gray.png"}
         alt="arrow_up_gray"
       />
     </CommentInfo>

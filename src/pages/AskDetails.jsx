@@ -24,12 +24,12 @@ const AskDetails = () => {
     <Wrapper>
       <Post>
         <User>
-          <img src={"assets/user_black.png"} alt="user" />
+          <img src={"/assets/user.png"} alt="user" />
           <Info>
             {currIdData.by}
             <div>
               <span>{currIdData.score} points</span>
-              <img src={"assets/circle_gray.png"} alt="bullet" />
+              <img src={"/assets/circle_gray.png"} alt="bullet" />
               <span>{mapTime(currIdData.time)} ago</span>
             </div>
           </Info>

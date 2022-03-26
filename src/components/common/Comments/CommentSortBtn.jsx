@@ -6,20 +6,20 @@ const CommentSortBtn = () => {
       <div>
         <div>
           <img
-            src={"assets/circle_orange.png"}
+            src={"/assets/circle_orange.png"}
             alt="bullet"
           />
           <span>Registerd</span>
         </div>
         <div>
           <img
-            src={"assets/circle_gray.png"}
+            src={"/assets/circle_gray.png"}
             alt="bullet"
           />
           <span>Newest</span>
         </div>
       </div>
-      <img src={"assets/comment.png"} alt="commentimg" />
+      <img src={"/assets/comment.png"} alt="commentimg" />
     </Sort>
   )
 }

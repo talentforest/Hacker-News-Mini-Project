@@ -18,7 +18,7 @@ const NewBox = memo(function Story({ storyId }) {
       <Info>
         <User>
           <img
-            src={"assets/}user.png"}
+            src={"assets/user.png"}
             alt="userimg"
           />
           <span>{story.by}</span>
