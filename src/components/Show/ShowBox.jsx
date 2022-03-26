@@ -1,6 +1,8 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
+import { Link } from 'react-router-dom';
+import { urlName } from 'util/urlName';
 import styled from "styled-components";
 
 const ShowBox = memo(function ShowStory({ storyId }) {
@@ -13,37 +15,43 @@ const ShowBox = memo(function ShowStory({ storyId }) {
 
   return (
     <Post>
-      <Tag>github.com</Tag>
-      <h4>
-        <Orange>{`${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
-          }`}</Orange>
-        {`${story.title?.slice(8)}`}
-      </h4>
+      {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
+      <a href={story.url}>
+        <h4>
+          <Orange>{`${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
+            }`}</Orange>
+          {`${story.title?.slice(8)}`}
+        </h4>
+      </a>
       <Info>
-        <User>
-          <img
-            src={"assets/user.png"}
-            alt="userimg"
-          />
-          <span>{story.by}</span>
-          <UserInfo>
-            <span>{story.score} points</span>
-            <span>{mapTime(story.time)}</span>
-          </UserInfo>
-        </User>
+        <Link to={`/userprofile/${story.by}`}>
+          <User>
+            <img
+              src={"/assets/user.png"}
+              alt="userimg"
+            />
+            <span>{story.by}</span>
+            <UserInfo>
+              <span>{story.score} points</span>
+              <span>{mapTime(story.time)}</span>
+            </UserInfo>
+          </User>
+        </Link>
         <Comments>
           <img
-            src={"assets/comment.png"}
+            src={"/assets/comment.png"}
             alt="comments"
           />
           <span>{story.descendants}</span>
         </Comments>
       </Info>
+
     </Post>
   );
 });
 
 const Post = styled.div`
+  position: relative;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   height: 148px;
   border-radius: 8px;
@@ -53,6 +61,7 @@ const Post = styled.div`
   color: ${(props) => props.theme.textColor};
   h4 {
     padding: 12px 0;
+    margin-top: 20px;
     font-weight: 600;
     line-height: 24px;
     height: 64px;
@@ -62,7 +71,8 @@ const Orange = styled.span`
   color: #ed702d;
 `;
 const Tag = styled.div`
-  width: 63px;
+  position: absolute;
+  width: fit-content;
   height: 20px;
   padding: 5px 6px;
   background-color: #efefef;
