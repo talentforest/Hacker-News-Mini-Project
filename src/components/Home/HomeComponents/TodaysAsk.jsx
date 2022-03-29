@@ -14,8 +14,8 @@ const TodaysAsk = memo(function Story({ storyId }) {
   const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]}`;
 
   return (
-    <Wrapper>
-      <Link to={`/ask/${storyId}`}>
+    <Link to={`/ask/${storyId}`}>
+      <Wrapper>
         <h4>
           {story.title?.includes("Ask HN") || story.title?.includes("Tell HN") ? (
             <div>
@@ -25,8 +25,8 @@ const TodaysAsk = memo(function Story({ storyId }) {
             story.title
           )}
         </h4>
-      </Link>
-    </Wrapper>
+      </Wrapper>
+    </Link>
   );
 });
 

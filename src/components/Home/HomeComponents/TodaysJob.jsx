@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi"
-import { mapTime } from "util/mapTime";
 import styled from "styled-components";
+import TimeInfo from 'components/common/TimeInfo';
 
 const TodaysJob = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
@@ -26,11 +26,7 @@ const TodaysJob = memo(function Story({ storyId }) {
           <Site>{urlName?.includes("www") ? urlName?.slice(4) : urlName}</Site>
         </a>
         <Info>
-          <img
-            src={"assets/clock2.png"}
-            alt="clock"
-          />
-          <span>{mapTime(story.time)}</span>
+          <TimeInfo story={story} />
         </Info>
       </JobWrapper>
     </Wrapper>

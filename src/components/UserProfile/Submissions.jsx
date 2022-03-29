@@ -1,5 +1,6 @@
-import { orangeWord, mapTime, urlName } from 'util';
+import { mapTime, urlName } from 'util';
 import styled from "styled-components"
+import OrangeTitle from 'components/common/OrangeTitle';
 
 const Submissions = ({ story }) => {
 
@@ -10,8 +11,7 @@ const Submissions = ({ story }) => {
           story?.title.includes("Tell HN") ||
           story?.title.includes("Show HN") ? (
           <>
-            <Orange>{orangeWord(story)}</Orange>
-            {`${story?.title.slice(8)}`}
+            <OrangeTitle story={story} />
           </>
         ) : (
           story?.title
@@ -62,9 +62,6 @@ const SubmissionBox = styled.div`
     font-weight: 600;
     line-height: 24px;
   }
-`;
-const Orange = styled.span`
-  color: #ed702d;
 `;
 
 const Url = styled.div`

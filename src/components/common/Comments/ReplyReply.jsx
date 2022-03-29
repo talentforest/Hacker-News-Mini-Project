@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getReplyReplyData } from 'util/hnApi';
 import { useToggle } from 'hooks/index';
-import UserClockFolder from './UserClockFolder';
+import UserClockFolder from '../UserClockFolder';
 import styled from "styled-components";
 
 const ReplyReply = ({ replyReplyId }) => {

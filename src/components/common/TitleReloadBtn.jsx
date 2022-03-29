@@ -1,17 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Content } from './Title';
+import Title from "./Title";
+import { Container } from './Title';
 
 const TitleReloadBtn = ({ title, reloadNewData }) => {
   return (
-    <Content>
-      <div>
-        <h4>{title}</h4>
-        <img
-          src={"assets/arrow_right_black.png"}
-          alt="arrow"
-        />
-      </div>
+    <Container>
+      <Title title={title} />
       <Reload
         variants={ReloadVariants}
         whileTap="click"
@@ -19,7 +14,7 @@ const TitleReloadBtn = ({ title, reloadNewData }) => {
         alt="reloading"
         onClick={reloadNewData}
       />
-    </Content>
+    </Container>
   );
 };
 
@@ -31,5 +26,4 @@ const Reload = styled(motion.img)`
 const ReloadVariants = {
   click: { rotateZ: 360, duration: 2 },
 };
-
 export default TitleReloadBtn;

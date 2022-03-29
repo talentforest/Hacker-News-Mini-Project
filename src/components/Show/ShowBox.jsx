@@ -1,9 +1,9 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
-import { Link } from 'react-router-dom';
 import { urlName } from 'util/urlName';
 import styled from "styled-components";
+import Username from 'components/common/Username';
 
 const ShowBox = memo(function ShowStory({ storyId }) {
   const [story, setStory] = useState([]);
@@ -24,19 +24,13 @@ const ShowBox = memo(function ShowStory({ storyId }) {
         </h4>
       </a>
       <Info>
-        <Link to={`/userprofile/${story.by}`}>
-          <User>
-            <img
-              src={"/assets/user.png"}
-              alt="userimg"
-            />
-            <span>{story.by}</span>
-            <UserInfo>
-              <span>{story.score} points</span>
-              <span>{mapTime(story.time)}</span>
-            </UserInfo>
-          </User>
-        </Link>
+        <User>
+          <Username story={story} />
+          <UserInfo>
+            <span>{story.score} points</span>
+            <span>{mapTime(story.time)}</span>
+          </UserInfo>
+        </User>
         <Comments>
           <img
             src={"/assets/comment.png"}

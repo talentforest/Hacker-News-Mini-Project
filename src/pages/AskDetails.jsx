@@ -4,43 +4,39 @@ import { getCurrIdData } from 'util/hnApi';
 import { mapTime } from "util/mapTime";
 import Comment from "components/common/Comments/Comment";
 import CommentSortBtn from 'components/common/Comments/CommentSortBtn';
+import OrangeTitle from 'components/common/OrangeTitle';
 import styled from "styled-components";
+import Username from 'components/common/Username';
 
 const AskDetails = () => {
   const { id } = useParams();
-  const [currIdData, setCurrIdData] = useState([]);
+  const [story, setStory] = useState([]);
 
   useEffect(() => {
-    getCurrIdData(id, setCurrIdData);
-    return () => setCurrIdData([]);
+    getCurrIdData(id, setStory);
+    return () => setStory([]);
   }, [id]);
-
-  const commentIdsArr = currIdData.kids;
-
-  const orangeWords = `${currIdData.title?.split(" ")[0]} ${currIdData.title?.split(" ")[1]
-    }`;
 
   return (
     <Wrapper>
       <Post>
         <User>
-          <img src={"/assets/user.png"} alt="user" />
+          <Username story={story} />
           <Info>
-            {currIdData.by}
             <div>
-              <span>{currIdData.score} points</span>
+              <span>{story.score} points</span>
               <img src={"/assets/circle_gray.png"} alt="bullet" />
-              <span>{mapTime(currIdData.time)} ago</span>
+              <span>{mapTime(story.time)} ago</span>
             </div>
           </Info>
         </User>
         <Title>
-          <Orange>{`${orangeWords}`}</Orange> {`${currIdData.title?.slice(8)}`}
+          <OrangeTitle story={story} />
         </Title>
-        <PostText dangerouslySetInnerHTML={{ __html: currIdData.text }} />
+        <PostText dangerouslySetInnerHTML={{ __html: story.text }} />
       </Post>
-      <CommentSortBtn />
-      {commentIdsArr?.slice(0, 16).map((commentId) => (
+      <CommentSortBtn story={story} />
+      {story.kids?.slice(0, 16).map((commentId) => (
         <Comment key={commentId} commentId={commentId} />
       ))}
     </Wrapper>
@@ -48,8 +44,6 @@ const AskDetails = () => {
 };
 
 const Wrapper = styled.section`
-  border: 1px solid red;
-  
   min-height: 100vh;
   padding-bottom: 20px;
   background-color: ${(props) => props.theme.backgroundColor};
@@ -104,9 +98,6 @@ const PostText = styled.div`
   font-weight: 400;
   line-height: 24px;
   color: ${(props) => props.theme.commentColor};
-`;
-const Orange = styled.span`
-  color: #ed702d;
 `;
 
 export default AskDetails;

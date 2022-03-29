@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { TUserInfo } from "./TUserInfo";
+import { Link } from 'react-router-dom';
+import UserInfo from 'components/common/UserInfo';
 import styled from "styled-components";
 
 const TodaysUser = memo(function Story({ index, storyId }) {
@@ -12,21 +13,29 @@ const TodaysUser = memo(function Story({ index, storyId }) {
   }, [storyId]);
 
   return story && story.url ? (
-    <Wrapper>
-      <UserWrapper>
-        <Rank>
-          <img
-            src={"/assets/star.png"}
-            alt="star"
-          />
-          <div>{index + 1}</div>
-          <span>Today's User</span>
-        </Rank>
-        <Username>{story.by}</Username>
-        <TUserInfo story={story} />
-      </UserWrapper>
-    </Wrapper>
-  ) : null;
+    <Link to={`/userprofile/${story.by}`}>
+      <Wrapper>
+        <UserWrapper>
+          <Rank>
+            <img
+              src={"/assets/star.png"}
+              alt="star"
+            />
+            <div>{index + 1}</div>
+            <span>Today's User</span>
+          </Rank>
+          <Username>{story.by}</Username>
+          <UserInfoBox>
+            <UserInfo story={story} />
+            <Btn
+              src={"assets/arrow_blue.png"}
+              alt="arrow button"
+            />
+          </UserInfoBox>
+        </UserWrapper>
+      </Wrapper>
+    </Link>
+  ) : <></>;
 });
 
 const Wrapper = styled.div``;
@@ -63,6 +72,17 @@ const Rank = styled.div`
     padding-top: 3px;
   }
 `;
+
+const UserInfoBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Btn = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+
 const Username = styled.div`
   display: block;
   height: 40px;

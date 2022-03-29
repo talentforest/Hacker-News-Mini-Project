@@ -2,6 +2,7 @@ import { useEffect, useState, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
 import styled from "styled-components";
+import Username from 'components/common/Username';
 
 const TopPostBox = memo(function TopStory({ storyId, index }) {
   const [story, setStory] = useState([]);
@@ -16,11 +17,7 @@ const TopPostBox = memo(function TopStory({ storyId, index }) {
       <h4>{story.title}</h4>
       <Info>
         <User>
-          <img
-            src={"assets/user.png"}
-            alt="userimg"
-          />
-          <span>{story.by}</span>
+          <Username story={story} />
           <UserInfo>
             <span>{story.score} points</span>
             <span>{mapTime(story.time)}</span>
@@ -71,7 +68,7 @@ const Info = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.textColor};
+  border: 1px solid red;
 `;
 const UserInfo = styled.div`
   margin-left: 6px;

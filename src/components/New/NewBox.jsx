@@ -2,6 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
 import styled from "styled-components";
+import Username from 'components/common/Username';
 
 const NewBox = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
@@ -17,11 +18,7 @@ const NewBox = memo(function Story({ storyId }) {
       <h4>{story.title}</h4>
       <Info>
         <User>
-          <img
-            src={"assets/user.png"}
-            alt="userimg"
-          />
-          <span>{story.by}</span>
+          <Username story={story} />
           <UserInfo>
             <span>{story.score} points</span>
             <span>{mapTime(story.time)}</span>

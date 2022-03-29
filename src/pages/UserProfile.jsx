@@ -1,19 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { mapTime } from "util/mapTime";
-import { getUserData } from 'util/hnApi';
-import UsersSubmission from "components/UserProfileDetails/UsersSubmission";
+import { getUserInfo } from 'util/hnApi';
+import UsersSubmission from "components/UserProfile/UsersSubmission";
 import styled from "styled-components";
 
 export default function UserProfile() {
   const location = useLocation();
-  const username = location.pathname.split("/userprofile/")[1];
+
+  const story = useMemo(() => ({
+    by: location.pathname.split("/userprofile/")[1]
+  }), [location.pathname]);
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    getUserData(username, setUserData);
+    getUserInfo(story, setUserData);
     return () => setUserData([]);
-  }, [username]);
+  }, [story]);
+
+  console.log(story.by)
 
   const submittedIds = userData.submitted;
 

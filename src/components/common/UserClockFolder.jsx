@@ -1,32 +1,21 @@
-import { mapTime } from "util/mapTime";
+import Username from 'components/common/Username';
+import Clock from 'components/common/Clock';
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
-import User from '../User';
 
 const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {
   return (
     <CommentInfo>
       <div>
-        {commentIds ?
-          <Link to={`/userprofile/${commentIds?.by}`}>
-            <User commentIds={commentIds} />
-          </Link> : <></>}
-        {replyIdData ?
-          <Link to={`/userprofile/${replyIdData?.by}`}>
-            <User replyIdData={replyIdData} />
-          </Link> : <></>}
-        {replyReplyIdData ?
-          <Link to={`/userprofile/${replyReplyIdData?.by}`}>
-            <User replyReplyIdData={replyReplyIdData} />
-          </Link> : <></>}
-        <img
-          src={"/assets/clock.png"}
-          alt="clock"
+        <Username
+          commentIds={commentIds}
+          replyIdData={replyIdData}
+          replyReplyIdData={replyReplyIdData}
         />
-        {commentIds ?
-          <span>{mapTime(commentIds.time)}</span> : replyIdData ?
-            <span>{mapTime(replyIdData.time)}</span> : replyReplyIdData ?
-              <span>{mapTime(replyReplyIdData.time)}</span> : <></>}
+        <Clock
+          commentIds={commentIds}
+          replyIdData={replyIdData}
+          replyReplyIdData={replyReplyIdData}
+        />
       </div>
       <FolderBtn
         onClick={onFolder}
@@ -44,8 +33,8 @@ const CommentInfo = styled.div`
   justify-content: space-between;
   font-size: 14px;
   font-weight: 400;
-  div {
-    padding: 30px 0 20px;
+  > div {
+    padding: 20px 0 10px;
     display: flex;
     align-items: center;
     a {

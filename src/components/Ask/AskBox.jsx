@@ -3,6 +3,8 @@ import { getStory } from "util/hnApi";
 import { mapTime } from "util/mapTime";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Username from 'components/common/Username';
+import OrangeTitle from 'components/common/OrangeTitle';
 
 const AskBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
@@ -18,12 +20,7 @@ const AskBox = memo(function AskStory({ storyId }) {
         <Title>
           {story.title?.includes("Ask HN") ||
             story.title?.includes("Tell HN") ? (
-            <>
-              <Orange>
-                {`${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]}`}
-              </Orange>
-              {`${story.title?.slice(8)}`}
-            </>
+            <OrangeTitle story={story} />
           ) : (
             story.title
           )}
@@ -40,13 +37,7 @@ const AskBox = memo(function AskStory({ storyId }) {
       <Time>{mapTime(story.time)}</Time>
       <Info>
         <User>
-          <img
-            src={"assets/user.png"}
-            alt="userimg"
-          />
-          <Link to={`/userprofile/${story.by}`}>
-            <Username>{story.by}</Username>
-          </Link>
+          <Username story={story} />
           <UserInfo>
             <span>{story.score} points</span>
           </UserInfo>
@@ -116,9 +107,6 @@ const User = styled.div`
   align-items: center;
   color: ${(props) => props.theme.textColor};
 `;
-const Username = styled.div`
-  cursor: pointer;
-`;
 const UserInfo = styled.div`
   margin-left: 6px;
   display: flex;
@@ -131,9 +119,6 @@ const UserInfo = styled.div`
 const CommentDisplay = styled.div`
   display: flex;
   align-items: center;
-  color: #ed702d;
-`;
-const Orange = styled.span`
   color: #ed702d;
 `;
 

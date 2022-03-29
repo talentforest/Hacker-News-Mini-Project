@@ -1,9 +1,11 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime } from "util/mapTime";
-import { urlName } from 'util/urlName';
-import { Link } from 'react-router-dom';
+import { urlName } from "util";
+import Username from 'components/common/Username';
+import OrangeTitle from 'components/common/OrangeTitle';
 import styled from "styled-components";
+import CommentNum from 'components/common/CommentNum';
+import TimeInfo from 'components/common/TimeInfo';
 
 const TodaysShow = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
@@ -13,50 +15,30 @@ const TodaysShow = memo(function Story({ storyId }) {
     return () => setStory([]);
   }, [storyId]);
 
-  const orangeWords = `${story.title?.split(" ")[0]} ${story.title?.split(" ")[1]
-    }`;
-
   return story && story.url ? (
     <Wrapper>
       <ShowWrapper>
-        {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
-        <Title>
-          <Orange>{`${orangeWords}`}</Orange> {`${story.title?.slice(8)}`}
-        </Title>
-        <Info>
-          <img
-            src={"/assets/point.png"}
-            alt="point"
-          />
-          <span>{story.score}</span>
-          <img
-            src={"/assets/clock2.png"}
-            alt="clock"
-          />
-          <span>{mapTime(story.time)}</span>
-        </Info>
-        <UserComments>
-          <Link to={`/userprofile/${story.by}`}>
-            <User>
-              <img
-                src={"/assets/user.png"}
-                alt="userimage"
-              />
-              <span>{story.by}</span>
-            </User>
-          </Link>
-          <Comments>
+        <a href={story.url} target="_blank" rel="noreferrer">
+          {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
+          <Title>
+            <OrangeTitle story={story} />
+          </Title>
+          <Info>
             <img
-              src={"/assets/comment.png"}
-              alt="comment"
+              src={"/assets/point.png"}
+              alt="point"
             />
-            <span>{story.descendants}</span>
-          </Comments>
+            <span>{story.score}</span>
+            <TimeInfo story={story} />
+          </Info>
+        </a>
+        <UserComments>
+          <Username story={story} />
+          <CommentNum story={story} />
         </UserComments>
       </ShowWrapper>
-      {/* </Link> */}
     </Wrapper>
-  ) : null;
+  ) : <></>;
 });
 
 const Wrapper = styled.div`
@@ -66,13 +48,15 @@ const ShowWrapper = styled.div`
   width: 200px;
   height: 224px;
   background-color: #eaf4f8;
-  padding: 16px 12px 0 12px;
   margin-right: 12px;
   border-radius: 8px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  padding: 1px 12px 0px  12px;
 `;
 const Tag = styled.div`
-  width: 63px;
+  box-sizing: border-box;
+  width: fit-content;
+  margin-top: 16px;
   height: 20px;
   padding: 5px 6px;
   background-color: #ed702d;
@@ -95,17 +79,18 @@ const Info = styled.div`
   color: #727272;
   span {
     display: block;
-    margin-right: 4px;
+    margin-right: 7px;
     padding-top: 3px;
   }
   img:first-child {
-    width: 14px;
-    height: 14px;
-  }
-  img {
     width: 16px;
     height: 16px;
-    margin-right: 3px;
+  }
+  img {
+    width: 14px;
+    height: 15px;
+    margin-right: 2px;
+    margin-top: 3px;
   }
 `;
 const UserComments = styled.div`
@@ -116,31 +101,23 @@ const UserComments = styled.div`
   font-size: 12px;
   border-top: 0.1px solid #e1e1e1;
   color: #727272;
-  img {
-    margin-right: 4px;
+  div{
+    display: flex;
+    align-items: center;
+    img {
+      width: 20px;
+      margin-right: 3px;
+    }
+  }
+  > div {
+    img {
+      width: 18px;
+    }
+    span:last-child {
+      color: #ed702d;
+      font-weight: 700;
+    }
   }
 `;
-const User = styled.div`
-  display: flex;
-  align-items: center;
-  img {
-    width: 14px;
-  }
-`;
-const Comments = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  img {
-    width: 16px;
-  }
-  span {
-    color: #f49664;
-  }
-`;
-const Orange = styled.span`
-  color: #ed702d;
-`;
-
 
 export default TodaysShow;

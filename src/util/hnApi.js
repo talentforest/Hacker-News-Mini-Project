@@ -61,16 +61,9 @@ export const getUserSubmissions = async (submittedId, setStory) => {
   if (data) setStory(data);
 };
 
-export const getUserInfo = async (story, setTopUserData) => {
+export const getUserInfo = async (story, setUserData) => {
   const { data } = await axios
     .get(`${userUrl + story.by}.json`)
-
-  if (data) setTopUserData(data)
-};
-
-export const getUserData = async (username, setUserData) => {
-  const { data } = await axios
-    .get(`${userUrl + username}.json`)
 
   if (data) setUserData(data)
 };
@@ -89,11 +82,11 @@ export const getReplyReplyData = async (replyReplyId, setReplyReplyIdData) => {
   if (data) setReplyReplyIdData(data)
 };
 
-export const getCurrIdData = async (id, setCurrIdData) => {
+export const getCurrIdData = async (id, setStory) => {
   const { data } = await axios
-    .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+    .get(`${storyUrl + id}.json`)
 
-  if (data) setCurrIdData(data);
+  if (data) setStory(data);
 };
 
 

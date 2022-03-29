@@ -1,8 +1,9 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime } from "util/mapTime";
+import { mapTime, maxChar } from "util";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import OrangeTitle from 'components/common/OrangeTitle';
 
 const TodaysTop = memo(function Story({ storyId, index }) {
   const [story, setStory] = useState([]);
@@ -16,11 +17,10 @@ const TodaysTop = memo(function Story({ storyId, index }) {
     <TTopWrapper>
       <Ranking>{index + 1}</Ranking>
       <div>
-        <a href={story.url}>
+        <a href={story.url} target="_blank" rel="noreferrer">
           <Title>
-            {story.title.length > 60
-              ? `${story.title.slice(0, 60)}...`
-              : story.title}
+            {story?.title.includes("Show HN" || "Ask HN" || "Tell HN") ?
+              <OrangeTitle story={story} /> : maxChar(story)}
           </Title>
         </a>
         <Info>
