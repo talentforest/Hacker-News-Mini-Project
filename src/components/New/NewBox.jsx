@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime } from "util/mapTime";
+import { mapTime, urlName } from "util";
 import styled from "styled-components";
 import Username from 'components/common/Username';
 
@@ -14,7 +14,7 @@ const NewBox = memo(function Story({ storyId }) {
 
   return (
     <Post>
-      <Tag>github.com</Tag>
+      {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
       <h4>{story.title}</h4>
       <Info>
         <User>
@@ -46,7 +46,7 @@ const Post = styled.div`
   }
 `;
 const Tag = styled.div`
-  width: 63px;
+  width: fit-content;
   height: 20px;
   padding: 5px 6px;
   background-color: #efefef;
