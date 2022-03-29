@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
@@ -14,7 +14,8 @@ const Gnb = () => {
         </Link>
         <Link to="/top">
           <li>Top</li>
-          {pathname.includes("/top") ? <CurrPageMark /> : <></>}
+          {pathname.includes("/top") || pathname.includes("/user") ?
+            <CurrPageMark /> : <></>}
         </Link>
         <Link to="/new">
           <li>New</li>

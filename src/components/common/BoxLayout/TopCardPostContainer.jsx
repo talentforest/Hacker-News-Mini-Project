@@ -70,7 +70,6 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 const Posts = styled.section`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   padding: 20px;

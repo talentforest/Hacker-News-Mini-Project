@@ -8,16 +8,16 @@ export default function TopUsers() {
   const location = useLocation();
   return (
     <>
-      <Banner src={"assets/top_banner.png"} alt="top banner" />
+      <Banner src={"/assets/top_banner.png"} alt="top banner" />
       <Wrapper>
         <Btn>
           <Link to="/top">
             <PostBtn>Post</PostBtn>
             {location.pathname === "/top" ? <CurrBtn /> : <></>}
           </Link>
-          <Link to="/top/users">
+          <Link to="/user">
             <UsersBtn>Users</UsersBtn>
-            {location.pathname === "/top/users" ? <CurrUsersBtn /> : <></>}
+            {location.pathname === "/user" ? <CurrUsersBtn /> : <></>}
           </Link>
         </Btn>
       </Wrapper>

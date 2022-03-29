@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
 import Banner from "components/layout/Banner";
-import SortViewModeBtn from "components/common/SortViewModeBtn";
+import SortViewModeBtn from "components/common/ViewModeBtn";
 import ShowBox from "components/Show/ShowBox";
 import styled from "styled-components";
 

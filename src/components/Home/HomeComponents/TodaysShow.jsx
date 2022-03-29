@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { urlName } from "util";
+import { Link } from 'react-router-dom';
 import Username from 'components/common/Username';
 import OrangeTitle from 'components/common/OrangeTitle';
 import styled from "styled-components";
@@ -34,7 +35,9 @@ const TodaysShow = memo(function Story({ storyId }) {
         </a>
         <UserComments>
           <Username story={story} />
-          <CommentNum story={story} />
+          <Link to={`show/${story.id}`}>
+            <CommentNum story={story} />
+          </Link>
         </UserComments>
       </ShowWrapper>
     </Wrapper>
@@ -113,7 +116,7 @@ const UserComments = styled.div`
     img {
       width: 18px;
     }
-    span:last-child {
+    span {
       color: #ed702d;
       font-weight: 700;
     }

@@ -1,5 +1,4 @@
 import Title from './Title';
-import { Link } from 'react-router-dom';
 import { Container } from './Title';
 
 const TitleClock = ({ title }) => {
@@ -8,9 +7,7 @@ const TitleClock = ({ title }) => {
 
   return (
     <Container>
-      <Link to="top">
-        <Title title={title} />
-      </Link>
+      <Title title={title} />
       <div>
         <img
           src={"assets/clock.png"}

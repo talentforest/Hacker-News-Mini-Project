@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const Title = ({ title }) => {
   return (
     <Container>
-      <div>
-        <h4>{title}</h4>
-        <img
-          src={"assets/arrow_right_black.png"}
-          alt="arrow"
-        />
-      </div>
+      <Link to={`${title.split(" ")[1].toLowerCase()}`}>
+        <div>
+          <h4>{title}</h4>
+          <img
+            src={"assets/arrow_right_black.png"}
+            alt="arrow"
+          />
+        </div>
+      </Link>
     </Container>
   );
 };

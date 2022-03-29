@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import SortBtn from './SortBtn';
 
 const SortViewModeBtn = () => {
   return (
     <SortView>
-      <SortBtn />
       <View>
         <img
           src={"assets/bullet_list.png"}

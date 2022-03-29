@@ -3,7 +3,7 @@ import { getTopStoryIds } from "util/hnApi";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Banner from "components/layout/Banner";
-import SortViewModeBtn from "components/common/SortViewModeBtn";
+import SortViewModeBtn from "components/common/ViewModeBtn";
 import TopPostBox from "components/Top/TopPostBox";
 import styled from "styled-components";
 
@@ -31,9 +31,9 @@ export default function Top() {
             <PostBtn>Post</PostBtn>
             {location.pathname === "/top" ? <CurrBtn /> : <></>}
           </Link>
-          <Link to="/top/users">
+          <Link to="/user">
             <UsersBtn>Users</UsersBtn>
-            {location.pathname === "/top/users" ? <CurrUsersBtn /> : <></>}
+            {location.pathname === "/user" ? <CurrUsersBtn /> : <></>}
           </Link>
         </Btn>
       </Wrapper>

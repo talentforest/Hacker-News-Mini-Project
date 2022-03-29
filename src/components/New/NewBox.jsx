@@ -24,13 +24,6 @@ const NewBox = memo(function Story({ storyId }) {
             <span>{mapTime(story.time)}</span>
           </UserInfo>
         </User>
-        <Comments>
-          <img
-            src={"assets/comment.png"}
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </Comments>
       </Info>
     </Post>
   );
@@ -87,11 +80,6 @@ const UserInfo = styled.div`
   span:first-child {
     margin-right: 6px;
   }
-`;
-const Comments = styled.div`
-  display: flex;
-  align-items: center;
-  color: #ed702d;
 `;
 
 export default NewBox;

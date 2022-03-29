@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAskStoryIds } from "util/hnApi";
 import Banner from "components/layout/Banner";
-import SortBtn from "components/common/SortBtn";
 import AskBox from "components/Ask/AskBox"
 import styled from "styled-components";
 
@@ -24,7 +23,6 @@ export default function Ask() {
     <>
       <Banner src={"assets/ask_banner.png"} alt="BannerImg" />
       <Wrapper>
-        <SortBtn />
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={1}

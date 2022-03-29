@@ -18,8 +18,6 @@ export default function UserProfile() {
     return () => setUserData([]);
   }, [story]);
 
-  console.log(story.by)
-
   const submittedIds = userData.submitted;
 
   return (

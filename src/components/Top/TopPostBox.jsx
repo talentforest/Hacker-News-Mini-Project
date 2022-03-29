@@ -68,7 +68,6 @@ const Info = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid red;
 `;
 const UserInfo = styled.div`
   margin-left: 6px;

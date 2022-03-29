@@ -12,6 +12,7 @@ import Show from "./pages/Show";
 import Ask from "./pages/Ask";
 import AskDetails from "./pages/AskDetails";
 import Job from "./pages/Job";
+import ShowComments from 'pages/ShowComments';
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="top" element={<Top />} />
-        <Route path="top/users" element={<TopUsers />} />
+        <Route path="user" element={<TopUsers />} />
         <Route path="new" element={<New />} />
         <Route path="show" element={<Show />} />
+        <Route path="show/:id" element={<ShowComments />} />
         <Route path="ask" element={<Ask />} />
         <Route path="ask/:id" element={<AskDetails />} />
         <Route path="userprofile/:id" element={<UserProfile />} />
