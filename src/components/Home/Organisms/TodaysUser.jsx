@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { Link } from 'react-router-dom';
-import UserInfo from 'components/common/UserInfo';
+import UserInfo from 'components/UserProfile/UserInfo';
 import styled from "styled-components";
 
 const TodaysUser = memo(function Story({ index, storyId }) {

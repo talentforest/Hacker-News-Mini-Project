@@ -47,6 +47,7 @@ const TodaysShow = memo(function Story({ storyId }) {
 
 const Wrapper = styled.div`
   width: 3000px;
+  height: fit-content;
   > div {
     width: 200px;
     height: 224px;
@@ -54,7 +55,10 @@ const Wrapper = styled.div`
     margin-right: 12px;
     border-radius: 8px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-    padding: 1px 12px 0px  12px;
+    padding: 12px 12px 0px 12px;
+    > div {
+      
+    }
   }
 `;
 const Title = styled.div`

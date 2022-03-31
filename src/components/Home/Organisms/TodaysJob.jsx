@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi"
 import { urlName, maxChar } from 'util';
+import { Tag, Title } from 'theme/commonStyle';
 import styled from "styled-components";
 import TimeInfo from 'components/common/TimeInfo';
 
@@ -26,7 +27,7 @@ const TodaysJob = memo(function Story({ storyId }) {
           <TimeInfo story={story} />
         </Info>
       </JobWrapper>
-    </Wrapper>
+    </Wrapper >
   );
 });
 
@@ -42,22 +43,6 @@ const JobWrapper = styled.div`
   margin-right: 16px;
   border-radius: 8px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-`;
-const Tag = styled.div`
-  width: 104px;
-  height: 20px;
-  padding: 5px 7px;
-  background-color: #ed702d;
-  font-size: 10px;
-  color: #f5f5f5;
-  border-radius: 20px;
-`;
-const Title = styled.div`
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  height: 60px;
-  padding-top: 6px;
 `;
 const Site = styled.span`
   display: block;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "util/hnApi";
-import TodaysTop from "./HomeComponents/TodaysTop";
+import TodaysTop from "../Organisms/TodaysTop";
 import TitleClock from "../common/TitleClock";
 import styled from "styled-components";
 

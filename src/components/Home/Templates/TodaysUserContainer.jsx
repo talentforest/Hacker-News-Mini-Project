@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../../util/hnApi";
+import { getTopStoryIds } from "../../../util/hnApi";
 import styled from "styled-components";
-import TodaysUser from "./HomeComponents/TodaysUser";
+import TodaysUser from "../Organisms/TodaysUser";
 import Title from "../common/Title";
 
 const TodaysUserContainer = () => {

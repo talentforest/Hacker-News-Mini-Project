@@ -1,47 +1,44 @@
 import { useState, useEffect } from "react";
-import { getShowStoryIds } from "util/hnApi";
+import { getAskStoryIds } from "util/hnApi";
 import { useReloadData } from 'hooks/index';
 import styled from "styled-components";
-import TodaysShow from "./HomeComponents/TodaysShow";
+import TodaysAsk from '../Organisms/TodaysAsk';
 import TitleReloadBtn from "../common/TitleReloadBtn";
 
-const TodaysShowContainer = () => {
+const TodaysAskContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
   const [randomNumber, reloadNewData] = useReloadData(storyIds);
 
   useEffect(() => {
-    getShowStoryIds(setStoryIds);
+    getAskStoryIds(setStoryIds);
     return () => setStoryIds([]);
   }, []);
 
   return (
     <Container>
-      <TitleReloadBtn title="Today's Show" reloadNewData={reloadNewData} />
+      <TitleReloadBtn title="Today's Ask" reloadNewData={reloadNewData} />
       <div>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
-          <TodaysShow key={storyId} storyId={storyId} />
+          <TodaysAsk key={storyId} storyId={storyId} />
         ))}
       </div>
     </Container>
   );
 };
 
-const Container = styled.section`
+const Container = styled.div`
   width: 100%;
+  height: 600px;
   margin-bottom: 12px;
   background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
   > div:last-child {
-    display: flex;
-    height: 300px;
-    overflow: scroll;
-    padding: 20px 0px 56px 20px;
+    height: 520px;
+    padding: 20px 20px 56px 20px;
+    background-color: ${(props) => props.theme.backgroundColor};
     margin-bottom: 12px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
-    &::-webkit-scrollbar {
-      display: none;
     }
-  }
 `;
 
-export default TodaysShowContainer;
+export default TodaysAskContainer;

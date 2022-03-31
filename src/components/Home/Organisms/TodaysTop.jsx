@@ -3,7 +3,6 @@ import { getStory } from "util/hnApi";
 import { mapTime, maxChar } from "util";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import OrangeTitle from 'components/common/OrangeTitle';
 
 const TodaysTop = memo(function Story({ storyId, index }) {
   const [story, setStory] = useState([]);
@@ -18,10 +17,7 @@ const TodaysTop = memo(function Story({ storyId, index }) {
       <div>{index + 1}</div>
       <div>
         <a href={story.url} target="_blank" rel="noreferrer">
-          <h4>
-            {story?.title?.includes("Show HN" || "Ask HN" || "Tell HN") ?
-              <OrangeTitle story={story} /> : maxChar(story, 68)}
-          </h4>
+          <h4>{maxChar(story, 55)}</h4>
         </a>
         <div>
           <Link to={`/userprofile/${story.by}`}>
@@ -41,13 +37,14 @@ const Wrapper = styled.section`
   height: 98px;
   padding: 16px 14px 14px;
   > div:first-child {
+    width: 15%;
     height: 68px;
-    margin-right: 24px;
     font-size: 24px;
     font-weight: 600;
     color: #ed702d;
   }
   > div:last-child {
+    width: 85%;
     h4 {
       font-weight: 600;
       line-height: 20px;

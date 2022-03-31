@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
 import { useReloadData } from 'hooks/index';
 import styled from "styled-components";
-import TodaysNew from "./HomeComponents/TodaysNew";
+import TodaysNew from "../Organisms/TodaysNew";
 import TitleReloadBtn from "../common/TitleReloadBtn";
 
 const TodaysNewContainer = () => {

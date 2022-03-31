@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 const OrangeTitle = ({ story }) => {
-  console.log(story)
   return (
     <>
       <OrangeColor>

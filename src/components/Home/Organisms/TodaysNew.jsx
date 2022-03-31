@@ -28,7 +28,7 @@ const TodaysNew = memo(function Story({ storyId }) {
 });
 
 const Wrapper = styled.div`
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #c5c5c5;
   box-sizing: border-box;
   padding: 14px 14px 0 14px;
   height: 124px;
