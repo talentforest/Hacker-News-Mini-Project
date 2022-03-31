@@ -21,7 +21,7 @@ export default function Job() {
 
   return (
     <>
-      <Banner src={"assets/job_banner.png"} alt="job banner" />
+      <Banner src={require("assets/job_banner.png")} alt="job banner" />
       <Wrapper>
         <Posts>
           {storyIds.slice(0, 5).map((storyId) => (
@@ -30,7 +30,7 @@ export default function Job() {
         </Posts>
         <ApplyBanner>
           <BannerImg
-            src={"assets/applynow.png"}
+            src={require("assets/applynow.png")}
             alt="apply banner"
           />
           <BannerSlide>
@@ -52,7 +52,7 @@ export default function Job() {
         </Posts>
         <ApplyBanner>
           <BannerImg2
-            src={"assets/applyimg.png"}
+            src={require("assets/applyimg.png")}
             alt="apply banner"
           />
           <BannerSlide2>

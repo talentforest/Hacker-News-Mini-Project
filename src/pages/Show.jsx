@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
 import Banner from "components/layout/Banner";
-import SortViewModeBtn from "components/common/ViewModeBtn";
+import ViewModeBtn from "components/common/ViewModeBtn";
 import ShowBox from "components/Show/ShowBox";
 import styled from "styled-components";
 
@@ -21,9 +21,9 @@ export default function Show() {
 
   return (
     <>
-      <Banner src={"assets/show_banner.png"} alt="show banner" />
+      <Banner src={require("assets/show_banner.png")} alt="show banner" />
       <Wrapper>
-        <SortViewModeBtn />
+        <ViewModeBtn />
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={1}

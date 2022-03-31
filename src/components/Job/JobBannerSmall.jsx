@@ -17,7 +17,7 @@ const JobBannerSmall = memo(function Story({ storyId }) {
     <Banner2>
       <CompanyInfo2>
         <img
-          src={"assets/company_logo.png"}
+          src={require("assets/company_logo.png")}
           alt="companylogo"
         />
         <Company2>

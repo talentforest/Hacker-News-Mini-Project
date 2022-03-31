@@ -6,7 +6,7 @@ const Username = ({ story, commentIds, replyIdData, replyReplyIdData }) => {
     <Link to={`/userprofile/${story?.by || replyIdData?.by || replyReplyIdData?.by || commentIds?.by}`} >
       <User>
         <img
-          src={"/assets/user.png"}
+          src={require("assets/user.png")}
           alt="logo"
         />
         <span>

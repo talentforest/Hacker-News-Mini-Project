@@ -6,7 +6,7 @@ const CommentSortBtn = ({ story }) => {
     <Sort>
       <div>
         <img
-          src={"/assets/circle_orange.png"}
+          src={require("assets/circle_orange.png")}
           alt="bullet"
         />
         <span>Comments</span>

@@ -25,7 +25,7 @@ const TopPostBox = memo(function TopStory({ storyId, index }) {
         </User>
         <Comments>
           <img
-            src={"assets/comment.png"}
+            src={require("assets/comment.png")}
             alt="comments"
           />
           <span>{story.descendants}</span>

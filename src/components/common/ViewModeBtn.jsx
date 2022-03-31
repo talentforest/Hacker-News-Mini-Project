@@ -1,34 +1,47 @@
+import { useState } from "react";
+import { ReactComponent as List } from "assets/list-solid.svg";
+import { ReactComponent as BoxList } from "assets/th-large-solid.svg";
 import styled from "styled-components";
 
-const SortViewModeBtn = () => {
+const ViewModeBtn = () => {
+  const [viewMode, setViewMode] = useState(false);
+
+  const handleViewMode = () => {
+    setViewMode(!viewMode);
+  }
+
   return (
-    <SortView>
-      <View>
-        <img
-          src={"assets/bullet_list.png"}
-          alt="bullet list"
+    <ViewMode>
+      <div>
+        <List
+          width="22"
+          height="22"
+          fill={viewMode ? "#333" : "#c5c5c5"}
+          onClick={handleViewMode}
         />
-        <img
-          src={"assets/mode_list.png"}
-          alt="mode list"
+      </div>
+      <div>
+        <BoxList
+          width="22"
+          height="22"
+          fill={viewMode ? "#c5c5c5" : "#333"}
+          onClick={handleViewMode}
         />
-      </View>
-    </SortView>
+      </div>
+    </ViewMode >
   );
 };
 
-const SortView = styled.div`
+const ViewMode = styled.div`
   display: flex;
-  justify-content: space-between;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-`;
-const View = styled.div`
-  padding-right: 20px;
-  img {
-    width: 24px;
-    margin-left: 9px;
+  align-items: center;
+  padding: 0 20px;
+  height: 30px;
+  background-color: #f5f5f5;
+  div {
+    margin-right: 10px;
     cursor: pointer;
   }
 `;
 
-export default SortViewModeBtn;
+export default ViewModeBtn;

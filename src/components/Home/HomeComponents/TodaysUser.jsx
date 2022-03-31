@@ -18,7 +18,7 @@ const TodaysUser = memo(function Story({ index, storyId }) {
         <UserWrapper>
           <Rank>
             <img
-              src={"/assets/star.png"}
+              src={require("assets/star.png")}
               alt="star"
             />
             <div>{index + 1}</div>
@@ -28,7 +28,7 @@ const TodaysUser = memo(function Story({ index, storyId }) {
           <UserInfoBox>
             <UserInfo story={story} />
             <Btn
-              src={"assets/arrow_blue.png"}
+              src={require("assets/arrow_blue.png")}
               alt="arrow button"
             />
           </UserInfoBox>

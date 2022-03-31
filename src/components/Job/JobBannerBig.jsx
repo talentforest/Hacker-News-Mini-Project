@@ -19,7 +19,7 @@ const JobBannerBig = memo(function Story({ storyId }) {
       <Tags>Software Engineers</Tags>
       <CompanyInfo>
         <img
-          src={"assets/company_logo.png"}
+          src={require("assets/company_logo.png")}
           alt="company logo"
         />
         <Company>

@@ -25,7 +25,7 @@ const AskDetails = () => {
           <Info>
             <div>
               <span>{story.score} points</span>
-              <img src={"/assets/circle_gray.png"} alt="bullet" />
+              <img src={require("assets/circle_gray.png")} alt="bullet" />
               <span>{mapTime(story.time)} ago</span>
             </div>
           </Info>

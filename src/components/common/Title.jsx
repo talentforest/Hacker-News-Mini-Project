@@ -8,7 +8,7 @@ const Title = ({ title }) => {
         <div>
           <h4>{title}</h4>
           <img
-            src={"assets/arrow_right_black.png"}
+            src={require("assets/arrow_right_black.png")}
             alt="arrow"
           />
         </div>

@@ -33,7 +33,7 @@ const ShowBox = memo(function ShowStory({ storyId }) {
         </User>
         <Comments>
           <img
-            src={"/assets/comment.png"}
+            src={require("assets/comment.png")}
             alt="comments"
           />
           <span>{story.descendants}</span>

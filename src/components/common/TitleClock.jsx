@@ -10,7 +10,7 @@ const TitleClock = ({ title }) => {
       <Title title={title} />
       <div>
         <img
-          src={"assets/clock.png"}
+          src={require("assets/clock.png")}
           alt="clock"
         />
         <span>{hours}:00</span>

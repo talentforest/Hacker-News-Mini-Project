@@ -19,7 +19,7 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
       </div>
       <FolderBtn
         onClick={onFolder}
-        src={"/assets/arrow_up_gray.png"}
+        src={require("assets/arrow_up_gray.png")}
         alt="arrow_up_gray"
       />
     </CommentInfo>

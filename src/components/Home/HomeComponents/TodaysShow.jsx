@@ -26,7 +26,7 @@ const TodaysShow = memo(function Story({ storyId }) {
           </Title>
           <Info>
             <img
-              src={"/assets/point.png"}
+              src={require("assets/point.png")}
               alt="point"
             />
             <span>{story.score}</span>

@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [ThemeMode, toggleTheme] = useTheme();
+  const [, toggleTheme] = useTheme();
   return (
     <HeaderTop>
       <Link to="/">
         <div>
           <img
-            src={"/assets/logo.png"}
+            src={require("assets/logo.png")}
             alt="Logo"
           />
           <h1>Svelte Hacker News</h1>
@@ -19,13 +18,13 @@ const Header = () => {
       <div>
         <img
           onClick={toggleTheme}
-          src={"/assets/lightmode.png"}
+          src={require("assets/lightmode.png")}
           alt="light/dark mode"
         />
         <Link to="/about">
           <img
             className="question"
-            src={"/assets/questionmark.png"}
+            src={require("assets/questionmark.png")}
             alt="question"
           />
         </Link>

@@ -8,7 +8,7 @@ export default function TopUsers() {
   const location = useLocation();
   return (
     <>
-      <Banner src={"/assets/top_banner.png"} alt="top banner" />
+      <Banner src={require("assets/top_banner.png")} alt="top banner" />
       <Wrapper>
         <Btn>
           <Link to="/top">

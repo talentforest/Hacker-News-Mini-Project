@@ -25,7 +25,7 @@ const Submissions = ({ story }) => {
       <PostInfo>
         <User>
           <img
-            src={"/assets/user.png"}
+            src={require("assets/user.png")}
             alt="userimg"
           />
           <span>{story?.by}</span>
@@ -36,7 +36,7 @@ const Submissions = ({ story }) => {
         </User>
         <Comments>
           <img
-            src={"/assets/comment.png"}
+            src={require("assets/comment.png")}
             alt="comments"
           />
           <span>{story?.descendants}</span>

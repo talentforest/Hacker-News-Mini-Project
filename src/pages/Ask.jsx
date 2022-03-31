@@ -21,7 +21,7 @@ export default function Ask() {
 
   return (
     <>
-      <Banner src={"assets/ask_banner.png"} alt="BannerImg" />
+      <Banner src={require("assets/ask_banner.png")} alt="BannerImg" />
       <Wrapper>
         <Swiper
           modules={[Navigation, Pagination]}

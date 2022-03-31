@@ -4,7 +4,7 @@ const Clock = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {
   return (
     <>
       <img
-        src={"/assets/clock.png"}
+        src={require("assets/clock.png")}
         alt="clock"
       />
       {commentIds ?

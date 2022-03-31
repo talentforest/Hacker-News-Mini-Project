@@ -10,7 +10,7 @@ const TitleReloadBtn = ({ title, reloadNewData }) => {
       <Reload
         variants={ReloadVariants}
         whileTap="click"
-        src={"assets/reloading.png"}
+        src={require("assets/reloading.png")}
         alt="reloading"
         onClick={reloadNewData}
       />

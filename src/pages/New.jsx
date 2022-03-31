@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
 import Banner from "components/layout/Banner";
-import SortViewModeBtn from "components/common/ViewModeBtn";
+import ViewModeBtn from "components/common/ViewModeBtn";
 import NewBox from "components/New/NewBox"
 import styled from "styled-components";
 
@@ -22,9 +22,9 @@ export default function New() {
 
   return (
     <>
-      <Banner src={"assets/new_banner.png"} />
+      <Banner src={require("assets/new_banner.png")} />
       <Wrapper>
-        <SortViewModeBtn />
+        <ViewModeBtn />
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={1}

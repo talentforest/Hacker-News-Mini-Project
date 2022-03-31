@@ -4,7 +4,7 @@ const TimeInfo = ({ story }) => {
   return (
     <>
       <img
-        src={"/assets/clock2.png"}
+        src={require("assets/clock2.png")}
         alt="clock"
       />
       <span>{mapTime(story.time)}</span>

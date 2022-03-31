@@ -3,7 +3,7 @@ import { getTopStoryIds } from "util/hnApi";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Banner from "components/layout/Banner";
-import SortViewModeBtn from "components/common/ViewModeBtn";
+import ViewModeBtn from "components/common/ViewModeBtn";
 import TopPostBox from "components/Top/TopPostBox";
 import styled from "styled-components";
 
@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 
 export default function Top() {
   const location = useLocation();
+
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function Top() {
 
   return (
     <>
-      <Banner src={"assets/top_banner.png"} />
+      <Banner src={require("assets/top_banner.png")} />
       <Wrapper>
         <Btn>
           <Link to="/top">
@@ -37,8 +38,8 @@ export default function Top() {
           </Link>
         </Btn>
       </Wrapper>
-      <SortViewModeBtn />
       <Wrapper>
+        <ViewModeBtn />
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={1}
@@ -62,7 +63,7 @@ export default function Top() {
 
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.backgroundGrayColor};
-  padding: 28px 0 21px;
+  padding: 20px 0;
 `;
 const Posts = styled.section`
   background-color: ${(props) => props.theme.backgroundGrayColor};

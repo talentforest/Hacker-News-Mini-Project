@@ -9,7 +9,7 @@ import TodaysJobContainer from 'components/Home/TodaysJobContainer';
 export default function Home() {
   return (
     <>
-      <Banner src={"assets/home_banner.png"} />
+      <Banner src={require("assets/home_banner.png")} />
       <TodaysTopContainer />
       <TodaysNewContainer />
       <TodaysAskContainer />
