@@ -4,10 +4,12 @@ import { ReactComponent as BoxList } from "assets/th-large-solid.svg";
 import styled from "styled-components";
 
 const ViewModeBtn = () => {
-  const [viewMode, setViewMode] = useState(false);
+  const [listMode, setListMode] = useState(true);
+  const [cardMode, setCardMode] = useState(false);
 
   const handleViewMode = () => {
-    setViewMode(!viewMode);
+    setListMode(!listMode);
+    setCardMode(!cardMode);
   }
 
   return (
@@ -16,7 +18,7 @@ const ViewModeBtn = () => {
         <List
           width="22"
           height="22"
-          fill={viewMode ? "#333" : "#c5c5c5"}
+          fill={listMode ? "#333" : "#c5c5c5"}
           onClick={handleViewMode}
         />
       </div>
@@ -24,7 +26,7 @@ const ViewModeBtn = () => {
         <BoxList
           width="22"
           height="22"
-          fill={viewMode ? "#c5c5c5" : "#333"}
+          fill={cardMode ? "#333" : "#c5c5c5"}
           onClick={handleViewMode}
         />
       </div>
@@ -37,7 +39,7 @@ const ViewMode = styled.div`
   align-items: center;
   padding: 0 20px;
   height: 30px;
-  background-color: #f5f5f5;
+  background-color: ${(props) => props.theme.backgroundGrayColor};
   div {
     margin-right: 10px;
     cursor: pointer;

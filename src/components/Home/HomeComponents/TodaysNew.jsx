@@ -13,7 +13,7 @@ const TodaysNew = memo(function Story({ storyId }) {
   }, [storyId]);
 
   return story && story.url ? (
-    <NewWrapper>
+    <Wrapper>
       <a href={story.url} target="_blank" rel="noreferrer">
         <div>
           <span>{mapTime(story.time)} ago</span>
@@ -23,11 +23,11 @@ const TodaysNew = memo(function Story({ storyId }) {
       <span>
         <Username story={story} />
       </span>
-    </NewWrapper>
-  ) : null;
+    </Wrapper>
+  ) : <></>;
 });
 
-const NewWrapper = styled.div`
+const Wrapper = styled.div`
   border-bottom: 1px solid #333;
   box-sizing: border-box;
   padding: 14px 14px 0 14px;

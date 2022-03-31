@@ -1,6 +1,6 @@
 import { mapTime } from "util";
 
-const Clock = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {
+const Clock = ({ commentIds, replyIdData, replyReplyIdData }) => {
   return (
     <>
       <img

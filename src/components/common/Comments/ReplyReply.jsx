@@ -26,7 +26,7 @@ const ReplyReply = ({ replyReplyId }) => {
 };
 
 const ReplyReplyWrapper = styled.div`
-  margin: 14px 20px 14px 20px;
+  margin: 7px 0px;
   background-color: ${(props) => props.theme.commentContainerColor};
   width: 320px;
   border-radius: 8px;

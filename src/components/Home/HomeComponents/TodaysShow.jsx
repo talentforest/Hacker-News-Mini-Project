@@ -2,6 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { urlName } from "util";
 import { Link } from 'react-router-dom';
+import { Tag } from 'theme/commonStyle';
 import Username from 'components/common/Username';
 import OrangeTitle from 'components/common/OrangeTitle';
 import styled from "styled-components";
@@ -16,9 +17,9 @@ const TodaysShow = memo(function Story({ storyId }) {
     return () => setStory([]);
   }, [storyId]);
 
-  return story && story.url ? (
+  return (
     <Wrapper>
-      <ShowWrapper>
+      <div>
         <a href={story.url} target="_blank" rel="noreferrer">
           {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
           <Title>
@@ -39,33 +40,22 @@ const TodaysShow = memo(function Story({ storyId }) {
             <CommentNum story={story} />
           </Link>
         </UserComments>
-      </ShowWrapper>
+      </div>
     </Wrapper>
-  ) : <></>;
+  )
 });
 
 const Wrapper = styled.div`
   width: 3000px;
-`;
-const ShowWrapper = styled.div`
-  width: 200px;
-  height: 224px;
-  background-color: #eaf4f8;
-  margin-right: 12px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-  padding: 1px 12px 0px  12px;
-`;
-const Tag = styled.div`
-  box-sizing: border-box;
-  width: fit-content;
-  margin-top: 16px;
-  height: 20px;
-  padding: 5px 6px;
-  background-color: #ed702d;
-  font-size: 10px;
-  color: #f5f5f5;
-  border-radius: 20px;
+  > div {
+    width: 200px;
+    height: 224px;
+    background-color: #eaf4f8;
+    margin-right: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    padding: 1px 12px 0px  12px;
+  }
 `;
 const Title = styled.div`
   font-size: 14px;
@@ -104,23 +94,6 @@ const UserComments = styled.div`
   font-size: 12px;
   border-top: 0.1px solid #e1e1e1;
   color: #727272;
-  div{
-    display: flex;
-    align-items: center;
-    img {
-      width: 20px;
-      margin-right: 3px;
-    }
-  }
-  > div {
-    img {
-      width: 18px;
-    }
-    span {
-      color: #ed702d;
-      font-weight: 700;
-    }
-  }
 `;
 
 export default TodaysShow;

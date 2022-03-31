@@ -20,8 +20,7 @@ const Sort = styled.div`
   display: flex;
   justify-content: space-between;
   height: 35px;
-  margin-top: 20px;
-  padding: 12px 20px 8px;
+  padding: 32px 20px 8px;
   font-size: 14px;
   font-weight: 600;
   background-color: ${(props) => props.theme.backgroundColor};
@@ -34,7 +33,12 @@ const Sort = styled.div`
       margin-right: 5px;
     }
   }
-  div:last-child {
+  > div:first-child {
+    span {
+      color: ${(props) => props.theme.textColor};
+    }
+  }
+  > div:last-child {
     img{
       width: 16px;
     }

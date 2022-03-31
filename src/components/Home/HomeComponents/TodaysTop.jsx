@@ -13,58 +13,60 @@ const TodaysTop = memo(function Story({ storyId, index }) {
     return () => setStory([]);
   }, [storyId]);
 
-  return story && story.url ? (
-    <TTopWrapper>
-      <Ranking>{index + 1}</Ranking>
+  return (
+    <Wrapper>
+      <div>{index + 1}</div>
       <div>
         <a href={story.url} target="_blank" rel="noreferrer">
-          <Title>
-            {story?.title.includes("Show HN" || "Ask HN" || "Tell HN") ?
+          <h4>
+            {story?.title?.includes("Show HN" || "Ask HN" || "Tell HN") ?
               <OrangeTitle story={story} /> : maxChar(story)}
-          </Title>
+          </h4>
         </a>
-        <Info>
+        <div>
           <Link to={`/userprofile/${story.by}`}>
             <span>{story.by}</span>
           </Link>
           <span>{story.score} points</span>
           <span>{mapTime(story.time)}</span>
-        </Info>
+        </div>
       </div>
-    </TTopWrapper>
-  ) : null;
+    </Wrapper>
+  )
 });
 
-const TTopWrapper = styled.section`
+const Wrapper = styled.section`
   position: relative;
   display: flex;
   height: 98px;
   padding: 16px 14px 14px;
-`;
-const Ranking = styled.div`
-  height: 68px;
-  margin-right: 24px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #ed702d;
-`;
-const Title = styled.h4`
-  font-weight: 600;
-  line-height: 20px;
-  color: ${(props) => props.theme.textColor};
-`;
-const Info = styled.div`
-  display: flex;
-  align-items: baseline;
-  span:first-child {
-    font-size: 12px;
-    font-weight: 400;
+  > div:first-child {
+    height: 68px;
+    margin-right: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ed702d;
   }
-  span {
-    margin: 14px 8px 0 0;
-    font-size: 12px;
-    font-weight: 400;
-    color: #727272;
+  > div:last-child {
+    h4 {
+      font-weight: 600;
+      line-height: 20px;
+      color: ${(props) => props.theme.textColor};
+    }
+    div {
+      display: flex;
+      align-items: baseline;
+      span:first-child {
+        font-size: 12px;
+        font-weight: 400;
+      }
+      span {
+        margin: 14px 8px 0 0;
+        font-size: 12px;
+        font-weight: 400;
+        color: #727272;
+      }
+    }
   }
 `;
 

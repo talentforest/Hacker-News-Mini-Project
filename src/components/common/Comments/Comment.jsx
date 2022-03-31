@@ -16,7 +16,7 @@ const Comment = memo(function Story({ commentId }) {
   const replyIds = commentIds.kids;
 
   return (
-    <CommentWrapper>
+    <Wrapper>
       <UserClockFolder commentIds={commentIds} onFolder={onFolder} />
       {toggle ? (
         <CommentText dangerouslySetInnerHTML={{ __html: commentIds.text }} />
@@ -24,11 +24,14 @@ const Comment = memo(function Story({ commentId }) {
       {toggle
         ? replyIds?.map((replyId, i) => <Reply key={i} replyId={replyId} />)
         : <></>}
-    </CommentWrapper>
+    </Wrapper>
   );
 });
 
-const CommentWrapper = styled.section`
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   padding: 0 20px 10px;
   background-color: ${(props) => props.theme.backgroundColor};
 `
@@ -39,6 +42,7 @@ const CommentText = styled.p`
   color: ${(props) => props.theme.commentColor};
   word-wrap: break-word;
   white-space: pre-wrap;
+  margin-bottom: 14px;
 `;
 
 export default Comment;

@@ -20,10 +20,13 @@ const Username = ({ story, commentIds, replyIdData, replyReplyIdData }) => {
 const User = styled.div`
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.textColor};
   img {
     height: 20px;
     margin-right: 4px;
+  }
+  span {
+    margin-right: 6px;
+    color: ${(props) => props.theme.textGrayColor};
   }
 `
 

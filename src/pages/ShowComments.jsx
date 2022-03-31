@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { getStory } from 'util/hnApi';
-import styled from "styled-components";
 import Comment from 'components/common/Comments/Comment';
+import styled from "styled-components"
 import CommentSortBtn from 'components/common/Comments/CommentSortBtn';
 
 const ShowComments = () => {
@@ -26,9 +26,9 @@ const ShowComments = () => {
   )
 }
 
-const Container = styled.div`
-  
+const Container = styled.section`
+  min-height: 100vh;
+  background-color:  ${(props) => props.theme.backgroundColor};;
 `
-
 
 export default ShowComments

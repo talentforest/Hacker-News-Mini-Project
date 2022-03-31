@@ -9,12 +9,9 @@ const Reply = ({ replyId }) => {
   const [toggle, onFolder] = useToggle();
   const [replyIdData, setReplyIdData] = useState([]);
 
-
   useEffect(() => {
     getReplyData(replyId, setReplyIdData);
   }, [replyId]);
-
-  const replyReplyIds = replyIdData.kids;
 
   return replyIdData.by ? (
     <>
@@ -24,10 +21,10 @@ const Reply = ({ replyId }) => {
           <ReplyComment
             dangerouslySetInnerHTML={{ __html: replyIdData.text }}
           />
-        ) : null}
+        ) : <></>}
       </ReplyWrapper>
       {toggle
-        ? replyReplyIds?.map((replyReplyId) => (
+        ? replyIdData.kids?.map((replyReplyId) => (
           <ReplyReply key={replyReplyId} replyReplyId={replyReplyId} />
         ))
         : <></>}
@@ -36,7 +33,7 @@ const Reply = ({ replyId }) => {
 };
 
 const ReplyWrapper = styled.div`
-  margin-top: 14px;
+  margin: 7px 0;
   background-color: ${(props) => props.theme.commentContainerColor};
   width: 340px;
   border-radius: 8px;

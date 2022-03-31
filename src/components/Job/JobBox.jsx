@@ -22,7 +22,7 @@ const JobBox = memo(function JobStory({ storyId }) {
         <span>{mapTime(story.time)}</span>
       </Info>
     </Post>
-  ) : null;
+  ) : <></>;
 });
 
 const Post = styled.div`

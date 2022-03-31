@@ -28,40 +28,28 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }
 }
 
 const CommentInfo = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   font-size: 14px;
   font-weight: 400;
   > div {
     padding: 20px 0 10px;
     display: flex;
-    align-items: center;
-    a {
-      display: flex;
-      align-items: center;
-      img {
-        width: 20px;
-        height: 20px;
-        margin-right: 2px;
-      }
-      span {
-        margin-right: 6px;
-        color: #333;
-      }
-    }
+    align-items: center;  
     img {
       width: 20px;
       height: 20px;
       margin-right: 2px;
     }
     span {
-      color: #727272;
+      color: ${(props) => props.theme.textGrayColor};
     }
   }
 `;
 const FolderBtn = styled.img`
-  padding: 2px;
+  padding-top: 5px;
   width: 20px;
   height: 12.41px;
   cursor: pointer;
