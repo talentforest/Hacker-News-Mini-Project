@@ -1,8 +1,8 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime, urlName } from "util";
+import { urlName } from "util";
 import styled from "styled-components";
-import Username from 'components/common/Username';
+import UserPointsTime from 'components/common/UserPointsTime';
 
 const NewBox = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
@@ -17,13 +17,7 @@ const NewBox = memo(function Story({ storyId }) {
       {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
       <h4>{story.title}</h4>
       <Info>
-        <User>
-          <Username story={story} />
-          <UserInfo>
-            <span>{story.score} points</span>
-            <span>{mapTime(story.time)}</span>
-          </UserInfo>
-        </User>
+        <UserPointsTime story={story} />
       </Info>
     </Post>
   );
@@ -66,19 +60,6 @@ const Info = styled.div`
     width: 16px;
     height: 16px;
     margin-right: 3.3px;
-  }
-`;
-const User = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${(props) => props.theme.textColor};
-`;
-const UserInfo = styled.div`
-  margin-left: 6px;
-  display: flex;
-  color: #949494;
-  span:first-child {
-    margin-right: 6px;
   }
 `;
 

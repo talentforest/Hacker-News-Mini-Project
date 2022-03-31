@@ -1,9 +1,8 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime } from "util/mapTime";
-import { urlName } from 'util/urlName';
+import { urlName } from 'util';
 import styled from "styled-components";
-import Username from 'components/common/Username';
+import UserPointsTime from 'components/common/UserPointsTime';
 
 const ShowBox = memo(function ShowStory({ storyId }) {
   const [story, setStory] = useState([]);
@@ -24,13 +23,7 @@ const ShowBox = memo(function ShowStory({ storyId }) {
         </h4>
       </a>
       <Info>
-        <User>
-          <Username story={story} />
-          <UserInfo>
-            <span>{story.score} points</span>
-            <span>{mapTime(story.time)}</span>
-          </UserInfo>
-        </User>
+        <UserPointsTime story={story} />
         <Comments>
           <img
             src={require("assets/comment.png")}
@@ -86,19 +79,6 @@ const Info = styled.div`
     width: 16px;
     height: 16px;
     margin-right: 3.3px;
-  }
-`;
-const User = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${(props) => props.theme.textColor};
-`;
-const UserInfo = styled.div`
-  margin-left: 6px;
-  display: flex;
-  color: #949494;
-  span:first-child {
-    margin-right: 6px;
   }
 `;
 const Comments = styled.div`

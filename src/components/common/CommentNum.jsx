@@ -10,6 +10,7 @@ const CommentNum = ({ story }) => {
 }
 
 const Comment = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   img {

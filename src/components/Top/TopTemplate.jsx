@@ -11,8 +11,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export default function TopTemplate() {
-
-
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -21,27 +19,52 @@ export default function TopTemplate() {
   }, []);
 
   return (
-    <>
-      <Wrapper>
-        <ViewModeBtn />
-        <Swiper
-          modules={[Navigation, Pagination]}
-          slidesPerView={1}
-          navigation={true}
-          pagination={{ type: "fraction" }}
-        >
-          {[1, 2, 3, 4, 5].map((items, index) => (
-            <SwiperSlide key={items}>
-              <Posts>
-                {storyIds.slice(index, index + 20).map((storyId, index) => (
-                  <TopPostBox key={storyId} storyId={storyId} index={index} />
-                ))}
-              </Posts>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <ViewModeBtn />
+      <Swiper
+        modules={[Navigation, Pagination]}
+        slidesPerView={1}
+        navigation={true}
+        pagination={{ type: "fraction" }}
+      >
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(0, 20).map((storyId, index) => (
+              <TopPostBox key={storyId} storyId={storyId} index={index} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(20, 40).map((storyId, index) => (
+              <TopPostBox key={storyId} storyId={storyId} index={index} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(40, 60).map((storyId, index) => (
+              <TopPostBox key={storyId} storyId={storyId} index={index} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(60, 80).map((storyId, index) => (
+              <TopPostBox key={storyId} storyId={storyId} index={index} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Posts>
+            {storyIds.slice(80, 100).map((storyId, index) => (
+              <TopPostBox key={storyId} storyId={storyId} index={index} />
+            ))}
+          </Posts>
+        </SwiperSlide>
+
+      </Swiper>
+    </Wrapper>
   );
 }
 

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Username from 'components/common/Username';
 import OrangeTitle from 'components/common/OrangeTitle';
+import CommentNum from 'components/common/CommentNum';
 
 const AskBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
@@ -13,6 +14,10 @@ const AskBox = memo(function AskStory({ storyId }) {
     getStory(storyId, setStory);
     return () => setStory([]);
   }, [storyId]);
+
+  const text = story.text?.length > 150
+    ? `${story.text.slice(0, 150)}...`
+    : story.text
 
   return (
     <Post>
@@ -26,29 +31,18 @@ const AskBox = memo(function AskStory({ storyId }) {
           )}
         </Title>
         <PostText
-          dangerouslySetInnerHTML={{
-            __html:
-              story.text?.length > 150
-                ? `${story.text.slice(0, 150)}...`
-                : story.text,
-          }}
+          dangerouslySetInnerHTML={{ __html: text }}
         />
+        <Time>{mapTime(story.time)}</Time>
       </Link>
-      <Time>{mapTime(story.time)}</Time>
       <Info>
         <User>
           <Username story={story} />
-          <UserInfo>
-            <span>{story.score} points</span>
-          </UserInfo>
+          <span>{story.score} points</span>
         </User>
-        <CommentDisplay>
-          <img
-            src={require("assets/comment.png")}
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </CommentDisplay>
+        <Link to={`${story.id}`}>
+          <CommentNum story={story} />
+        </Link>
       </Info>
     </Post>
   );
@@ -69,12 +63,12 @@ const Title = styled.h4`
   cursor: pointer;
 `;
 const PostText = styled.p`
-  margin: 0 auto;
   height: 62px;
   overflow: hidden;
   margin-bottom: 10px;
   padding: 6px 20px 10px;
   font-size: 14px;
+  color: ${(props) => props.theme.textColor};
   line-height: 18px;
   cursor: pointer;
 `;
@@ -106,20 +100,10 @@ const User = styled.div`
   display: flex;
   align-items: center;
   color: ${(props) => props.theme.textColor};
-`;
-const UserInfo = styled.div`
-  margin-left: 6px;
-  display: flex;
-  color: #949494;
-  font-weight: 400;
-  span:first-child {
+  > span {
+    color: #949494;
     margin-right: 6px;
   }
-`;
-const CommentDisplay = styled.div`
-  display: flex;
-  align-items: center;
-  color: #ed702d;
 `;
 
 export default AskBox;

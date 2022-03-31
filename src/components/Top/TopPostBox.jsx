@@ -1,10 +1,10 @@
 import { useEffect, useState, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime } from "util/mapTime";
 import styled from "styled-components";
-import Username from 'components/common/Username';
+import CommentNum from 'components/common/CommentNum';
+import UserPointsTime from 'components/common/UserPointsTime';
 
-const TopPostBox = memo(function TopStory({ storyId, index }) {
+const TopPostBox = memo(function TopStory({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -14,22 +14,12 @@ const TopPostBox = memo(function TopStory({ storyId, index }) {
 
   return (
     <Post>
-      <h4>{story.title}</h4>
+      <a href={story.url} target="_blank" rel="noreferrer">
+        <h4>{story.title}</h4>
+      </a>
       <Info>
-        <User>
-          <Username story={story} />
-          <UserInfo>
-            <span>{story.score} points</span>
-            <span>{mapTime(story.time)}</span>
-          </UserInfo>
-        </User>
-        <Comments>
-          <img
-            src={require("assets/comment.png")}
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </Comments>
+        <UserPointsTime story={story} />
+        <CommentNum story={story} />
       </Info>
     </Post>
   );
@@ -64,24 +54,6 @@ const Info = styled.div`
     margin-right: 3.3px;
     cursor: pointer;
   }
-`;
-const User = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const UserInfo = styled.div`
-  margin-left: 6px;
-  display: flex;
-  color: #949494;
-  span:first-child {
-    margin-right: 6px;
-  }
-`;
-const Comments = styled.div`
-  display: flex;
-  align-items: center;
-  color: #ed702d;
-  cursor: pointer;
 `;
 
 export default TopPostBox;
