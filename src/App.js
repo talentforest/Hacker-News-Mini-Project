@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import UserProfile from "./pages/UserProfile";
 import Top from "./pages/Top";
-import TopUsers from "./pages/TopUsers";
 import New from "./pages/New";
 import Show from "./pages/Show";
 import Ask from "./pages/Ask";
@@ -23,7 +22,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="top" element={<Top />} />
-        <Route path="user" element={<TopUsers />} />
         <Route path="new" element={<New />} />
         <Route path="show" element={<Show />} />
         <Route path="show/:id" element={<ShowComments />} />

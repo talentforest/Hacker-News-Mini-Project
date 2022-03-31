@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getTopStoryIds } from "../../../util/hnApi";
 import styled from "styled-components";
 import TodaysUser from "../Organisms/TodaysUser";
-import Title from "../common/Title";
 
 const TodaysUserContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -14,7 +13,7 @@ const TodaysUserContainer = () => {
 
   return (
     <Wrapper>
-      <Title title="Today's User" />
+      <h4>Today's User</h4>
       <Container>
         {storyIds.slice(0, 5).map((storyId, index) => (
           <TodaysUser key={storyId} storyId={storyId} index={index} />
@@ -31,6 +30,17 @@ const Wrapper = styled.div`
   margin: 0 auto 12px;
   background-color: ${(props) => props.theme.backgroundColor};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
+  h4 {
+    padding: 30px 20px 0;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${(props) => props.theme.backgroundColor};
+    color: ${(props) => props.theme.textColor};
+    font-weight: 700;
+    font-size: 24px;
+  }
 `;
 const Container = styled.div`
   overflow: scroll;
