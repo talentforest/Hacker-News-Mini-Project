@@ -14,7 +14,6 @@ const TodaysAskContainer = () => {
     return () => setStoryIds([]);
   }, []);
 
-
   return (
     <Container>
       <TitleReloadBtn title="Today's Ask" reloadNewData={reloadNewData} />

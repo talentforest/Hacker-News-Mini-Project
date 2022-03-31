@@ -17,7 +17,7 @@ const TodaysNew = memo(function Story({ storyId }) {
       <a href={story.url} target="_blank" rel="noreferrer">
         <div>
           <span>{mapTime(story.time)} ago</span>
-          <h4>{maxChar(story)}</h4>
+          <h4>{maxChar(story, 68)}</h4>
         </div>
       </a>
       <span>

@@ -1,5 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi"
+import { urlName, maxChar } from 'util';
 import styled from "styled-components";
 import TimeInfo from 'components/common/TimeInfo';
 
@@ -11,19 +12,15 @@ const TodaysJob = memo(function Story({ storyId }) {
     return () => setStory([]);
   }, [storyId]);
 
-  const urlName = story.url?.slice(8).split("/")[0];
-
   return (
     <Wrapper>
       <JobWrapper>
         <Tag>Software Engineers</Tag>
         <Title>
-          {story?.title?.length > 75
-            ? `${story?.title?.slice(0, 75)}...`
-            : story?.title}
+          {maxChar(story, 75)}
         </Title>
         <a href={story?.url} target="_blank" rel="noopener noreferrer">
-          <Site>{urlName?.includes("www") ? urlName?.slice(4) : urlName}</Site>
+          <Site>{urlName(story)}</Site>
         </a>
         <Info>
           <TimeInfo story={story} />

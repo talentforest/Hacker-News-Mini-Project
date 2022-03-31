@@ -20,7 +20,7 @@ const TodaysTop = memo(function Story({ storyId, index }) {
         <a href={story.url} target="_blank" rel="noreferrer">
           <h4>
             {story?.title?.includes("Show HN" || "Ask HN" || "Tell HN") ?
-              <OrangeTitle story={story} /> : maxChar(story)}
+              <OrangeTitle story={story} /> : maxChar(story, 68)}
           </h4>
         </a>
         <div>
