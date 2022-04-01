@@ -18,7 +18,7 @@ const TodaysJob = memo(function Story({ storyId }) {
       <JobWrapper>
         <Tag>Software Engineers</Tag>
         <Title>
-          {maxChar(story, 75)}
+          {maxChar(story.title, 75)}
         </Title>
         <a href={story?.url} target="_blank" rel="noopener noreferrer">
           <Site>{urlName(story)}</Site>

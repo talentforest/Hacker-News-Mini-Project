@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
-const Username = ({ story, commentIds, replyIdData, replyReplyIdData }) => {
+const Username = ({ style, story, commentIds, replyIdData, replyReplyIdData }) => {
   return (
     <Link to={`/userprofile/${story?.by || replyIdData?.by || replyReplyIdData?.by || commentIds?.by}`} >
       <User>
@@ -9,7 +9,7 @@ const Username = ({ story, commentIds, replyIdData, replyReplyIdData }) => {
           src={require("assets/user.png")}
           alt="logo"
         />
-        <span>
+        <span style={style}>
           {story?.by || commentIds?.by || replyIdData?.by || replyReplyIdData?.by}
         </span>
       </User>

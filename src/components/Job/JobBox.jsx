@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime } from "util/mapTime";
+import { mapTime, maxChar } from "util";
 import { urlName } from 'util/urlName';
 import styled from "styled-components";
 
@@ -14,7 +14,7 @@ const JobBox = memo(function JobStory({ storyId }) {
 
   return story && story.title ? (
     <Post>
-      <h4>{story.title}</h4>
+      <h4>{maxChar(story.title, 80)}</h4>
       <Info>
         <a href={story.url} target="_blank" rel="noopener noreferrer">
           {urlName(story)}

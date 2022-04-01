@@ -17,7 +17,7 @@ const TodaysTop = memo(function Story({ storyId, index }) {
       <div>{index + 1}</div>
       <div>
         <a href={story.url} target="_blank" rel="noreferrer">
-          <h4>{maxChar(story, 55)}</h4>
+          <h4>{maxChar(story.title, 55)}</h4>
         </a>
         <div>
           <Link to={`/userprofile/${story.by}`}>

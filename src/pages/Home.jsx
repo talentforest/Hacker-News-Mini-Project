@@ -6,10 +6,13 @@ import TodaysUserContainer from 'components/Home/Templates/TodaysUserContainer';
 import TodaysShowContainer from 'components/Home/Templates/TodaysShowContainer';
 import TodaysJobContainer from 'components/Home/Templates/TodaysJobContainer';
 
+
 export default function Home() {
   return (
     <>
-      <Banner src={require("assets/home_banner.png")} />
+      <Banner
+        src={require("assets/home_banner.png")}
+        alt="banner" />
       <TodaysTopContainer />
       <TodaysNewContainer />
       <TodaysAskContainer />

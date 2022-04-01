@@ -19,7 +19,9 @@ const TodaysTopContainer = () => {
 
   return (
     <Container>
-      <TitleClock title="Today's Top" />
+      <TitleClock
+        title="Today's Top"
+      />
       <Swiper pagination={true} modules={[Pagination]}>
         <SwiperSlide>
           <ul>

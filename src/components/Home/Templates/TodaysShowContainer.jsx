@@ -16,7 +16,10 @@ const TodaysShowContainer = () => {
 
   return (
     <Container>
-      <TitleReloadBtn title="Today's Show" reloadNewData={reloadNewData} />
+      <TitleReloadBtn
+        title="Today's Show"
+        reloadNewData={reloadNewData}
+      />
       <div>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TodaysShow key={storyId} storyId={storyId} />

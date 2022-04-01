@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCurrIdData } from 'util/hnApi';
-import { mapTime } from "util/mapTime";
 import Comment from "components/common/Comments/Comment";
 import CommentSortBtn from 'components/common/Comments/CommentSortBtn';
 import OrangeTitle from 'components/common/OrangeTitle';
 import styled from "styled-components";
-import Username from 'components/common/Username';
+import UserPointsTime from 'components/common/UserPointsTime';
 
 const AskDetails = () => {
   const { id } = useParams();
@@ -21,14 +20,7 @@ const AskDetails = () => {
     <Wrapper>
       <Post>
         <User>
-          <Username story={story} />
-          <Info>
-            <div>
-              <span>{story.score} points</span>
-              <img src={require("assets/circle_gray.png")} alt="bullet" />
-              <span>{mapTime(story.time)} ago</span>
-            </div>
-          </Info>
+          <UserPointsTime story={story} style={{ fontSize: "16px" }} />
         </User>
         <Title>
           <OrangeTitle story={story} />
@@ -65,26 +57,9 @@ const Post = styled.div`
 `;
 const User = styled.div`
   display: flex;
-  font-size: 18px;
-  font-weight: 500;
   border-bottom: 1px solid #b7b7b7;
   margin-bottom: 12px;
   padding: 0 10px 18px;
-`;
-const Info = styled.div`
-  div {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 400;
-    margin-top: 8px;
-    color: #949494;
-    img {
-      width: 3px;
-      height: 3px;
-      margin: 0 4px;
-    }
-  }
 `;
 const Title = styled.h4`
   padding: 4px 10px 19px;

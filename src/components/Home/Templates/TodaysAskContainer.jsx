@@ -3,7 +3,7 @@ import { getAskStoryIds } from "util/hnApi";
 import { useReloadData } from 'hooks/index';
 import styled from "styled-components";
 import TodaysAsk from '../Organisms/TodaysAsk';
-import TitleReloadBtn from "../common/TitleReloadBtn";
+import TitleReloadBtn from '../common/TitleReloadBtn';
 
 const TodaysAskContainer = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -16,7 +16,9 @@ const TodaysAskContainer = () => {
 
   return (
     <Container>
-      <TitleReloadBtn title="Today's Ask" reloadNewData={reloadNewData} />
+      <TitleReloadBtn
+        title="Today's Ask"
+        reloadNewData={reloadNewData} />
       <div>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TodaysAsk key={storyId} storyId={storyId} />

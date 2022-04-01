@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { urlName } from "util";
+import { WhiteTag } from 'theme/commonStyle';
 import styled from "styled-components";
 import UserPointsTime from 'components/common/UserPointsTime';
 
@@ -14,11 +15,11 @@ const NewBox = memo(function Story({ storyId }) {
 
   return (
     <Post>
-      {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
-      <h4>{story.title}</h4>
-      <Info>
-        <UserPointsTime story={story} />
-      </Info>
+      <a href={story.url} target="_blank" rel="noreferrer">
+        {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
+        <h4>{story.title}</h4>
+      </a>
+      <UserPointsTime story={story} />
     </Post>
   );
 });
@@ -36,31 +37,11 @@ const Post = styled.div`
     align-items: center;
     font-weight: 600;
     line-height: 24px;
-    height: 64px;
+    height: 80px;
+    padding: 5px 0;
+    color: ${(props) => props.theme.textColor};
   }
 `;
-const Tag = styled.div`
-  width: fit-content;
-  height: 20px;
-  padding: 5px 6px;
-  background-color: #efefef;
-  font-size: 10px;
-  color: #ed702d;
-  border-radius: 20px;
-`;
-const Info = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  height: 36px;
-  font-size: 12px;
-  padding: 22px 0 14px;
-  color: #949494;
-  img {
-    width: 16px;
-    height: 16px;
-    margin-right: 3.3px;
-  }
-`;
+
 
 export default NewBox;

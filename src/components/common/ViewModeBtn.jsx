@@ -37,8 +37,7 @@ const ViewModeBtn = () => {
 const ViewMode = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  height: 30px;
+  padding: 20px 20px 0;
   background-color: ${(props) => props.theme.backgroundGrayColor};
   div {
     margin-right: 10px;

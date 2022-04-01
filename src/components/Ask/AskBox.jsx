@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Username from 'components/common/Username';
 import OrangeTitle from 'components/common/OrangeTitle';
 import CommentNum from 'components/common/CommentNum';
+import { maxChar } from 'util';
 
 const AskBox = memo(function AskStory({ storyId }) {
   const [story, setStory] = useState([]);
@@ -14,10 +15,6 @@ const AskBox = memo(function AskStory({ storyId }) {
     getStory(storyId, setStory);
     return () => setStory([]);
   }, [storyId]);
-
-  const text = story.text?.length > 150
-    ? `${story.text.slice(0, 150)}...`
-    : story.text
 
   return (
     <Post>
@@ -31,7 +28,7 @@ const AskBox = memo(function AskStory({ storyId }) {
           )}
         </Title>
         <PostText
-          dangerouslySetInnerHTML={{ __html: text }}
+          dangerouslySetInnerHTML={{ __html: maxChar(story.text, 150) }}
         />
         <Time>{mapTime(story.time)}</Time>
       </Link>

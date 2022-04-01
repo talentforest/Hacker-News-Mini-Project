@@ -14,8 +14,7 @@ const Gnb = () => {
         </Link>
         <Link to="/top">
           <li>Top</li>
-          {pathname.includes("/top") || pathname.includes("/user") ?
-            <CurrPageMark /> : <></>}
+          {pathname.includes("/top") ? <CurrPageMark /> : <></>}
         </Link>
         <Link to="/new">
           <li>New</li>
