@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { getUserSubmissions } from "util/hnApi"
 import { useNavigate } from 'react-router-dom';
+import Submissions from '../UserProfile/Submissions';
 
-import Submissions from './Submissions';
-
-const UsersSubmission = ({ submittedId }) => {
-  const navigator = useNavigate();
+const UserProfileTemplate = ({ submittedId }) => {
   const [story, setStory] = useState();
+  const navigator = useNavigate();
 
   useEffect(() => {
     getUserSubmissions(submittedId, setStory);
@@ -19,10 +18,14 @@ const UsersSubmission = ({ submittedId }) => {
         <div role="link" onClick={() => navigator(`/ask/${story.id}`)} style={{ cursor: "pointer" }}>
           <Submissions story={story} />
         </div>
-        : <Submissions story={story} />}
+        :
+        <a href={story.url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>
+          <Submissions story={story} />
+        </a>
+      }
     </>
   ) : <></>;
 }
 
 
-export default UsersSubmission;
+export default UserProfileTemplate;

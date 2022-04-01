@@ -1,12 +1,14 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { getStory } from "util/hnApi";
 import { urlName } from 'util';
 import { WhiteTag } from 'theme/commonStyle';
 import styled from "styled-components";
 import UserPointsTime from 'components/common/UserPointsTime';
 import OrangeTitle from 'components/common/OrangeTitle';
+import CommentNum from 'components/common/CommentNum';
 
-const ShowBox = memo(function ShowStory({ storyId }) {
+const BasicLayoutBox = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -16,25 +18,21 @@ const ShowBox = memo(function ShowStory({ storyId }) {
 
   return (
     <Post>
-      {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
-      <a href={story.url}>
-        <h4><OrangeTitle story={story} /></h4>
+      <a href={story.url} target="_blank" rel="noreferrer">
+        {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
+        {story?.title?.includes("Ask HN" || "Tell HN")
+          ? <h4><OrangeTitle story={story} /></h4>
+          : <h4>{story.title}</h4>}
       </a>
       <div>
         <UserPointsTime story={story} />
-        <div>
-          <img
-            src={require("assets/comment.png")}
-            alt="comments"
-          />
-          <span>{story.descendants}</span>
-        </div>
+        <Link to={`${story.id}`}>
+          {story.descendants ? <CommentNum story={story} /> : <></>}
+        </Link>
       </div>
-
-    </Post>
-  );
-});
-
+    </Post >
+  )
+}
 const Post = styled.div`
   position: relative;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
@@ -69,15 +67,5 @@ const Post = styled.div`
     }
   }
 `;
-// const Tag = styled.div`
-//   position: absolute;
-//   width: fit-content;
-//   height: 20px;
-//   padding: 5px 6px;
-//   background-color: #efefef;
-//   font-size: 10px;
-//   color: #ed702d;
-//   border-radius: 20px;
-// `;
 
-export default ShowBox;
+export default BasicLayoutBox;

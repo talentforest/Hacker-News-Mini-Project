@@ -1,46 +1,24 @@
-import { mapTime, urlName } from 'util';
+import { urlName } from 'util';
+import { Site } from 'theme/commonStyle';
 import styled from "styled-components"
 import OrangeTitle from 'components/common/OrangeTitle';
+import CommentNum from 'components/common/CommentNum';
+import UserPointsTime from 'components/common/UserPointsTime';
 
 const Submissions = ({ story }) => {
-
   return (
     <SubmissionBox >
       <h4>
-        {story?.title.includes("Ask HN") ||
-          story?.title.includes("Tell HN") ||
-          story?.title.includes("Show HN") ? (
-          <>
-            <OrangeTitle story={story} />
-          </>
-        ) : (
-          story?.title
-        )}
-        <Url>
-          <a href={story.url} target="blank">
-            {urlName(story)}
-          </a>
-        </Url>
+        {story?.title.includes("Ask HN" || "Tell HN" || "Show HN")
+          ? <OrangeTitle story={story} />
+          : story?.title}
+        <Site>
+          {urlName(story)}
+        </Site>
       </h4 >
       <PostInfo>
-        <User>
-          <img
-            src={require("assets/user.png")}
-            alt="userimg"
-          />
-          <span>{story?.by}</span>
-          <UserInfo>
-            <span>{story?.score} points</span>
-            <span>{mapTime(story?.time)}</span>
-          </UserInfo>
-        </User>
-        <Comments>
-          <img
-            src={require("assets/comment.png")}
-            alt="comments"
-          />
-          <span>{story?.descendants}</span>
-        </Comments>
+        <UserPointsTime story={story} />
+        <CommentNum story={story} />
       </PostInfo >
     </SubmissionBox >
   )
@@ -63,17 +41,6 @@ const SubmissionBox = styled.div`
     line-height: 24px;
   }
 `;
-
-const Url = styled.div`
-  margin-top: 5px;
-  font-size: 12px;
-  line-height: 20px;
-  height: 20px;
-  a {
-    color: #b7b7b7;
-    text-decoration: underline;
-  }
-`;
 const PostInfo = styled.div`
   display: flex;
   justify-content: space-between;
@@ -88,24 +55,5 @@ const PostInfo = styled.div`
     margin-right: 3.3px;
   }
 `;
-const User = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${(props) => props.theme.textColor};
-`;
-const UserInfo = styled.div`
-  margin-left: 6px;
-  display: flex;
-  color: #949494;
-  span:first-child {
-    margin-right: 6px;
-  }
-`;
-const Comments = styled.div`
-  display: flex;
-  align-items: center;
-  color: #ed702d;
-`;
-
 
 export default Submissions;

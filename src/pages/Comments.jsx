@@ -5,11 +5,10 @@ import Comment from 'components/common/Comments/Comment';
 import styled from "styled-components"
 import CommentSortBtn from 'components/common/Comments/CommentSortBtn';
 
-const ShowComments = () => {
+const Comments = () => {
   const location = useLocation();
   const [story, setStory] = useState([]);
-
-  const storyId = location.pathname.split("/show/")[1]
+  const storyId = location.pathname.split("/")[2]
 
   useEffect(() => {
     getStory(storyId, setStory);
@@ -31,4 +30,4 @@ const Container = styled.section`
   background-color:  ${(props) => props.theme.backgroundColor};;
 `
 
-export default ShowComments
+export default Comments;

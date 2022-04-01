@@ -1,6 +1,6 @@
 import Banner from "components/layout/Banner";
 import ViewModeBtn from "components/common/ViewModeBtn";
-import NewTemplate from 'components/New/NewTemplate';
+import NewTemplate from 'components/Templates/NewTemplate';
 
 export default function New() {
   return (

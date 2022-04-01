@@ -1,5 +1,5 @@
 import Banner from "components/layout/Banner";
-import AskTemplate from 'components/Ask/AskTemplate';
+import AskTemplate from 'components/Templates/AskTemplate';
 
 export default function Ask() {
   return (

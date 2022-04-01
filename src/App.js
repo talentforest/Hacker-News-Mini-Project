@@ -11,7 +11,7 @@ import Show from "./pages/Show";
 import Ask from "./pages/Ask";
 import AskDetails from "./pages/AskDetails";
 import Job from "./pages/Job";
-import ShowComments from 'pages/ShowComments';
+import CommentsTemplate from 'pages/Comments';
 
 import { Suspense } from 'react';
 
@@ -28,9 +28,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="top" element={<Top />} />
+          <Route path="top/:id" element={<CommentsTemplate />} />
           <Route path="new" element={<New />} />
           <Route path="show" element={<Show />} />
-          <Route path="show/:id" element={<ShowComments />} />
+          <Route path="show/:id" element={<CommentsTemplate />} />
           <Route path="ask" element={<Ask />} />
           <Route path="ask/:id" element={<AskDetails />} />
           <Route path="job" element={<Job />} />

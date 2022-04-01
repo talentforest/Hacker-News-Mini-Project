@@ -1,6 +1,6 @@
 import Banner from "components/layout/Banner";
 import ViewModeBtn from "components/common/ViewModeBtn";
-import ShowTemplate from 'components/Show/ShowTemplate';
+import ShowTemplate from 'components/Templates/ShowTemplate';
 
 export default function Show() {
   return (

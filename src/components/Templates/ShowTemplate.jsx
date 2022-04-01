@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
 import { PostsBox, Wrapper } from 'theme/commonStyle';
-import ShowBox from "components/Show/ShowBox";
+import BasicLayoutBox from 'components/common/BasicLayoutBox';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -29,21 +29,21 @@ const ShowTemplate = () => {
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(0, 20).map((storyId) => (
-              <ShowBox key={storyId} storyId={storyId} />
+              <BasicLayoutBox key={storyId} storyId={storyId} />
             ))}
           </PostsBox>
         </SwiperSlide>
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(20, 40).map((storyId) => (
-              <ShowBox key={storyId} storyId={storyId} />
+              <BasicLayoutBox key={storyId} storyId={storyId} />
             ))}
           </PostsBox>
         </SwiperSlide>
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(40, 60).map((storyId) => (
-              <ShowBox key={storyId} storyId={storyId} />
+              <BasicLayoutBox key={storyId} storyId={storyId} />
             ))}
           </PostsBox>
         </SwiperSlide>

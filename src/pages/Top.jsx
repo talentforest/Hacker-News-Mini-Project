@@ -1,6 +1,6 @@
 import Banner from "components/layout/Banner";
 import ViewModeBtn from 'components/common/ViewModeBtn';
-import TopTemplate from 'components/Top/TopTemplate';
+import TopTemplate from 'components/Templates/TopTemplate';
 
 export default function Top() {
   return (

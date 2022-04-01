@@ -29,12 +29,10 @@ export default function About() {
         title={"Show"}
         text={"Show HN is for something you've made that other people can play with."}
       />
-
       <AboutBox
         title={"Ask"}
         text={"Ask HN can ask and receive any questions."}
       />
-
       <AboutBox
         title={"Job"}
         text={"In jobs, you can check real-time job openings posted by companies."}

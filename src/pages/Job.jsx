@@ -1,4 +1,4 @@
-import JobTemplate from 'components/Job/JobTemplate';
+import JobTemplate from 'components/Templates/JobTemplate';
 import Banner from "components/layout/Banner";
 
 export default function Job() {

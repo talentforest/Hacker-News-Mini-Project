@@ -1,19 +1,25 @@
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
 const Username = ({ style, story, commentIds, replyIdData, replyReplyIdData }) => {
+  const navigator = useNavigate();
   return (
-    <Link to={`/userprofile/${story?.by || replyIdData?.by || replyReplyIdData?.by || commentIds?.by}`} >
-      <User>
-        <img
-          src={require("assets/user.png")}
-          alt="logo"
-        />
-        <span style={style}>
-          {story?.by || commentIds?.by || replyIdData?.by || replyReplyIdData?.by}
-        </span>
-      </User>
-    </Link>
+    <User
+      role="link"
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        navigator(`/userprofile/${story?.by || replyIdData?.by || replyReplyIdData?.by || commentIds?.by}`)
+      }}
+      style={{ cursor: "pointer" }}>
+      <img
+        src={require("assets/user.png")}
+        alt="logo"
+      />
+      <span style={style}>
+        {story?.by || commentIds?.by || replyIdData?.by || replyReplyIdData?.by}
+      </span>
+    </User>
   )
 }
 

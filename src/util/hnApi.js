@@ -63,7 +63,7 @@ export const getUserSubmissions = async (submittedId, setStory) => {
 
 export const getUserInfo = async (story, setUserData) => {
   const { data } = await axios
-    .get(`${userUrl + story.by}.json`)
+    .get(`${userUrl + story?.by}.json`)
 
   if (data) setUserData(data)
 };

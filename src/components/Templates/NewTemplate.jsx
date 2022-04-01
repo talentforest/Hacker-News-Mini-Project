@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
 import { PostsBox, Wrapper } from 'theme/commonStyle';
-import NewBox from "components/New/NewBox"
+import BasicLayoutBox from 'components/common/BasicLayoutBox';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -29,21 +29,21 @@ const NewTemplate = () => {
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(0, 20).map((storyId) => (
-              <NewBox key={storyId} storyId={storyId} />
+              <BasicLayoutBox key={storyId} storyId={storyId} />
             ))}
           </PostsBox>
         </SwiperSlide>
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(20, 40).map((storyId) => (
-              <NewBox key={storyId} storyId={storyId} />
+              <BasicLayoutBox key={storyId} storyId={storyId} />
             ))}
           </PostsBox>
         </SwiperSlide>
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(40, 60).map((storyId) => (
-              <NewBox key={storyId} storyId={storyId} />
+              <BasicLayoutBox key={storyId} storyId={storyId} />
             ))}
           </PostsBox>
         </SwiperSlide>

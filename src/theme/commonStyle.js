@@ -39,3 +39,15 @@ export const AskPostsBox = styled(PostsBox)`
   padding: 20px 0 158px;
 `;
 
+export const Site = styled.span`
+display: flex;
+align-items: center;
+height: 32px;
+margin-top: 5px;
+font-size: 12px;
+font-weight: 400;
+color: #727272;
+text-decoration: underline;
+cursor: pointer;
+`;
+

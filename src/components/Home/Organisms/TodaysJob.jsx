@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi"
 import { urlName, maxChar } from 'util';
-import { Tag, Title } from 'theme/commonStyle';
+import { Tag, Title, Site } from 'theme/commonStyle';
 import styled from "styled-components";
 import TimeInfo from 'components/common/TimeInfo';
 
@@ -43,17 +43,6 @@ const JobWrapper = styled.div`
   margin-right: 16px;
   border-radius: 8px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-`;
-const Site = styled.span`
-  display: block;
-  width: 60px;
-  height: 32px;
-  padding: 12px 0 12px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #727272;
-  text-decoration: underline;
-  cursor: pointer;
 `;
 const Info = styled.div`
   padding: 18px 0 17px;

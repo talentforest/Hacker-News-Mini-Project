@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime, maxChar } from "util";
-import { urlName } from 'util/urlName';
+import { mapTime, maxChar, urlName } from "util";
+import { Site } from 'theme/commonStyle';
 import styled from "styled-components";
 
 const JobBox = memo(function JobStory({ storyId }) {
@@ -17,7 +17,7 @@ const JobBox = memo(function JobStory({ storyId }) {
       <h4>{maxChar(story.title, 80)}</h4>
       <Info>
         <a href={story.url} target="_blank" rel="noopener noreferrer">
-          {urlName(story)}
+          <Site>{urlName(story)}</Site>
         </a>
         <span>{mapTime(story.time)}</span>
       </Info>
@@ -50,7 +50,6 @@ const Info = styled.div`
   color: #949494;
   height: 40px;
   a {
-    text-decoration: underline;
     color: #b7b7b7;
   }
 `;

@@ -8,12 +8,11 @@ const UserInfo = memo(function Story({ story }) {
 
   useEffect(() => {
     getUserInfo(story, setUserData);
-
     return () => setUserData([]);
   }, [story]);
 
   return (
-    <Infobox>
+    <div>
       <Info>
         <div>Joined</div>
         <span>{mapTime(userData?.created)} ago</span>
@@ -22,18 +21,14 @@ const UserInfo = memo(function Story({ story }) {
         <div>karma</div>
         <span>{userData?.karma}</span>
       </Info>
-    </Infobox>
+    </div>
   );
 });
-
-const Infobox = styled.div`
-  height: 40px;
-`;
 const Info = styled.div`
   display: flex;
   font-size: 12px;
   color: #727272;
-  div:first-child {
+  > div:first-child {
     border: 1px solid rgb(238, 112, 44, 0.75);
     color: #ed702d;
     font-weight: 10px;
@@ -41,8 +36,10 @@ const Info = styled.div`
     width: 43px;
     height: 14px;
     border-radius: 20px;
-    padding: 1px 2px;
     margin: 1px 4px 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   span {
     padding-top: 3px;
