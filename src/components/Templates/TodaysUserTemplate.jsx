@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getTopStoryIds } from "../../../util/hnApi";
+import { getTopStoryIds } from "../../util/hnApi";
 import styled from "styled-components";
-import TodaysUser from "../Organisms/TodaysUser";
+import TodaysUser from "../Home/TodaysUser";
 
-const TodaysUserContainer = () => {
+const TodaysUserTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -54,4 +54,4 @@ const Container = styled.div`
   }
 `;
 
-export default TodaysUserContainer;
+export default TodaysUserTemplate;

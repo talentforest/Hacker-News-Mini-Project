@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "util/hnApi";
-import TodaysTop from "../Organisms/TodaysTop";
-import TitleClock from "../common/TitleClock";
+import TodaysTop from "../Home/TodaysTop";
+import TitleClock from "../Home/common/TitleClock";
 import styled from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,7 +9,7 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const TodaysTopContainer = () => {
+const TodaysTopTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -63,4 +63,4 @@ const Container = styled.div`
   }
 `;
 
-export default TodaysTopContainer;
+export default TodaysTopTemplate;

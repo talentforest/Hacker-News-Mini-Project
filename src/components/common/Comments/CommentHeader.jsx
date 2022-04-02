@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CommentNum from '../CommentNum';
 
-const CommentSortBtn = ({ story }) => {
+const CommentHeader = ({ story }) => {
   return (
     <Sort>
       <div>
@@ -45,4 +45,4 @@ const Sort = styled.div`
   }
 `;
 
-export default CommentSortBtn;
+export default CommentHeader;

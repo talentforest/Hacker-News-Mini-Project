@@ -34,8 +34,9 @@ const Wrapper = styled.section`
   align-items: flex-end;
   padding: 0 20px 10px;
   background-color: ${(props) => props.theme.backgroundColor};
-`
-const CommentText = styled.p`
+  `
+const CommentText = styled.p` 
+  width: 100%;
   background-color: ${(props) => props.theme.backgroundColor};
   display: block;
   line-height: 20px;

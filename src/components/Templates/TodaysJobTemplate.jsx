@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { getJobStoryIds } from "util/hnApi";
 import styled from "styled-components";
-import TodaysJob from "../Organisms/TodaysJob";
-import Title from "../common/Title";
+import TodaysJob from "../Home/TodaysJob";
+import Title from "../Home/common/Title";
 
-const TodaysJobContainer = () => {
+const TodaysJobTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
@@ -40,4 +40,4 @@ const Box = styled.div`
   }
 `
 
-export default TodaysJobContainer;
+export default TodaysJobTemplate;

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
 import { useReloadData } from 'hooks/index';
 import styled from "styled-components";
-import TodaysNew from "../Organisms/TodaysNew";
-import TitleReloadBtn from "../common/TitleReloadBtn";
+import TodaysNew from 'components/Home/TodaysNew';
+import TitleReloadBtn from "../Home/common/TitleReloadBtn";
 
-const TodaysNewContainer = () => {
+const TodaysNewTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
   const [randomNumber, reloadNewData] = useReloadData(storyIds);
 
@@ -44,4 +44,4 @@ const Container = styled.div`
   }
 `;
 
-export default TodaysNewContainer;
+export default TodaysNewTemplate;
