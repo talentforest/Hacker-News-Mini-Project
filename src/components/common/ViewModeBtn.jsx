@@ -1,16 +1,9 @@
-import { useState } from "react";
 import { ReactComponent as List } from "assets/list-solid.svg";
 import { ReactComponent as BoxList } from "assets/th-large-solid.svg";
 import styled from "styled-components";
 
-const ViewModeBtn = () => {
-  const [listMode, setListMode] = useState(true);
-  const [cardMode, setCardMode] = useState(false);
+const ViewModeBtn = ({ viewMode, handleViewMode }) => {
 
-  const handleViewMode = () => {
-    setListMode(!listMode);
-    setCardMode(!cardMode);
-  }
 
   return (
     <ViewMode>
@@ -18,16 +11,16 @@ const ViewModeBtn = () => {
         <List
           width="22"
           height="22"
-          fill={listMode ? "#333" : "#c5c5c5"}
-          onClick={handleViewMode}
+          fill={viewMode === "list-mode" ? "#333" : "#c5c5c5"}
+          onClick={() => handleViewMode("list-mode")}
         />
       </div>
       <div>
         <BoxList
           width="22"
           height="22"
-          fill={cardMode ? "#333" : "#c5c5c5"}
-          onClick={handleViewMode}
+          fill={viewMode === "box-mode" ? "#333" : "#c5c5c5"}
+          onClick={() => handleViewMode("box-mode")}
         />
       </div>
     </ViewMode >

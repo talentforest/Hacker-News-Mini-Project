@@ -1,10 +1,10 @@
 import Banner from "components/layout/Banner";
-import TodaysTopTemplate from 'components/Templates/TodaysTopTemplate';
-import TodaysNewTemplate from 'components/Templates/TodaysNewTemplate';
-import TodaysAskTemplate from 'components/Templates/TodaysAskTemplate';
-import TodaysUserTemplate from 'components/Templates/TodaysUserTemplate';
-import TodaysShowTemplate from 'components/Templates/TodaysShowTemplate';
-import TodaysJobTemplate from 'components/Templates/TodaysJobTemplate';
+import TodaysTopTemplate from 'components/Templates/Home/TodaysTopTemplate';
+import TodaysNewTemplate from 'components/Templates/Home/TodaysNewTemplate';
+import TodaysAskTemplate from 'components/Templates/Home/TodaysAskTemplate';
+import TodaysUserTemplate from 'components/Templates/Home/TodaysUserTemplate';
+import TodaysShowTemplate from 'components/Templates/Home/TodaysShowTemplate';
+import TodaysJobTemplate from 'components/Templates/Home/TodaysJobTemplate';
 
 
 export default function Home() {

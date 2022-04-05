@@ -3,7 +3,7 @@ import { getNewStoryIds } from "util/hnApi";
 import { useReloadData } from 'hooks/index';
 import styled from "styled-components";
 import TodaysNew from 'components/Home/TodaysNew';
-import TitleReloadBtn from "../Home/common/TitleReloadBtn";
+import TitleReloadBtn from "../../Home/common/TitleReloadBtn";
 
 const TodaysNewTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);

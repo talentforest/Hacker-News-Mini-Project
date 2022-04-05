@@ -5,6 +5,7 @@ import { ThemeProvider as StyledProvider } from 'styled-components';
 
 export const ThemeProvider = ({ children }) => {
   const [ThemeMode, setThemeMode] = useState('light');
+
   const theme = ThemeMode === 'light' ? lightTheme : darkTheme;
 
   return (

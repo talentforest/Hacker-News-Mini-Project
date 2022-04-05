@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTopStoryIds } from "util/hnApi";
-import TodaysTop from "../Home/TodaysTop";
-import TitleClock from "../Home/common/TitleClock";
+import TodaysTop from "../../Home/TodaysTop";
+import TitleClock from "../../Home/common/TitleClock";
 import styled from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
