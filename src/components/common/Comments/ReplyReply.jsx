@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 const ReplyReply = ({ replyReplyId }) => {
   const [replyReplyIdData, setReplyReplyIdData] = useState([]);
-
   const [toggle, onFolder] = useToggle();
 
   useEffect(() => {

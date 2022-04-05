@@ -20,9 +20,7 @@ const BoxModeItem = ({ storyId }) => {
     <Post>
       <a href={story.url} target="_blank" rel="noreferrer">
         {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
-        {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
-          ? <h4><OrangeTitle story={story} /></h4>
-          : <h4>{story.title}</h4>}
+        <OrangeTitle story={story} />
       </a>
       <div>
         <div>
@@ -76,7 +74,7 @@ const Post = styled.div`
       overflow: hidden;
       > div:last-child {
         span {
-          font-size: 11px;
+          font-size: 10px;
         }
         span:first-child {
           margin-right: 4px;

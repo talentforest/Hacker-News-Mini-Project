@@ -11,6 +11,7 @@ const Reply = ({ replyId }) => {
 
   useEffect(() => {
     getReplyData(replyId, setReplyIdData);
+    return () => setReplyIdData([]);
   }, [replyId]);
 
   return replyIdData.by ? (

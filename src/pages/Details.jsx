@@ -74,7 +74,7 @@ const Wrapper = styled.section`
     }
   }
 `;
-const Title = styled.h4`
+const Title = styled.div`
   padding: 4px 10px 19px;
   font-size: 22px;
   line-height: 26px;
