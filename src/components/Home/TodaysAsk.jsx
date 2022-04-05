@@ -16,11 +16,12 @@ const TodaysAsk = memo(function Story({ storyId }) {
     <Link to={`/ask/${storyId}`}>
       <Wrapper>
         <h4>
-          {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") ? (
-            <OrangeTitle story={story} />
-          ) : (
-            story?.title
-          )}
+          {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
+            ? (
+              <OrangeTitle story={story} />
+            ) : (
+              story?.title
+            )}
         </h4>
       </Wrapper>
     </Link>

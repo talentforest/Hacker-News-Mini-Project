@@ -20,7 +20,7 @@ const BasicLayoutBox = ({ storyId }) => {
     <Post>
       <a href={story.url} target="_blank" rel="noreferrer">
         {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
-        {story?.title?.includes("Ask HN" || "Tell HN")
+        {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
           ? <h4><OrangeTitle story={story} /></h4>
           : <h4>{story.title}</h4>}
       </a>
