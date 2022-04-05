@@ -35,6 +35,13 @@ export const PostsBox = styled.section`
   padding: 20px 20px 158px 20px;
 `;
 
+export const BoxViewMode = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 20px 158px 20px;
+`;
+
 export const AskPostsBox = styled(PostsBox)`
   padding: 20px 0 158px;
 `;

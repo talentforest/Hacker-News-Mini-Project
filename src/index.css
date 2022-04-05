@@ -89,6 +89,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -103,17 +104,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -121,19 +126,22 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   background-color: #f5f5f5;
-  word-break: break-all;
 }
+
 a {
   text-decoration: none;
   color: #333;
@@ -145,51 +153,59 @@ a {
   width: 100%;
   height: fit-content;
 }
+
 .swiper-slide {
   height: fit-content;
 }
-.swiper-pagination-bullet { 
+
+.swiper-pagination-bullet {
   background: gray;
   width: 6px;
   height: 6px;
   border-radius: 3px;
   opacity: 1;
   z-index: 10;
-  
+
 }
-.swiper-pagination-bullet-active { 
+
+.swiper-pagination-bullet-active {
   background-color: #ED702D;
   width: 8px;
   height: 8px;
   border-radius: 4px;
 }
+
 .swiper-pagination-bullets {
   top: 480px;
 }
-.swiper-pagination { 
+
+.swiper-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 8px;
   margin: 52px 0 72px
 }
+
 .swiper-pagination-current,
-.swiper-pagination-total {  
+.swiper-pagination-total {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  margin: 0 5px; 
+  margin: 0 5px;
 }
-.swiper-pagination-fraction { 
+
+.swiper-pagination-fraction {
   background-color: #fff;
   width: 71px;
   height: 30px;
   border-radius: 20px;
   padding-top: 3px;
-  margin-left: calc( (100vw - 71px) / 2);
+  margin-left: calc((100vw - 71px) / 2);
 }
+
 .swiper-button-next,
-.swiper-button-prev { 
+.swiper-button-prev {
   position: absolute;
   top: calc((100% - 90px));
   width: 30px;
@@ -200,9 +216,11 @@ a {
   padding: 6px 0;
   margin-right: 94px;
 }
+
 .swiper-button-prev {
-  margin-left:94px;
+  margin-left: 94px;
 }
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   padding: 10px;

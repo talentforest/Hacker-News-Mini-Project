@@ -7,7 +7,7 @@ import OrangeTitle from 'components/common/OrangeTitle';
 import styled from "styled-components";
 import UserPointsTime from 'components/common/UserPointsTime';
 
-const AskDetails = () => {
+const Details = () => {
   const { id } = useParams();
   const [story, setStory] = useState([]);
 
@@ -51,13 +51,26 @@ const Wrapper = styled.section`
     img {
       width: 33.33px;
       height: 33.33px;
-      margin-right: 15px;
+      margin-right: 5px;
     }
     > div:first-child {
+      font-size: 15px;
+      font-weight: 700;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid #b7b7b7;
       margin-bottom: 12px;
       padding: 0 10px 18px;
+      > div:last-child {
+        span {
+          font-size: 12px;
+          font-weight: 400;
+        }
+        span:first-child {
+          margin-right: 5px;
+        }
+      }
     }
   }
 `;
@@ -75,4 +88,4 @@ const PostText = styled.div`
   color: ${(props) => props.theme.commentColor};
 `;
 
-export default AskDetails;
+export default Details;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
-import SwiperPagination from 'components/common/SwiperPagination';
+import SwiperPagination from 'components/common/ListPagination';
 
 
 const NewTemplate = () => {

@@ -9,9 +9,8 @@ import Top from "./pages/Top";
 import New from "./pages/New";
 import Show from "./pages/Show";
 import Ask from "./pages/Ask";
-import AskDetails from "./pages/AskDetails";
+import Details from "./pages/Details";
 import Job from "./pages/Job";
-import CommentsTemplate from 'pages/Comments';
 
 function App() {
   return (
@@ -21,12 +20,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="top" element={<Top />} />
-        <Route path="top/:id" element={<CommentsTemplate />} />
+        <Route path="top/:id" element={<Details />} />
         <Route path="new" element={<New />} />
+        <Route path="new/:id" element={<Details />} />
         <Route path="show" element={<Show />} />
-        <Route path="show/:id" element={<CommentsTemplate />} />
+        <Route path="show/:id" element={<Details />} />
         <Route path="ask" element={<Ask />} />
-        <Route path="ask/:id" element={<AskDetails />} />
+        <Route path="ask/:id" element={<Details />} />
         <Route path="job" element={<Job />} />
         <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="about" element={<About />} />

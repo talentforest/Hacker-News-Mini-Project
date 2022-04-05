@@ -8,7 +8,7 @@ import UserPointsTime from 'components/common/UserPointsTime';
 import OrangeTitle from 'components/common/OrangeTitle';
 import CommentNum from 'components/common/CommentNum';
 
-const BasicLayoutBox = ({ storyId }) => {
+const ListModeItem = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -18,14 +18,24 @@ const BasicLayoutBox = ({ storyId }) => {
 
   return (
     <Post>
-      <a href={story.url} target="_blank" rel="noreferrer">
-        {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
-        {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
-          ? <h4><OrangeTitle story={story} /></h4>
-          : <h4>{story.title}</h4>}
-      </a>
+      {!story.text ?
+        <a href={story.url} target="_blank" rel="noreferrer">
+          {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
+          {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
+            ? <h4><OrangeTitle story={story} /></h4>
+            : <h4>{story.title}</h4>}
+        </a> :
+        <Link to={`${story.id}`}>
+          {urlName(story) ? <WhiteTag>{urlName(story)}</WhiteTag> : <></>}
+          {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
+            ? <h4><OrangeTitle story={story} /></h4>
+            : <h4>{story.title}</h4>}
+        </Link>
+      }
       <div>
-        <UserPointsTime story={story} />
+        <div>
+          <UserPointsTime story={story} />
+        </div>
         <Link to={`${story.id}`}>
           {story.descendants ? <CommentNum story={story} /> : <></>}
         </Link>
@@ -34,6 +44,9 @@ const BasicLayoutBox = ({ storyId }) => {
   )
 }
 const Post = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   height: 148px;
@@ -55,17 +68,23 @@ const Post = styled.div`
     align-items: baseline;
     font-size: 12px;
     color: #949494;
+    > div {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    > div:last-child {
+        span:first-child {
+          margin-right: 5px;
+        }
+      }
+    }
     img {
       width: 16px;
       height: 16px;
       margin-right: 3.3px;
     }
-    > div:last-child {
-      display: flex;
-      align-items: center;
-      color: #ed702d;
-    }
+    
   }
 `;
 
-export default BasicLayoutBox;
+export default ListModeItem;

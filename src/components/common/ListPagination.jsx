@@ -1,5 +1,5 @@
 import { PostsBox, Wrapper } from 'theme/commonStyle';
-import BasicLayoutBox from 'components/common/BasicLayoutBox';
+import ListModeItem from 'components/common/ListModeItem';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const SwiperPagination = ({ storyIds }) => {
+const ListPagination = ({ storyIds }) => {
   return (
     <Wrapper>
       <Swiper
@@ -19,42 +19,27 @@ const SwiperPagination = ({ storyIds }) => {
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(0, 20).map((storyId, index) => (
-              <BasicLayoutBox key={storyId} storyId={storyId} index={index} />
+              <ListModeItem key={storyId} storyId={storyId} index={index} />
             ))}
           </PostsBox>
         </SwiperSlide>
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(20, 40).map((storyId, index) => (
-              <BasicLayoutBox key={storyId} storyId={storyId} index={index} />
+              <ListModeItem key={storyId} storyId={storyId} index={index} />
             ))}
           </PostsBox>
         </SwiperSlide>
         <SwiperSlide>
           <PostsBox>
             {storyIds.slice(40, 60).map((storyId, index) => (
-              <BasicLayoutBox key={storyId} storyId={storyId} index={index} />
+              <ListModeItem key={storyId} storyId={storyId} index={index} />
             ))}
           </PostsBox>
         </SwiperSlide>
-        <SwiperSlide>
-          <PostsBox>
-            {storyIds.slice(60, 80).map((storyId, index) => (
-              <BasicLayoutBox key={storyId} storyId={storyId} index={index} />
-            ))}
-          </PostsBox>
-        </SwiperSlide>
-        <SwiperSlide>
-          <PostsBox>
-            {storyIds.slice(80, 100).map((storyId, index) => (
-              <BasicLayoutBox key={storyId} storyId={storyId} index={index} />
-            ))}
-          </PostsBox>
-        </SwiperSlide>
-
       </Swiper>
     </Wrapper>
   )
 }
 
-export default SwiperPagination;
+export default ListPagination;

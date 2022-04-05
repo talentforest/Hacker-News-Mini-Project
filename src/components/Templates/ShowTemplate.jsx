@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
-import SwiperPagination from 'components/common/SwiperPagination';
+import ListPagination from 'components/common/ListPagination';
 
 const ShowTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -11,7 +11,7 @@ const ShowTemplate = () => {
   }, []);
 
   return (
-    <SwiperPagination storyIds={storyIds} />
+    <ListPagination storyIds={storyIds} />
   )
 }
 
