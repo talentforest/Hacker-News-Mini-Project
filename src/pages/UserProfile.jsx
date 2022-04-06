@@ -1,15 +1,20 @@
 import { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { getUserInfo } from 'util/hnApi';
+import { useButtonChange } from 'hooks';
 import UserInfo from 'components/common/UserInfo';
-import UsersSubmission from "components/Templates/UserProfileTemplate";
-import styled from "styled-components";
 import UserButton from 'components/UserProfile/UserButton';
+import Submissions from 'components/UserProfile/Submissions';
+import Comments from 'components/UserProfile/Comments';
+import Favorites from 'components/UserProfile/Favorites';
+import styled from "styled-components";
 
 export default function UserProfile() {
-  const [userData, setUserData] = useState([]);
-
   const pathname = useLocation().pathname;
+
+  const [userData, setUserData] = useState([]);
+  const [buttonMode, handleButtonMode] = useButtonChange();
+
   const story = useMemo(() => ({
     by: pathname.split("/userprofile/")[1]
   }), [pathname]);
@@ -19,6 +24,8 @@ export default function UserProfile() {
     return () => setUserData([]);
   }, [story]);
 
+
+
   return (
     <Wrapper>
       <div>
@@ -26,10 +33,35 @@ export default function UserProfile() {
         <UserInfo />
         <p dangerouslySetInnerHTML={{ __html: userData.about }} />
       </div>
-      <UserButton />
-      {userData.submitted?.slice(0, 50).map((submittedId) => (
-        <UsersSubmission key={submittedId} submittedId={submittedId} />
-      ))}
+      <UserButton
+        buttonMode={buttonMode}
+        handleButtonMode={handleButtonMode}
+      />
+      {buttonMode === "submissions" ?
+        userData.submitted?.map((submittedId) => (
+          <Submissions
+            key={submittedId}
+            submittedId={submittedId}
+          />
+        ))
+        : <></>}
+      {buttonMode === "comments" ?
+        userData.submitted?.map((submittedId) => (
+          <Comments
+            key={submittedId}
+            submittedId={submittedId}
+          />
+        ))
+        : <></>}
+      {buttonMode === "favorites" ?
+        userData.submitted?.map((submittedId) => (
+          <Favorites
+            key={submittedId}
+            submittedId={submittedId}
+          />
+        ))
+        : <></>}
+
     </Wrapper>
   );
 }

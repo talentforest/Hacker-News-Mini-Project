@@ -1,6 +1,6 @@
 import { mapTime } from "util";
 
-const Clock = ({ commentIds, replyIdData, replyReplyIdData }) => {
+const Clock = ({ commentIds, replyIdData, replyReplyIdData, story }) => {
   return (
     <>
       <img
@@ -10,7 +10,8 @@ const Clock = ({ commentIds, replyIdData, replyReplyIdData }) => {
       {commentIds ?
         <span>{mapTime(commentIds.time)}</span> : replyIdData ?
           <span>{mapTime(replyIdData.time)}</span> : replyReplyIdData ?
-            <span>{mapTime(replyReplyIdData.time)}</span> : <></>}
+            <span>{mapTime(replyReplyIdData.time)}</span> : story ?
+              <span>{mapTime(story.time)}</span> : <></>}
     </>
   )
 }

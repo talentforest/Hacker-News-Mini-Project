@@ -3,8 +3,6 @@ import { ReactComponent as BoxList } from "assets/th-large-solid.svg";
 import styled from "styled-components";
 
 const ViewModeBtn = ({ viewMode, handleViewMode }) => {
-
-
   return (
     <ViewMode>
       <div>

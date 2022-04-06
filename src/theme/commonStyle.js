@@ -58,3 +58,20 @@ text-decoration: underline;
 cursor: pointer;
 `;
 
+export const CommentWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 20px 10px;
+  background-color: ${(props) => props.theme.backgroundColor};
+  `
+export const CommentText = styled.p` 
+  width: 100%;
+  background-color: ${(props) => props.theme.backgroundColor};
+  display: block;
+  line-height: 20px;
+  color: ${(props) => props.theme.commentColor};
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  margin-bottom: 14px;
+`;

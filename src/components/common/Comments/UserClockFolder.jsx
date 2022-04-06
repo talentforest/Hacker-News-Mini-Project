@@ -2,16 +2,18 @@ import Username from 'components/common/Username';
 import Clock from 'components/common/Comments/Clock';
 import styled from "styled-components";
 
-const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder }) => {
+const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder, story }) => {
   return (
     <CommentInfo>
       <div>
         <Username
+          story={story}
           commentIds={commentIds}
           replyIdData={replyIdData}
           replyReplyIdData={replyReplyIdData}
         />
         <Clock
+          story={story}
           commentIds={commentIds}
           replyIdData={replyIdData}
           replyReplyIdData={replyReplyIdData}
