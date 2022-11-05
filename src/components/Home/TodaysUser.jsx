@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { Link } from 'react-router-dom';
-import UserInfo from 'components/common/UserInfo';
+import { Link } from "react-router-dom";
+import UserInfo from "components/common/UserInfo";
 import styled from "styled-components";
 
 const TodaysUser = memo(function Story({ index, storyId }) {
@@ -17,25 +17,21 @@ const TodaysUser = memo(function Story({ index, storyId }) {
       <Wrapper>
         <UserWrapper>
           <Rank>
-            <img
-              src={require("assets/star.png")}
-              alt="star"
-            />
+            <img src={require("assets/star.png")} alt="star" />
             <div>{index + 1}</div>
             <span>Today's User</span>
           </Rank>
           <Username>{story.by}</Username>
           <UserInfoBox>
             <UserInfo story={story} />
-            <Btn
-              src={require("assets/arrow_blue.png")}
-              alt="arrow button"
-            />
+            <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
           </UserInfoBox>
         </UserWrapper>
       </Wrapper>
     </Link>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 });
 
 const Wrapper = styled.div``;
@@ -46,7 +42,7 @@ const UserWrapper = styled.div`
   margin-right: 16px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  background-color: ${(props) => props.theme.containerColor};
+  background-color: ${(props) => props.theme.container.default};
 `;
 const Rank = styled.div`
   display: flex;
@@ -68,7 +64,7 @@ const Rank = styled.div`
   span {
     font-size: 12px;
     font-weight: 500;
-    color: #ed702d;
+    color: ${(props) => props.theme.text.orange};
     padding-top: 3px;
   }
 `;
@@ -89,7 +85,7 @@ const Username = styled.div`
   font-size: 20px;
   font-weight: 600;
   line-height: 23.44px;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.text.default};
   margin-bottom: 8px;
 `;
 

@@ -5,35 +5,37 @@ import styled from "styled-components";
 const ViewModeBtn = ({ viewMode, handleViewMode }) => {
   return (
     <ViewMode>
-      <div>
-        <List
-          width="22"
-          height="22"
-          fill={viewMode === "list-mode" ? "#333" : "#c5c5c5"}
-          onClick={() => handleViewMode("list-mode")}
-        />
-      </div>
-      <div>
-        <BoxList
-          width="22"
-          height="22"
-          fill={viewMode === "box-mode" ? "#333" : "#c5c5c5"}
-          onClick={() => handleViewMode("box-mode")}
-        />
-      </div>
-    </ViewMode >
+      <ListView
+        $selected={viewMode === "list-mode"}
+        onClick={() => handleViewMode("list-mode")}
+      />
+      <BoxView
+        $selected={viewMode === "box-mode"}
+        onClick={() => handleViewMode("box-mode")}
+      />
+    </ViewMode>
   );
 };
 
 const ViewMode = styled.div`
   display: flex;
   align-items: center;
-  padding: 20px 20px 0;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
-  div {
+  svg {
+    width: 22px;
+    height: 22px;
     margin-right: 10px;
     cursor: pointer;
   }
+`;
+
+const ListView = styled(List)`
+  fill: ${(props) =>
+    props.$selected ? props.theme.text.default : props.theme.text.lightGray};
+`;
+
+const BoxView = styled(BoxList)`
+  fill: ${(props) =>
+    props.$selected ? props.theme.text.default : props.theme.text.lightGray};
 `;
 
 export default ViewModeBtn;

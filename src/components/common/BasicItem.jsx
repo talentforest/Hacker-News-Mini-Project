@@ -1,36 +1,33 @@
-import { urlName } from 'util';
-import { Site } from 'theme/commonStyle';
-import styled from "styled-components"
-import OrangeTitle from 'components/common/OrangeTitle';
-import CommentNum from 'components/common/CommentNum';
-import UserPointsTime from 'components/common/UserPointsTime';
+import { urlName } from "util";
+import { Site } from "theme/commonStyle";
+import styled from "styled-components";
+import OrangeTitle from "components/common/OrangeTitle";
+import CommentNum from "components/common/CommentNum";
+import UserPointsTime from "components/common/UserPointsTime";
 
 const BasicItem = ({ story }) => {
   return (
-    <SubmissionBox >
+    <SubmissionBox>
       <div>
         <OrangeTitle story={story} />
-        <Site>
-          {urlName(story)}
-        </Site>
+        <Site>{urlName(story)}</Site>
       </div>
       <PostInfo>
         <div>
           <UserPointsTime story={story} />
         </div>
         <CommentNum story={story} />
-      </PostInfo >
-    </SubmissionBox >
-  )
-}
+      </PostInfo>
+    </SubmissionBox>
+  );
+};
 
 const SubmissionBox = styled.div`
-  
   height: 148px;
   border-radius: 8px;
-  background-color: ${(props) => props.theme.containerColor};
+  background-color: ${(props) => props.theme.container.default};
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 4px 3px rgba(0, 0, 0, 0.05);
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.text.default};
   margin: 0 auto 16px;
   padding: 20px 12px;
   display: flex;
@@ -49,7 +46,7 @@ const PostInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
-  color: #949494;
+  color: ${(props) => props.theme.text.lightGray};
   > div:first-child {
     display: flex;
     align-items: center;

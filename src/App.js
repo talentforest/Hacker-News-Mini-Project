@@ -31,7 +31,6 @@ function App() {
         <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="about" element={<About />} />
       </Routes>
-
     </ThemeProvider >
 
   );

@@ -16,10 +16,7 @@ const JobBannerSmall = memo(function Story({ storyId }) {
   return (
     <Banner2>
       <CompanyInfo2>
-        <img
-          src={require("assets/company_logo.png")}
-          alt="companylogo"
-        />
+        <img src={require("assets/company_logo.png")} alt="companylogo" />
         <Company2>
           {companyName?.length < 30 ? `${companyName})` : companyShortName}
         </Company2>
@@ -34,13 +31,14 @@ const Banner2 = styled.div`
   margin: 0 auto;
   height: 82px;
   padding-top: 2px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.container.default};
   border-radius: 8px;
 `;
 const CompanyInfo2 = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: ${(props) => props.theme.text.default};
   img {
     width: 40px;
     height: 40px;

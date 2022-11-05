@@ -19,9 +19,7 @@ const TodaysTopTemplate = () => {
 
   return (
     <Container>
-      <TitleClock
-        title="Today's Top"
-      />
+      <TitleClock title="Today's Top" />
       <Swiper pagination={true} modules={[Pagination]}>
         <SwiperSlide>
           <ul>
@@ -50,12 +48,12 @@ const TodaysTopTemplate = () => {
 };
 
 const Container = styled.div`
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   height: 650px;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
   ul {
-    background-color: ${(props) => props.theme.containerColor};
+    background-color: ${(props) => props.theme.container.default};
     height: 490px;
     margin: 20px 20px 32px 20px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);

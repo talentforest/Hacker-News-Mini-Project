@@ -4,7 +4,6 @@ import JobBox from "components/Job/JobBox";
 import JobBannerBig from "components/Job/JobBannerBig";
 import JobBannerSmall from "components/Job/JobBannerSmall";
 import styled from "styled-components";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -26,10 +25,7 @@ const JobTemplate = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg
-          src={require("assets/applynow.png")}
-          alt="apply banner"
-        />
+        <BannerImg src={require("assets/applynow.png")} alt="apply banner" />
         <BannerSlide>
           <Swiper slidesPerView={1}>
             {[1, 2, 3, 4, 5].map((items, index) => (
@@ -48,10 +44,7 @@ const JobTemplate = () => {
         ))}
       </Posts>
       <ApplyBanner>
-        <BannerImg2
-          src={require("assets/applyimg.png")}
-          alt="apply banner"
-        />
+        <BannerImg2 src={require("assets/applyimg.png")} alt="apply banner" />
         <BannerSlide2>
           <Swiper slidesPerView={1}>
             {[1, 2, 3, 4, 5].map((items, index) => (
@@ -71,14 +64,13 @@ const JobTemplate = () => {
       </Posts>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.section`
   padding: 12px 0 20px;
-  background-color: ${(props) => props.theme.backgroundGrayColor};
+  background-color: ${(props) => props.theme.background.gray};
 `;
 const Posts = styled.div`
-  background-color: ${(props) => props.theme.backgroundGrayColor};
   margin: 12px auto 40px;
   padding: 0 20px;
 `;

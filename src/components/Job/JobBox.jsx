@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime, maxChar, urlName } from "util";
-import { Site } from 'theme/commonStyle';
+import { Site } from "theme/commonStyle";
 import styled from "styled-components";
 
 const JobBox = memo(function JobStory({ storyId }) {
@@ -22,14 +22,16 @@ const JobBox = memo(function JobStory({ storyId }) {
         <span>{mapTime(story.time)}</span>
       </Info>
     </Post>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 });
 
 const Post = styled.div`
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   height: 104px;
   border-radius: 8px;
-  background-color: ${(props) => props.theme.containerColor};
+  background-color: ${(props) => props.theme.container.default};
   padding: 0 12px;
   margin-bottom: 8px;
   h4 {
@@ -39,7 +41,7 @@ const Post = styled.div`
     line-height: 24px;
     height: 64px;
     padding: 12px 0 4px;
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.text.default};
   }
 `;
 const Info = styled.div`
@@ -47,10 +49,10 @@ const Info = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
-  color: #949494;
+  color: ${(props) => props.theme.text.lightGray};
   height: 40px;
   a {
-    color: #b7b7b7;
+    color: ${(props) => props.theme.container.button};
   }
 `;
 

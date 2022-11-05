@@ -8,7 +8,7 @@ const TodaysJobTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getJobStoryIds(setStoryIds)
+    getJobStoryIds(setStoryIds);
     return () => setStoryIds([]);
   }, []);
 
@@ -26,7 +26,7 @@ const TodaysJobTemplate = () => {
 
 const Wrapper = styled.div`
   height: 334px;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
 `;
 const Box = styled.div`
@@ -34,10 +34,10 @@ const Box = styled.div`
   overflow: scroll;
   height: 266px;
   padding: 20px 20px 72px 20px;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   &::-webkit-scrollbar {
     display: none;
   }
-`
+`;
 
 export default TodaysJobTemplate;

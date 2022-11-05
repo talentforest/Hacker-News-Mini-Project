@@ -28,7 +28,7 @@ const TodaysTop = memo(function Story({ storyId, index }) {
         </div>
       </div>
     </Wrapper>
-  )
+  );
 });
 
 const Wrapper = styled.section`
@@ -41,14 +41,14 @@ const Wrapper = styled.section`
     height: 68px;
     font-size: 24px;
     font-weight: 600;
-    color: #ed702d;
+    color: ${(props) => props.theme.text.orange};
   }
   > div:last-child {
     width: 85%;
     h4 {
       font-weight: 600;
       line-height: 20px;
-      color: ${(props) => props.theme.textColor};
+      color: ${(props) => props.theme.text.default};
     }
     div {
       display: flex;
@@ -61,7 +61,7 @@ const Wrapper = styled.section`
         margin: 14px 8px 0 0;
         font-size: 12px;
         font-weight: 400;
-        color: #727272;
+        color: ${(props) => props.theme.text.lightGray};
       }
     }
   }

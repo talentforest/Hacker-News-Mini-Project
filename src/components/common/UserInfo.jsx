@@ -1,6 +1,6 @@
 import { memo, useState, useEffect } from "react";
-import { mapTime } from "util/mapTime"
-import { getUserInfo } from 'util/hnApi';
+import { mapTime } from "util/mapTime";
+import { getUserInfo } from "util/hnApi";
 import styled from "styled-components";
 
 const UserInfo = memo(function Story({ story }) {
@@ -27,10 +27,10 @@ const UserInfo = memo(function Story({ story }) {
 const Info = styled.div`
   display: flex;
   font-size: 12px;
-  color: #727272;
+  color: ${(props) => props.theme.text.default};
   > div:first-child {
     border: 1px solid rgb(238, 112, 44, 0.75);
-    color: #ed702d;
+    color: ${(props) => props.theme.text.orange};
     font-weight: 10px;
     letter-spacing: 0.1%;
     width: 43px;

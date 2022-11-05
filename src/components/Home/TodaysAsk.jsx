@@ -1,7 +1,7 @@
 import { useState, memo, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { getStory } from "util/hnApi";
-import OrangeTitle from 'components/common/OrangeTitle';
+import OrangeTitle from "components/common/OrangeTitle";
 import styled from "styled-components";
 
 const TodaysAsk = memo(function Story({ storyId }) {
@@ -16,12 +16,13 @@ const TodaysAsk = memo(function Story({ storyId }) {
     <Link to={`/ask/${storyId}`}>
       <Wrapper>
         <h4>
-          {story?.title?.includes("Ask HN") || story?.title?.includes("Tell HN") || story?.title?.includes("Show HN")
-            ? (
-              <OrangeTitle story={story} />
-            ) : (
-              story?.title
-            )}
+          {story?.title?.includes("Ask HN") ||
+          story?.title?.includes("Tell HN") ||
+          story?.title?.includes("Show HN") ? (
+            <OrangeTitle story={story} />
+          ) : (
+            story?.title
+          )}
         </h4>
       </Wrapper>
     </Link>
@@ -37,10 +38,9 @@ const Wrapper = styled.div`
   border-radius: 4px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   line-height: 24px;
-  background-color: ${(props) => props.theme.containerColor};
+  background-color: ${(props) => props.theme.container.default};
   font-weight: 600;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.text.default};
 `;
 
 export default TodaysAsk;
-

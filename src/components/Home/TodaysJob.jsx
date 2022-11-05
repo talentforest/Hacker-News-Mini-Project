@@ -1,9 +1,9 @@
 import { useState, useEffect, memo } from "react";
-import { getStory } from "util/hnApi"
-import { urlName, maxChar } from 'util';
-import { Tag, Title, Site } from 'theme/commonStyle';
+import { getStory } from "util/hnApi";
+import { urlName, maxChar } from "util";
+import { Tag, Title, Site } from "theme/commonStyle";
 import styled from "styled-components";
-import TimeInfo from 'components/common/TimeInfo';
+import TimeInfo from "components/common/TimeInfo";
 
 const TodaysJob = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
@@ -16,10 +16,8 @@ const TodaysJob = memo(function Story({ storyId }) {
   return (
     <Wrapper>
       <JobWrapper>
-        <Tag>Software Engineers</Tag>
-        <Title>
-          {maxChar(story.title, 75)}
-        </Title>
+        <Tag orange>Software Engineers</Tag>
+        <Title>{maxChar(story.title, 75)}</Title>
         <a href={story?.url} target="_blank" rel="noopener noreferrer">
           <Site>{urlName(story)}</Site>
         </a>
@@ -27,7 +25,7 @@ const TodaysJob = memo(function Story({ storyId }) {
           <TimeInfo story={story} />
         </Info>
       </JobWrapper>
-    </Wrapper >
+    </Wrapper>
   );
 });
 
@@ -38,7 +36,7 @@ const Wrapper = styled.div`
 const JobWrapper = styled.div`
   width: 220px;
   height: 174px;
-  background-color: ${(props) => props.theme.containerGrayColor};
+  background-color: ${(props) => props.theme.container.gray};
   padding: 16px 12px 0 12px;
   margin-right: 16px;
   border-radius: 8px;
@@ -50,7 +48,7 @@ const Info = styled.div`
   align-items: center;
   height: 41px;
   font-size: 12px;
-  color: #727272;
+  color: ${(props) => props.theme.text.lightGray};
   span {
     display: block;
     padding-top: 4px;

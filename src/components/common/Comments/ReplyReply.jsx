@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getReplyReplyData } from 'util/hnApi';
-import { useToggle } from 'hooks/index';
-import UserClockFolder from './UserClockFolder';
+import { getReplyReplyData } from "util/hnApi";
+import { useToggle } from "hooks/index";
+import UserClockFolder from "./UserClockFolder";
 import styled from "styled-components";
 
 const ReplyReply = ({ replyReplyId }) => {
@@ -15,26 +15,33 @@ const ReplyReply = ({ replyReplyId }) => {
 
   return replyReplyIdData && replyReplyIdData.by ? (
     <ReplyReplyWrapper>
-      <UserClockFolder replyReplyIdData={replyReplyIdData} onFolder={onFolder} />
+      <UserClockFolder
+        replyReplyIdData={replyReplyIdData}
+        onFolder={onFolder}
+      />
       {toggle ? (
         <ReplyComment
           dangerouslySetInnerHTML={{ __html: replyReplyIdData.text }}
         />
-      ) : <></>}
+      ) : (
+        <></>
+      )}
     </ReplyReplyWrapper>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 };
 
 const ReplyReplyWrapper = styled.div`
   margin: 7px 0px;
-  background-color: ${(props) => props.theme.commentContainerColor};
+  background-color: ${(props) => props.theme.container.default};
   width: 320px;
   border-radius: 8px;
   padding: 0 12px 12px;
-  color: ${(props) => props.theme.commentColor};
+  color: ${(props) => props.theme.color.default};
 `;
 const ReplyComment = styled.p`
-  background-color: ${(props) => props.theme.commentContainerColor};
+  background-color: ${(props) => props.theme.container.default};
   display: block;
   line-height: 20px;
   word-wrap: break-word;

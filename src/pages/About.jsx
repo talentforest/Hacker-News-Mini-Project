@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import FaqBox from 'components/About/FaqBox';
-import AboutBox from 'components/About/AboutBox';
+import FaqBox from "components/About/FaqBox";
+import AboutBox from "components/About/AboutBox";
 
 export default function About() {
   return (
@@ -12,22 +12,28 @@ export default function About() {
           application framework for Svelte. <br /> <br />
           Svelte is a new kind of framework, one that compiles your component
           templates into fast, compact JavaScript — either client-side or
-          server-side. You can read more about the design and philosophy in
-          the introductory blog post. <br /> <br />
+          server-side. You can read more about the design and philosophy in the
+          introductory blog post. <br /> <br />
           We're using hnpwa-api as a backend. The app is hosted on Vercel.
         </p>
       </div>
       <AboutBox
         title={"Top"}
-        text={"Top is a service that ranks all articles on Hacker News through Hacker News' own algorithms."}
+        text={
+          "Top is a service that ranks all articles on Hacker News through Hacker News' own algorithms."
+        }
       />
       <AboutBox
         title={"New"}
-        text={"New is a service that allows you to see all the new articles in chronological order."}
+        text={
+          "New is a service that allows you to see all the new articles in chronological order."
+        }
       />
       <AboutBox
         title={"Show"}
-        text={"Show HN is for something you've made that other people can play with."}
+        text={
+          "Show HN is for something you've made that other people can play with."
+        }
       />
       <AboutBox
         title={"Ask"}
@@ -35,7 +41,9 @@ export default function About() {
       />
       <AboutBox
         title={"Job"}
-        text={"In jobs, you can check real-time job openings posted by companies."}
+        text={
+          "In jobs, you can check real-time job openings posted by companies."
+        }
       />
       <div>
         <span>FAQ</span>
@@ -51,20 +59,21 @@ export default function About() {
 }
 
 const Wrapper = styled.section`
-  background-color: ${(props) => props.theme.backgroundGrayColor};
+  background-color: ${(props) => props.theme.background.gray};
   padding: 29px 20px;
   > div {
-    background-color: ${(props) => props.theme.containerColor};
+    background-color: ${(props) => props.theme.container.default};
     padding: 27px 20px;
     margin-bottom: 28px;
     border-radius: 6px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05), 0px 6px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05),
+      0px 6px 10px rgba(0, 0, 0, 0.05);
     span {
       display: inline-block;
       font-weight: bold;
       font-size: 22px;
       line-height: 24px;
-      color: ${(props) => props.theme.textGrayColor};
+      color: ${(props) => props.theme.text.gray};
       margin-bottom: 23px;
       img {
         width: 7.41px;
@@ -77,14 +86,14 @@ const Wrapper = styled.section`
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;
-      color: ${(props) => props.theme.textColor};
+      color: ${(props) => props.theme.text.default};
     }
     > div {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #999;
+      border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
       padding: 14px 0;
-      color: ${(props) => props.theme.textColor};
+      color: ${(props) => props.theme.text.default};
       img {
         width: 12px;
         height: 7.41px;

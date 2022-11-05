@@ -1,4 +1,4 @@
-import { useTheme } from 'hooks/index';
+import { useTheme } from "hooks/index";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -8,10 +8,7 @@ const Header = () => {
     <HeaderTop>
       <Link to="/">
         <div>
-          <img
-            src={require("assets/logo.png")}
-            alt="Logo"
-          />
+          <img src={require("assets/logo.png")} alt="Logo" />
           <h1>Svelte Hacker News</h1>
         </div>
       </Link>
@@ -31,13 +28,13 @@ const Header = () => {
       </div>
     </HeaderTop>
   );
-}
+};
 
 const HeaderTop = styled.header`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.headerBackgroundColor};
+  background-color: ${(props) => props.theme.background.header};
   height: 87px;
   padding: 44px 20px 7px;
   div {

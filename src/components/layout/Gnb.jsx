@@ -3,63 +3,75 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Gnb = () => {
-  const pathname = useLocation().pathname;
+  const { pathname } = useLocation();
 
   return (
     <GnbNav>
       <ul>
         <Link to="/">
-          <li>Home</li>
-          {pathname === "/" ? <CurrPageMark /> : <></>}
+          <li>
+            <span>Home</span>
+            {pathname === "/" && <CurrPageMark />}
+          </li>
         </Link>
         <Link to="/top">
-          <li>Top</li>
-          {pathname.includes("/top") ? <CurrPageMark /> : <></>}
+          <li>
+            <span>Top</span>
+            {pathname.includes("/top") && <CurrPageMark />}
+          </li>
         </Link>
         <Link to="/new">
-          <li>New</li>
-          {pathname.includes("/new") ? <CurrPageMark /> : <></>}
+          <li>
+            <span>New</span>
+            {pathname.includes("/new") && <CurrPageMark />}
+          </li>
         </Link>
         <Link to="/show">
-          <li>Show</li>
-          {pathname.includes("/show") ? <CurrPageMark /> : <></>}
+          <li>
+            <span>Show</span>
+            {pathname.includes("/show") && <CurrPageMark />}
+          </li>
         </Link>
         <Link to="/ask">
-          <li>Ask</li>
-          {pathname.includes("/ask") ? <CurrPageMark /> : <></>}
+          <li>
+            <span>Ask</span>
+            {pathname.includes("/ask") && <CurrPageMark />}
+          </li>
         </Link>
         <Link to="/job">
-          <li>Job</li>
-          {pathname.includes("/job") ? <CurrPageMark /> : <></>}
+          <li>
+            <span>Job</span>
+            {pathname.includes("/job") && <CurrPageMark />}
+          </li>
         </Link>
       </ul>
     </GnbNav>
   );
-}
+};
 
 const GnbNav = styled.nav`
-  padding: 0 20px;
-  background-color: ${(props) => props.theme.backgroundColor};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  padding: 0 20px;
+  background-color: ${(props) => props.theme.background.default};
   ul {
     display: flex;
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
+    height: 40px;
     font-size: 15px;
     font-weight: 700;
-    box-sizing: border-box;
-    padding-top: 1.8px;
-    position: relative;
     li {
-      width: 44px;
       display: flex;
       justify-content: center;
-      color: ${(props) => props.theme.headerColor};
+      align-items: center;
+      position: relative;
+      width: 50px;
+      height: 100%;
+      color: ${(props) => props.theme.text.default};
       &:hover {
-        color: ${(props) => props.theme.headerHoverColor};
+        color: ${(props) => props.theme.text.lightGray};
         cursor: pointer;
       }
     }
@@ -67,10 +79,10 @@ const GnbNav = styled.nav`
 `;
 const CurrPageMark = styled.div`
   position: absolute;
-  top: 26px;
-  background-color: #f9742e;
-  width: 42px;
-  height: 3px;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: ${(props) => props.theme.text.orange};
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 `;

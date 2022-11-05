@@ -1,8 +1,14 @@
-import Username from 'components/common/Username';
-import Clock from 'components/common/Comments/Clock';
+import Username from "components/common/Username";
+import Clock from "components/common/Comments/Clock";
 import styled from "styled-components";
 
-const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder, story }) => {
+const UserClockFolder = ({
+  commentIds,
+  replyIdData,
+  replyReplyIdData,
+  onFolder,
+  story,
+}) => {
   return (
     <CommentInfo>
       <div>
@@ -25,9 +31,8 @@ const UserClockFolder = ({ commentIds, replyIdData, replyReplyIdData, onFolder, 
         alt="arrow_up_gray"
       />
     </CommentInfo>
-
-  )
-}
+  );
+};
 
 const CommentInfo = styled.div`
   width: 100%;
@@ -39,14 +44,14 @@ const CommentInfo = styled.div`
   > div {
     padding: 20px 0 10px;
     display: flex;
-    align-items: center;  
+    align-items: center;
     img {
       width: 20px;
       height: 20px;
       margin-right: 2px;
     }
     span {
-      color: ${(props) => props.theme.textGrayColor};
+      color: ${(props) => props.theme.text.gray};
     }
   }
 `;
@@ -55,6 +60,6 @@ const FolderBtn = styled.img`
   width: 20px;
   height: 12.41px;
   cursor: pointer;
-`
+`;
 
 export default UserClockFolder;

@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { Tag } from 'theme/commonStyle';
+import { Tag } from "theme/commonStyle";
 import styled from "styled-components";
 
 const JobBannerBig = memo(function Story({ storyId }) {
@@ -17,12 +17,9 @@ const JobBannerBig = memo(function Story({ storyId }) {
 
   return (
     <Banner>
-      <Tag>Software Engineers</Tag>
+      <Tag orange>Software Engineers</Tag>
       <CompanyInfo>
-        <img
-          src={require("assets/company_logo.png")}
-          alt="company logo"
-        />
+        <img src={require("assets/company_logo.png")} alt="company logo" />
         <Company>
           {companyName?.length < 30 ? `${companyName})` : companyShortName}
         </Company>
@@ -37,13 +34,14 @@ const Banner = styled.div`
   height: 151px;
   padding: 10px 20px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.container.default};
   border-radius: 8px;
 `;
 const CompanyInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: ${(props) => props.theme.text.default};
   img {
     width: 52px;
     height: 52px;

@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { mapTime, maxChar } from "util";
 import styled from "styled-components";
-import Username from 'components/common/Username';
+import Username from "components/common/Username";
 
 const TodaysNew = memo(function Story({ storyId }) {
   const [story, setStory] = useState({});
@@ -24,28 +24,30 @@ const TodaysNew = memo(function Story({ storyId }) {
         <Username story={story} />
       </span>
     </Wrapper>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 });
 
 const Wrapper = styled.div`
-  border-bottom: 1px solid #c5c5c5;
+  border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
   box-sizing: border-box;
   padding: 14px 14px 0 14px;
   height: 124px;
   > a {
     > div {
       span {
-        background: rgba(76, 165, 196, 0.15);
+        background: ${(props) => props.theme.container.lightBlue};
         padding: 5px 5px 4px;
         border-radius: 10px;
         width: 81px;
         height: 19px;
         font-size: 10px;
         font-weight: 500;
-        color: #4ca5c4;
+        color: ${(props) => props.theme.text.blue};
       }
       h4 {
-        color: ${(props) => props.theme.textColor};
+        color: ${(props) => props.theme.text.default};
         padding: 10px 0 8px;
         height: 53px;
         font-weight: 600;
@@ -58,7 +60,7 @@ const Wrapper = styled.div`
     padding: 8px 0 10px;
     font-size: 12px;
     font-weight: 500;
-    color: #727272;
+    color: ${(props) => props.theme.text.default};
   }
 `;
 

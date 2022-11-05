@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getShowStoryIds } from "util/hnApi";
-import { useReloadData } from 'hooks/index';
+import { useReloadData } from "hooks/index";
 import styled from "styled-components";
 import TodaysShow from "../../Home/TodaysShow";
 import TitleReloadBtn from "../../Home/common/TitleReloadBtn";
@@ -16,10 +16,7 @@ const TodaysShowTemplate = () => {
 
   return (
     <Container>
-      <TitleReloadBtn
-        title="Today's Show"
-        reloadNewData={reloadNewData}
-      />
+      <TitleReloadBtn title="Today's Show" reloadNewData={reloadNewData} />
       <div>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TodaysShow key={storyId} storyId={storyId} />
@@ -32,7 +29,7 @@ const TodaysShowTemplate = () => {
 const Container = styled.section`
   width: 100%;
   margin-bottom: 12px;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
   > div:last-child {
     display: flex;

@@ -1,19 +1,16 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Tag = styled.div`
   box-sizing: border-box;
   width: fit-content;
   height: 20px;
   padding: 5px 6px;
-  background-color: #ed702d;
   font-size: 10px;
-  color: #f5f5f5;
+  color: ${(props) =>
+    props.orange ? props.theme.background.default : props.theme.text.orange};
+  background-color: ${(props) =>
+    props.orange ? props.theme.text.orange : props.theme.background.default};
   border-radius: 20px;
-  `;
-
-export const WhiteTag = styled(Tag)`
-  background-color: #efefef;
-  color: #ed702d;
 `;
 
 export const Title = styled.div`
@@ -22,11 +19,11 @@ export const Title = styled.div`
   line-height: 20px;
   height: 60px;
   padding: 6px 0 20px;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.text.default};
 `;
 
 export const Wrapper = styled.section`
-  background-color: ${(props) => props.theme.backgroundGrayColor};
+  background-color: ${(props) => props.theme.background.gray};
 `;
 
 export const PostsBox = styled.section`
@@ -47,15 +44,15 @@ export const AskPostsBox = styled(PostsBox)`
 `;
 
 export const Site = styled.span`
-display: flex;
-align-items: center;
-height: 32px;
-margin-top: 5px;
-font-size: 12px;
-font-weight: 400;
-color: #727272;
-text-decoration: underline;
-cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: ${(props) => props.theme.container.header};
+  text-decoration: underline;
+  cursor: pointer;
 `;
 
 export const CommentWrapper = styled.section`
@@ -63,14 +60,14 @@ export const CommentWrapper = styled.section`
   flex-direction: column;
   align-items: flex-end;
   padding: 0 20px 10px;
-  background-color: ${(props) => props.theme.backgroundColor};
-  `
-export const CommentText = styled.p` 
+  background-color: ${(props) => props.theme.background.default};
+`;
+export const CommentText = styled.p`
   width: 100%;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   display: block;
   line-height: 20px;
-  color: ${(props) => props.theme.commentColor};
+  color: ${(props) => props.theme.container.default};
   word-wrap: break-word;
   white-space: pre-wrap;
   margin-bottom: 14px;

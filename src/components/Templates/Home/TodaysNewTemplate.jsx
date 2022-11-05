@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getNewStoryIds } from "util/hnApi";
-import { useReloadData } from 'hooks/index';
+import { useReloadData } from "hooks/index";
 import styled from "styled-components";
-import TodaysNew from 'components/Home/TodaysNew';
+import TodaysNew from "components/Home/TodaysNew";
 import TitleReloadBtn from "../../Home/common/TitleReloadBtn";
 
 const TodaysNewTemplate = () => {
@@ -16,21 +16,18 @@ const TodaysNewTemplate = () => {
 
   return (
     <Container>
-      <TitleReloadBtn
-        title="Today's New"
-        reloadNewData={reloadNewData}
-      />
+      <TitleReloadBtn title="Today's New" reloadNewData={reloadNewData} />
       <div>
         {storyIds.slice(randomNumber, randomNumber + 5).map((storyId) => (
           <TodaysNew key={storyId} storyId={storyId} />
         ))}
       </div>
     </Container>
-  )
+  );
 };
 
 const Container = styled.div`
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   height: 650px;
   margin-bottom: 12px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
@@ -39,7 +36,7 @@ const Container = styled.div`
     margin: 20px 20px 32px 20px;
     overflow: hidden;
     border-radius: 8px;
-    background-color: ${(props) => props.theme.containerColor};
+    background-color: ${(props) => props.theme.container.default};
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
   }
 `;

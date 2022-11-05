@@ -1,34 +1,29 @@
 import styled from "styled-components";
 
-const activeStyles = {
-  color: "#fff",
-  backgroundColor: "#ed702d"
-};
-
 const UserButton = ({ buttonMode, handleButtonMode }) => {
   return (
     <SortBtn>
-      <button
+      <Button
         onClick={() => handleButtonMode("submissions")}
-        style={buttonMode === "submissions" ? activeStyles : {}}
+        $selected={buttonMode === "submissions"}
       >
         submissions
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => handleButtonMode("comments")}
-        style={buttonMode === "comments" ? activeStyles : {}}
+        $selected={buttonMode === "comments"}
       >
         comments
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => handleButtonMode("favorites")}
-        style={buttonMode === "favorites" ? activeStyles : {}}
+        $selected={buttonMode === "favorites"}
       >
         favorites
-      </button>
-    </SortBtn >
+      </Button>
+    </SortBtn>
   );
-}
+};
 
 const SortBtn = styled.div`
   display: flex;
@@ -37,17 +32,19 @@ const SortBtn = styled.div`
   height: 40px;
   border-radius: 2222px;
   margin: 32px 0 20px;
-  background-color: ${(props) => props.theme.containerColor};
-  button {
-    background-color: transparent;
-    margin: 0 3px;
-    width: 33.3%;
-    height: 32px;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-  }
-`
+  background-color: ${(props) => props.theme.container.default};
+`;
+
+const Button = styled.button`
+  background-color: ${(props) =>
+    props.$selected ? props.theme.text.orange : props.theme.container.default};
+  color: ${(props) => (props.$selected ? "#fff" : props.theme.text.default)};
+  margin: 0 3px;
+  width: 33.3%;
+  height: 32px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+`;
 
 export default UserButton;
-

@@ -5,10 +5,7 @@ const Title = ({ title }) => {
     <Container>
       <div>
         <h4>{title}</h4>
-        <img
-          src={require("assets/arrow_right_black.png")}
-          alt="arrow"
-        />
+        <img src={require("assets/arrow_right_black.png")} alt="arrow" />
       </div>
     </Container>
   );
@@ -24,17 +21,16 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background.default};
     color: ${(props) => props.theme.textColor};
     font-weight: 700;
     font-size: 24px;
     cursor: pointer;
     img {
-      color: ${(props) => props.theme.svelteOrangeColor};
+      color: ${(props) => props.theme.text.orange};
       width: 7.5px;
       height: 12px;
       margin-left: 8.59px;
-      
     }
     img:first-child {
       width: 22px;
@@ -45,7 +41,6 @@ export const Container = styled.div`
       font-size: 20px;
     }
   }
-`
+`;
 
 export default Title;
-

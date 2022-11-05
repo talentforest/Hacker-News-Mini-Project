@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCurrIdData } from 'util/hnApi';
+import { getCurrIdData } from "util/hnApi";
 import Comment from "components/common/Comments/Comment";
-import CommentHeader from 'components/common/Comments/CommentHeader';
-import OrangeTitle from 'components/common/OrangeTitle';
+import CommentHeader from "components/common/Comments/CommentHeader";
+import OrangeTitle from "components/common/OrangeTitle";
 import styled from "styled-components";
-import UserPointsTime from 'components/common/UserPointsTime';
+import UserPointsTime from "components/common/UserPointsTime";
 
 const Details = () => {
   const { id } = useParams();
@@ -38,11 +38,11 @@ const Details = () => {
 const Wrapper = styled.section`
   min-height: 100vh;
   padding-bottom: 20px;
-  background-color: ${(props) => props.theme.backgroundColor};
-  color: ${(props) => props.theme.textColor};
+  background-color: ${(props) => props.theme.background.default};
+  color: ${(props) => props.theme.text.default};
   > div:first-child {
     padding: 23px 10px 18px;
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.background.default};
     word-break: break-word;
     overflow-wrap: break-word;
     pre {
@@ -59,7 +59,7 @@ const Wrapper = styled.section`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #b7b7b7;
+      border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
       margin-bottom: 12px;
       padding: 0 10px 18px;
       > div:last-child {
@@ -85,7 +85,7 @@ const PostText = styled.div`
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
-  color: ${(props) => props.theme.commentColor};
+  color: ${(props) => props.theme.text.default};
 `;
 
 export default Details;

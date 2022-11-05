@@ -1,13 +1,13 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import { urlName } from "util";
-import { Link } from 'react-router-dom';
-import { Tag } from 'theme/commonStyle';
-import Username from 'components/common/Username';
-import OrangeTitle from 'components/common/OrangeTitle';
+import { Link } from "react-router-dom";
+import { Tag } from "theme/commonStyle";
+import Username from "components/common/Username";
+import OrangeTitle from "components/common/OrangeTitle";
 import styled from "styled-components";
-import CommentNum from 'components/common/CommentNum';
-import TimeInfo from 'components/common/TimeInfo';
+import CommentNum from "components/common/CommentNum";
+import TimeInfo from "components/common/TimeInfo";
 
 const TodaysShow = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
@@ -21,15 +21,12 @@ const TodaysShow = memo(function Story({ storyId }) {
     <Wrapper>
       <div>
         <a href={story.url} target="_blank" rel="noreferrer">
-          {urlName(story) ? <Tag>{urlName(story)}</Tag> : <></>}
+          {urlName(story) && <Tag>{urlName(story)}</Tag>}
           <Title>
             <OrangeTitle story={story} />
           </Title>
           <Info>
-            <img
-              src={require("assets/point.png")}
-              alt="point"
-            />
+            <img src={require("assets/point.png")} alt="point" />
             <span>{story.score}</span>
             <TimeInfo story={story} />
           </Info>
@@ -42,7 +39,7 @@ const TodaysShow = memo(function Story({ storyId }) {
         </UserComments>
       </div>
     </Wrapper>
-  )
+  );
 });
 
 const Wrapper = styled.div`
@@ -51,13 +48,12 @@ const Wrapper = styled.div`
   > div {
     width: 200px;
     height: 224px;
-    background-color: #eaf4f8;
+    background-color: ${(props) => props.theme.container.lightBlue};
     margin-right: 12px;
     border-radius: 8px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
     padding: 12px 12px 0px 12px;
     > div {
-      
     }
   }
 `;
@@ -73,7 +69,7 @@ const Info = styled.div`
   align-items: center;
   height: 36px;
   font-size: 12px;
-  color: #727272;
+  color: ${(props) => props.theme.text.default};
   span {
     display: block;
     margin-right: 7px;
@@ -96,8 +92,8 @@ const UserComments = styled.div`
   align-items: center;
   height: 46px;
   font-size: 12px;
-  border-top: 0.1px solid #e1e1e1;
-  color: #727272;
+  border-top: 1px solid ${(props) => props.theme.border.lightGray};
+  color: ${(props) => props.theme.text.default};
 `;
 
 export default TodaysShow;

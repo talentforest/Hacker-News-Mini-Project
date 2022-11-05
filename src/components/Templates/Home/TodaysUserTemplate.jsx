@@ -7,7 +7,7 @@ const TodaysUserTemplate = () => {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    getTopStoryIds(setStoryIds)
+    getTopStoryIds(setStoryIds);
     return () => setStoryIds([]);
   }, []);
 
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   height: 290px;
   overflow: hidden;
   margin: 0 auto 12px;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
   h4 {
     padding: 30px 20px 0;
@@ -36,15 +36,15 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${(props) => props.theme.backgroundColor};
-    color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.background.default};
+    color: ${(props) => props.theme.text.default};
     font-weight: 700;
     font-size: 24px;
   }
 `;
 const Container = styled.div`
   overflow: scroll;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.background.default};
   height: 160px;
   margin: 20px 0px 56px 20px;
   border-radius: 8px;

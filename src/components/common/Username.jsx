@@ -1,7 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Username = ({ style, story, commentIds, replyIdData, replyReplyIdData }) => {
+const Username = ({
+  style,
+  story,
+  commentIds,
+  replyIdData,
+  replyReplyIdData,
+}) => {
   const navigator = useNavigate();
   return (
     <User
@@ -9,19 +15,24 @@ const Username = ({ style, story, commentIds, replyIdData, replyReplyIdData }) =
       onClick={(event) => {
         event.preventDefault();
         event.stopPropagation();
-        navigator(`/userprofile/${story?.by || replyIdData?.by || replyReplyIdData?.by || commentIds?.by}`)
+        navigator(
+          `/userprofile/${
+            story?.by ||
+            replyIdData?.by ||
+            replyReplyIdData?.by ||
+            commentIds?.by
+          }`
+        );
       }}
-      style={{ cursor: "pointer" }}>
-      <img
-        src={require("assets/user.png")}
-        alt="logo"
-      />
+      style={{ cursor: "pointer" }}
+    >
+      <img src={require("assets/user.png")} alt="logo" />
       <span style={style}>
         {story?.by || commentIds?.by || replyIdData?.by || replyReplyIdData?.by}
       </span>
     </User>
-  )
-}
+  );
+};
 
 const User = styled.div`
   display: flex;
@@ -32,8 +43,8 @@ const User = styled.div`
   }
   span {
     margin-right: 6px;
-    color: ${(props) => props.theme.textGrayColor};
+    color: ${(props) => props.theme.text.gray};
   }
-`
+`;
 
 export default Username;
