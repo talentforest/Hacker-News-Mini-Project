@@ -9,7 +9,7 @@ import Comments from "components/UserProfile/Comments";
 import Favorites from "components/UserProfile/Favorites";
 import styled from "styled-components";
 
-export default function UserProfile() {
+const UserProfile = () => {
   const pathname = useLocation().pathname;
 
   const [userData, setUserData] = useState([]);
@@ -58,7 +58,7 @@ export default function UserProfile() {
       )}
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.background.gray};
@@ -88,3 +88,5 @@ const Wrapper = styled.section`
     }
   }
 `;
+
+export default UserProfile;

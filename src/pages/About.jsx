@@ -2,7 +2,7 @@ import styled from "styled-components";
 import FaqBox from "components/About/FaqBox";
 import AboutBox from "components/About/AboutBox";
 
-export default function About() {
+const About = () => {
   return (
     <Wrapper>
       <div>
@@ -56,7 +56,7 @@ export default function About() {
       </div>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.section`
   background-color: ${(props) => props.theme.background.gray};
@@ -102,3 +102,5 @@ const Wrapper = styled.section`
     }
   }
 `;
+
+export default About;

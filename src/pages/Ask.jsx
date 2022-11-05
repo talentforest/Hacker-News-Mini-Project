@@ -1,15 +1,12 @@
-import Banner from "components/layout/Banner";
-import AskTemplate from 'components/Templates/AskTemplate';
+import AskTemplate from "components/Templates/AskTemplate";
 
-export default function Ask() {
+const Ask = () => {
   return (
     <>
-      <Banner
-        src={require("assets/ask_banner.png")}
-        alt="banner" />
+      <img src={require("assets/ask_banner.png")} alt="banner" />
       <AskTemplate />
     </>
   );
-}
+};
 
-
+export default Ask;

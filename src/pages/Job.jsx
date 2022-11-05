@@ -1,14 +1,12 @@
-import JobTemplate from 'components/Templates/JobTemplate';
-import Banner from "components/layout/Banner";
+import JobTemplate from "components/Templates/JobTemplate";
 
-export default function Job() {
-
+const Job = () => {
   return (
     <>
-      <Banner
-        src={require("assets/job_banner.png")}
-        alt="job banner" />
+      <img src={require("assets/job_banner.png")} alt="banner" />
       <JobTemplate />
     </>
-  )
-}
+  );
+};
+
+export default Job;
