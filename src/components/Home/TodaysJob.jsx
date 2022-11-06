@@ -1,46 +1,43 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
-import { urlName, maxChar } from "util";
+import { changeUrlMark, maxChar } from "util";
 import { Tag, Title, Site } from "theme/commonStyle";
 import styled from "styled-components";
 import TimeInfo from "components/common/TimeInfo";
 
-const TodaysJob = memo(function Story({ storyId }) {
-  const [story, setStory] = useState([]);
+const TodaysJob = ({ storyId }) => {
+  const [story, setStory] = useState({});
 
   useEffect(() => {
     getStory(storyId, setStory);
-    return () => setStory([]);
+    return () => {
+      setStory();
+    };
   }, [storyId]);
 
   return (
-    <Wrapper>
-      <JobWrapper>
-        <Tag orange>Software Engineers</Tag>
-        <Title>{maxChar(story.title, 75)}</Title>
-        <a href={story?.url} target="_blank" rel="noopener noreferrer">
-          <Site>{urlName(story)}</Site>
-        </a>
-        <Info>
-          <TimeInfo story={story} />
-        </Info>
-      </JobWrapper>
-    </Wrapper>
+    <JobWrapper>
+      <Tag orange>Software Engineers</Tag>
+      <Title>{maxChar(story.title, 75)}</Title>
+      <a href={story?.url} target="_blank" rel="noopener noreferrer">
+        <Site>{changeUrlMark(story.url)}</Site>
+      </a>
+      <Info>
+        <TimeInfo story={story} />
+      </Info>
+    </JobWrapper>
   );
-});
-
-const Wrapper = styled.div`
-  width: 2000px;
-`;
+};
 
 const JobWrapper = styled.div`
+  flex: 0 0 auto;
   width: 220px;
   height: 174px;
-  background-color: ${(props) => props.theme.container.gray};
+  background-color: ${(props) => props.theme.container.lightBlue};
   padding: 16px 12px 0 12px;
   margin-right: 16px;
   border-radius: 8px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 const Info = styled.div`
   padding: 18px 0 17px;

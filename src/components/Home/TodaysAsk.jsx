@@ -1,46 +1,38 @@
-import { useState, memo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getStory } from "util/hnApi";
 import OrangeTitle from "components/common/OrangeTitle";
 import styled from "styled-components";
 
-const TodaysAsk = memo(function Story({ storyId }) {
+const TodaysAsk = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
     getStory(storyId, setStory);
-    return () => setStory([]);
+    return () => {
+      setStory();
+    };
   }, [storyId]);
 
   return (
-    <Link to={`/ask/${storyId}`}>
-      <Wrapper>
-        <h4>
-          {story?.title?.includes("Ask HN") ||
-          story?.title?.includes("Tell HN") ||
-          story?.title?.includes("Show HN") ? (
-            <OrangeTitle story={story} />
-          ) : (
-            story?.title
-          )}
-        </h4>
-      </Wrapper>
-    </Link>
+    <LinkBox to={`/ask/${storyId}`}>
+      <OrangeTitle story={story} />
+    </LinkBox>
   );
-});
+};
 
-const Wrapper = styled.div`
+const LinkBox = styled(Link)`
   display: flex;
   align-items: center;
   height: 76px;
   padding: 0 14px;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
   border-radius: 4px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: ${(props) => props.theme.boxShadow};
   line-height: 24px;
-  background-color: ${(props) => props.theme.container.default};
   font-weight: 600;
   color: ${(props) => props.theme.text.default};
+  background-color: ${(props) => props.theme.container.default};
 `;
 
 export default TodaysAsk;

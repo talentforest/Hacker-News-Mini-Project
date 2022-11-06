@@ -48,7 +48,7 @@ const AskBox = memo(function AskStory({ storyId }) {
 const Post = styled.div`
   height: 201px;
   margin-bottom: 12px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${(props) => props.theme.boxShadow};
   background-color: ${(props) => props.theme.container.default};
 `;
 const Title = styled.h4`

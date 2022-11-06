@@ -1,69 +1,53 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
+import { maxChar } from "util";
 import { getStory } from "util/hnApi";
-import { mapTime, maxChar } from "util";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import UsernamePointsTime from "components/common/UsernamePointsTime";
 
-const TodaysTop = memo(function Story({ storyId, index }) {
-  const [story, setStory] = useState([]);
+const TodaysTop = ({ storyId, index }) => {
+  const [story, setStory] = useState({});
 
   useEffect(() => {
     getStory(storyId, setStory);
-    return () => setStory([]);
+    return () => {
+      setStory();
+    };
   }, [storyId]);
 
   return (
-    <Wrapper>
-      <div>{index + 1}</div>
-      <div>
+    <ListBox>
+      <Rank>{index + 1}</Rank>
+      <Description>
         <a href={story.url} target="_blank" rel="noreferrer">
           <h4>{maxChar(story.title, 55)}</h4>
         </a>
-        <div>
-          <Link to={`/userprofile/${story.by}`}>
-            <span>{story.by}</span>
-          </Link>
-          <span>{story.score} points</span>
-          <span>{mapTime(story.time)}</span>
-        </div>
-      </div>
-    </Wrapper>
+        <UsernamePointsTime story={story} />
+      </Description>
+    </ListBox>
   );
-});
+};
 
-const Wrapper = styled.section`
+const ListBox = styled.li`
   position: relative;
   display: flex;
   height: 98px;
   padding: 16px 14px 14px;
-  > div:first-child {
-    width: 15%;
-    height: 68px;
-    font-size: 24px;
+`;
+
+const Rank = styled.span`
+  width: 15%;
+  height: 68px;
+  font-size: 24px;
+  font-weight: 600;
+  color: ${(props) => props.theme.text.orange};
+`;
+
+const Description = styled.div`
+  width: 85%;
+  h4 {
     font-weight: 600;
-    color: ${(props) => props.theme.text.orange};
-  }
-  > div:last-child {
-    width: 85%;
-    h4 {
-      font-weight: 600;
-      line-height: 20px;
-      color: ${(props) => props.theme.text.default};
-    }
-    div {
-      display: flex;
-      align-items: baseline;
-      span:first-child {
-        font-size: 12px;
-        font-weight: 400;
-      }
-      span {
-        margin: 14px 8px 0 0;
-        font-size: 12px;
-        font-weight: 400;
-        color: ${(props) => props.theme.text.lightGray};
-      }
-    }
+    line-height: 20px;
+    color: ${(props) => props.theme.text.default};
   }
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import FaqBox from "components/About/FaqBox";
-import AboutBox from "components/About/AboutBox";
+import FaqBox from "components/about/FaqBox";
+import AboutBox from "components/about/AboutBox";
 
 const About = () => {
   return (
@@ -66,8 +66,7 @@ const Wrapper = styled.section`
     padding: 27px 20px;
     margin-bottom: 28px;
     border-radius: 6px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05),
-      0px 6px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: ${(props) => props.theme.boxShadow};
     span {
       display: inline-block;
       font-weight: bold;

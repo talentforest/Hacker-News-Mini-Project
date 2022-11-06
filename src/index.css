@@ -148,40 +148,17 @@ a {
 
 /* Swiper CSS */
 .swiper {
-  width: 100%;
   height: fit-content;
 }
 
 .swiper-slide {
-  height: fit-content;
-}
-
-.swiper-pagination-bullet {
-  background: gray;
-  width: 6px;
-  height: 6px;
-  border-radius: 3px;
-  opacity: 1;
-  z-index: 10;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #ed702d;
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-}
-
-.swiper-pagination-bullets {
-  top: 480px;
+  height: 100%;
 }
 
 .swiper-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 8px;
-  margin: 52px 0 72px;
 }
 
 .swiper-pagination-current,

@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import { getUserInfo } from "util/hnApi";
 import { useButtonChange } from "hooks";
 import UserInfo from "components/common/UserInfo";
-import UserButton from "components/UserProfile/UserButton";
-import Submissions from "components/UserProfile/Submissions";
-import Comments from "components/UserProfile/Comments";
-import Favorites from "components/UserProfile/Favorites";
+import UserButton from "components/userprofile/UserButton";
+import Submissions from "components/userprofile/Submissions";
+import Comments from "components/userprofile/Comments";
+import Favorites from "components/userprofile/Favorites";
 import styled from "styled-components";
 
 const UserProfile = () => {
@@ -68,8 +68,7 @@ const Wrapper = styled.section`
   > div:first-child {
     padding: 24px 16px;
     background-color: ${(props) => props.theme.container.default};
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.05),
-      0px 6px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: ${(props) => props.theme.boxShadow};
     border-radius: 8px;
     h5 {
       display: flex;

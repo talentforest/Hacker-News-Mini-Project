@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getStory } from "util/hnApi";
-import { urlName } from "util";
+import { changeUrlMark } from "util";
 import { Tag } from "theme/commonStyle";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
@@ -17,20 +17,22 @@ const BoxModeItem = ({ storyId }) => {
   }, [storyId]);
 
   return (
-    <Post>
-      <a href={story.url} target="_blank" rel="noreferrer">
-        {urlName(story) && <Tag orange>{urlName(story)}</Tag>}
-        <OrangeTitle story={story} />
-      </a>
-      <div>
+    story && (
+      <Post>
+        <a href={story.url} target="_blank" rel="noreferrer">
+          <Tag orange>{changeUrlMark(story.url)}</Tag>
+          <OrangeTitle story={story} />
+        </a>
         <div>
-          <UserPointsTime story={story} />
+          <div>
+            <UserPointsTime story={story} />
+          </div>
+          <Link to={`${story.id}`}>
+            {story.descendants && <CommentNum story={story} />}
+          </Link>
         </div>
-        <Link to={`${story.id}`}>
-          {story.descendants && <CommentNum story={story} />}
-        </Link>
-      </div>
-    </Post>
+      </Post>
+    )
   );
 };
 const Post = styled.div`
@@ -38,7 +40,7 @@ const Post = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${(props) => props.theme.boxShadow};
   width: 48%;
   height: 230px;
   border-radius: 8px;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCurrIdData } from "util/hnApi";
-import Comment from "components/common/Comments/Comment";
-import CommentHeader from "components/common/Comments/CommentHeader";
+import Comment from "components/common/comments/Comment";
+import CommentHeader from "components/common/comments/CommentHeader";
 import OrangeTitle from "components/common/OrangeTitle";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";

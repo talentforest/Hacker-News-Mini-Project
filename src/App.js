@@ -1,7 +1,7 @@
-import { ThemeProvider } from './context/Provider';
+import { ThemeProvider } from "./context/Provider";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/layout/Header"
-import Gnb from './components/layout/Gnb';
+import Header from "./components/layout/Header";
+import Gnb from "./components/layout/Gnb";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import UserProfile from "./pages/UserProfile";
@@ -31,8 +31,7 @@ function App() {
         <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="about" element={<About />} />
       </Routes>
-    </ThemeProvider >
-
+    </ThemeProvider>
   );
 }
 

@@ -1,6 +1,6 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
-import { urlName } from "util";
+import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
 import { Tag } from "theme/commonStyle";
 import Username from "components/common/Username";
@@ -9,19 +9,21 @@ import styled from "styled-components";
 import CommentNum from "components/common/CommentNum";
 import TimeInfo from "components/common/TimeInfo";
 
-const TodaysShow = memo(function Story({ storyId }) {
+const TodaysShow = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
     getStory(storyId, setStory);
-    return () => setStory([]);
+    return () => {
+      setStory();
+    };
   }, [storyId]);
 
   return (
-    <Wrapper>
-      <div>
+    story && (
+      <ShowBox>
         <a href={story.url} target="_blank" rel="noreferrer">
-          {urlName(story) && <Tag>{urlName(story)}</Tag>}
+          <Tag>{changeUrlMark(story.url)}</Tag>
           <Title>
             <OrangeTitle story={story} />
           </Title>
@@ -37,39 +39,37 @@ const TodaysShow = memo(function Story({ storyId }) {
             <CommentNum story={story} />
           </Link>
         </UserComments>
-      </div>
-    </Wrapper>
+      </ShowBox>
+    )
   );
-});
+};
 
-const Wrapper = styled.div`
-  width: 3000px;
-  height: fit-content;
-  > div {
-    width: 200px;
-    height: 224px;
-    background-color: ${(props) => props.theme.container.lightBlue};
-    margin-right: 12px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-    padding: 12px 12px 0px 12px;
-    > div {
-    }
-  }
+const ShowBox = styled.div`
+  flex: 0 0 auto;
+  width: 200px;
+  height: 224px;
+  background-color: ${(props) => props.theme.container.lightBlue};
+  margin-right: 12px;
+  border-radius: 8px;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  padding: 12px 12px 0px 12px;
 `;
+
 const Title = styled.div`
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
   height: 106px;
   padding-top: 6px;
+  color: ${(props) => props.theme.text.default};
 `;
+
 const Info = styled.div`
   display: flex;
   align-items: center;
   height: 36px;
   font-size: 12px;
-  color: ${(props) => props.theme.text.default};
+  color: ${(props) => props.theme.text.lightGray};
   span {
     display: block;
     margin-right: 7px;
@@ -86,6 +86,7 @@ const Info = styled.div`
     margin-top: 3px;
   }
 `;
+
 const UserComments = styled.div`
   display: flex;
   justify-content: space-between;

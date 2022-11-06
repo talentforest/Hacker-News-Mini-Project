@@ -1,3 +1,3 @@
 export { mapTime } from "./mapTime";
-export { urlName } from "./urlName";
+export { changeUrlMark } from "./changeUrlMark";
 export { maxChar } from "./maxChar";

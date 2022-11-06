@@ -1,16 +1,28 @@
 import { useViewModeChange } from "hooks/index";
 import ViewModeBtn from "components/common/ViewModeBtn";
-import TopTemplate from "components/Templates/TopTemplate";
-import TopBoxModeTemplate from "components/Templates/TopBoxModeTemplate";
+import SwiperPagination from "components/common/ListPagination";
+import { getTopStoryIds } from "util/hnApi";
+import { useEffect, useState } from "react";
+import BoxPagination from "components/common/BoxPagination";
 
 const Top = () => {
   const [viewMode, handleViewMode] = useViewModeChange();
+  const [storyIds, setStoryIds] = useState([]);
+
+  useEffect(() => {
+    getTopStoryIds(setStoryIds);
+    return () => setStoryIds([]);
+  }, []);
 
   return (
     <>
       <img src={require("assets/top_banner.png")} alt="banner" />
       <ViewModeBtn viewMode={viewMode} handleViewMode={handleViewMode} />
-      {viewMode === "list-mode" ? <TopTemplate /> : <TopBoxModeTemplate />}
+      {viewMode === "list-mode" ? (
+        <SwiperPagination storyIds={storyIds} />
+      ) : (
+        <BoxPagination storyIds={storyIds} />
+      )}
     </>
   );
 };

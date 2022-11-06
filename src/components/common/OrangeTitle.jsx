@@ -4,14 +4,15 @@ import { maxChar } from "util";
 const OrangeTitle = ({ story }) => {
   return (
     <>
-      {story?.title?.includes("Ask HN") ||
-      story?.title?.includes("Tell HN") ||
-      story?.title?.includes("Show HN") ? (
+      {story &&
+      (story.title?.includes("Ask HN") ||
+        story.title?.includes("Tell HN") ||
+        story.title?.includes("Show HN")) ? (
         <h4>
           <OrangeColor>
-            {`${story?.title?.split(" ")[0]} ${story?.title?.split(" ")[1]} `}
+            {`${story.title?.split(" ")[0]} ${story?.title?.split(" ")[1]} `}
           </OrangeColor>
-          {maxChar(story?.title?.slice(8), 60)}
+          {maxChar(story.title?.slice(8), 60)}
         </h4>
       ) : (
         <h4>{story.title}</h4>

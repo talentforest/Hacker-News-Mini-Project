@@ -1,49 +1,48 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
 import { Link } from "react-router-dom";
 import UserInfo from "components/common/UserInfo";
 import styled from "styled-components";
 
-const TodaysUser = memo(function Story({ index, storyId }) {
-  const [story, setStory] = useState([]);
+const TodaysUser = ({ index, storyId }) => {
+  const [story, setStory] = useState({});
 
   useEffect(() => {
     getStory(storyId, setStory);
-    return () => setStory([]);
+    return () => {
+      setStory();
+    };
   }, [storyId]);
 
-  return story && story.url ? (
-    <Link to={`/userprofile/${story.by}`}>
-      <Wrapper>
-        <UserWrapper>
-          <Rank>
-            <img src={require("assets/star.png")} alt="star" />
-            <div>{index + 1}</div>
-            <span>Today's User</span>
-          </Rank>
-          <Username>{story.by}</Username>
-          <UserInfoBox>
-            <UserInfo story={story} />
-            <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
-          </UserInfoBox>
-        </UserWrapper>
-      </Wrapper>
-    </Link>
-  ) : (
-    <></>
+  return (
+    story && (
+      <UserWrapper to={`/userprofile/${story.by}`}>
+        <Rank>
+          <img src={require("assets/star.png")} alt="star" />
+          <div>{index + 1}</div>
+          <span>Today's User</span>
+        </Rank>
+        <Username>{story.by}</Username>
+        <Info>
+          <UserInfo story={story} />
+          <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
+        </Info>
+      </UserWrapper>
+    )
   );
-});
+};
 
-const Wrapper = styled.div``;
-const UserWrapper = styled.div`
+const UserWrapper = styled(Link)`
+  flex: none;
   width: 228px;
   height: 146px;
   padding: 16px;
   margin-right: 16px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 8px;
   background-color: ${(props) => props.theme.container.default};
 `;
+
 const Rank = styled.div`
   display: flex;
   align-items: center;
@@ -69,11 +68,12 @@ const Rank = styled.div`
   }
 `;
 
-const UserInfoBox = styled.div`
+const Info = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
+
 const Btn = styled.img`
   width: 24px;
   height: 24px;

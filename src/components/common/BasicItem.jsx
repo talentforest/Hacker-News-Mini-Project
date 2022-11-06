@@ -1,4 +1,4 @@
-import { urlName } from "util";
+import { changeUrlMark } from "util";
 import { Site } from "theme/commonStyle";
 import styled from "styled-components";
 import OrangeTitle from "components/common/OrangeTitle";
@@ -7,18 +7,20 @@ import UserPointsTime from "components/common/UserPointsTime";
 
 const BasicItem = ({ story }) => {
   return (
-    <SubmissionBox>
-      <div>
-        <OrangeTitle story={story} />
-        <Site>{urlName(story)}</Site>
-      </div>
-      <PostInfo>
+    story && (
+      <SubmissionBox>
         <div>
-          <UserPointsTime story={story} />
+          <OrangeTitle story={story} />
+          <Site>{changeUrlMark(story.url)}</Site>
         </div>
-        <CommentNum story={story} />
-      </PostInfo>
-    </SubmissionBox>
+        <PostInfo>
+          <div>
+            <UserPointsTime story={story} />
+          </div>
+          <CommentNum story={story} />
+        </PostInfo>
+      </SubmissionBox>
+    )
   );
 };
 
@@ -26,7 +28,7 @@ const SubmissionBox = styled.div`
   height: 148px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.container.default};
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 4px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: ${(props) => props.theme.boxShadow};
   color: ${(props) => props.theme.text.default};
   margin: 0 auto 16px;
   padding: 20px 12px;

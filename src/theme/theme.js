@@ -1,13 +1,13 @@
 export const darkTheme = {
   background: {
     default: "#292C33",
-    gray: "#292C33",
+    gray: "#343538",
     header: "#292C33",
   },
   container: {
     default: "#343538",
     gray: "#E2ECF0",
-    lightBlue: "#eaf4f8",
+    lightBlue: "#111;",
     button: "#fff",
     header: "#fff",
   },
@@ -19,9 +19,10 @@ export const darkTheme = {
     blue: "#4ca5c4",
   },
   border: {
-    lightGray: "#e2e2e2",
-    gray: "#999999",
+    lightGray: "#888",
+    gray: "#555",
   },
+  shadow: "2px 3px 5px rgba(0, 0, 0, 0.3)",
 };
 
 export const lightTheme = {
@@ -48,4 +49,5 @@ export const lightTheme = {
     lightGray: "#e2e2e2",
     gray: "#333",
   },
+  boxShadow: "2px 3px 5px rgba(0, 0, 0, 0.3)",
 };

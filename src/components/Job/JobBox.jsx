@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { mapTime, maxChar, urlName } from "util";
+import { mapTime, maxChar, changeUrlMark } from "util";
 import { Site } from "theme/commonStyle";
 import styled from "styled-components";
 
@@ -12,23 +12,23 @@ const JobBox = memo(function JobStory({ storyId }) {
     return () => setStory([]);
   }, [storyId]);
 
-  return story && story.title ? (
-    <Post>
-      <h4>{maxChar(story.title, 80)}</h4>
-      <Info>
-        <a href={story.url} target="_blank" rel="noopener noreferrer">
-          <Site>{urlName(story)}</Site>
-        </a>
-        <span>{mapTime(story.time)}</span>
-      </Info>
-    </Post>
-  ) : (
-    <></>
+  return (
+    story && (
+      <Post>
+        <h4>{maxChar(story.title, 80)}</h4>
+        <Info>
+          <a href={story.url} target="_blank" rel="noopener noreferrer">
+            <Site>{changeUrlMark(story.url)}</Site>
+          </a>
+          <span>{mapTime(story.time)}</span>
+        </Info>
+      </Post>
+    )
   );
 });
 
 const Post = styled.div`
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${(props) => props.theme.boxShadow};
   height: 104px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.container.default};

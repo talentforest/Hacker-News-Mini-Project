@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getStory } from "util/hnApi";
-import { urlName } from "util";
+import { changeUrlMark } from "util";
 import { Tag } from "theme/commonStyle";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
@@ -17,27 +17,29 @@ const ListModeItem = ({ storyId }) => {
   }, [storyId]);
 
   return (
-    <Post>
-      {!story.text ? (
-        <a href={story.url} target="_blank" rel="noreferrer">
-          {urlName(story) && <Tag>{urlName(story)}</Tag>}
-          <OrangeTitle story={story} />
-        </a>
-      ) : (
-        <Link to={`${story.id}`}>
-          {urlName(story) && <Tag>{urlName(story)}</Tag>}
-          <OrangeTitle story={story} />
-        </Link>
-      )}
-      <div>
+    story && (
+      <Post>
+        {!story.text ? (
+          <a href={story.url} target="_blank" rel="noreferrer">
+            <Tag>{changeUrlMark(story.url)}</Tag>
+            <OrangeTitle story={story} />
+          </a>
+        ) : (
+          <Link to={`${story.id}`}>
+            <Tag>{changeUrlMark(story.url)}</Tag>
+            <OrangeTitle story={story} />
+          </Link>
+        )}
         <div>
-          <UserPointsTime story={story} />
+          <div>
+            <UserPointsTime story={story} />
+          </div>
+          <Link to={`${story.id}`}>
+            {story.descendants && <CommentNum story={story} />}
+          </Link>
         </div>
-        <Link to={`${story.id}`}>
-          {story.descendants && <CommentNum story={story} />}
-        </Link>
-      </div>
-    </Post>
+      </Post>
+    )
   );
 };
 const Post = styled.div`
@@ -45,7 +47,7 @@ const Post = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${(props) => props.theme.boxShadow};
   height: 148px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.container.default};
