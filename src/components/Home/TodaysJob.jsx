@@ -54,7 +54,12 @@ const Info = styled.div`
   img {
     width: 14px;
     height: 14px;
+    margin-top: 2px;
     margin-right: 4px;
+  }
+  svg {
+    width: 10px;
+    height: 10px;
   }
 `;
 

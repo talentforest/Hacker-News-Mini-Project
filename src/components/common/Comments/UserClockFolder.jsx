@@ -1,6 +1,7 @@
 import Username from "components/common/Username";
 import Clock from "components/common/comments/Clock";
 import styled from "styled-components";
+import { KeyboardArrowUp } from "@material-ui/icons";
 
 const UserClockFolder = ({
   commentIds,
@@ -25,11 +26,7 @@ const UserClockFolder = ({
           replyReplyIdData={replyReplyIdData}
         />
       </div>
-      <FolderBtn
-        onClick={onFolder}
-        src={require("assets/arrow_up_gray.png")}
-        alt="arrow_up_gray"
-      />
+      <FolderBtn onClick={onFolder} />
     </CommentInfo>
   );
 };
@@ -55,10 +52,9 @@ const CommentInfo = styled.div`
     }
   }
 `;
-const FolderBtn = styled.img`
-  padding-top: 5px;
-  width: 20px;
-  height: 12.41px;
+const FolderBtn = styled(KeyboardArrowUp)`
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 `;
 

@@ -1,3 +1,4 @@
+import { AccountCircle } from "@material-ui/icons";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -26,7 +27,7 @@ const Username = ({
       }}
       style={{ cursor: "pointer" }}
     >
-      <img src={require("assets/user.png")} alt="logo" />
+      <AccountCircle />
       <span style={style}>
         {story?.by || commentIds?.by || replyIdData?.by || replyReplyIdData?.by}
       </span>
@@ -37,7 +38,7 @@ const Username = ({
 const User = styled.div`
   display: flex;
   align-items: center;
-  img {
+  svg {
     height: 20px;
     margin-right: 4px;
   }

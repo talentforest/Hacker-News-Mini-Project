@@ -1,21 +1,23 @@
+import { Comment } from "@material-ui/icons";
 import styled from "styled-components";
 
 const CommentNum = ({ story }) => {
   return (
-    <Comment>
-      <img src={require("assets/comment.png")} alt="commentimg" />
+    <CommentBox>
+      <Comment />
       <span>{story?.descendants}</span>
-    </Comment>
+    </CommentBox>
   );
 };
 
-const Comment = styled.div`
+const CommentBox = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  img {
-    width: 20px;
+  svg {
+    width: 18px;
     margin-right: 3px;
+    fill: ${(props) => props.theme.text.orange};
   }
   span:last-child {
     color: ${(props) => props.theme.text.orange};

@@ -1,31 +1,26 @@
+import { Brightness4, ContactSupport } from "@material-ui/icons";
 import { useTheme } from "hooks/index";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
   const [, toggleTheme] = useTheme();
+  const navigate = useNavigate();
+
   return (
     <HeaderTop>
       <Link to="/">
-        <div>
-          <img src={require("assets/logo.png")} alt="Logo" />
-          <h1>Svelte Hacker News</h1>
-        </div>
+        <img src={require("assets/logo.png")} alt="Logo" />
+        <h1>Svelte Hacker News</h1>
       </Link>
-      <div>
-        <img
-          onClick={toggleTheme}
-          src={require("assets/lightmode.png")}
-          alt="light/dark mode"
+      <Icons>
+        <Brightness4 onClick={toggleTheme} />
+        <ContactSupport
+          onClick={() => {
+            navigate("/about");
+          }}
         />
-        <Link to="/about">
-          <img
-            className="question"
-            src={require("assets/questionmark.png")}
-            alt="question"
-          />
-        </Link>
-      </div>
+      </Icons>
     </HeaderTop>
   );
 };
@@ -37,7 +32,7 @@ const HeaderTop = styled.header`
   background-color: ${(props) => props.theme.background.header};
   height: 87px;
   padding: 44px 20px 7px;
-  div {
+  > a {
     display: flex;
     align-items: center;
     img {
@@ -50,15 +45,20 @@ const HeaderTop = styled.header`
       font-weight: 700;
     }
   }
-  div:nth-child(2) {
-    img {
-      cursor: pointer;
+`;
+
+const Icons = styled.div`
+  display: flex;
+  align-items: center;
+  svg {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+    &:last-child {
       width: 24px;
       height: 24px;
-      &:last-child {
-        margin-left: 8px;
-        margin-top: 3px;
-      }
+      margin-left: 5px;
     }
   }
 `;

@@ -1,10 +1,11 @@
+import { ArrowForwardIos } from "@material-ui/icons";
 import styled from "styled-components";
 
 const Title = ({ title }) => {
   return (
     <TitleBox>
       <h4>{title}</h4>
-      <img src={require("assets/arrow_right_black.png")} alt="arrow" />
+      <ArrowForwardIos />
     </TitleBox>
   );
 };
@@ -20,10 +21,11 @@ const TitleBox = styled.div`
     font-weight: 700;
     font-size: 24px;
   }
-  > img {
-    width: 7.5px;
-    height: 12px;
-    margin-left: 8.59px;
+  > svg {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    fill: ${(props) => props.theme.text.default};
   }
 `;
 

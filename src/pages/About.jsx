@@ -1,11 +1,11 @@
+import { Link } from "react-router-dom";
+import { ArrowForwardIos, KeyboardArrowDown } from "@material-ui/icons";
 import styled from "styled-components";
-import FaqBox from "components/about/FaqBox";
-import AboutBox from "components/about/AboutBox";
 
 const About = () => {
   return (
     <Wrapper>
-      <div>
+      <Box>
         <span>About</span>
         <p>
           This is a simple Hacker News clone, built with SvelteKit, an
@@ -16,89 +16,130 @@ const About = () => {
           introductory blog post. <br /> <br />
           We're using hnpwa-api as a backend. The app is hosted on Vercel.
         </p>
-      </div>
-      <AboutBox
-        title={"Top"}
-        text={
-          "Top is a service that ranks all articles on Hacker News through Hacker News' own algorithms."
-        }
-      />
-      <AboutBox
-        title={"New"}
-        text={
-          "New is a service that allows you to see all the new articles in chronological order."
-        }
-      />
-      <AboutBox
-        title={"Show"}
-        text={
-          "Show HN is for something you've made that other people can play with."
-        }
-      />
-      <AboutBox
-        title={"Ask"}
-        text={"Ask HN can ask and receive any questions."}
-      />
-      <AboutBox
-        title={"Job"}
-        text={
-          "In jobs, you can check real-time job openings posted by companies."
-        }
-      />
-      <div>
+      </Box>
+      <Box>
+        <Link to={`/top}`}>
+          Top <ArrowForwardIos />
+        </Link>
+        <p>
+          Top is a service that ranks all articles on Hacker News through Hacker
+          News' own algorithms.
+        </p>
+      </Box>
+      <Box>
+        <Link to={`/new}`}>
+          New <ArrowForwardIos />
+        </Link>
+        <p>
+          New is a service that allows you to see all the new articles in
+          chronological order.
+        </p>
+      </Box>
+      <Box>
+        <Link to={`/show}`}>
+          Show <ArrowForwardIos />
+        </Link>
+        <p>
+          Show HN is for something you've made that other people can play with.
+        </p>
+      </Box>
+      <Box>
+        <Link to={`/ask}`}>
+          Ask <ArrowForwardIos />
+        </Link>
+        <p>Ask HN can ask and receive any questions.</p>
+      </Box>
+      <Box>
+        <Link to={`/job}`}>
+          Job <ArrowForwardIos />
+        </Link>
+        <p>
+          In jobs, you can check real-time job openings posted by companies.
+        </p>
+      </Box>
+      <Box as="ul" $list>
         <span>FAQ</span>
-        <FaqBox title={"Can I write here?"} />
-        <FaqBox title={"Are there rules about submissions and comments?"} />
-        <FaqBox title={"How are stories ranked?"} />
-        <FaqBox title={"How is a user's karma calculated?"} />
-        <FaqBox title={"Why don't I see down arrows?"} />
-        <FaqBox title={"What kind of formatting can you use in comments?"} />
-      </div>
+        <FAQList>
+          Can I write here?
+          <KeyboardArrowDown />
+        </FAQList>
+        <FAQList>
+          Are there rules about submissions and comments?
+          <KeyboardArrowDown />
+        </FAQList>
+        <FAQList>
+          How are stories ranked?
+          <KeyboardArrowDown />
+        </FAQList>
+        <FAQList>
+          How is a user's karma calculated?
+          <KeyboardArrowDown />
+        </FAQList>
+        <FAQList>
+          Why don't I see down arrows?
+          <KeyboardArrowDown />
+        </FAQList>
+        <FAQList>
+          What kind of formatting can you use in comments?
+          <KeyboardArrowDown />
+        </FAQList>
+      </Box>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  background-color: ${(props) => props.theme.background.gray};
+  background-color: ${(props) => props.theme.background.default};
   padding: 29px 20px;
-  > div {
-    background-color: ${(props) => props.theme.container.default};
-    padding: 27px 20px;
-    margin-bottom: 28px;
-    border-radius: 6px;
-    box-shadow: ${(props) => props.theme.boxShadow};
-    span {
-      display: inline-block;
-      font-weight: bold;
-      font-size: 22px;
-      line-height: 24px;
-      color: ${(props) => props.theme.text.gray};
-      margin-bottom: 23px;
-      img {
-        width: 7.41px;
-        height: 12px;
-        margin-bottom: 1px;
-        margin-left: 2px;
-      }
+`;
+
+const Box = styled.div`
+  background-color: ${(props) => props.theme.container.default};
+  padding: 27px 20px;
+  margin-bottom: 28px;
+  border-radius: 6px;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  a,
+  span {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 24px;
+    color: ${(props) => props.theme.text.gray};
+    margin-bottom: 23px;
+    svg {
+      width: 16px;
+      height: 16px;
+      margin-left: 4px;
+      fill: ${(props) => props.theme.text.orange};
     }
-    p {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 20px;
-      color: ${(props) => props.theme.text.default};
-    }
-    > div {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
-      padding: 14px 0;
-      color: ${(props) => props.theme.text.default};
-      img {
-        width: 12px;
-        height: 7.41px;
-        margin-top: 5px;
-      }
-    }
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: ${(props) => props.theme.text.default};
+  }
+`;
+
+const FAQList = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  color: ${(props) => props.theme.text.default};
+  border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
+  &:nth-child(2) {
+    padding-top: 0;
+  }
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `;
 

@@ -67,7 +67,7 @@ const Title = styled.div`
 const Info = styled.div`
   display: flex;
   align-items: center;
-  height: 36px;
+  height: 30px;
   font-size: 12px;
   color: ${(props) => props.theme.text.lightGray};
   span {
@@ -78,12 +78,13 @@ const Info = styled.div`
   img:first-child {
     width: 16px;
     height: 16px;
+    margin-bottom: 2px;
   }
   img {
     width: 14px;
     height: 15px;
     margin-right: 2px;
-    margin-top: 3px;
+    margin-top: 2px;
   }
 `;
 

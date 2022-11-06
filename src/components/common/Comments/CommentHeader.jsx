@@ -4,14 +4,20 @@ import CommentNum from "../CommentNum";
 const CommentHeader = ({ story }) => {
   return (
     <Sort>
-      <div>
-        <img src={require("assets/circle_orange.png")} alt="bullet" />
+      <Mark>
+        <div />
         <span>Comments</span>
-      </div>
+      </Mark>
       <CommentNum story={story} />
     </Sort>
   );
 };
+
+const Mark = styled.div`
+  span {
+    color: ${(props) => props.theme.text.default};
+  }
+`;
 
 const Sort = styled.div`
   display: flex;
@@ -28,11 +34,6 @@ const Sort = styled.div`
     img {
       width: 8px;
       margin-right: 5px;
-    }
-  }
-  > div:first-child {
-    span {
-      color: ${(props) => props.theme.text.default};
     }
   }
   > div:last-child {

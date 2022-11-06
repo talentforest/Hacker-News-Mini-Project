@@ -1,6 +1,8 @@
 import Title from "./Title";
 import styled from "styled-components";
+
 import { useState } from "react";
+import { Replay } from "@material-ui/icons";
 
 const TitleReloadBtn = ({ title, reloadData }) => {
   const [rotate, setRotate] = useState(false);
@@ -14,12 +16,7 @@ const TitleReloadBtn = ({ title, reloadData }) => {
   return (
     <Header>
       <Title title={title} />
-      <Reload
-        src={require("assets/reloading.png")}
-        alt="reloading"
-        onClick={onClick}
-        className={rotate ? "rotate" : ""}
-      />
+      <Reload onClick={onClick} className={rotate ? "rotate" : ""} />
     </Header>
   );
 };
@@ -31,10 +28,15 @@ const Header = styled.header`
   align-items: center;
 `;
 
-const Reload = styled.img`
+const Reload = styled(Replay)`
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  border: 1px solid ${(props) => props.theme.text.gray};
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 2px;
+  width: 40px;
+  height: 40px;
+  fill: ${(props) => props.theme.text.default};
   &:hover {
     transition: transform ease 0.3s;
     transform: scale(1.1);
@@ -47,7 +49,7 @@ const Reload = styled.img`
       transform: rotate(0deg);
     }
     to {
-      transform: rotate(360deg);
+      transform: rotate(-360deg);
     }
   }
 `;

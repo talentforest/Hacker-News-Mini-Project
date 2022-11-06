@@ -1,3 +1,4 @@
+import { AccessTime } from "@material-ui/icons";
 import styled from "styled-components";
 import Title from "./Title";
 
@@ -9,7 +10,7 @@ const TitleClock = ({ title }) => {
     <Header>
       <Title title={title} />
       <Clock>
-        <img src={require("assets/clock.png")} alt="clock" />
+        <AccessTime />
         <span>{hours}:00</span>
       </Clock>
     </Header>
@@ -27,9 +28,11 @@ const Header = styled.header`
 const Clock = styled.div`
   display: flex;
   align-items: center;
-  > img {
+  > svg {
     width: 22px;
     height: 22px;
+    margin-bottom: 2px;
+    fill: ${(props) => props.theme.text.lightGray};
   }
   > span {
     font-size: 20px;
