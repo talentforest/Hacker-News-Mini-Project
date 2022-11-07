@@ -13,7 +13,7 @@ export const Tag = styled.div`
   border-radius: 20px;
 `;
 
-export const Title = styled.div`
+export const Title = styled.h4`
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;

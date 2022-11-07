@@ -10,14 +10,14 @@ import Favorites from "components/userprofile/Favorites";
 import styled from "styled-components";
 
 const UserProfile = () => {
-  const pathname = useLocation().pathname;
+  const { pathname } = useLocation();
 
   const [userData, setUserData] = useState([]);
   const [buttonMode, handleButtonMode] = useButtonChange();
 
   const story = useMemo(
     () => ({
-      by: pathname.split("/userprofile/")[1],
+      by: pathname?.split("/userprofile/")[1],
     }),
     [pathname]
   );

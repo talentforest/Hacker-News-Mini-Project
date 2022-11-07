@@ -3,6 +3,7 @@ import { getStory } from "util/hnApi";
 import { Link } from "react-router-dom";
 import UserInfo from "components/common/UserInfo";
 import styled from "styled-components";
+import SkeletonItem from "components/skeleton/SkeletonItem";
 
 const TodaysUser = ({ index, storyId }) => {
   const [story, setStory] = useState({});
@@ -14,25 +15,39 @@ const TodaysUser = ({ index, storyId }) => {
     };
   }, [storyId]);
 
-  return (
-    story && (
-      <UserWrapper to={`/userprofile/${story.by}`}>
-        <Rank>
-          <img src={require("assets/star.png")} alt="star" />
-          <div>{index + 1}</div>
-          <span>Today's User</span>
-        </Rank>
-        <Username>{story.by}</Username>
-        <Info>
-          <UserInfo story={story} />
-          <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
-        </Info>
-      </UserWrapper>
-    )
+  return story ? (
+    <UserWrapper to={`/userprofile/${story?.by}`}>
+      <Rank>
+        <img src={require("assets/star.png")} alt="star" />
+        <div>{index + 1}</div>
+        <span>Today's User</span>
+      </Rank>
+      <Username>{story?.by}</Username>
+      <Info>
+        <UserInfo story={story} />
+        <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
+      </Info>
+    </UserWrapper>
+  ) : (
+    <UserWrapper as="div">
+      <Rank>
+        <img src={require("assets/star.png")} alt="star" />
+        <div>{index + 1}</div>
+        <span>Today's User</span>
+      </Rank>
+      <SkeletonItem width="70%" height="26px" />
+      <Info>
+        <SkeletonItem width="50%" height="30px" />
+        <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
+      </Info>
+    </UserWrapper>
   );
 };
 
 const UserWrapper = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: none;
   width: 228px;
   height: 146px;

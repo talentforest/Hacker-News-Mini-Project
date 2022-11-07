@@ -17,31 +17,31 @@ const Gnb = () => {
         <Link to="/top">
           <li>
             <span>Top</span>
-            {pathname.includes("/top") && <CurrPageMark />}
+            {pathname?.includes("/top") && <CurrPageMark />}
           </li>
         </Link>
         <Link to="/new">
           <li>
             <span>New</span>
-            {pathname.includes("/new") && <CurrPageMark />}
+            {pathname?.includes("/new") && <CurrPageMark />}
           </li>
         </Link>
         <Link to="/show">
           <li>
             <span>Show</span>
-            {pathname.includes("/show") && <CurrPageMark />}
+            {pathname?.includes("/show") && <CurrPageMark />}
           </li>
         </Link>
         <Link to="/ask">
           <li>
             <span>Ask</span>
-            {pathname.includes("/ask") && <CurrPageMark />}
+            {pathname?.includes("/ask") && <CurrPageMark />}
           </li>
         </Link>
         <Link to="/job">
           <li>
             <span>Job</span>
-            {pathname.includes("/job") && <CurrPageMark />}
+            {pathname?.includes("/job") && <CurrPageMark />}
           </li>
         </Link>
       </ul>

@@ -3,6 +3,7 @@ import { getStory } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
 import { Tag } from "theme/commonStyle";
+import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import Username from "components/common/Username";
 import OrangeTitle from "components/common/OrangeTitle";
 import styled from "styled-components";
@@ -20,31 +21,45 @@ const TodaysShow = ({ storyId }) => {
   }, [storyId]);
 
   return (
-    story && (
-      <ShowBox>
-        <a href={story.url} target="_blank" rel="noreferrer">
-          <Tag>{changeUrlMark(story.url)}</Tag>
-          <Title>
+    <ShowBox>
+      {story ? (
+        <>
+          <A href={story?.url} target="_blank" rel="noreferrer">
+            <Tag>{changeUrlMark(story?.url)}</Tag>
             <OrangeTitle story={story} />
-          </Title>
-          <Info>
-            <img src={require("assets/point.png")} alt="point" />
-            <span>{story.score}</span>
-            <TimeInfo story={story} />
-          </Info>
-        </a>
-        <UserComments>
-          <Username story={story} />
-          <Link to={`show/${story.id}`}>
-            <CommentNum story={story} />
-          </Link>
-        </UserComments>
-      </ShowBox>
-    )
+            <Info>
+              <img src={require("assets/point.png")} alt="point" />
+              <span>{story?.score}</span>
+              <TimeInfo story={story} />
+            </Info>
+          </A>
+          <UserComments>
+            <Username story={story} />
+            <Link to={`show/${story?.id}`}>
+              <CommentNum story={story} />
+            </Link>
+          </UserComments>
+        </>
+      ) : (
+        <>
+          <A>
+            <SkeletonItem width="50%" height="20px" />
+            <Skeleton as="h4" />
+            <SkeletonItem height="20px" />
+          </A>
+          <UserComments>
+            <Username />
+            <SkeletonItem width="20%" height="20px" />
+          </UserComments>
+        </>
+      )}
+    </ShowBox>
   );
 };
 
 const ShowBox = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 0 0 auto;
   width: 200px;
   height: 224px;
@@ -55,13 +70,19 @@ const ShowBox = styled.div`
   padding: 12px 12px 0px 12px;
 `;
 
-const Title = styled.div`
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  height: 106px;
-  padding-top: 6px;
-  color: ${(props) => props.theme.text.default};
+const A = styled.a`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    height: 106px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    color: ${(props) => props.theme.text.default};
+  }
 `;
 
 const Info = styled.div`

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
 import { changeUrlMark, maxChar } from "util";
-import { Tag, Title, Site } from "theme/commonStyle";
+import { Tag } from "theme/commonStyle";
+import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
 import TimeInfo from "components/common/TimeInfo";
 
@@ -18,48 +19,52 @@ const TodaysJob = ({ storyId }) => {
   return (
     <JobWrapper>
       <Tag orange>Software Engineers</Tag>
-      <Title>{maxChar(story.title, 75)}</Title>
-      <a href={story?.url} target="_blank" rel="noopener noreferrer">
-        <Site>{changeUrlMark(story.url)}</Site>
-      </a>
-      <Info>
-        <TimeInfo story={story} />
-      </Info>
+      {story ? (
+        <>
+          <h4>{maxChar(story?.title, 75)}</h4>
+          <a href={story?.url} target="_blank" rel="noopener noreferrer">
+            {changeUrlMark(story?.url)}
+          </a>
+          <TimeInfo story={story} />
+        </>
+      ) : (
+        <>
+          <Skeleton as="h4" />
+          <SkeletonItem width="50%" />
+          <SkeletonItem width="30%" />
+        </>
+      )}
     </JobWrapper>
   );
 };
 
 const JobWrapper = styled.div`
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 220px;
   height: 174px;
   background-color: ${(props) => props.theme.container.lightBlue};
-  padding: 16px 12px 0 12px;
+  padding: 16px 12px;
   margin-right: 16px;
   border-radius: 8px;
   box-shadow: ${(props) => props.theme.boxShadow};
-`;
-const Info = styled.div`
-  padding: 18px 0 17px;
-  display: flex;
-  align-items: center;
-  height: 41px;
-  font-size: 12px;
-  color: ${(props) => props.theme.text.lightGray};
-  span {
-    display: block;
-    padding-top: 4px;
+  h4 {
+    height: 65px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: ${(props) => props.theme.text.default};
+  }
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
     font-weight: 400;
-  }
-  img {
-    width: 14px;
-    height: 14px;
-    margin-top: 2px;
-    margin-right: 4px;
-  }
-  svg {
-    width: 10px;
-    height: 10px;
+    color: ${(props) => props.theme.container.header};
+    text-decoration: underline;
+    cursor: pointer;
   }
 `;
 

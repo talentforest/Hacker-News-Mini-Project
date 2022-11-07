@@ -5,11 +5,11 @@ import { mapTime } from "util";
 const UsernamePointsTime = ({ story }) => {
   return (
     <User>
-      <Link to={`/userprofile/${story.by}`}>
-        <span>{story.by}</span>
+      <Link to={`/userprofile/${story?.by}`}>
+        <span>{story?.by}</span>
       </Link>
-      <span>{story.score} points</span>
-      <span>{mapTime(story.time)}</span>
+      <span>{story?.score} points</span>
+      <span>{mapTime(story?.time)}</span>
     </User>
   );
 };

@@ -47,7 +47,7 @@ const Home = () => {
   }, []);
 
   const reloadData = (length, title) => {
-    const generateRandomNum = Math.floor(Math.random() * length);
+    const generateRandomNum = Math.floor(Math.random() * length - 5);
     if (title === "new")
       return setRandomNum({
         ...randomNum,
