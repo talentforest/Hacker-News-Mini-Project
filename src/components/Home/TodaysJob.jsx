@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
 import { changeUrlMark, maxChar } from "util";
-import { Tag } from "theme/commonStyle";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
-import TimeInfo from "components/common/TimeInfo";
+import { Tag } from "./TodaysShow";
+import { AccessTime } from "@material-ui/icons";
+import { mapTime } from "util";
 
 const TodaysJob = ({ storyId }) => {
   const [story, setStory] = useState({});
@@ -25,7 +26,10 @@ const TodaysJob = ({ storyId }) => {
           <a href={story?.url} target="_blank" rel="noopener noreferrer">
             {changeUrlMark(story?.url)}
           </a>
-          <TimeInfo story={story} />
+          <Time>
+            <AccessTime />
+            <span>{mapTime(story?.time)}</span>
+          </Time>
         </>
       ) : (
         <>
@@ -65,6 +69,21 @@ const JobWrapper = styled.div`
     color: ${(props) => props.theme.container.header};
     text-decoration: underline;
     cursor: pointer;
+  }
+`;
+
+const Time = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${(props) => props.theme.text.lightGray};
+  span {
+    font-weight: 400;
+    font-size: 12px;
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
   }
 `;
 

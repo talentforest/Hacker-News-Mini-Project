@@ -1,4 +1,4 @@
-import CommentHeader from "components/common/comments/CommentHeader";
+import CommentHeader from "components/comments/CommentHeader";
 
 const Favorites = ({ story }) => {
   return <>{story?.parts ? <CommentHeader story={story} /> : null}</>;

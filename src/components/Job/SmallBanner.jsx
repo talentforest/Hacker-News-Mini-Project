@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
 import styled from "styled-components";
 
-const JobBannerSmall = memo(function Story({ storyId }) {
+const SmallBanner = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -54,4 +54,4 @@ const Company2 = styled.span`
   text-align: center;
 `;
 
-export default JobBannerSmall;
+export default SmallBanner;

@@ -3,8 +3,8 @@ import { SwiperSlide } from "swiper/react";
 import { SwiperContainer } from "theme/swiper";
 import { getJobStoryIds } from "util/hnApi";
 import { Banner } from "./Home";
-import JobBannerBig from "components/job/JobBannerBig";
-import JobBannerSmall from "components/job/JobBannerSmall";
+import BigBanner from "components/job/BigBanner";
+import SmallBanner from "components/job/SmallBanner";
 import JobBox from "components/job/JobBox";
 import styled from "styled-components";
 
@@ -29,7 +29,7 @@ const Job = () => {
             {[1, 2, 3, 4, 5].map((items, index) => (
               <SwiperSlide key={items}>
                 {storyIds.slice(index, index + 1).map((storyId) => (
-                  <JobBannerBig key={storyId} storyId={storyId} />
+                  <BigBanner key={storyId} storyId={storyId} />
                 ))}
               </SwiperSlide>
             ))}
@@ -44,7 +44,7 @@ const Job = () => {
             {[1, 2, 3, 4, 5].map((items, index) => (
               <SwiperSlide key={items}>
                 {storyIds.slice(index + 5, index + 6).map((storyId) => (
-                  <JobBannerSmall key={storyId} storyId={storyId} />
+                  <SmallBanner key={storyId} storyId={storyId} />
                 ))}
               </SwiperSlide>
             ))}
@@ -60,6 +60,7 @@ const Job = () => {
 
 const Container = styled.section`
   padding: 12px 0 20px;
+  min-height: 90vh;
   background-color: ${(props) => props.theme.background.gray};
 `;
 

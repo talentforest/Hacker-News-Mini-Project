@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
-import { Tag } from "theme/commonStyle";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import Username from "components/common/Username";
 import Title from "components/common/Title";
 import styled from "styled-components";
 import CommentNum from "components/common/CommentNum";
-import TimeInfo from "components/common/TimeInfo";
+import { AccessTime } from "@material-ui/icons";
+import { mapTime } from "util";
 
 const TodaysShow = ({ storyId }) => {
   const [story, setStory] = useState([]);
@@ -30,7 +30,10 @@ const TodaysShow = ({ storyId }) => {
             <Info>
               <img src={require("assets/point.png")} alt="point" />
               <span>{story?.score}</span>
-              <TimeInfo story={story} />
+              <Time>
+                <AccessTime />
+                <span>{mapTime(story?.time)}</span>
+              </Time>
             </Info>
           </A>
           <UserComments>
@@ -85,6 +88,20 @@ const A = styled.a`
   }
 `;
 
+export const Tag = styled.div`
+  box-sizing: border-box;
+  min-width: 60px;
+  max-width: fit-content;
+  height: 20px;
+  padding: 5px 6px;
+  font-size: 10px;
+  color: ${(props) =>
+    props.orange ? props.theme.background.default : props.theme.text.orange};
+  background-color: ${(props) =>
+    props.orange ? props.theme.text.orange : props.theme.background.default};
+  border-radius: 20px;
+`;
+
 const Info = styled.div`
   display: flex;
   align-items: center;
@@ -106,6 +123,21 @@ const Info = styled.div`
     height: 15px;
     margin-right: 2px;
     margin-top: 2px;
+  }
+`;
+
+const Time = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${(props) => props.theme.text.lightGray};
+  span {
+    font-weight: 400;
+    font-size: 12px;
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
   }
 `;
 

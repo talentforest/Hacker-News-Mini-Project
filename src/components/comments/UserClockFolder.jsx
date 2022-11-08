@@ -1,5 +1,5 @@
 import Username from "components/common/Username";
-import Clock from "components/common/comments/Clock";
+import Clock from "components/comments/Clock";
 import styled from "styled-components";
 import { KeyboardArrowUp } from "@material-ui/icons";
 

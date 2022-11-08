@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCurrIdData } from "util/hnApi";
-import Comment from "components/common/comments/Comment";
-import CommentHeader from "components/common/comments/CommentHeader";
+import Comment from "components/comments/Comment";
+import CommentHeader from "components/comments/CommentHeader";
 import Title from "components/common/Title";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
@@ -22,7 +22,7 @@ const Details = () => {
         <div>
           <UserPointsTime story={story} style={{ fontSize: "16px" }} />
         </div>
-        <Title story={story} />
+        <Title title={story.title} />
         <PostText dangerouslySetInnerHTML={{ __html: story?.text }} />
       </div>
       <CommentHeader story={story} />

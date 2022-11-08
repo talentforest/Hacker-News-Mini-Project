@@ -3,7 +3,7 @@ import { maxChar } from "util";
 import { getStory } from "util/hnApi";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
-import UsernamePointsTime from "components/common/UsernamePointsTime";
+import UserPointsTime from "components/common/UserPointsTime";
 
 const TodaysTop = ({ storyId, index }) => {
   const [story, setStory] = useState({});
@@ -15,8 +15,6 @@ const TodaysTop = ({ storyId, index }) => {
     };
   }, [storyId]);
 
-  console.log();
-
   return (
     <ListBox>
       <span>{index + 1}</span>
@@ -25,7 +23,7 @@ const TodaysTop = ({ storyId, index }) => {
           <a href={story?.url} target="_blank" rel="noreferrer">
             <h4>{maxChar(story?.title, 55)}</h4>
           </a>
-          <UsernamePointsTime story={story} />
+          <UserPointsTime story={story} noIcon />
         </div>
       ) : (
         <div>
@@ -56,7 +54,7 @@ const ListBox = styled.li`
     margin-left: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 10px;
     h4 {
       min-height: 60%;
       font-weight: 600;

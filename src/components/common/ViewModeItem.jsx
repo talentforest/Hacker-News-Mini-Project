@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getStory } from "util/hnApi";
 import { changeUrlMark } from "util";
-import { Tag } from "theme/commonStyle";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
 import Title from "components/common/Title";
 import CommentNum from "components/common/CommentNum";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import Username from "./Username";
+import { Tag } from "components/home/TodaysShow";
 
 const ViewModeItem = ({ storyId, viewMode }) => {
   const [story, setStory] = useState({});

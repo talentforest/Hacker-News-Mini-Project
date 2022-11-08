@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getStory } from "util/hnApi";
 import { Link } from "react-router-dom";
-import UserInfo from "components/common/UserInfo";
+import JoinedKarma from "components/common/JoinedKarma";
 import styled from "styled-components";
 import SkeletonItem from "components/skeleton/SkeletonItem";
 
@@ -24,7 +24,7 @@ const TodaysUser = ({ index, storyId }) => {
       </Rank>
       <Username>{story?.by}</Username>
       <Info>
-        <UserInfo story={story} />
+        <JoinedKarma story={story} />
         <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
       </Info>
     </UserWrapper>

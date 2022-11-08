@@ -3,7 +3,7 @@ import { mapTime } from "util/mapTime";
 import { getUserInfo } from "util/hnApi";
 import styled from "styled-components";
 
-const UserInfo = memo(function Story({ story }) {
+const JoinedKarma = memo(function Story({ story }) {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const Info = styled.div`
   }
 `;
 
-export default UserInfo;
+export default JoinedKarma;

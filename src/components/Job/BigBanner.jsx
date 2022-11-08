@@ -1,9 +1,9 @@
 import { useState, useEffect, memo } from "react";
 import { getStory } from "util/hnApi";
-import { Tag } from "theme/commonStyle";
 import styled from "styled-components";
+import { Tag } from "components/home/TodaysShow";
 
-const JobBannerBig = memo(function Story({ storyId }) {
+const BigBanner = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ const Job = styled.span`
   align-items: center;
 `;
 
-export default JobBannerBig;
+export default BigBanner;

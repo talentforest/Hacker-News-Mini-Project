@@ -3,25 +3,33 @@ import Username from "components/common/Username";
 import SkeletonItem from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
 
-const UserPointsTime = ({ story, style }) => {
+const UserPointsTime = ({ story, style, noIcon }) => {
   return (
-    <>
-      <Username story={story} style={style} />
+    <Box>
       {story ? (
-        <Info>
+        <>
+          {noIcon ? (
+            <span>{story.by}</span>
+          ) : (
+            <Username story={story} style={style} />
+          )}
           <span>{story.score} points</span>
           <span>{mapTime(story.time)}</span>
-        </Info>
+        </>
       ) : (
-        <SkeletonItem width="40%" />
+        <SkeletonItem width="70%" />
       )}
-    </>
+    </Box>
   );
 };
 
-const Info = styled.div`
+const Box = styled.div`
   display: flex;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: ${(props) => props.theme.text.lightGray};
 `;
 
 export default UserPointsTime;

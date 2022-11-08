@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { getUserInfo } from "util/hnApi";
 import { useButtonChange } from "hooks";
-import UserInfo from "components/common/UserInfo";
+import JoinedKarma from "components/common/JoinedKarma";
 import UserButton from "components/userprofile/UserButton";
 import Submissions from "components/userprofile/Submissions";
 import Comments from "components/userprofile/Comments";
@@ -31,7 +31,7 @@ const UserProfile = () => {
     <Wrapper>
       <div>
         <h5>{userData.id}</h5>
-        <UserInfo />
+        <JoinedKarma />
         <p dangerouslySetInnerHTML={{ __html: userData.about }} />
       </div>
       <UserButton buttonMode={buttonMode} handleButtonMode={handleButtonMode} />

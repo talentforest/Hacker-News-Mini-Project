@@ -44,12 +44,11 @@ const Username = ({
 const User = styled.div`
   display: flex;
   align-items: center;
+  color: ${(props) => props.theme.text.default};
   svg {
+    width: 20px;
     height: 20px;
-    margin-right: 3px;
-  }
-  span {
-    color: ${(props) => props.theme.text.gray};
+    margin-right: 2px;
   }
 `;
 
@@ -57,7 +56,7 @@ const SkeletonUserIcon = styled(Skeleton)`
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  margin-right: 4px;
+  margin-right: 2px;
 `;
 
 const SkeletonUserName = styled(Skeleton)`

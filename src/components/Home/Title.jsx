@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 const Title = ({ title }) => {
   return (
-    <TitleBox>
+    <Box>
       <h4>{title}</h4>
       <ArrowForwardIos />
-    </TitleBox>
+    </Box>
   );
 };
 
-const TitleBox = styled.div`
+const Box = styled.div`
   width: fit-content;
   display: flex;
   justify-content: space-between;
