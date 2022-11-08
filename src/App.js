@@ -1,4 +1,3 @@
-import { ThemeProvider } from "./context/Provider";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Gnb from "./components/layout/Gnb";
@@ -11,10 +10,11 @@ import Show from "./pages/Show";
 import Ask from "./pages/Ask";
 import Details from "./pages/Details";
 import Job from "./pages/Job";
+import styled from "styled-components";
 
 function App() {
   return (
-    <ThemeProvider>
+    <Container>
       <Header />
       <Gnb />
       <Routes>
@@ -31,8 +31,12 @@ function App() {
         <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="about" element={<About />} />
       </Routes>
-    </ThemeProvider>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  background-color: ${(props) => props.theme.background.default};
+`;
 
 export default App;

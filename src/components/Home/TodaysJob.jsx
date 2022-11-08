@@ -19,7 +19,7 @@ const TodaysJob = ({ storyId }) => {
   return (
     <JobWrapper>
       <Tag orange>Software Engineers</Tag>
-      {story ? (
+      {Object.keys(story ?? {}).length ? (
         <>
           <h4>{maxChar(story?.title, 75)}</h4>
           <a href={story?.url} target="_blank" rel="noopener noreferrer">

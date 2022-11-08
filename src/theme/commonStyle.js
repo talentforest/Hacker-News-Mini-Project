@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Tag = styled.div`
   box-sizing: border-box;
-  width: fit-content;
+  min-width: 60px;
+  max-width: fit-content;
   height: 20px;
   padding: 5px 6px;
   font-size: 10px;
@@ -24,12 +25,12 @@ export const Title = styled.h4`
 
 export const Wrapper = styled.section`
   background-color: ${(props) => props.theme.background.gray};
+  border: 1px solid red;
 `;
 
 export const PostsBox = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 158px 20px;
 `;
 
 export const BoxViewMode = styled.section`
@@ -37,10 +38,6 @@ export const BoxViewMode = styled.section`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px 20px 158px 20px;
-`;
-
-export const AskPostsBox = styled(PostsBox)`
-  padding: 20px 0 158px;
 `;
 
 export const Site = styled.span`

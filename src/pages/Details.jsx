@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCurrIdData } from "util/hnApi";
 import Comment from "components/common/comments/Comment";
 import CommentHeader from "components/common/comments/CommentHeader";
-import OrangeTitle from "components/common/OrangeTitle";
+import Title from "components/common/Title";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
 
@@ -22,10 +22,8 @@ const Details = () => {
         <div>
           <UserPointsTime story={story} style={{ fontSize: "16px" }} />
         </div>
-        <Title>
-          <OrangeTitle story={story} />
-        </Title>
-        <PostText dangerouslySetInnerHTML={{ __html: story.text }} />
+        <Title story={story} />
+        <PostText dangerouslySetInnerHTML={{ __html: story?.text }} />
       </div>
       <CommentHeader story={story} />
       {story.kids?.slice(0, 16).map((commentId) => (
@@ -74,12 +72,7 @@ const Wrapper = styled.section`
     }
   }
 `;
-const Title = styled.div`
-  padding: 4px 10px 19px;
-  font-size: 22px;
-  line-height: 26px;
-  font-weight: 500;
-`;
+
 const PostText = styled.div`
   padding: 0px 10px 0;
   font-size: 18px;

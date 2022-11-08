@@ -17,7 +17,7 @@ const TodaysNew = ({ storyId }) => {
 
   return (
     <Wrapper>
-      {story ? (
+      {Object.keys(story ?? {}).length ? (
         <>
           <span>{mapTime(story?.time)} ago</span>
           <a href={story?.url} target="_blank" rel="noreferrer">

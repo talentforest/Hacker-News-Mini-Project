@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getStory } from "util/hnApi";
-import OrangeTitle from "components/common/OrangeTitle";
+import Title from "components/common/Title";
 import styled from "styled-components";
 import SkeletonItem from "components/skeleton/SkeletonItem";
 
@@ -17,8 +17,8 @@ const TodaysAsk = ({ storyId }) => {
 
   return (
     <LinkBox to={`/ask/${storyId}`}>
-      {story ? (
-        <OrangeTitle story={story} />
+      {Object.keys(story ?? {}).length ? (
+        <Title title={story?.title} />
       ) : (
         <>
           <SkeletonItem />

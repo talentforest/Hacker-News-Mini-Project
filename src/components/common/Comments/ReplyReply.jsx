@@ -19,12 +19,10 @@ const ReplyReply = ({ replyReplyId }) => {
         replyReplyIdData={replyReplyIdData}
         onFolder={onFolder}
       />
-      {toggle ? (
+      {toggle && (
         <ReplyComment
           dangerouslySetInnerHTML={{ __html: replyReplyIdData.text }}
         />
-      ) : (
-        <></>
       )}
     </ReplyReplyWrapper>
   ) : (
@@ -38,7 +36,7 @@ const ReplyReplyWrapper = styled.div`
   width: 320px;
   border-radius: 8px;
   padding: 0 12px 12px;
-  color: ${(props) => props.theme.color.default};
+  color: ${(props) => props.theme.text.default};
 `;
 const ReplyComment = styled.p`
   background-color: ${(props) => props.theme.container.default};

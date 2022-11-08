@@ -1,9 +1,9 @@
 import { useViewModeChange } from "hooks/index";
-import ViewModeBtn from "components/common/ViewModeBtn";
-import SwiperPagination from "components/common/ListPagination";
 import { getTopStoryIds } from "util/hnApi";
 import { useEffect, useState } from "react";
-import BoxPagination from "components/common/BoxPagination";
+import { Banner } from "./Home";
+import ViewModeBtn from "components/common/ViewModeBtn";
+import SwiperPagination from "components/template/SwiperPagination";
 
 const Top = () => {
   const [viewMode, handleViewMode] = useViewModeChange();
@@ -16,13 +16,9 @@ const Top = () => {
 
   return (
     <>
-      <img src={require("assets/top_banner.png")} alt="banner" />
+      <Banner src={require("assets/top_banner.png")} alt="banner" />
       <ViewModeBtn viewMode={viewMode} handleViewMode={handleViewMode} />
-      {viewMode === "list-mode" ? (
-        <SwiperPagination storyIds={storyIds} />
-      ) : (
-        <BoxPagination storyIds={storyIds} />
-      )}
+      <SwiperPagination storyIds={storyIds} viewMode={viewMode} />
     </>
   );
 };

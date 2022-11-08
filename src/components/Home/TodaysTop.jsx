@@ -15,10 +15,12 @@ const TodaysTop = ({ storyId, index }) => {
     };
   }, [storyId]);
 
+  console.log();
+
   return (
     <ListBox>
       <span>{index + 1}</span>
-      {story ? (
+      {Object.keys(story ?? {}).length ? (
         <div>
           <a href={story?.url} target="_blank" rel="noreferrer">
             <h4>{maxChar(story?.title, 55)}</h4>

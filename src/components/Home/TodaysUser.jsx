@@ -15,7 +15,7 @@ const TodaysUser = ({ index, storyId }) => {
     };
   }, [storyId]);
 
-  return story ? (
+  return Object.keys(story ?? {}).length ? (
     <UserWrapper to={`/userprofile/${story?.by}`}>
       <Rank>
         <img src={require("assets/star.png")} alt="star" />

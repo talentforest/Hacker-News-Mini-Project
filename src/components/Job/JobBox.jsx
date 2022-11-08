@@ -31,9 +31,9 @@ const Post = styled.div`
   box-shadow: ${(props) => props.theme.boxShadow};
   height: 104px;
   border-radius: 8px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
   padding: 0 12px;
-  margin-bottom: 8px;
+  margin: 0 20px 10px;
   h4 {
     display: flex;
     align-items: center;

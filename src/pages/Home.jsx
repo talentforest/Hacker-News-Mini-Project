@@ -169,7 +169,7 @@ const Home = () => {
   );
 };
 
-const Banner = styled.img`
+export const Banner = styled.img`
   width: 100%;
 `;
 
@@ -184,7 +184,6 @@ const Container = styled.div`
 `;
 
 const SwiperList = styled(Swiper)`
-  margin: -5px;
   padding-bottom: 20px;
   .swiper-slide {
     padding: 5px;
@@ -222,6 +221,7 @@ const SlideBox = styled.div`
   background-color: ${(props) => props.theme.background.default};
   padding: 5px;
   margin: 10px -5px -5px;
+  min-height: 224px;
   &::-webkit-scrollbar {
     display: none;
   }

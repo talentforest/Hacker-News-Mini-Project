@@ -1,7 +1,7 @@
 import { changeUrlMark } from "util";
 import { Site } from "theme/commonStyle";
 import styled from "styled-components";
-import OrangeTitle from "components/common/OrangeTitle";
+import Title from "components/common/Title";
 import CommentNum from "components/common/CommentNum";
 import UserPointsTime from "components/common/UserPointsTime";
 
@@ -10,7 +10,7 @@ const BasicItem = ({ story }) => {
     story && (
       <SubmissionBox>
         <div>
-          <OrangeTitle story={story} />
+          <Title story={story} />
           <Site>{changeUrlMark(story.url)}</Site>
         </div>
         <PostInfo>

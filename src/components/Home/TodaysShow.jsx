@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Tag } from "theme/commonStyle";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import Username from "components/common/Username";
-import OrangeTitle from "components/common/OrangeTitle";
+import Title from "components/common/Title";
 import styled from "styled-components";
 import CommentNum from "components/common/CommentNum";
 import TimeInfo from "components/common/TimeInfo";
@@ -22,11 +22,11 @@ const TodaysShow = ({ storyId }) => {
 
   return (
     <ShowBox>
-      {story ? (
+      {Object.keys(story ?? {}).length ? (
         <>
           <A href={story?.url} target="_blank" rel="noreferrer">
             <Tag>{changeUrlMark(story?.url)}</Tag>
-            <OrangeTitle story={story} />
+            <Title title={story?.title} />
             <Info>
               <img src={require("assets/point.png")} alt="point" />
               <span>{story?.score}</span>

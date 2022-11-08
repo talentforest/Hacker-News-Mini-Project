@@ -5,7 +5,7 @@ import { changeUrlMark } from "util";
 import { Tag } from "theme/commonStyle";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
-import OrangeTitle from "components/common/OrangeTitle";
+import Title from "components/common/Title";
 import CommentNum from "components/common/CommentNum";
 
 const BoxModeItem = ({ storyId }) => {
@@ -21,7 +21,7 @@ const BoxModeItem = ({ storyId }) => {
       <Post>
         <a href={story.url} target="_blank" rel="noreferrer">
           <Tag orange>{changeUrlMark(story.url)}</Tag>
-          <OrangeTitle story={story} />
+          <Title story={story} />
         </a>
         <div>
           <div>
@@ -39,7 +39,6 @@ const Post = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   box-shadow: ${(props) => props.theme.boxShadow};
   width: 48%;
   height: 230px;

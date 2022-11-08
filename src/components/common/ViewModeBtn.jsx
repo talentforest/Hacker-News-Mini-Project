@@ -18,8 +18,11 @@ const ViewModeBtn = ({ viewMode, handleViewMode }) => {
 };
 
 const ViewMode = styled.div`
+  margin-top: -3px;
   display: flex;
   align-items: center;
+  padding: 20px;
+  background-color: ${(props) => props.theme.background.default};
   svg {
     width: 22px;
     height: 22px;

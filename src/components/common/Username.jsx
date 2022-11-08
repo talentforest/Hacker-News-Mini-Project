@@ -46,10 +46,9 @@ const User = styled.div`
   align-items: center;
   svg {
     height: 20px;
-    margin-right: 4px;
+    margin-right: 3px;
   }
   span {
-    margin-right: 6px;
     color: ${(props) => props.theme.text.gray};
   }
 `;
