@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
-import Title from "components/common/Title";
+import CutTitle from "components/common/CutTitle";
 import CommentNum from "components/common/CommentNum";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import Username from "./Username";
@@ -14,7 +14,7 @@ const ViewModeItem = ({ storyId, viewMode }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => setStory();
   }, [storyId]);
 
@@ -25,18 +25,18 @@ const ViewModeItem = ({ storyId, viewMode }) => {
           <Tag orange>{changeUrlMark(story.url)}</Tag>
           {story.text ? (
             <Link to={`${story.id}`}>
-              <Title title={story.title} />
+              <CutTitle title={story.title} />
             </Link>
           ) : (
             <a href={story.url} target="_blank" rel="noreferrer">
-              <Title title={story.title} />
+              <CutTitle title={story.title} />
             </a>
           )}
           <Footer>
             {viewMode === "list-mode" && <UserPointsTime story={story} />}
-            {viewMode === "box-mode" && <Username story={story} />}
+            {viewMode === "box-mode" && <Username by={story?.by} />}
             <Link to={`${story.id}`}>
-              <CommentNum story={story} />
+              <CommentNum number={story?.descendants} />
             </Link>
           </Footer>
         </>

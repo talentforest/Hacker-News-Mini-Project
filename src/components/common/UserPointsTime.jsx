@@ -3,16 +3,12 @@ import Username from "components/common/Username";
 import SkeletonItem from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
 
-const UserPointsTime = ({ story, style, noIcon }) => {
+const UserPointsTime = ({ story, noIcon }) => {
   return (
     <Box>
       {story ? (
         <>
-          {noIcon ? (
-            <span>{story.by}</span>
-          ) : (
-            <Username story={story} style={style} />
-          )}
+          {noIcon ? <span>{story.by}</span> : <Username by={story.by} />}
           <span>{story.score} points</span>
           <span>{mapTime(story.time)}</span>
         </>

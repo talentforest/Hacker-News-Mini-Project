@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { maxChar } from "util";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
@@ -9,7 +9,7 @@ const TodaysTop = ({ storyId, index }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => {
       setStory();
     };

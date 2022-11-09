@@ -3,35 +3,19 @@ import { Skeleton } from "components/skeleton/SkeletonItem";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Username = ({
-  style,
-  story,
-  commentIds,
-  replyIdData,
-  replyReplyIdData,
-}) => {
+const Username = ({ by }) => {
   const navigator = useNavigate();
-  return story ? (
-    <User
-      role="link"
-      onClick={(event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        navigator(
-          `/userprofile/${
-            story?.by ||
-            replyIdData?.by ||
-            replyReplyIdData?.by ||
-            commentIds?.by
-          }`
-        );
-      }}
-      style={{ cursor: "pointer" }}
-    >
+
+  const onClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    navigator(`/userprofile/${by}`);
+  };
+
+  return by ? (
+    <User role="link" onClick={onClick}>
       <AccountCircle />
-      <span style={style}>
-        {story?.by || commentIds?.by || replyIdData?.by || replyReplyIdData?.by}
-      </span>
+      <span>{by}</span>
     </User>
   ) : (
     <User>
@@ -42,6 +26,7 @@ const Username = ({
 };
 
 const User = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   color: ${(props) => props.theme.text.default};

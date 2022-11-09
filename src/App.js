@@ -37,6 +37,9 @@ function App() {
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.background.default};
+  a {
+    color: ${(props) => props.theme.text.lightGray};
+  }
 `;
 
 export default App;

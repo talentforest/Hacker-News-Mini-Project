@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const UserButton = ({ buttonMode, handleButtonMode }) => {
+const CategoryBtn = ({ buttonMode, handleButtonMode }) => {
   return (
     <SortBtn>
       <Button
@@ -47,4 +47,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default UserButton;
+export default CategoryBtn;

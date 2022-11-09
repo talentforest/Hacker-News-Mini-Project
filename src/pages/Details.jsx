@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCurrIdData } from "util/hnApi";
+import { getData } from "util/hnApi";
 import Comment from "components/comments/Comment";
 import CommentHeader from "components/comments/CommentHeader";
-import Title from "components/common/Title";
+import CutTitle from "components/common/CutTitle";
 import styled from "styled-components";
 import UserPointsTime from "components/common/UserPointsTime";
 
@@ -12,21 +12,19 @@ const Details = () => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
-    getCurrIdData(id, setStory);
+    getData(id, setStory);
     return () => setStory([]);
   }, [id]);
 
   return (
     <Wrapper>
-      <div>
-        <div>
-          <UserPointsTime story={story} style={{ fontSize: "16px" }} />
-        </div>
-        <Title title={story.title} />
-        <PostText dangerouslySetInnerHTML={{ __html: story?.text }} />
-      </div>
+      <UserPointsTime story={story} />
+      <Text>
+        <CutTitle title={story.title} />
+        <p dangerouslySetInnerHTML={{ __html: story?.text }} />
+      </Text>
       <CommentHeader story={story} />
-      {story.kids?.slice(0, 16).map((commentId) => (
+      {story.kids?.slice(0, 10).map((commentId) => (
         <Comment key={commentId} commentId={commentId} />
       ))}
     </Wrapper>
@@ -39,46 +37,37 @@ const Wrapper = styled.section`
   background-color: ${(props) => props.theme.background.default};
   color: ${(props) => props.theme.text.default};
   > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     padding: 23px 10px 18px;
+    margin: 0 10px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
     background-color: ${(props) => props.theme.background.default};
-    word-break: break-word;
-    overflow-wrap: break-word;
-    pre {
-      white-space: pre-wrap;
-    }
-    img {
-      width: 33.33px;
-      height: 33.33px;
-      margin-right: 5px;
-    }
-    > div:first-child {
-      font-size: 15px;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid ${(props) => props.theme.border.lightGray};
-      margin-bottom: 12px;
-      padding: 0 10px 18px;
-      > div:last-child {
-        span {
-          font-size: 12px;
-          font-weight: 400;
-        }
-        span:first-child {
-          margin-right: 5px;
-        }
-      }
+    > div {
+      margin-right: auto;
+      font-size: 16px;
     }
   }
 `;
 
-const PostText = styled.div`
-  padding: 0px 10px 0;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 24px;
-  color: ${(props) => props.theme.text.default};
+const Text = styled.div`
+  padding: 0 20px;
+  > h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: ${(props) => props.theme.text.default};
+  }
 `;
 
 export default Details;

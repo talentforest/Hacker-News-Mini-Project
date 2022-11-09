@@ -4,43 +4,31 @@ import CommentNum from "../common/CommentNum";
 const CommentHeader = ({ story }) => {
   return (
     <Sort>
-      <Mark>
-        <div />
-        <span>Comments</span>
-      </Mark>
-      <CommentNum story={story} />
+      <Mark />
+      <span>Comments</span>
+      <CommentNum number={story?.descendants} />
     </Sort>
   );
 };
 
-const Mark = styled.div`
-  span {
-    color: ${(props) => props.theme.text.default};
-  }
-`;
-
 const Sort = styled.div`
   display: flex;
-  justify-content: space-between;
-  height: 35px;
+  align-items: center;
+  gap: 5px;
   padding: 32px 20px 8px;
   font-size: 14px;
   font-weight: 600;
   background-color: ${(props) => props.theme.background.default};
-  div {
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-    img {
-      width: 8px;
-      margin-right: 5px;
-    }
+  div:last-child {
+    margin-left: auto;
   }
-  > div:last-child {
-    img {
-      width: 16px;
-    }
-  }
+`;
+
+const Mark = styled.div`
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.text.orange};
 `;
 
 export default CommentHeader;

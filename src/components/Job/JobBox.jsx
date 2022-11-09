@@ -1,5 +1,5 @@
 import { useState, useEffect, memo } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import { mapTime, maxChar, changeUrlMark } from "util";
 import styled from "styled-components";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
@@ -8,7 +8,7 @@ const JobBox = memo(function JobStory({ storyId }) {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => setStory();
   }, [storyId]);
 

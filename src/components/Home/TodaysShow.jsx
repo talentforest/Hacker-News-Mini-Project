@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
 import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
 import Username from "components/common/Username";
-import Title from "components/common/Title";
+import Title from "components/common/CutTitle";
 import styled from "styled-components";
 import CommentNum from "components/common/CommentNum";
 import { AccessTime } from "@material-ui/icons";
@@ -14,7 +14,7 @@ const TodaysShow = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => {
       setStory();
     };
@@ -37,9 +37,9 @@ const TodaysShow = ({ storyId }) => {
             </Info>
           </A>
           <UserComments>
-            <Username story={story} />
+            <Username by={story?.by} />
             <Link to={`show/${story?.id}`}>
-              <CommentNum story={story} />
+              <CommentNum number={story?.descendants} />
             </Link>
           </UserComments>
         </>

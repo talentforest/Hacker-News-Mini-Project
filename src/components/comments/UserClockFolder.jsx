@@ -1,61 +1,53 @@
 import Username from "components/common/Username";
-import Clock from "components/comments/Clock";
+import TimeBox from "components/comments/TimeBox";
 import styled from "styled-components";
 import { KeyboardArrowUp } from "@material-ui/icons";
+import { useState } from "react";
 
-const UserClockFolder = ({
-  commentIds,
-  replyIdData,
-  replyReplyIdData,
-  onFolder,
-  story,
-}) => {
+const UserClockFolder = ({ data, onFolder }) => {
+  const [rotate, setRotate] = useState(false);
+  const onClick = () => {
+    onFolder();
+    setRotate((prev) => !prev);
+  };
+
   return (
     <CommentInfo>
-      <div>
-        <Username
-          story={story}
-          commentIds={commentIds}
-          replyIdData={replyIdData}
-          replyReplyIdData={replyReplyIdData}
-        />
-        <Clock
-          story={story}
-          commentIds={commentIds}
-          replyIdData={replyIdData}
-          replyReplyIdData={replyReplyIdData}
-        />
-      </div>
-      <FolderBtn onClick={onFolder} />
+      <Username by={data?.by} />
+      <TimeBox time={data?.time} />
+      <KeyboardArrowUp onClick={onClick} className={rotate ? "rotate" : ""} />
     </CommentInfo>
   );
 };
 
 const CommentInfo = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  gap: 5px;
   font-size: 14px;
   font-weight: 400;
-  > div {
-    padding: 20px 0 10px;
-    display: flex;
-    align-items: center;
-    img {
-      width: 20px;
-      height: 20px;
-      margin-right: 2px;
+  padding: 10px 0;
+  svg {
+    fill: ${(props) => props.theme.text.lightGray};
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    &:last-child {
+      width: 24px;
+      height: 24px;
+      fill: ${(props) => props.theme.text.default};
     }
-    span {
-      color: ${(props) => props.theme.text.gray};
+    &:hover {
+      transition: transform ease 0.3s;
+      transform: scale(1.2);
+    }
+    &.rotate {
+      transition: transform ease 0.3s;
+      transform: rotate(180deg);
     }
   }
-`;
-const FolderBtn = styled(KeyboardArrowUp)`
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
 `;
 
 export default UserClockFolder;

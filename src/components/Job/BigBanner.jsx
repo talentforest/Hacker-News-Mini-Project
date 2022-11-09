@@ -1,5 +1,5 @@
 import { useState, useEffect, memo } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import styled from "styled-components";
 import { Tag } from "components/home/TodaysShow";
 
@@ -7,7 +7,7 @@ const BigBanner = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => setStory([]);
   }, [storyId]);
 

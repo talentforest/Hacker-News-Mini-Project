@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getStory } from "util/hnApi";
-import Title from "components/common/Title";
+import { getData } from "util/hnApi";
+import CutTitle from "components/common/CutTitle";
 import styled from "styled-components";
 import SkeletonItem from "components/skeleton/SkeletonItem";
 
@@ -9,7 +9,7 @@ const TodaysAsk = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => {
       setStory();
     };
@@ -18,7 +18,7 @@ const TodaysAsk = ({ storyId }) => {
   return (
     <LinkBox to={`/ask/${storyId}`}>
       {Object.keys(story ?? {}).length ? (
-        <Title title={story?.title} />
+        <CutTitle title={story?.title} />
       ) : (
         <>
           <SkeletonItem />

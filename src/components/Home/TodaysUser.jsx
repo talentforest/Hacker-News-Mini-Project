@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import { Link } from "react-router-dom";
 import JoinedKarma from "components/common/JoinedKarma";
 import styled from "styled-components";
@@ -9,7 +9,7 @@ const TodaysUser = ({ index, storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => {
       setStory();
     };

@@ -1,55 +1,55 @@
 import { useState, useEffect } from "react";
-import { getUserSubmissions } from "util/hnApi";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { Title } from "@material-ui/icons";
+import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
+import { Link } from "react-router-dom";
 import UserPointsTime from "components/common/UserPointsTime";
 import CommentNum from "components/common/CommentNum";
+import CutTitle from "components/common/CutTitle";
+import styled from "styled-components";
+import CommentHeader from "components/comments/CommentHeader";
+import Comment from "components/comments/Comment";
 
-const Submissions = ({ submittedId }) => {
-  const navigator = useNavigate();
+const Submissions = ({ buttonMode, submittedId }) => {
   const [story, setStory] = useState();
 
   useEffect(() => {
-    getUserSubmissions(submittedId, setStory);
-    return () => setStory([]);
+    getData(submittedId, setStory);
+    return () => setStory();
   }, [submittedId]);
+
+  const innerDoc =
+    story?.title?.includes("Ask HN") ||
+    story?.title?.includes("Show HN") ||
+    story?.title?.includes("Tell HN");
+
+  const checkDocLink = () => {
+    if (story?.title?.includes("Ask HN")) return `/ask/${story?.id}`;
+    if (story?.title?.includes("Show HN")) return `/show/${story?.id}`;
+    if (story?.title?.includes("Tell HN")) return `/show/${story?.id}`;
+  };
 
   return (
     <>
-      {story?.type === "story" &&
-      !(story?.deleted === true) &&
-      !(story?.dead === true) ? (
-        story?.title?.includes("Ask HN") ? (
-          <div role="link" onClick={() => navigator(`/ask/${story.id}`)}>
-            <Box>
-              <Title title={story.title} />
-              <span>{changeUrlMark(story?.url)}</span>
-              <Footer>
-                <UserPointsTime story={story} />
-                <CommentNum story={story} />
-              </Footer>
-            </Box>
-          </div>
-        ) : (
-          <a
-            href={story.url}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <Box>
-              <Title title={story.title} />
-              <span>{changeUrlMark(story?.url)}</span>
-              <Footer>
-                <UserPointsTime story={story} />
-                <CommentNum story={story} />
-              </Footer>
-            </Box>
+      {buttonMode === "submissions" && story?.type === "story" && (
+        <Box>
+          <a href={story?.url} target="_blank" rel="noreferrer">
+            <CutTitle title={story.title} />
+            <span>{changeUrlMark(story?.url)}</span>
           </a>
-        )
-      ) : null}
+          <Footer>
+            <UserPointsTime story={story} />
+            <Link to={innerDoc ? checkDocLink() : `/ask/${story?.id}`}>
+              <CommentNum number={story?.descendants} />
+            </Link>
+          </Footer>
+        </Box>
+      )}
+      {buttonMode === "comments" && story?.type === "comment" && (
+        <Comment userprofileComments={story} />
+      )}
+      {buttonMode === "favorites" && story?.parts && (
+        <CommentHeader story={story} />
+      )}
     </>
   );
 };
@@ -58,6 +58,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
   height: 148px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.container.default};
@@ -65,20 +66,23 @@ const Box = styled.div`
   color: ${(props) => props.theme.text.default};
   margin: 0 auto 16px;
   padding: 15px 12px;
-  > h4 {
-    height: 48px;
-    font-weight: 600;
-    line-height: 24px;
-    cursor: pointer;
-  }
-  > span {
-    height: 32px;
-    margin-top: 5px;
-    font-size: 12px;
-    font-weight: 400;
-    color: ${(props) => props.theme.container.header};
-    text-decoration: underline;
-    cursor: pointer;
+  > a {
+    height: 100%;
+    > h4 {
+      height: 48px;
+      font-weight: 600;
+      line-height: 24px;
+      cursor: pointer;
+    }
+    > span {
+      height: 32px;
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 400;
+      color: ${(props) => props.theme.container.header};
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 `;
 const Footer = styled.div`

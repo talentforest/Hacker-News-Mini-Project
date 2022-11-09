@@ -1,7 +1,7 @@
 import { ArrowForwardIos } from "@material-ui/icons";
 import styled from "styled-components";
 
-const Title = ({ title }) => {
+const CutTitle = ({ title }) => {
   return (
     <Box>
       <h4>{title}</h4>
@@ -29,4 +29,4 @@ const Box = styled.div`
   }
 `;
 
-export default Title;
+export default CutTitle;

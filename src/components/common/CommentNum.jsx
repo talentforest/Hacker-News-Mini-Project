@@ -1,11 +1,11 @@
 import { Comment } from "@material-ui/icons";
 import styled from "styled-components";
 
-const CommentNum = ({ story }) => {
+const CommentNum = ({ number }) => {
   return (
     <CommentBox>
       <Comment />
-      <span>{story?.descendants}</span>
+      <span>{number || 0}</span>
     </CommentBox>
   );
 };

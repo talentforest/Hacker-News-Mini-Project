@@ -1,12 +1,12 @@
 import { useState, useEffect, memo } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import styled from "styled-components";
 
 const SmallBanner = memo(function Story({ storyId }) {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => setStory([]);
   }, [storyId]);
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import { mapTime, maxChar } from "util";
 import { Skeleton } from "components/skeleton/SkeletonItem";
 import styled from "styled-components";
@@ -9,7 +9,7 @@ const TodaysNew = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => {
       setStory();
     };
@@ -23,7 +23,7 @@ const TodaysNew = ({ storyId }) => {
           <a href={story?.url} target="_blank" rel="noreferrer">
             {maxChar(story?.title, 68)}
           </a>
-          <Username story={story} />
+          <Username by={story?.by} />
         </>
       ) : (
         <>

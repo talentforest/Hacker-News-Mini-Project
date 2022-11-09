@@ -1,13 +1,13 @@
 import { memo, useState, useEffect } from "react";
 import { mapTime } from "util/mapTime";
-import { getUserInfo } from "util/hnApi";
+import { getUserData } from "util/hnApi";
 import styled from "styled-components";
 
 const JoinedKarma = memo(function Story({ story }) {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    getUserInfo(story, setUserData);
+    getUserData(story?.by, setUserData);
     return () => setUserData([]);
   }, [story]);
 
@@ -29,7 +29,7 @@ const Info = styled.div`
   font-size: 12px;
   color: ${(props) => props.theme.text.default};
   > div:first-child {
-    border: 1px solid rgb(238, 112, 44, 0.75);
+    border: 1px solid ${(props) => props.theme.text.orange};
     color: ${(props) => props.theme.text.orange};
     font-weight: 10px;
     letter-spacing: 0.1%;

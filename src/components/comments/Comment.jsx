@@ -1,53 +1,62 @@
 import { useState, useEffect, memo } from "react";
 import { useToggle } from "hooks/index";
-import { getCommentData } from "util/hnApi";
+import { getData } from "util/hnApi";
 import UserClockFolder from "./UserClockFolder";
 import Reply from "./Reply";
 import styled from "styled-components";
 
-const Comment = memo(function Story({ commentId }) {
+const Comment = memo(function Story({ commentId, userprofileComments }) {
   const [toggle, onFolder] = useToggle();
-  const [commentIds, setCommentIds] = useState([]);
+  const [comments, setComments] = useState();
 
   useEffect(() => {
-    getCommentData(commentId, setCommentIds);
+    getData(commentId, setComments);
+    return () => {
+      setComments();
+    };
   }, [commentId]);
 
-  const replyIds = commentIds.kids;
-
   return (
-    <CommentWrapper>
-      <UserClockFolder commentIds={commentIds} onFolder={onFolder} />
-      {toggle ? (
-        <CommentText dangerouslySetInnerHTML={{ __html: commentIds.text }} />
-      ) : (
-        <></>
-      )}
-      {toggle ? (
-        replyIds?.map((replyId, i) => <Reply key={i} replyId={replyId} />)
-      ) : (
-        <></>
-      )}
-    </CommentWrapper>
+    !userprofileComments?.deleted && (
+      <Box>
+        <UserClockFolder
+          data={comments?.by ? comments : userprofileComments}
+          onFolder={onFolder}
+        />
+        {toggle && (
+          <>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: comments?.text || userprofileComments?.text,
+              }}
+            />
+
+            {!userprofileComments &&
+              comments?.kids?.map((replyId) => (
+                <Reply key={replyId} replyId={replyId} />
+              ))}
+          </>
+        )}
+      </Box>
+    )
   );
 });
 
-const CommentWrapper = styled.section`
+const Box = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: 100%;
   padding: 0 20px 10px;
   background-color: ${(props) => props.theme.background.default};
-`;
-const CommentText = styled.p`
-  width: 100%;
-  background-color: ${(props) => props.theme.background.default};
-  display: block;
-  line-height: 20px;
-  color: ${(props) => props.theme.container.default};
-  word-wrap: break-word;
-  white-space: pre-wrap;
-  margin-bottom: 14px;
+  > p {
+    width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    color: ${(props) => props.theme.text.default};
+    margin-bottom: 14px;
+  }
 `;
 
 export default Comment;

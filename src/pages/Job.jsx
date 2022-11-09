@@ -20,9 +20,11 @@ const Job = () => {
     <>
       <Banner src={require("assets/job_banner.png")} alt="banner" />
       <Container>
-        {storyIds.slice(0, 5).map((storyId) => (
-          <JobBox key={storyId} storyId={storyId} />
-        ))}
+        <JobPosts>
+          {storyIds.slice(0, 5).map((storyId) => (
+            <JobBox key={storyId} storyId={storyId} />
+          ))}
+        </JobPosts>
         <ApplyBanner>
           <Banner src={require("assets/applynow.png")} alt="apply banner" />
           <Swiper slidesPerView={1}>
@@ -35,9 +37,11 @@ const Job = () => {
             ))}
           </Swiper>
         </ApplyBanner>
-        {storyIds.slice(5, 10).map((storyId) => (
-          <JobBox key={storyId} storyId={storyId} />
-        ))}
+        <JobPosts>
+          {storyIds.slice(5, 10).map((storyId) => (
+            <JobBox key={storyId} storyId={storyId} />
+          ))}
+        </JobPosts>
         <ApplyBanner>
           <Banner src={require("assets/applyimg.png")} alt="apply banner" />
           <Swiper $small slidesPerView={1}>
@@ -50,13 +54,19 @@ const Job = () => {
             ))}
           </Swiper>
         </ApplyBanner>
-        {storyIds.slice(10, 15).map((storyId) => (
-          <JobBox key={storyId} storyId={storyId} />
-        ))}
+        <JobPosts>
+          {storyIds.slice(10, 15).map((storyId) => (
+            <JobBox key={storyId} storyId={storyId} />
+          ))}
+        </JobPosts>
       </Container>
     </>
   );
 };
+
+const JobPosts = styled.div`
+  min-height: 70vh;
+`;
 
 const Container = styled.section`
   padding: 12px 0 20px;

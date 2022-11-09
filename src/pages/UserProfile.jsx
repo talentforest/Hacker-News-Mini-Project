@@ -1,31 +1,22 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { getUserInfo } from "util/hnApi";
+import { getUserData } from "util/hnApi";
 import { useButtonChange } from "hooks";
 import JoinedKarma from "components/common/JoinedKarma";
-import UserButton from "components/userprofile/UserButton";
+import CategoryBtn from "components/userprofile/CategoryBtn";
 import Submissions from "components/userprofile/Submissions";
-import Comments from "components/userprofile/Comments";
-import Favorites from "components/userprofile/Favorites";
 import styled from "styled-components";
 
 const UserProfile = () => {
   const { pathname } = useLocation();
-
   const [userData, setUserData] = useState([]);
   const [buttonMode, handleButtonMode] = useButtonChange();
-
-  const story = useMemo(
-    () => ({
-      by: pathname?.split("/userprofile/")[1],
-    }),
-    [pathname]
-  );
+  const username = pathname?.split("/userprofile/")[1];
 
   useEffect(() => {
-    getUserInfo(story, setUserData);
+    getUserData(username, setUserData);
     return () => setUserData([]);
-  }, [story]);
+  }, [username]);
 
   return (
     <Wrapper>
@@ -34,28 +25,17 @@ const UserProfile = () => {
         <JoinedKarma />
         <p dangerouslySetInnerHTML={{ __html: userData.about }} />
       </div>
-      <UserButton buttonMode={buttonMode} handleButtonMode={handleButtonMode} />
-      {buttonMode === "submissions" ? (
-        userData.submitted?.map((submittedId) => (
-          <Submissions key={submittedId} submittedId={submittedId} />
-        ))
-      ) : (
-        <></>
-      )}
-      {buttonMode === "comments" ? (
-        userData.submitted?.map((submittedId) => (
-          <Comments key={submittedId} submittedId={submittedId} />
-        ))
-      ) : (
-        <></>
-      )}
-      {buttonMode === "favorites" ? (
-        userData.submitted?.map((submittedId) => (
-          <Favorites key={submittedId} submittedId={submittedId} />
-        ))
-      ) : (
-        <></>
-      )}
+      <CategoryBtn
+        buttonMode={buttonMode}
+        handleButtonMode={handleButtonMode}
+      />
+      {userData.submitted?.slice(0, 100)?.map((submittedId) => (
+        <Submissions
+          buttonMode={buttonMode}
+          key={submittedId}
+          submittedId={submittedId}
+        />
+      ))}
     </Wrapper>
   );
 };

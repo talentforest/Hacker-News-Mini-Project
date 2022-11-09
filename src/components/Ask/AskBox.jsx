@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { getStory } from "util/hnApi";
+import { getData } from "util/hnApi";
 import { mapTime } from "util/mapTime";
 import { Link } from "react-router-dom";
 import { maxChar } from "util";
 import styled from "styled-components";
 import Username from "components/common/Username";
-import Title from "components/common/Title";
+import CutTitle from "components/common/CutTitle";
 import CommentNum from "components/common/CommentNum";
 import { Skeleton } from "components/skeleton/SkeletonItem";
 
@@ -13,7 +13,7 @@ const AskBox = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
-    getStory(storyId, setStory);
+    getData(storyId, setStory);
     return () => setStory();
   }, [storyId]);
 
@@ -22,15 +22,15 @@ const AskBox = ({ storyId }) => {
       {Object.keys(story ?? {}).length ? (
         <>
           <PostBody to={`${story.id}`}>
-            <Title title={story.title} />
+            <CutTitle title={story.title} />
             <p dangerouslySetInnerHTML={{ __html: maxChar(story.text, 150) }} />
             <span>{mapTime(story.time)}</span>
           </PostBody>
           <PostFooter>
-            <Username story={story} />
+            <Username by={story.by} />
             <span>{story.score} points</span>
             <Link to={`${story.id}`}>
-              <CommentNum story={story} />
+              <CommentNum number={story?.descendants} />
             </Link>
           </PostFooter>
         </>
