@@ -1,12 +1,11 @@
 import ViewModeItem from "components/molecules/ViewModeItem";
-import styled from "styled-components";
 import { Navigation, Pagination } from "swiper";
 import { SwiperSlide } from "swiper/react";
-
-const { SwiperContainer } = require("theme/swiper");
+import styled from "styled-components";
+import { SwiperContainer } from "theme/swiper";
 
 const SwiperPagination = ({ storyIds, viewMode }) => {
-  return (
+  return storyIds.length !== 0 ? (
     <SwiperContainer
       modules={[Navigation, Pagination]}
       slidesPerView={1}
@@ -47,6 +46,12 @@ const SwiperPagination = ({ storyIds, viewMode }) => {
         </SwiperSlide>
       )}
     </SwiperContainer>
+  ) : (
+    <PostsBox>
+      {[0, 1, 2].map((storyId) => (
+        <ViewModeItem key={storyId} viewMode={viewMode} />
+      ))}
+    </PostsBox>
   );
 };
 

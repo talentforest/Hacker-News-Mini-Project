@@ -79,7 +79,7 @@ const ApplyBanner = styled.div`
 const Swiper = styled(SwiperContainer)`
   position: absolute;
   display: flex;
-  top: ${(props) => (props.$small ? "54px" : "110px")};
+  top: ${(props) => (props.$small ? "44px" : "70px")};
   width: 100%;
   margin: 0 auto;
 `;

@@ -27,7 +27,7 @@ const Header = () => {
 
 const HeaderTop = styled.header`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   background-color: ${(props) => props.theme.background.header};
   height: 87px;
