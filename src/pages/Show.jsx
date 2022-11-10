@@ -14,8 +14,6 @@ const Show = () => {
     return () => setStoryIds([]);
   }, []);
 
-  console.log(storyIds);
-
   return (
     <>
       <Banner src={require("assets/show_banner.png")} alt="banner" />
