@@ -3,9 +3,9 @@ import { getData } from "util/hnApi";
 import { Link } from "react-router-dom";
 import JoinedKarma from "components/common/JoinedKarma";
 import styled from "styled-components";
-import SkeletonItem from "components/skeleton/SkeletonItem";
+import SkeletonItem from "components/common/skeleton/SkeletonItem";
 
-const TodaysUser = ({ index, storyId }) => {
+const TodaysUserPost = ({ index, storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -104,4 +104,4 @@ const Username = styled.div`
   margin-bottom: 8px;
 `;
 
-export default TodaysUser;
+export default TodaysUserPost;

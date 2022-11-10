@@ -1,9 +1,9 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import styled from "styled-components";
-import { Tag } from "components/home/TodaysShow";
+import { Tag } from "components/organisms/home/TodaysShowPost";
 
-const BigBanner = memo(function Story({ storyId }) {
+const BigBanner = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const BigBanner = memo(function Story({ storyId }) {
       </CompanyInfo>
     </Banner>
   );
-});
+};
 
 const Banner = styled.div`
   width: 90%;

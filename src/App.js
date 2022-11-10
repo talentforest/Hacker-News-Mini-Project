@@ -11,7 +11,7 @@ import Ask from "./pages/Ask";
 import Details from "./pages/Details";
 import Job from "./pages/Job";
 import styled from "styled-components";
-import UserRank from "pages/UserRank";
+import UserRank from "./pages/UserRank";
 
 function App() {
   return (

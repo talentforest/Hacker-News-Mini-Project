@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { changeUrlMark, maxChar } from "util";
-import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
+import SkeletonItem, {
+  Skeleton,
+} from "components/common/skeleton/SkeletonItem";
 import styled from "styled-components";
-import { Tag } from "./TodaysShow";
+import { Tag } from "./TodaysShowPost";
 import { AccessTime } from "@material-ui/icons";
 import { mapTime } from "util";
 
-const TodaysJob = ({ storyId }) => {
+const TodaysJobPost = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -87,4 +89,4 @@ const Time = styled.div`
   }
 `;
 
-export default TodaysJob;
+export default TodaysJobPost;

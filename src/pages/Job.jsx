@@ -3,9 +3,9 @@ import { SwiperSlide } from "swiper/react";
 import { SwiperContainer } from "theme/swiper";
 import { getJobStoryIds } from "util/hnApi";
 import { Banner } from "./Home";
-import BigBanner from "components/job/BigBanner";
-import SmallBanner from "components/job/SmallBanner";
-import JobBox from "components/job/JobBox";
+import BigBanner from "components/organisms/job/BigBanner";
+import SmallBanner from "components/organisms/job/SmallBanner";
+import JobBox from "components/organisms/job/JobBox";
 import styled from "styled-components";
 
 const Job = () => {

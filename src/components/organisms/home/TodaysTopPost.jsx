@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { maxChar } from "util";
 import { getData } from "util/hnApi";
-import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
+import SkeletonItem, {
+  Skeleton,
+} from "components/common/skeleton/SkeletonItem";
 import styled from "styled-components";
-import UserPointsTime from "components/common/UserPointsTime";
+import UserPointsTime from "components/molecules/UserPointsTime";
 
-const TodaysTop = ({ storyId, index }) => {
+const TodaysTopPost = ({ storyId, index }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -64,4 +66,4 @@ const ListBox = styled.li`
   }
 `;
 
-export default TodaysTop;
+export default TodaysTopPost;

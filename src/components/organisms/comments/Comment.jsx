@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useToggle } from "hooks/index";
 import { getData } from "util/hnApi";
-import UserClockFolder from "./UserClockFolder";
+import UserClockFolder from "../../molecules/UserClockFolder";
 import Reply from "./Reply";
 import styled from "styled-components";
 

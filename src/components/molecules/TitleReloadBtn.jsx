@@ -1,14 +1,13 @@
-import Title from "./Title";
+import Title from "../common/Title";
 import styled from "styled-components";
-
 import { useState } from "react";
 import { Replay } from "@material-ui/icons";
 
-const TitleReloadBtn = ({ title, reloadData }) => {
+const TitleReloadBtn = ({ title, setNum, length }) => {
   const [rotate, setRotate] = useState(false);
 
   const onClick = () => {
-    reloadData();
+    setNum(Math.abs(Math.floor(Math.random() * length - 5)));
     setRotate(true);
     setTimeout(() => setRotate(false), 300);
   };

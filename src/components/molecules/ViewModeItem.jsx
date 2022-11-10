@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import styled from "styled-components";
-import UserPointsTime from "components/common/UserPointsTime";
+import UserPointsTime from "components/molecules/UserPointsTime";
 import CutTitle from "components/common/CutTitle";
 import CommentNum from "components/common/CommentNum";
-import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
-import Username from "./Username";
-import { Tag } from "components/home/TodaysShow";
+import SkeletonItem, {
+  Skeleton,
+} from "components/common/skeleton/SkeletonItem";
+import Username from "../common/Username";
+import { Tag } from "components/organisms/home/TodaysShowPost";
 
 const ViewModeItem = ({ storyId, viewMode }) => {
   const [story, setStory] = useState({});

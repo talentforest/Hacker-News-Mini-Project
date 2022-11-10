@@ -1,6 +1,6 @@
 import { AccessTime } from "@material-ui/icons";
 import styled from "styled-components";
-import Title from "./Title";
+import Title from "../common/Title";
 
 const TitleClock = ({ title }) => {
   const now = new Date();

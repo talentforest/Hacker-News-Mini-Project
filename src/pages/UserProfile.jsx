@@ -3,14 +3,16 @@ import { useLocation } from "react-router-dom";
 import { getUserData } from "util/hnApi";
 import { useButtonChange } from "hooks";
 import JoinedKarma from "components/common/JoinedKarma";
-import CategoryBtn from "components/userprofile/CategoryBtn";
+import CategoryBtn from "components/organisms/userprofile/CategoryBtn";
 import Submissions, {
   Footer,
   SubmissionBox,
-} from "components/userprofile/Submissions";
+} from "components/template/Submissions";
 import styled from "styled-components";
-import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
-import UserPointsTime from "components/common/UserPointsTime";
+import SkeletonItem, {
+  Skeleton,
+} from "components/common/skeleton/SkeletonItem";
+import UserPointsTime from "components/molecules/UserPointsTime";
 
 const UserProfile = () => {
   const { pathname } = useLocation();
@@ -63,7 +65,7 @@ const Wrapper = styled.section`
   background-color: ${(props) => props.theme.background.gray};
   padding: 29px 20px 32px;
   margin: 0 auto;
-  min-height: 70vh;
+  min-height: 90vh;
 `;
 
 const UserInfo = styled.div`

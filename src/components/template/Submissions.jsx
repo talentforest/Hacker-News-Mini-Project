@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
-import UserPointsTime from "components/common/UserPointsTime";
+import UserPointsTime from "components/molecules/UserPointsTime";
 import CommentNum from "components/common/CommentNum";
 import CutTitle from "components/common/CutTitle";
 import styled from "styled-components";
-import CommentHeader from "components/comments/CommentHeader";
-import Comment from "components/comments/Comment";
-import SkeletonItem from "components/skeleton/SkeletonItem";
+import CommentHeader from "components/molecules/CommentHeader";
+import Comment from "components/organisms/comments/Comment";
+import SkeletonItem from "components/common/skeleton/SkeletonItem";
 
 const Submissions = ({ buttonMode, submittedId }) => {
   const [story, setStory] = useState();
@@ -49,7 +49,13 @@ const Submissions = ({ buttonMode, submittedId }) => {
         story?.type === "comment" &&
         !story?.delete && <Comment userprofileComments={story} />}
       {buttonMode === "favorites" &&
-        (story?.parts ? <CommentHeader story={story} /> : <>no</>)}
+        (story?.parts ? (
+          <CommentHeader story={story} />
+        ) : !(story?.type === "comment") && !(story?.type === "story") ? (
+          <>no</>
+        ) : (
+          <></>
+        ))}
     </>
   ) : (
     <SubmissionBox>

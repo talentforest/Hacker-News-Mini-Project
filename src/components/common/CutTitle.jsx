@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { maxChar } from "util";
 
-const Title = ({ title }) => {
+const CutTitle = ({ title }) => {
   const orangeWord =
     title?.includes("Ask HN") ||
     title?.includes("Tell HN") ||
@@ -31,4 +31,4 @@ const OrangeColor = styled.span`
   color: ${(props) => props.theme.text.orange};
 `;
 
-export default Title;
+export default CutTitle;

@@ -7,7 +7,7 @@ import styled from "styled-components";
 import Username from "components/common/Username";
 import CutTitle from "components/common/CutTitle";
 import CommentNum from "components/common/CommentNum";
-import { Skeleton } from "components/skeleton/SkeletonItem";
+import { Skeleton } from "components/common/skeleton/SkeletonItem";
 
 const AskBox = ({ storyId }) => {
   const [story, setStory] = useState({});

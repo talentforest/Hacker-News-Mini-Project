@@ -1,8 +1,8 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import styled from "styled-components";
 
-const SmallBanner = memo(function Story({ storyId }) {
+const SmallBanner = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const SmallBanner = memo(function Story({ storyId }) {
       </CompanyInfo2>
     </Banner2>
   );
-});
+};
 
 const Banner2 = styled.div`
   display: flex;

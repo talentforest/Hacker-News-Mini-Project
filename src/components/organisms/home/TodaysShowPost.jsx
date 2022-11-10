@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
-import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
+import SkeletonItem, {
+  Skeleton,
+} from "components/common/skeleton/SkeletonItem";
 import Username from "components/common/Username";
 import Title from "components/common/CutTitle";
 import styled from "styled-components";
@@ -10,7 +12,7 @@ import CommentNum from "components/common/CommentNum";
 import { AccessTime } from "@material-ui/icons";
 import { mapTime } from "util";
 
-const TodaysShow = ({ storyId }) => {
+const TodaysShowPost = ({ storyId }) => {
   const [story, setStory] = useState([]);
 
   useEffect(() => {
@@ -151,4 +153,4 @@ const UserComments = styled.div`
   color: ${(props) => props.theme.text.default};
 `;
 
-export default TodaysShow;
+export default TodaysShowPost;

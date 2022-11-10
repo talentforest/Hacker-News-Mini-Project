@@ -2,7 +2,7 @@ import { ArrowForwardIos } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const CutTitle = ({ title }) => {
+const Title = ({ title }) => {
   const category = title.split(" ")[1].toLowerCase();
   return (
     <Box to={`/${category}`}>
@@ -31,4 +31,4 @@ const Box = styled(Link)`
   }
 `;
 
-export default CutTitle;
+export default Title;

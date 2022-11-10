@@ -1,10 +1,12 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { mapTime, maxChar, changeUrlMark } from "util";
 import styled from "styled-components";
-import SkeletonItem, { Skeleton } from "components/skeleton/SkeletonItem";
+import SkeletonItem, {
+  Skeleton,
+} from "components/common/skeleton/SkeletonItem";
 
-const JobBox = memo(function JobStory({ storyId }) {
+const JobBox = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const JobBox = memo(function JobStory({ storyId }) {
       )}
     </Post>
   );
-});
+};
 
 const Post = styled.div`
   display: flex;

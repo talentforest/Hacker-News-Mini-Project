@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { mapTime, maxChar } from "util";
-import { Skeleton } from "components/skeleton/SkeletonItem";
+import { Skeleton } from "components/common/skeleton/SkeletonItem";
 import styled from "styled-components";
 import Username from "components/common/Username";
 
-const TodaysNew = ({ storyId }) => {
+const TodaysNewPost = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -74,4 +74,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default TodaysNew;
+export default TodaysNewPost;

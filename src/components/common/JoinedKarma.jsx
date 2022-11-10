@@ -1,10 +1,10 @@
-import { memo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { mapTime } from "util/mapTime";
 import { getUserData } from "util/hnApi";
 import styled from "styled-components";
-import SkeletonItem from "components/skeleton/SkeletonItem";
+import SkeletonItem from "components/common/skeleton/SkeletonItem";
 
-const JoinedKarma = memo(function Story({ story }) {
+const JoinedKarma = ({ story }) => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const JoinedKarma = memo(function Story({ story }) {
       </Info>
     </Box>
   );
-});
+};
 
 const Box = styled.div`
   display: flex;

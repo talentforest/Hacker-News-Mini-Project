@@ -2,7 +2,7 @@ import { useViewModeChange } from "hooks/index";
 import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
 import ViewModeBtn from "components/common/ViewModeBtn";
-import SwiperPagination from "components/common/SwiperPagination";
+import SwiperPagination from "components/template/SwiperPagination";
 import { Banner } from "./Home";
 
 const Show = () => {

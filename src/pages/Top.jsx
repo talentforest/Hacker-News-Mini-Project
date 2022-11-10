@@ -3,7 +3,7 @@ import { getTopStoryIds } from "util/hnApi";
 import { useEffect, useState } from "react";
 import { Banner } from "./Home";
 import ViewModeBtn from "components/common/ViewModeBtn";
-import SwiperPagination from "components/common/SwiperPagination";
+import SwiperPagination from "components/template/SwiperPagination";
 
 const Top = () => {
   const [viewMode, handleViewMode] = useViewModeChange();

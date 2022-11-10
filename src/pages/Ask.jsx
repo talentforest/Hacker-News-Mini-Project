@@ -2,12 +2,12 @@ import { SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import { useEffect, useState } from "react";
 import { getAskStoryIds } from "util/hnApi";
+import { Banner } from "./Home";
+import { SwiperContainer } from "theme/swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import AskBox from "components/ask/AskBox";
-import { Banner } from "./Home";
-import { SwiperContainer } from "theme/swiper";
+import AskBox from "components/organisms/ask/AskBox";
 import styled from "styled-components";
 
 const Ask = () => {

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { getData } from "util/hnApi";
 import CutTitle from "components/common/CutTitle";
 import styled from "styled-components";
-import SkeletonItem from "components/skeleton/SkeletonItem";
+import SkeletonItem from "components/common/skeleton/SkeletonItem";
 
-const TodaysAsk = ({ storyId }) => {
+const TodaysAskPost = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
@@ -44,4 +44,4 @@ const LinkBox = styled(Link)`
   box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
-export default TodaysAsk;
+export default TodaysAskPost;

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getData } from "util/hnApi";
-import Comment from "components/comments/Comment";
-import CommentHeader from "components/comments/CommentHeader";
+import Comment from "components/organisms/comments/Comment";
+import CommentHeader from "components/molecules/CommentHeader";
 import CutTitle from "components/common/CutTitle";
 import styled from "styled-components";
-import UserPointsTime from "components/common/UserPointsTime";
+import UserPointsTime from "components/molecules/UserPointsTime";
 
 const Details = () => {
   const { id } = useParams();

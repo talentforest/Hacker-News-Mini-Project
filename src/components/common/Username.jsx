@@ -1,5 +1,5 @@
 import { AccountCircle } from "@material-ui/icons";
-import { Skeleton } from "components/skeleton/SkeletonItem";
+import { Skeleton } from "components/common/skeleton/SkeletonItem";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 

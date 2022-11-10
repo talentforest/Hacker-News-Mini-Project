@@ -1,4 +1,4 @@
-import ViewModeItem from "components/common/ViewModeItem";
+import ViewModeItem from "components/molecules/ViewModeItem";
 import styled from "styled-components";
 import { Navigation, Pagination } from "swiper";
 import { SwiperSlide } from "swiper/react";
