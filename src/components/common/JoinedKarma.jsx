@@ -4,21 +4,23 @@ import { getUserData } from "util/hnApi";
 import styled from "styled-components";
 import SkeletonItem from "components/common/skeleton/SkeletonItem";
 
-const JoinedKarma = ({ story }) => {
-  const [userData, setUserData] = useState([]);
+const JoinedKarma = ({ username, karma, created }) => {
+  const [userData, setUserData] = useState();
 
   useEffect(() => {
-    getUserData(story?.by, setUserData);
-    return () => setUserData([]);
-  }, [story]);
+    if (username) {
+      getUserData(username, setUserData);
+      return () => setUserData();
+    }
+  }, [username]);
 
   return (
     <Box>
       <Info>
         <Name>Joined</Name>
         <span>
-          {userData?.created ? (
-            `${mapTime(userData?.created)} ago`
+          {userData?.created || created ? (
+            `${mapTime(userData?.created || created)} ago`
           ) : (
             <SkeletonItem width="80px" />
           )}
@@ -26,7 +28,13 @@ const JoinedKarma = ({ story }) => {
       </Info>
       <Info>
         <Name>karma</Name>
-        <span>{userData?.karma || <SkeletonItem width="40px" />}</span>
+        <span>
+          {userData?.karma || karma ? (
+            userData?.karma || karma
+          ) : (
+            <SkeletonItem width="40px" />
+          )}
+        </span>
       </Info>
     </Box>
   );

@@ -1,11 +1,11 @@
-import CutTitle from "components/common/CutTitle";
+import Title from "components/common/Title";
 import TodaysUserPost from "components/organisms/home/TodaysUserPost";
 import styled from "styled-components";
 
 const TodaysUser = ({ topStoryIds }) => {
   return (
     <section>
-      <CutTitle title="Today's User" />
+      <Title title="Today's User" />
       <SlideBox>
         {topStoryIds.slice(0, 5).map((storyId, index) => (
           <TodaysUserPost key={storyId} storyId={storyId} index={index} />

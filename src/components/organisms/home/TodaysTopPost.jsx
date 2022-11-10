@@ -18,7 +18,7 @@ const TodaysTopPost = ({ storyId, index }) => {
   }, [storyId]);
 
   return (
-    <ListBox>
+    <Box>
       <span>{index + 1}</span>
       {Object.keys(story ?? {}).length ? (
         <div>
@@ -33,11 +33,11 @@ const TodaysTopPost = ({ storyId, index }) => {
           <SkeletonItem width="70%" />
         </div>
       )}
-    </ListBox>
+    </Box>
   );
 };
 
-const ListBox = styled.li`
+export const Box = styled.li`
   position: relative;
   display: flex;
   justify-content: space-between;

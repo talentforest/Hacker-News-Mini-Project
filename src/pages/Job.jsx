@@ -20,45 +20,57 @@ const Job = () => {
     <>
       <Banner src={require("assets/job_banner.png")} alt="banner" />
       <Container>
-        <JobPosts>
-          {storyIds.slice(0, 5).map((storyId) => (
-            <JobBox key={storyId} storyId={storyId} />
-          ))}
-        </JobPosts>
-        <ApplyBanner>
-          <JobBanner src={require("assets/applynow.png")} alt="apply banner" />
-          <Swiper slidesPerView={1}>
-            {[1, 2, 3, 4, 5].map((items, index) => (
-              <SwiperSlide key={items}>
-                {storyIds.slice(index, index + 1).map((storyId) => (
-                  <BigBanner key={storyId} storyId={storyId} />
+        {storyIds.length !== 0 ? (
+          <>
+            <JobPosts>
+              {storyIds.slice(0, 5).map((storyId) => (
+                <JobBox key={storyId} storyId={storyId} />
+              ))}
+            </JobPosts>
+            <ApplyBanner>
+              <JobBanner
+                src={require("assets/applynow.png")}
+                alt="apply banner"
+              />
+              <Swiper slidesPerView={1}>
+                {[1, 2, 3, 4, 5].map((items, index) => (
+                  <SwiperSlide key={items}>
+                    {storyIds.slice(index, index + 1).map((storyId) => (
+                      <BigBanner key={storyId} storyId={storyId} />
+                    ))}
+                  </SwiperSlide>
                 ))}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </ApplyBanner>
-        <JobPosts>
-          {storyIds.slice(5, 10).map((storyId) => (
-            <JobBox key={storyId} storyId={storyId} />
-          ))}
-        </JobPosts>
-        <ApplyBanner>
-          <JobBanner src={require("assets/applyimg.png")} alt="apply banner" />
-          <Swiper $small slidesPerView={1}>
-            {[1, 2, 3, 4, 5].map((items, index) => (
-              <SwiperSlide key={items}>
-                {storyIds.slice(index + 5, index + 6).map((storyId) => (
-                  <SmallBanner key={storyId} storyId={storyId} />
+              </Swiper>
+            </ApplyBanner>
+            <JobPosts>
+              {storyIds.slice(5, 10).map((storyId) => (
+                <JobBox key={storyId} storyId={storyId} />
+              ))}
+            </JobPosts>
+            <ApplyBanner>
+              <JobBanner
+                src={require("assets/applyimg.png")}
+                alt="apply banner"
+              />
+              <Swiper $small slidesPerView={1}>
+                {[1, 2, 3, 4, 5].map((items, index) => (
+                  <SwiperSlide key={items}>
+                    {storyIds.slice(index + 5, index + 6).map((storyId) => (
+                      <SmallBanner key={storyId} storyId={storyId} />
+                    ))}
+                  </SwiperSlide>
                 ))}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </ApplyBanner>
-        <JobPosts>
-          {storyIds.slice(10, 15).map((storyId) => (
-            <JobBox key={storyId} storyId={storyId} />
-          ))}
-        </JobPosts>
+              </Swiper>
+            </ApplyBanner>
+            <JobPosts>
+              {storyIds.slice(10, 15).map((storyId) => (
+                <JobBox key={storyId} storyId={storyId} />
+              ))}
+            </JobPosts>
+          </>
+        ) : (
+          [1, 2, 3, 4, 5, 6, 7, 8].map((item) => <JobBox key={item} />)
+        )}
       </Container>
     </>
   );

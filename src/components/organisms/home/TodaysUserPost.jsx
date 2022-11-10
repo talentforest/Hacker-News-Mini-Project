@@ -24,7 +24,7 @@ const TodaysUserPost = ({ index, storyId }) => {
       </Rank>
       <Username>{story?.by}</Username>
       <Info>
-        <JoinedKarma story={story} />
+        <JoinedKarma username={story?.by} />
         <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
       </Info>
     </UserWrapper>

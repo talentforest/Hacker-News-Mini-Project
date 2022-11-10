@@ -52,7 +52,7 @@ const Gnb = () => {
 const GnbNav = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 20px;
   margin-bottom: -1px;
   background-color: ${(props) => props.theme.background.default};
@@ -68,7 +68,7 @@ const GnbNav = styled.nav`
       justify-content: center;
       align-items: center;
       position: relative;
-      width: 50px;
+      width: 100%;
       height: 100%;
       color: ${(props) => props.theme.text.default};
       &:hover {
