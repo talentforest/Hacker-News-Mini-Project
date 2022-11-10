@@ -8,6 +8,7 @@ import CutTitle from "components/common/CutTitle";
 import styled from "styled-components";
 import CommentHeader from "components/comments/CommentHeader";
 import Comment from "components/comments/Comment";
+import SkeletonItem from "components/skeleton/SkeletonItem";
 
 const Submissions = ({ buttonMode, submittedId }) => {
   const [story, setStory] = useState();
@@ -28,10 +29,10 @@ const Submissions = ({ buttonMode, submittedId }) => {
     if (story?.title?.includes("Tell HN")) return `/show/${story?.id}`;
   };
 
-  return (
+  return story ? (
     <>
-      {buttonMode === "submissions" && story?.type === "story" && (
-        <Box>
+      {buttonMode === "submissions" && story?.type === "story" && !story?.dead && (
+        <SubmissionBox>
           <a href={story?.url} target="_blank" rel="noreferrer">
             <CutTitle title={story.title} />
             <span>{changeUrlMark(story?.url)}</span>
@@ -42,23 +43,33 @@ const Submissions = ({ buttonMode, submittedId }) => {
               <CommentNum number={story?.descendants} />
             </Link>
           </Footer>
-        </Box>
+        </SubmissionBox>
       )}
-      {buttonMode === "comments" && story?.type === "comment" && (
-        <Comment userprofileComments={story} />
-      )}
-      {buttonMode === "favorites" && story?.parts && (
-        <CommentHeader story={story} />
-      )}
+      {buttonMode === "comments" &&
+        story?.type === "comment" &&
+        !story?.delete && <Comment userprofileComments={story} />}
+      {buttonMode === "favorites" &&
+        (story?.parts ? <CommentHeader story={story} /> : <>no</>)}
     </>
+  ) : (
+    <SubmissionBox>
+      <SkeletonItem height="20px" />
+      <SkeletonItem height="20px" />
+      <SkeletonItem height="10px" width="20%" />
+      <Footer>
+        <UserPointsTime />
+        <SkeletonItem width="20%" />
+      </Footer>
+    </SubmissionBox>
   );
 };
 
-const Box = styled.div`
+export const SubmissionBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
+  width: 100%;
   height: 148px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.container.default};
@@ -84,13 +95,20 @@ const Box = styled.div`
       cursor: pointer;
     }
   }
+  > ul {
+    padding: 0;
+  }
 `;
-const Footer = styled.div`
+
+export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
   color: ${(props) => props.theme.text.lightGray};
+  a {
+    width: 40px;
+  }
 `;
 
 export default Submissions;

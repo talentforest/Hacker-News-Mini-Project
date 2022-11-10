@@ -37,7 +37,7 @@ const TodaysUser = ({ index, storyId }) => {
       </Rank>
       <SkeletonItem width="70%" height="26px" />
       <Info>
-        <SkeletonItem width="50%" height="30px" />
+        <JoinedKarma />
         <Btn src={require("assets/arrow_blue.png")} alt="arrow button" />
       </Info>
     </UserWrapper>

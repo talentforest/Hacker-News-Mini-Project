@@ -21,8 +21,8 @@ const TodaysAsk = ({ storyId }) => {
         <CutTitle title={story?.title} />
       ) : (
         <>
-          <SkeletonItem />
-          <SkeletonItem />
+          <SkeletonItem height="18px" />
+          <SkeletonItem width="30%" height="18px" />
         </>
       )}
     </LinkBox>

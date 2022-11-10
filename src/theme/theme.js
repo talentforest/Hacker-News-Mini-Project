@@ -23,6 +23,7 @@ export const darkTheme = {
     gray: "#555",
   },
   shadow: "2px 3px 5px rgba(0, 0, 0, 0.3)",
+  skeleton: "#555",
 };
 
 export const lightTheme = {
@@ -50,4 +51,5 @@ export const lightTheme = {
     gray: "#333",
   },
   boxShadow: "2px 3px 5px rgba(0, 0, 0, 0.3)",
+  skeleton: "#e2e2e2",
 };

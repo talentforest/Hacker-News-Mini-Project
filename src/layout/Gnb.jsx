@@ -54,6 +54,7 @@ const GnbNav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  margin-bottom: -1px;
   background-color: ${(props) => props.theme.background.default};
   ul {
     display: flex;

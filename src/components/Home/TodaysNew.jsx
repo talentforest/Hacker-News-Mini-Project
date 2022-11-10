@@ -21,7 +21,7 @@ const TodaysNew = ({ storyId }) => {
         <>
           <span>{mapTime(story?.time)} ago</span>
           <a href={story?.url} target="_blank" rel="noreferrer">
-            {maxChar(story?.title, 68)}
+            <h4>{maxChar(story?.title, 68)}</h4>
           </a>
           <Username by={story?.by} />
         </>
@@ -59,10 +59,12 @@ const Wrapper = styled.div`
   }
   > a {
     height: 50%;
-    color: ${(props) => props.theme.text.default};
     padding: 10px 0 8px;
     font-weight: 600;
     line-height: 20px;
+    h4 {
+      color: ${(props) => props.theme.text.default};
+    }
   }
   > div {
     padding: 8px 0 0;

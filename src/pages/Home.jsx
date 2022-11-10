@@ -21,8 +21,6 @@ import TodaysTop from "components/home/TodaysTop";
 import styled from "styled-components";
 import TodaysUser from "components/home/TodaysUser";
 
-// 클릭시 회전 애니메이션 구현
-
 const Home = () => {
   const [topStoryIds, setTopStoryIds] = useState([]);
   const [newStoryIds, setNewStoryIds] = useState([]);
@@ -171,6 +169,7 @@ const Home = () => {
 
 export const Banner = styled.img`
   width: 100%;
+  height: 230px;
 `;
 
 const Container = styled.div`

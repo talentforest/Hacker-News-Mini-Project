@@ -7,7 +7,7 @@ const SkeletonItem = ({ width, height }) => {
 export const Skeleton = styled.div`
   width: ${(props) => props.$width || "100%"};
   min-height: ${(props) => props.$height || "15px"};
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.skeleton};
   position: relative;
   overflow: hidden;
   border-radius: 4px;

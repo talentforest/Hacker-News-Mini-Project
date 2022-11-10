@@ -11,6 +11,7 @@ import Ask from "./pages/Ask";
 import Details from "./pages/Details";
 import Job from "./pages/Job";
 import styled from "styled-components";
+import UserRank from "pages/UserRank";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="ask" element={<Ask />} />
         <Route path="ask/:id" element={<Details />} />
         <Route path="job" element={<Job />} />
+        <Route path="user" element={<UserRank />} />
         <Route path="userprofile/:id" element={<UserProfile />} />
         <Route path="about" element={<About />} />
       </Routes>

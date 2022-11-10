@@ -13,7 +13,10 @@ const UserPointsTime = ({ story, noIcon }) => {
           <span>{mapTime(story.time)}</span>
         </>
       ) : (
-        <SkeletonItem width="70%" />
+        <>
+          <Username />
+          <SkeletonItem width="50px" />
+        </>
       )}
     </Box>
   );

@@ -26,7 +26,7 @@ const Job = () => {
           ))}
         </JobPosts>
         <ApplyBanner>
-          <Banner src={require("assets/applynow.png")} alt="apply banner" />
+          <JobBanner src={require("assets/applynow.png")} alt="apply banner" />
           <Swiper slidesPerView={1}>
             {[1, 2, 3, 4, 5].map((items, index) => (
               <SwiperSlide key={items}>
@@ -43,7 +43,7 @@ const Job = () => {
           ))}
         </JobPosts>
         <ApplyBanner>
-          <Banner src={require("assets/applyimg.png")} alt="apply banner" />
+          <JobBanner src={require("assets/applyimg.png")} alt="apply banner" />
           <Swiper $small slidesPerView={1}>
             {[1, 2, 3, 4, 5].map((items, index) => (
               <SwiperSlide key={items}>
@@ -64,10 +64,6 @@ const Job = () => {
   );
 };
 
-const JobPosts = styled.div`
-  min-height: 70vh;
-`;
-
 const Container = styled.section`
   padding: 12px 0 20px;
   min-height: 90vh;
@@ -86,6 +82,15 @@ const Swiper = styled(SwiperContainer)`
   top: ${(props) => (props.$small ? "54px" : "110px")};
   width: 100%;
   margin: 0 auto;
+`;
+
+const JobBanner = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+const JobPosts = styled.div`
+  min-height: 70vh;
 `;
 
 export default Job;

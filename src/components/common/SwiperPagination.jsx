@@ -20,20 +20,32 @@ const SwiperPagination = ({ storyIds, viewMode }) => {
           ))}
         </PostsBox>
       </SwiperSlide>
-      <SwiperSlide>
-        <PostsBox>
-          {storyIds.slice(20, 40).map((storyId) => (
-            <ViewModeItem key={storyId} storyId={storyId} viewMode={viewMode} />
-          ))}
-        </PostsBox>
-      </SwiperSlide>
-      <SwiperSlide>
-        <PostsBox>
-          {storyIds.slice(40, 60).map((storyId) => (
-            <ViewModeItem key={storyId} storyId={storyId} viewMode={viewMode} />
-          ))}
-        </PostsBox>
-      </SwiperSlide>
+      {storyIds.length > 21 && (
+        <SwiperSlide>
+          <PostsBox>
+            {storyIds.slice(20, 40).map((storyId) => (
+              <ViewModeItem
+                key={storyId}
+                storyId={storyId}
+                viewMode={viewMode}
+              />
+            ))}
+          </PostsBox>
+        </SwiperSlide>
+      )}
+      {storyIds.length > 41 && (
+        <SwiperSlide>
+          <PostsBox>
+            {storyIds.slice(40, 60).map((storyId) => (
+              <ViewModeItem
+                key={storyId}
+                storyId={storyId}
+                viewMode={viewMode}
+              />
+            ))}
+          </PostsBox>
+        </SwiperSlide>
+      )}
     </SwiperContainer>
   );
 };

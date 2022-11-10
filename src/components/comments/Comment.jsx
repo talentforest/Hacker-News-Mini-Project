@@ -1,11 +1,11 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { useToggle } from "hooks/index";
 import { getData } from "util/hnApi";
 import UserClockFolder from "./UserClockFolder";
 import Reply from "./Reply";
 import styled from "styled-components";
 
-const Comment = memo(function Story({ commentId, userprofileComments }) {
+const Comment = ({ commentId, userprofileComments }) => {
   const [toggle, onFolder] = useToggle();
   const [comments, setComments] = useState();
 
@@ -30,7 +30,6 @@ const Comment = memo(function Story({ commentId, userprofileComments }) {
                 __html: comments?.text || userprofileComments?.text,
               }}
             />
-
             {!userprofileComments &&
               comments?.kids?.map((replyId) => (
                 <Reply key={replyId} replyId={replyId} />
@@ -40,14 +39,16 @@ const Comment = memo(function Story({ commentId, userprofileComments }) {
       </Box>
     )
   );
-});
+};
 
 const Box = styled.ul`
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   width: 100%;
-  padding: 0 20px 10px;
+  padding: 0 20px;
+  margin-bottom: 10px;
   background-color: ${(props) => props.theme.background.default};
   > p {
     width: 100%;
