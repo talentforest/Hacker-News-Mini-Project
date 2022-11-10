@@ -4,7 +4,6 @@ import { memo } from "react";
 import styled from "styled-components";
 
 const UserInfoBox = ({ userData }) => {
-  console.log(userData);
   return (
     <UserInfo>
       {userData.id ? <h5>{userData.id}</h5> : <Skeleton as="h5" />}
