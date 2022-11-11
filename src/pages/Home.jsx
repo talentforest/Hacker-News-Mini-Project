@@ -13,6 +13,7 @@ import TodaysShow from "components/template/TodaysShow";
 import TodaysTop from "components/template/TodaysTop";
 import TodaysUser from "components/template/TodaysUser";
 import TodaysJob from "components/template/TodaysJob";
+import BannerBox from "components/atom/Banner";
 
 const Home = () => {
   const [topStoryIds, setTopStoryIds] = useState([]);
@@ -43,7 +44,7 @@ const Home = () => {
     showStoryIds &&
     jobStoryIds && (
       <>
-        <Banner src={require("assets/home_banner.png")} alt="home banner" />
+        <BannerBox imgPath={require("assets/home_banner.png")} page="home" />
         <Container>
           <TodaysTop topStoryIds={topStoryIds} />
           <TodaysNew newStoryIds={newStoryIds} />

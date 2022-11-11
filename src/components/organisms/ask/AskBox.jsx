@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { maxChar } from "util";
 import styled from "styled-components";
 import Username from "components/atom/Username";
-import CutTitle from "components/atom/CutTitle";
+import PostTitle from "components/atom/PostTitle";
 import CommentNum from "components/atom/CommentNum";
 import { Skeleton } from "components/atom/skeleton/SkeletonItem";
 
@@ -22,7 +22,7 @@ const AskBox = ({ storyId }) => {
       {Object.keys(story ?? {}).length ? (
         <>
           <PostBody to={`${story.id}`}>
-            <CutTitle title={story.title} />
+            <PostTitle title={story.title} />
             <p dangerouslySetInnerHTML={{ __html: maxChar(story.text, 150) }} />
             <span>{mapTime(story.time)}</span>
           </PostBody>

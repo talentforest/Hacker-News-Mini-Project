@@ -4,7 +4,7 @@ import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
 import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import Username from "components/atom/Username";
-import Title from "components/atom/CutTitle";
+import Title from "components/atom/PostTitle";
 import styled from "styled-components";
 import CommentNum from "components/atom/CommentNum";
 import { AccessTime } from "@material-ui/icons";

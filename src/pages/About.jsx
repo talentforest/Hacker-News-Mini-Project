@@ -19,7 +19,8 @@ const About = () => {
       </Box>
       <Box>
         <Link to={`/top`}>
-          Top <ArrowForwardIos />
+          <span>Top</span>
+          <ArrowForwardIos />
         </Link>
         <p>
           Top is a service that ranks all articles on Hacker News through Hacker
@@ -28,7 +29,8 @@ const About = () => {
       </Box>
       <Box>
         <Link to={`/new`}>
-          New <ArrowForwardIos />
+          <span>New</span>
+          <ArrowForwardIos />
         </Link>
         <p>
           New is a service that allows you to see all the new articles in
@@ -37,7 +39,8 @@ const About = () => {
       </Box>
       <Box>
         <Link to={`/show`}>
-          Show <ArrowForwardIos />
+          <span>Show</span>
+          <ArrowForwardIos />
         </Link>
         <p>
           Show HN is for something you've made that other people can play with.
@@ -45,13 +48,15 @@ const About = () => {
       </Box>
       <Box>
         <Link to={`/ask`}>
-          Ask <ArrowForwardIos />
+          <span>Ask</span>
+          <ArrowForwardIos />
         </Link>
         <p>Ask HN can ask and receive any questions.</p>
       </Box>
       <Box>
         <Link to={`/job`}>
-          Job <ArrowForwardIos />
+          <span>Job</span>
+          <ArrowForwardIos />
         </Link>
         <p>
           In jobs, you can check real-time job openings posted by companies.
@@ -99,15 +104,21 @@ const Box = styled.div`
   margin-bottom: 28px;
   border-radius: 6px;
   box-shadow: ${(props) => props.theme.boxShadow};
-  a,
+  > span {
+    display: block;
+    margin-bottom: 23px;
+  }
   span {
-    display: flex;
-    align-items: center;
     font-weight: bold;
     font-size: 22px;
     line-height: 24px;
     color: ${(props) => props.theme.text.default};
+  }
+  a {
+    display: flex;
+    align-items: center;
     margin-bottom: 23px;
+    color: ${(props) => props.theme.text.default};
     svg {
       width: 16px;
       height: 16px;

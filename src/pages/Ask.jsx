@@ -2,13 +2,13 @@ import { SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import { useEffect, useState } from "react";
 import { getAskStoryIds } from "util/hnApi";
-import { Banner } from "./Home";
 import { SwiperContainer } from "theme/swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import AskBox from "components/organisms/ask/AskBox";
 import styled from "styled-components";
+import BannerBox from "components/atom/Banner";
 
 const Ask = () => {
   const [storyIds, setStoryIds] = useState([]);
@@ -20,7 +20,7 @@ const Ask = () => {
 
   return (
     <>
-      <Banner src={require("assets/ask_banner.png")} alt="banner" />
+      <BannerBox imgPath={require("assets/ask_banner.png")} page="Ask banner" />
       <SwiperContainer
         modules={[Navigation, Pagination]}
         slidesPerView={1}

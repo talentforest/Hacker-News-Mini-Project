@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { getData } from "util/hnApi";
 import Comment from "components/organisms/comments/Comment";
 import CommentHeader from "components/molecules/CommentHeader";
-import CutTitle from "components/atom/CutTitle";
 import styled from "styled-components";
 import UserPointsTime from "components/molecules/UserPointsTime";
+import PostTitle from "components/atom/PostTitle";
 
 const Details = () => {
   const { id } = useParams();
@@ -20,7 +20,7 @@ const Details = () => {
     <Wrapper>
       <UserPointsTime story={story} />
       <Text>
-        <CutTitle title={story.title} />
+        <PostTitle title={story.title} notCutted />
         <p dangerouslySetInnerHTML={{ __html: story?.text }} />
       </Text>
       <CommentHeader story={story} />

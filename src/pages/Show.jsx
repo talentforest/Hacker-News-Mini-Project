@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getShowStoryIds } from "util/hnApi";
 import ViewModeBtn from "components/atom/ViewModeBtn";
 import SwiperPagination from "components/template/SwiperPagination";
-import { Banner } from "./Home";
+import BannerBox from "components/atom/Banner";
 
 const Show = () => {
   const [viewMode, handleViewMode] = useViewModeChange();
@@ -16,7 +16,10 @@ const Show = () => {
 
   return (
     <>
-      <Banner src={require("assets/show_banner.png")} alt="banner" />
+      <BannerBox
+        imgPath={require("assets/show_banner.png")}
+        page="Show banner"
+      />
       <ViewModeBtn viewMode={viewMode} handleViewMode={handleViewMode} />
       <SwiperPagination storyIds={storyIds} viewMode={viewMode} />
     </>

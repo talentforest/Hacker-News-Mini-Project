@@ -4,7 +4,7 @@ import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import styled from "styled-components";
 import UserPointsTime from "components/molecules/UserPointsTime";
-import CutTitle from "components/atom/CutTitle";
+import PostTitle from "components/atom/PostTitle";
 import CommentNum from "components/atom/CommentNum";
 import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import Username from "../atom/Username";
@@ -25,11 +25,11 @@ const ViewModeItem = ({ storyId, viewMode }) => {
           <Tag orange>{changeUrlMark(story.url)}</Tag>
           {story.text ? (
             <Link to={`${story.id}`}>
-              <CutTitle title={story.title} />
+              <PostTitle title={story.title} />
             </Link>
           ) : (
             <a href={story.url} target="_blank" rel="noreferrer">
-              <CutTitle title={story.title} />
+              <PostTitle title={story.title} />
             </a>
           )}
           <Footer>

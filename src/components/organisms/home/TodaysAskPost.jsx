@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getData } from "util/hnApi";
-import CutTitle from "components/atom/CutTitle";
+import PostTitle from "components/atom/PostTitle";
 import styled from "styled-components";
 import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 
@@ -18,7 +18,7 @@ const TodaysAskPost = ({ storyId }) => {
   return (
     <LinkBox to={`/ask/${storyId}`}>
       {Object.keys(story ?? {}).length ? (
-        <CutTitle title={story?.title} />
+        <PostTitle title={story?.title} />
       ) : (
         <>
           <SkeletonItem height="18px" />

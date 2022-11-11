@@ -12,32 +12,26 @@ const JobBox = ({ storyId }) => {
     return () => setStory();
   }, [storyId]);
 
-  return (
-    <Post>
-      {Object.keys(story ?? {}).length ? (
-        <>
-          <h4>{maxChar(story?.title, 80)}</h4>
-          <Info>
-            <a href={story?.url} target="_blank" rel="noopener noreferrer">
-              <Site>{changeUrlMark(story?.url)}</Site>
-            </a>
-            <span>{mapTime(story?.time)}</span>
-          </Info>
-        </>
-      ) : (
-        <>
-          <Skeleton as="h4" />
-          <Info>
-            <SkeletonItem width="40%" />
-            <SkeletonItem width="30%" />
-          </Info>
-        </>
-      )}
+  return Object.keys(story ?? {}).length ? (
+    <Post href={story?.url} target="_blank" rel="noopener noreferrer">
+      <h4>{maxChar(story?.title, 80)}</h4>
+      <Info>
+        <Site>{changeUrlMark(story?.url)}</Site>
+        <span>{mapTime(story?.time)}</span>
+      </Info>
+    </Post>
+  ) : (
+    <Post as="div">
+      <Skeleton as="h4" />
+      <Info>
+        <SkeletonItem width="40%" />
+        <SkeletonItem width="25%" />
+      </Info>
     </Post>
   );
 };
 
-const Post = styled.div`
+const Post = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,8 +58,7 @@ const Info = styled.div`
   align-items: flex-end;
   font-size: 12px;
   color: ${(props) => props.theme.text.lightGray};
-  a {
-    width: 40%;
+  span {
     color: ${(props) => props.theme.container.button};
   }
 `;

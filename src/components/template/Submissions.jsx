@@ -4,7 +4,7 @@ import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
 import UserPointsTime from "components/molecules/UserPointsTime";
 import CommentNum from "components/atom/CommentNum";
-import CutTitle from "components/atom/CutTitle";
+import PostTitle from "components/atom/PostTitle";
 import styled from "styled-components";
 import Comment from "components/organisms/comments/Comment";
 import SkeletonItem from "components/atom/skeleton/SkeletonItem";
@@ -35,7 +35,7 @@ const Submissions = ({ buttonMode, submittedId }) => {
       {buttonMode === "submissions" && story?.type === "story" && !deletedItem && (
         <SubmissionBox>
           <a href={story?.url} target="_blank" rel="noreferrer">
-            <CutTitle title={story.title} />
+            <PostTitle title={story.title} />
             <span>{changeUrlMark(story?.url)}</span>
           </a>
           <Footer>
