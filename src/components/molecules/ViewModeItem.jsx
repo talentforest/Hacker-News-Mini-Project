@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
+import { Tag } from "components/organisms/home/TodaysShowPost";
 import styled from "styled-components";
 import UserPointsTime from "components/molecules/UserPointsTime";
 import PostTitle from "components/atom/PostTitle";
 import CommentNum from "components/atom/CommentNum";
 import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import Username from "../atom/Username";
-import { Tag } from "components/organisms/home/TodaysShowPost";
 
 const ViewModeItem = ({ storyId, viewMode }) => {
   const [story, setStory] = useState({});
@@ -22,7 +22,17 @@ const ViewModeItem = ({ storyId, viewMode }) => {
     <Post $viewMode={viewMode}>
       {Object.keys(story ?? {}).length ? (
         <>
-          <Tag orange>{changeUrlMark(story.url)}</Tag>
+          {story?.url && (
+            <TagUrl
+              as="a"
+              href={story?.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              orange
+            >
+              <span>{changeUrlMark(story.url)}</span>
+            </TagUrl>
+          )}
           {story.text ? (
             <Link to={`${story.id}`}>
               <PostTitle title={story.title} />
@@ -53,6 +63,13 @@ const ViewModeItem = ({ storyId, viewMode }) => {
     </Post>
   );
 };
+
+const TagUrl = styled(Tag)`
+  span {
+    color: #fff;
+  }
+`;
+
 const Post = styled.div`
   display: flex;
   flex-direction: column;
