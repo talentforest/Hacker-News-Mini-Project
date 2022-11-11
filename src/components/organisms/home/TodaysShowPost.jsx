@@ -113,16 +113,10 @@ const Info = styled.div`
     margin-right: 7px;
     padding-top: 3px;
   }
-  img:first-child {
-    width: 16px;
-    height: 16px;
-    margin-bottom: 2px;
-  }
   img {
-    width: 14px;
-    height: 15px;
-    margin-right: 2px;
-    margin-top: 2px;
+    width: 18px;
+    height: 18px;
+    margin: 0 4px 2px 0;
   }
 `;
 

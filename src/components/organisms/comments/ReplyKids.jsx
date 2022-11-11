@@ -30,11 +30,10 @@ const Box = styled.div`
   margin: 7px 0px;
   margin-left: auto;
   padding-bottom: 12px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
   color: ${(props) => props.theme.text.default};
 `;
 const Text = styled.p`
-  background-color: ${(props) => props.theme.container.default};
   display: block;
   line-height: 20px;
   word-wrap: break-word;

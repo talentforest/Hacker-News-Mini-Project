@@ -32,12 +32,12 @@ const SortBtn = styled.div`
   height: 40px;
   border-radius: 2222px;
   margin: 32px 0 20px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
 `;
 
 const Button = styled.button`
   background-color: ${(props) =>
-    props.$selected ? props.theme.text.orange : props.theme.container.default};
+    props.$selected ? props.theme.text.orange : props.theme.background.default};
   color: ${(props) => (props.$selected ? "#fff" : props.theme.text.default)};
   margin: 0 3px;
   width: 33.3%;

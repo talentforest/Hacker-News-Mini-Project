@@ -15,6 +15,9 @@ const Box = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+  span {
+    color: ${(props) => props.theme.text.default};
+  }
 `;
 
 export default TimeBox;

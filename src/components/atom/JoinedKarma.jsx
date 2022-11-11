@@ -27,7 +27,7 @@ const JoinedKarma = ({ username, karma, created }) => {
         </span>
       </Info>
       <Info>
-        <Name>karma</Name>
+        <Name>Karma</Name>
         <span>
           {userData?.karma || karma ? (
             userData?.karma || karma

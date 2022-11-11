@@ -15,7 +15,7 @@ const UserInfoBox = ({ userData }) => {
 
 const UserInfo = styled.div`
   padding: 24px 16px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
   box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 8px;
   color: ${(props) => props.theme.text.default};

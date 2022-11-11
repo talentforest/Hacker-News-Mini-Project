@@ -18,7 +18,7 @@ const About = () => {
         </p>
       </Box>
       <Box>
-        <Link to={`/top}`}>
+        <Link to={`/top`}>
           Top <ArrowForwardIos />
         </Link>
         <p>
@@ -27,7 +27,7 @@ const About = () => {
         </p>
       </Box>
       <Box>
-        <Link to={`/new}`}>
+        <Link to={`/new`}>
           New <ArrowForwardIos />
         </Link>
         <p>
@@ -36,7 +36,7 @@ const About = () => {
         </p>
       </Box>
       <Box>
-        <Link to={`/show}`}>
+        <Link to={`/show`}>
           Show <ArrowForwardIos />
         </Link>
         <p>
@@ -44,13 +44,13 @@ const About = () => {
         </p>
       </Box>
       <Box>
-        <Link to={`/ask}`}>
+        <Link to={`/ask`}>
           Ask <ArrowForwardIos />
         </Link>
         <p>Ask HN can ask and receive any questions.</p>
       </Box>
       <Box>
-        <Link to={`/job}`}>
+        <Link to={`/job`}>
           Job <ArrowForwardIos />
         </Link>
         <p>
@@ -106,7 +106,7 @@ const Box = styled.div`
     font-weight: bold;
     font-size: 22px;
     line-height: 24px;
-    color: ${(props) => props.theme.text.gray};
+    color: ${(props) => props.theme.text.default};
     margin-bottom: 23px;
     svg {
       width: 16px;

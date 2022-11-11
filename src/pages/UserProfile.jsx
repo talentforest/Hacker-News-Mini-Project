@@ -11,6 +11,7 @@ import styled from "styled-components";
 import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 import UserPointsTime from "components/molecules/UserPointsTime";
 import UserInfoBox from "components/organisms/userprofile/UserInfoBox";
+import EmptyBox from "components/organisms/userprofile/EmptyBox";
 
 const UserProfile = () => {
   const { pathname } = useLocation();
@@ -51,6 +52,7 @@ const UserProfile = () => {
               </Footer>
             </SubmissionBox>
           ))}
+      {buttonMode === "favorites" && <EmptyBox title="No Favorites..." />}
     </Wrapper>
   );
 };

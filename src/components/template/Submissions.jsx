@@ -6,7 +6,6 @@ import UserPointsTime from "components/molecules/UserPointsTime";
 import CommentNum from "components/atom/CommentNum";
 import CutTitle from "components/atom/CutTitle";
 import styled from "styled-components";
-import CommentHeader from "components/molecules/CommentHeader";
 import Comment from "components/organisms/comments/Comment";
 import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 
@@ -29,9 +28,11 @@ const Submissions = ({ buttonMode, submittedId }) => {
     if (story?.title?.includes("Tell HN")) return `/show/${story?.id}`;
   };
 
+  const deletedItem = story?.deleted || story?.dead;
+
   return story ? (
     <>
-      {buttonMode === "submissions" && story?.type === "story" && !story?.dead && (
+      {buttonMode === "submissions" && story?.type === "story" && !deletedItem && (
         <SubmissionBox>
           <a href={story?.url} target="_blank" rel="noreferrer">
             <CutTitle title={story.title} />
@@ -47,15 +48,7 @@ const Submissions = ({ buttonMode, submittedId }) => {
       )}
       {buttonMode === "comments" &&
         story?.type === "comment" &&
-        !story?.delete && <Comment userprofileComments={story} />}
-      {buttonMode === "favorites" &&
-        (story?.parts ? (
-          <CommentHeader story={story} />
-        ) : !(story?.type === "comment") && !(story?.type === "story") ? (
-          <>no</>
-        ) : (
-          <></>
-        ))}
+        !deletedItem && <Comment userprofileComments={story} />}
     </>
   ) : (
     <SubmissionBox>
@@ -78,7 +71,7 @@ export const SubmissionBox = styled.div`
   width: 100%;
   height: 148px;
   border-radius: 8px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
   box-shadow: ${(props) => props.theme.boxShadow};
   color: ${(props) => props.theme.text.default};
   margin: 0 auto 16px;

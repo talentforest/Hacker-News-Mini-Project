@@ -37,7 +37,7 @@ const ReplyBox = styled.div`
   margin: 7px 0;
   width: 95%;
   padding-bottom: 12px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
   color: ${(props) => props.theme.text.default};
 `;
 

@@ -10,7 +10,8 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: ${(props) => props.theme.container.default};
+  background-color: ${(props) => props.theme.background.default};
+  color: ${(props) => props.theme.text.lightGray};
   box-shadow: ${(props) => props.theme.boxShadow};
 `;
 

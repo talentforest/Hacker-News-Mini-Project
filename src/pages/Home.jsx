@@ -64,6 +64,7 @@ export const Banner = styled.img`
 const Container = styled.div`
   background-color: ${(props) => props.theme.background.gray};
   margin-top: -3px;
+  padding-bottom: 3px;
   > section {
     background-color: ${(props) => props.theme.background.default};
     margin-bottom: 10px;
