@@ -4,12 +4,10 @@ import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import styled from "styled-components";
 import UserPointsTime from "components/molecules/UserPointsTime";
-import CutTitle from "components/common/CutTitle";
-import CommentNum from "components/common/CommentNum";
-import SkeletonItem, {
-  Skeleton,
-} from "components/common/skeleton/SkeletonItem";
-import Username from "../common/Username";
+import CutTitle from "components/atom/CutTitle";
+import CommentNum from "components/atom/CommentNum";
+import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
+import Username from "../atom/Username";
 import { Tag } from "components/organisms/home/TodaysShowPost";
 
 const ViewModeItem = ({ storyId, viewMode }) => {

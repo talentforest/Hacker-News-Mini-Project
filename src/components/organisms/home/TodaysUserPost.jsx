@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { Link } from "react-router-dom";
-import JoinedKarma from "components/common/JoinedKarma";
+import JoinedKarma from "components/atom/JoinedKarma";
 import styled from "styled-components";
-import SkeletonItem from "components/common/skeleton/SkeletonItem";
+import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 
 const TodaysUserPost = ({ index, storyId }) => {
   const [story, setStory] = useState({});

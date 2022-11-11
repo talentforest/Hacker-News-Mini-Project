@@ -1,4 +1,4 @@
-import Title from "components/common/Title";
+import Title from "components/atom/Title";
 import TodaysJobPost from "components/organisms/home/TodaysJobPost";
 import styled from "styled-components";
 

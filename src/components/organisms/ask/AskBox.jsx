@@ -4,10 +4,10 @@ import { mapTime } from "util/mapTime";
 import { Link } from "react-router-dom";
 import { maxChar } from "util";
 import styled from "styled-components";
-import Username from "components/common/Username";
-import CutTitle from "components/common/CutTitle";
-import CommentNum from "components/common/CommentNum";
-import { Skeleton } from "components/common/skeleton/SkeletonItem";
+import Username from "components/atom/Username";
+import CutTitle from "components/atom/CutTitle";
+import CommentNum from "components/atom/CommentNum";
+import { Skeleton } from "components/atom/skeleton/SkeletonItem";
 
 const AskBox = ({ storyId }) => {
   const [story, setStory] = useState({});

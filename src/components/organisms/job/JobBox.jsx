@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { mapTime, maxChar, changeUrlMark } from "util";
 import styled from "styled-components";
-import SkeletonItem, {
-  Skeleton,
-} from "components/common/skeleton/SkeletonItem";
+import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
 
 const JobBox = ({ storyId }) => {
   const [story, setStory] = useState({});

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CommentNum from "../common/CommentNum";
+import CommentNum from "../atom/CommentNum";
 
 const CommentHeader = ({ story }) => {
   return (

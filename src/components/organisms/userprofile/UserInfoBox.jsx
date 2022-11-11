@@ -1,5 +1,5 @@
-import JoinedKarma from "components/common/JoinedKarma";
-import { Skeleton } from "components/common/skeleton/SkeletonItem";
+import JoinedKarma from "components/atom/JoinedKarma";
+import { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import { memo } from "react";
 import styled from "styled-components";
 

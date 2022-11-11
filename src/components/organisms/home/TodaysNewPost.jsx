@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { mapTime, maxChar } from "util";
-import { Skeleton } from "components/common/skeleton/SkeletonItem";
+import { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import styled from "styled-components";
-import Username from "components/common/Username";
+import Username from "components/atom/Username";
 
 const TodaysNewPost = ({ storyId }) => {
   const [story, setStory] = useState({});

@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { changeUrlMark, maxChar } from "util";
-import SkeletonItem, {
-  Skeleton,
-} from "components/common/skeleton/SkeletonItem";
+import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import styled from "styled-components";
 import { Tag } from "./TodaysShowPost";
 import { AccessTime } from "@material-ui/icons";

@@ -1,6 +1,6 @@
 import { mapTime } from "util/mapTime";
-import Username from "components/common/Username";
-import SkeletonItem from "components/common/skeleton/SkeletonItem";
+import Username from "components/atom/Username";
+import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 import styled from "styled-components";
 
 const UserPointsTime = ({ story, noIcon }) => {

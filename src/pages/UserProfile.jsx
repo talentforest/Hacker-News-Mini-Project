@@ -8,7 +8,7 @@ import Submissions, {
   SubmissionBox,
 } from "components/template/Submissions";
 import styled from "styled-components";
-import SkeletonItem from "components/common/skeleton/SkeletonItem";
+import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 import UserPointsTime from "components/molecules/UserPointsTime";
 import UserInfoBox from "components/organisms/userprofile/UserInfoBox";
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { mapTime } from "util/mapTime";
 import { getUserData } from "util/hnApi";
 import styled from "styled-components";
-import SkeletonItem from "components/common/skeleton/SkeletonItem";
+import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 
 const JoinedKarma = ({ username, karma, created }) => {
   const [userData, setUserData] = useState();

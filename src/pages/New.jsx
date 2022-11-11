@@ -1,7 +1,7 @@
 import { useViewModeChange } from "hooks/index";
 import { getNewStoryIds } from "util/hnApi";
 import { useEffect, useState } from "react";
-import ViewModeBtn from "components/common/ViewModeBtn";
+import ViewModeBtn from "components/atom/ViewModeBtn";
 import { Banner } from "./Home";
 import SwiperPagination from "components/template/SwiperPagination";
 

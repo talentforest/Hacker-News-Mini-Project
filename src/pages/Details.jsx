@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getData } from "util/hnApi";
 import Comment from "components/organisms/comments/Comment";
 import CommentHeader from "components/molecules/CommentHeader";
-import CutTitle from "components/common/CutTitle";
+import CutTitle from "components/atom/CutTitle";
 import styled from "styled-components";
 import UserPointsTime from "components/molecules/UserPointsTime";
 

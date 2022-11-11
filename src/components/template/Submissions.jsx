@@ -3,12 +3,12 @@ import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
 import UserPointsTime from "components/molecules/UserPointsTime";
-import CommentNum from "components/common/CommentNum";
-import CutTitle from "components/common/CutTitle";
+import CommentNum from "components/atom/CommentNum";
+import CutTitle from "components/atom/CutTitle";
 import styled from "styled-components";
 import CommentHeader from "components/molecules/CommentHeader";
 import Comment from "components/organisms/comments/Comment";
-import SkeletonItem from "components/common/skeleton/SkeletonItem";
+import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 
 const Submissions = ({ buttonMode, submittedId }) => {
   const [story, setStory] = useState();

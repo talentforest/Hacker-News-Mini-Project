@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getData } from "util/hnApi";
-import CutTitle from "components/common/CutTitle";
+import CutTitle from "components/atom/CutTitle";
 import styled from "styled-components";
-import SkeletonItem from "components/common/skeleton/SkeletonItem";
+import SkeletonItem from "components/atom/skeleton/SkeletonItem";
 
 const TodaysAskPost = ({ storyId }) => {
   const [story, setStory] = useState({});

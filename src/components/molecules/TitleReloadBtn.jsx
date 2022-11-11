@@ -1,4 +1,4 @@
-import Title from "../common/Title";
+import Title from "../atom/Title";
 import styled from "styled-components";
 import { useState } from "react";
 import { Replay } from "@material-ui/icons";

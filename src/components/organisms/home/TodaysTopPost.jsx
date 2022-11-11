@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { maxChar } from "util";
 import { getData } from "util/hnApi";
-import SkeletonItem, {
-  Skeleton,
-} from "components/common/skeleton/SkeletonItem";
+import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
 import styled from "styled-components";
 import UserPointsTime from "components/molecules/UserPointsTime";
 

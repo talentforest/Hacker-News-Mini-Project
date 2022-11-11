@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import { getData } from "util/hnApi";
 import { changeUrlMark } from "util";
 import { Link } from "react-router-dom";
-import SkeletonItem, {
-  Skeleton,
-} from "components/common/skeleton/SkeletonItem";
-import Username from "components/common/Username";
-import Title from "components/common/CutTitle";
+import SkeletonItem, { Skeleton } from "components/atom/skeleton/SkeletonItem";
+import Username from "components/atom/Username";
+import Title from "components/atom/CutTitle";
 import styled from "styled-components";
-import CommentNum from "components/common/CommentNum";
+import CommentNum from "components/atom/CommentNum";
 import { AccessTime } from "@material-ui/icons";
 import { mapTime } from "util";
 

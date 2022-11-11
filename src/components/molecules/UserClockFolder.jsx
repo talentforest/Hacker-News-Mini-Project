@@ -1,8 +1,8 @@
-import Username from "components/common/Username";
+import Username from "components/atom/Username";
 import styled from "styled-components";
 import { KeyboardArrowUp } from "@material-ui/icons";
 import { useState } from "react";
-import TimeBox from "components/common/TimeBox";
+import TimeBox from "components/atom/TimeBox";
 
 const UserClockFolder = ({ data, onFolder }) => {
   const [rotate, setRotate] = useState(false);
